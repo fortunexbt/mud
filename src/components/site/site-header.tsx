@@ -127,22 +127,15 @@ export function SiteHeader({
           />
           <div className="absolute inset-x-3 top-[5.6rem] rounded-[2rem] border border-outline/45 bg-background/97 p-4 shadow-card sm:inset-x-6 sm:top-[6rem]">
             <div className="rounded-[1.6rem] border border-outline/35 bg-white/74 p-4">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta/90 sm:text-xs">
-                    {dictionary.nav.languageSwitcher}
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-muted">MUD Escola de Cerâmica</p>
-                </div>
-                <SiteLogo href={`/${locale}`} className="px-2.5 py-2" imageClassName="w-[4.4rem]" />
-              </div>
-
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta/90 sm:text-xs">
+                {dictionary.nav.languageSwitcher}
+              </p>
               <LanguageSwitcher
                 currentLocale={locale}
                 localePaths={localePaths}
                 label={dictionary.nav.languageSwitcher}
                 compact
-                className="mt-4 bg-background/92"
+                className="mt-3 bg-background/92"
               />
             </div>
 

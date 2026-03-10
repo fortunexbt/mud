@@ -36,7 +36,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
 
   const addressLine = `${siteConfig.address.street} · ${siteConfig.address.neighborhood} · ${siteConfig.address.city} · CEP ${siteConfig.address.postalCode}`;
   const heroLocationLine = `${siteConfig.address.street} · ${siteConfig.address.neighborhood} · ${siteConfig.address.city}`;
-  const editorialPoints = dictionary.about.whyPoints.slice(0, 3);
+  const editorialPoints = dictionary.about.whyPoints.slice(0, 2);
   const featuredPost = posts[0];
   const secondaryPost = posts[1];
 
@@ -77,8 +77,6 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                 </Link>
               </div>
 
-              <p className="mt-4 max-w-xl text-sm leading-7 text-muted/90">{dictionary.home.hero.note}</p>
-
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 {dictionary.home.hero.trustPoints.map((point) => (
                   <div key={point} className="rounded-[1.4rem] border border-outline/45 bg-white/74 px-4 py-3 text-sm font-medium text-ink shadow-soft">
@@ -118,6 +116,8 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                   </Link>
                 </div>
               </div>
+
+              <p className="text-sm leading-7 text-muted/88">{dictionary.home.hero.note}</p>
             </div>
           </div>
         </div>
@@ -198,12 +198,12 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
               <SectionHeading eyebrow={dictionary.home.about.eyebrow} title={dictionary.home.about.title} />
 
               <div className="mt-5 space-y-4 text-base leading-8 text-muted">
-                {dictionary.home.about.paragraphs.map((paragraph) => (
+                {dictionary.home.about.paragraphs.slice(0, 1).map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
 
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {editorialPoints.map((point) => (
                   <div key={point} className="rounded-[1.35rem] bg-surface/78 px-4 py-4 text-sm leading-6 text-muted">
                     {point}
@@ -241,7 +241,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
           </div>
 
           {featuredPost ? (
-            <div className="mt-8 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
+            <div className="mt-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.78fr)]">
               <BlogCard post={featuredPost} locale={locale} readLabel={dictionary.blog.readArticle} variant="featured" />
               {secondaryPost ? <BlogCard post={secondaryPost} locale={locale} readLabel={dictionary.blog.readArticle} variant="compact" /> : null}
             </div>
