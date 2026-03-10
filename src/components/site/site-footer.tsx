@@ -49,13 +49,19 @@ export function SiteFooter({
         <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] p-5 shadow-soft sm:p-8 lg:p-10">
           <div className="sm:hidden">
             <div className="space-y-5">
-              <div className="flex items-start gap-4">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.35rem] border border-white/10 bg-white/5 p-3">
-                  <div className="relative h-full w-full">
-                    <Image src={logoPrimary} alt="MUD Escola de Cerâmica" fill className="object-contain brightness-[1.6] contrast-[0.9]" />
+              <div className="space-y-4">
+                <div className="flex h-[4.5rem] w-[9.25rem] items-center overflow-hidden rounded-[1.35rem] border border-white/10 bg-background/95 px-3 shadow-soft">
+                  <div className="relative h-[5.6rem] w-full">
+                    <Image
+                      src={logoPrimary}
+                      alt="MUD Escola de Cerâmica"
+                      fill
+                      className="object-contain [transform:translateY(-5%)_scale(1.74)]"
+                      sizes="148px"
+                    />
                   </div>
                 </div>
-                <p className="pt-1 text-sm leading-6 text-white/78">{dictionary.footer.statement}</p>
+                <p className="max-w-[18rem] text-sm leading-6 text-white/78">{dictionary.footer.statement}</p>
               </div>
 
               <div className="space-y-3 rounded-[1.35rem] border border-white/8 bg-black/10 p-4 text-sm text-white/76">
@@ -106,10 +112,16 @@ export function SiteFooter({
           <div className="hidden gap-10 sm:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)_minmax(0,0.9fr)]">
             <div className="flex min-h-full flex-col justify-between gap-8">
               <div className="space-y-5">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-[1.6rem] border border-white/10 bg-white/5 p-4">
-                    <div className="relative h-full w-full">
-                      <Image src={logoPrimary} alt="MUD Escola de Cerâmica" fill className="object-contain brightness-[1.6] contrast-[0.9]" />
+                <div className="space-y-5">
+                  <div className="flex h-[5.15rem] w-[11.5rem] items-center overflow-hidden rounded-[1.6rem] border border-white/10 bg-background/95 px-4 shadow-soft">
+                    <div className="relative h-[6.6rem] w-full">
+                      <Image
+                        src={logoPrimary}
+                        alt="MUD Escola de Cerâmica"
+                        fill
+                        className="object-contain [transform:translateY(-5%)_scale(1.74)]"
+                        sizes="184px"
+                      />
                     </div>
                   </div>
                   <p className="max-w-sm text-base leading-8 text-white/78">{dictionary.footer.statement}</p>

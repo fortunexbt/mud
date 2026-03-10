@@ -155,3 +155,4 @@ This file guides coding agents working in this repository.
 - Preserve existing naming, file placement, and route patterns.
 - Extend existing helpers before adding parallel abstractions.
 - Keep UI behavior and copy consistent across locales.
+- When an agent finishes requested code changes, it should commit and push them unless the user explicitly says not to or a remote/push is not available.

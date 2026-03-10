@@ -31,12 +31,19 @@ export function SiteHeader({
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href={`/${locale}`}
-          className="inline-flex items-center rounded-[1.45rem] border border-outline/35 bg-white/78 px-3 py-2 shadow-soft"
+          className="inline-flex items-center rounded-[1.45rem] border border-outline/35 bg-white/82 px-3 py-2 shadow-soft"
           aria-label="MUD Escola de Cerâmica"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-[1rem] bg-surface/65 p-2.5 sm:h-12 sm:w-12 sm:rounded-[1.1rem] sm:p-2.5">
-            <div className="relative h-full w-full">
-              <Image src={logoPrimary} alt="MUD Escola de Cerâmica" fill className="object-contain" priority />
+          <div className="flex h-11 w-[7.7rem] items-center overflow-hidden rounded-[1rem] bg-background/95 px-2 sm:h-12 sm:w-[8.6rem] sm:rounded-[1.1rem]">
+            <div className="relative h-[4.8rem] w-full">
+              <Image
+                src={logoPrimary}
+                alt="MUD Escola de Cerâmica"
+                fill
+                className="object-contain [transform:translateY(-5%)_scale(1.72)]"
+                priority
+                sizes="(min-width: 640px) 138px, 123px"
+              />
             </div>
           </div>
         </Link>
