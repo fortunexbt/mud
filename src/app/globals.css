@@ -74,12 +74,12 @@
   }
 
   .loading-visual {
-    animation: loading-visual-fade 2.35s ease-in-out infinite;
+    animation: loading-visual-fade 4.7s ease-in-out infinite;
     will-change: opacity, transform;
   }
 
   .loading-label {
-    animation: loading-label-fade 2.35s ease-in-out infinite;
+    animation: loading-label-fade 4.7s ease-in-out infinite;
     will-change: opacity, transform;
   }
 }
