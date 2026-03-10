@@ -35,19 +35,20 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
   }[locale];
 
   const addressLine = `${siteConfig.address.street} · ${siteConfig.address.neighborhood} · ${siteConfig.address.city} · CEP ${siteConfig.address.postalCode}`;
+  const heroLocationLine = `${siteConfig.address.street} · ${siteConfig.address.neighborhood} · ${siteConfig.address.city}`;
 
   return (
     <main id="main">
       <section className="relative overflow-hidden border-b border-outline/40">
-        <div className="pointer-events-none absolute inset-0 bg-grain opacity-80" />
-        <div className="pointer-events-none absolute left-[-7rem] top-0 h-64 w-64 rounded-full bg-clay/16 blur-3xl" />
-        <div className="pointer-events-none absolute right-[-5rem] top-16 h-72 w-72 rounded-full bg-sage/14 blur-3xl" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24">
+        <div className="pointer-events-none absolute inset-0 bg-grain opacity-70" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-[radial-gradient(circle_at_top,rgba(195,111,65,0.14),transparent_62%)]" />
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.96fr] lg:items-start lg:gap-10">
           <div className="relative z-10 flex flex-col justify-center">
             <p className="inline-flex w-fit items-center rounded-full border border-outline/50 bg-white/76 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta/90 shadow-soft sm:text-xs">
               {dictionary.home.hero.eyebrow}
             </p>
-            <h1 className="mt-5 max-w-3xl font-display text-[2.45rem] leading-[0.95] text-ink sm:text-[4.2rem] lg:text-[5.1rem]">
+            <h1 className="mt-5 max-w-3xl font-display text-[2.55rem] leading-[0.96] text-ink sm:text-[4.15rem] lg:text-[4.8rem]">
               {dictionary.home.hero.title}
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg sm:leading-8">
@@ -64,7 +65,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
             <p className="mt-5 max-w-xl text-sm leading-7 text-muted/90">{dictionary.home.hero.note}</p>
             <div className="mt-6 grid gap-2.5 sm:grid-cols-3 sm:gap-3">
               {dictionary.home.hero.trustPoints.map((point) => (
-                <div key={point} className="rounded-[1.35rem] border border-outline/50 bg-white/74 px-4 py-3 text-sm font-medium text-ink shadow-soft">
+                <div key={point} className="rounded-[1.35rem] border border-outline/50 bg-white/80 px-4 py-3 text-sm font-medium text-ink shadow-soft">
                   {point}
                 </div>
               ))}
@@ -74,37 +75,38 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
           <div className="relative z-10 space-y-4">
             <ArtImage
               mediaKey="heroProcess"
-              className="min-h-[22rem] lg:min-h-[40rem]"
+              className="min-h-[22rem] lg:min-h-[38rem]"
               aspect="aspect-[4/4.9]"
               priority
-              filter="grayscale(0.12) sepia(0.18) saturate(0.82) contrast(1.04)"
+              filter="grayscale(0.08) sepia(0.14) saturate(0.9) contrast(1.03)"
             />
-            <div className="grid gap-4 sm:absolute sm:bottom-6 sm:left-6 sm:right-6 sm:grid-cols-[1.05fr_0.95fr]">
-              <div className="rounded-[1.6rem] border border-outline/50 bg-background/94 p-5 shadow-soft backdrop-blur sm:rounded-[1.8rem]">
+            <div className="grid gap-4 sm:grid-cols-[1.05fr_0.95fr]">
+              <div className="rounded-[1.6rem] border border-outline/50 bg-background/96 p-5 shadow-soft sm:rounded-[1.8rem]">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">{foundationCopy.badge}</p>
                 <p className="mt-2 font-display text-[1.65rem] leading-tight text-ink sm:text-2xl">{foundationCopy.title}</p>
                 <p className="mt-3 text-sm leading-6 text-muted">{foundationCopy.description}</p>
               </div>
-              <div className="rounded-[1.6rem] border border-outline/50 bg-white/88 p-5 shadow-soft backdrop-blur sm:rounded-[1.8rem]">
+              <div className="rounded-[1.6rem] border border-outline/50 bg-white/90 p-5 shadow-soft sm:rounded-[1.8rem]">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">{dictionary.home.location.eyebrow}</p>
-                <p className="mt-2 text-sm leading-6 text-muted">{addressLine}</p>
-                <Link href={paths.contact} className={buttonClasses({ variant: "ghost", className: "mt-4" })}>
+                <p className="mt-2 text-sm leading-6 text-muted">{heroLocationLine}</p>
+                <Link href={paths.contact} className={buttonClasses({ variant: "secondary", className: "mt-4" })}>
                   {dictionary.home.location.cta}
                 </Link>
               </div>
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <SectionHeading
             eyebrow={dictionary.home.classes.eyebrow}
             title={dictionary.home.classes.title}
             description={dictionary.home.classes.intro}
           />
-          <Link href={paths.inquiry} className={buttonClasses({ variant: "secondary", className: "sm:w-auto" })}>
+          <Link href={paths.inquiry} className={buttonClasses({ variant: "secondary", className: "w-full justify-center sm:w-auto lg:justify-self-end" })}>
             {dictionary.common.secondaryInquiry}
           </Link>
         </div>
@@ -179,13 +181,13 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
 
       <section className="border-y border-outline/40 bg-surface/45">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <SectionHeading
               eyebrow={dictionary.home.blog.eyebrow}
               title={dictionary.home.blog.title}
               description={dictionary.home.blog.description}
             />
-            <Link href={paths.blog} className={buttonClasses({ variant: "ghost", className: "px-0 text-sm" })}>
+            <Link href={paths.blog} className={buttonClasses({ variant: "ghost", className: "px-0 text-sm lg:justify-self-end" })}>
               <span>{dictionary.home.blog.cta}</span>
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
@@ -193,7 +195,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
           <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5">
             {posts.slice(0, 2).map((post, index) => (
               <div key={post.slug} className={index === 1 ? "hidden sm:block" : "block"}>
-                <BlogCard post={post} locale={locale} readLabel={dictionary.blog.readArticle} />
+                <BlogCard post={post} locale={locale} readLabel={dictionary.blog.readArticle} variant={index === 0 ? "featured" : "compact"} />
               </div>
             ))}
           </div>
