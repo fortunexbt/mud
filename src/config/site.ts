@@ -9,7 +9,7 @@ export const siteConfig = {
   shortName: "MUD",
   description:
     "Ceramics school and atelier in Leblon, Rio de Janeiro, with classes for adults, children, one-off experiences, and group inquiries.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://mudescoladeceramica.com",
   instagramUrl:
     process.env.NEXT_PUBLIC_INSTAGRAM_URL ||
     "https://www.instagram.com/mud_escoladeceramica",
