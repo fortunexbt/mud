@@ -123,9 +123,9 @@ export function SiteHeader({
             type="button"
             aria-label={dictionary.nav.closeMenu}
             onClick={closeMenu}
-            className="absolute inset-0 bg-[rgba(47,32,21,0.18)] backdrop-blur-sm"
+            className="absolute inset-0 bg-[rgba(47,32,21,0.24)] backdrop-blur-xl backdrop-saturate-150"
           />
-          <div className="absolute inset-x-3 top-[5.6rem] rounded-[2rem] border border-outline/45 bg-background/97 p-4 shadow-card sm:inset-x-6 sm:top-[6rem]">
+          <div className="absolute inset-x-3 top-[5.6rem] rounded-[2rem] border border-outline/45 bg-background/98 p-4 shadow-card backdrop-blur-md sm:inset-x-6 sm:top-[6rem]">
             <div className="rounded-[1.6rem] border border-outline/35 bg-white/74 p-4">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta/90 sm:text-xs">
                 {dictionary.nav.languageSwitcher}
