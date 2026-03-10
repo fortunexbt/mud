@@ -74,57 +74,35 @@
   }
 
   .loading-visual {
-    animation: loading-visual-fade 4.7s ease-in-out infinite;
+    animation: loading-visual-fade 8s ease-in-out infinite;
     will-change: opacity, transform;
   }
 
   .loading-label {
-    animation: loading-label-fade 4.7s ease-in-out infinite;
+    animation: loading-label-fade 8s ease-in-out infinite;
     will-change: opacity, transform;
   }
 }
 
 @keyframes loading-visual-fade {
-  0% {
-    opacity: 0.62;
-    transform: translate3d(0, 0.5rem, 0) scale(0.97);
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate3d(0, 0.3rem, 0) scale(0.98);
   }
-
-  18% {
-    opacity: 1;
+  50% {
+    opacity: 0.95;
     transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  76% {
-    opacity: 0.96;
-    transform: translate3d(0, 0, 0) scale(1.015);
-  }
-
-  100% {
-    opacity: 0.28;
-    transform: translate3d(0, -0.35rem, 0) scale(1.02);
   }
 }
 
 @keyframes loading-label-fade {
-  0% {
-    opacity: 0.52;
-    transform: translate3d(0, 0.2rem, 0);
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate3d(0, 0.1rem, 0);
   }
-
-  22% {
+  50% {
     opacity: 0.9;
     transform: translate3d(0, 0, 0);
-  }
-
-  76% {
-    opacity: 0.78;
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    opacity: 0.34;
-    transform: translate3d(0, -0.2rem, 0);
   }
 }
 
