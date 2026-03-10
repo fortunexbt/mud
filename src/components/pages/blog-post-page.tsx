@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { buttonClasses } from "@/components/ui/button";
 import { BlogCard } from "@/components/cards/blog-card";
 import type { PageContext } from "@/components/pages/types";
 import { ArtImage } from "@/components/ui/art-image";
@@ -48,13 +48,13 @@ export function BlogPostPage({ locale, dictionary, post, relatedPosts }: BlogPos
           />
           <div className="mt-12 rounded-[1.8rem] border border-outline/45 bg-surface/40 p-8 shadow-soft">
             <h3 className="font-display text-[1.6rem] text-ink">{dictionary.common.secondaryInquiry}</h3>
-            <p className="mt-2 text-muted">{dictionary.blog.ctaDescription}</p>
+            <p className="mt-2 text-muted">{dictionary.blog.hero.description}</p>
             <div className="mt-6 flex gap-4">
-              <Link href={getLocalizedPath(locale, "inquiry")} className={buttonClasses()}>
-                {dictionary.common.primaryInquiry}
+              <Link href={getLocalizedPath(locale, "inquiry")} className={buttonClasses({})}>
+                {dictionary.nav.inquiry}
               </Link>
               <Link href={getLocalizedPath(locale, "contact")} className={buttonClasses({ variant: "secondary" })}>
-                {dictionary.common.contact}
+                {dictionary.nav.contact}
               </Link>
             </div>
           </div>
