@@ -33,10 +33,10 @@ export const ptDictionary: SiteDictionary = {
       eyebrow: "Cerâmica, aprendizado e presença no Leblon",
       title: "Um ateliê-escola para quem busca técnica, tempo e autoria.",
       description:
-        "A MUD Escola de Cerâmica recebe adultos, crianças e quem está chegando para a primeira aula em um espaço calmo, humano e pedagogicamente consistente no Rio de Janeiro.",
+        "A MUD recebe adultos, crianças e iniciantes em um ateliê calmo, técnico e acolhedor no Leblon.",
       primaryCta: "Conversar no WhatsApp",
       secondaryCta: "Conhecer as aulas",
-      note: "Português, espanhol e inglês em uma experiência acolhedora para moradores, expatriados e visitantes.",
+      note: "Português, espanhol e inglês para moradores, expatriados e visitantes.",
       trustPoints: [
         "Leblon, Rio de Janeiro",
         "Aulas recorrentes, infantis e avulsas",
@@ -47,51 +47,45 @@ export const ptDictionary: SiteDictionary = {
       eyebrow: "Aulas",
       title: "Formas diferentes de começar, o mesmo cuidado com o processo.",
       intro:
-        "Na MUD, oferecemos diferentes formatos de aula, pensados para acolher perfis diversos sem perder o rigor técnico, a escuta e o prazer de trabalhar com as mãos.",
+        "Formatos para perfis diferentes, sempre com base técnica, escuta e prazer de fazer com as mãos.",
       cards: [
         {
           key: "adults",
           title: "Aulas para adultos",
-          summary: "Uma prática contínua para quem deseja aprender os fundamentos da cerâmica, desenvolver sua própria linguagem e ganhar autonomia ao longo do tempo.",
-          details:
-            "Ideal para iniciantes e também para quem quer aprofundar técnica, repertório e projetos autorais.",
+          summary: "Prática contínua para aprender fundamentos, ganhar repertório e desenvolver linguagem própria.",
+          details: "Para iniciantes e para quem quer aprofundar técnica e projetos autorais.",
           badge: "Turmas mensalistas",
           cta: "Quero saber sobre adultos",
         },
         {
           key: "kids",
           title: "Aulas infantis",
-          summary: "De forma lúdica, experimentamos as técnicas a partir do desejo e do interesse das crianças.",
-          details:
-            "Por meio de propostas interdisciplinares, trabalhamos com projetos que acompanham seu desenvolvimento criativo e pedagógico em um ambiente criativo, seguro e afetivo.",
+          summary: "Experimentação lúdica guiada pelo interesse e pela curiosidade das crianças.",
+          details: "Projetos interdisciplinares em um ambiente criativo, seguro e afetivo.",
           badge: "Lúdico e sensorial",
           cta: "Quero saber sobre infantil",
         },
         {
           key: "oneOff",
           title: "Aula avulsa",
-          summary: "Ideal para quem quer viver uma primeira experiência com a cerâmica e descobrir se esse universo faz sentido para você.",
-          details:
-            "Uma ótima opção para primeiras visitas, para presentear alguém ou para quem está de passagem pela cidade.",
+          summary: "Primeira experiência para sentir o ateliê e descobrir se a cerâmica faz sentido para você.",
+          details: "Boa para visitas, presentes e quem está de passagem pelo Rio.",
           badge: "Primeira experiência",
           cta: "Quero saber sobre aula avulsa",
         },
         {
           key: "wheel",
           title: "Aulas de torno",
-          summary:
-            "Voltadas para quem deseja explorar a modelagem no torno cerâmico, uma técnica que combina precisão, ritmo e sensibilidade.",
-          details:
-            "Ao longo das aulas, trabalhamos os fundamentos de centralização da peça e construção de formas. Indicadas tanto para iniciantes curiosos quanto para quem deseja aprofundar sua prática e incorporar o torno ao seu repertório na cerâmica.",
+          summary: "Para explorar o torno com precisão, ritmo e sensibilidade.",
+          details: "Trabalhamos centralização e construção de formas para iniciantes e praticantes.",
           badge: "Torno cerâmico",
           cta: "Quero saber sobre aulas de torno",
         },
         {
           key: "groups",
           title: "Aulas para grupos fechados",
-          summary: "Propostas voltadas para equipes de empresas, celebrações de aniversário ou encontros entre amigos.",
-          details:
-            "Uma experiência em grupo, com clima leve e colaborativo, em um formato flexível para celebrações, encontros especiais e atividades de team building.",
+          summary: "Formatos para empresas, aniversários e encontros entre amigos.",
+          details: "Experiência colaborativa e flexível para celebrações, encontros especiais e team building.",
           badge: "Sob medida",
           cta: "Quero planejar um grupo",
         },
@@ -101,9 +95,9 @@ export const ptDictionary: SiteDictionary = {
       eyebrow: "ABC da cerâmica",
       title: "Fundamento antes do atalho.",
       paragraphs: [
-        "Na MUD, a entrada no universo da cerâmica passa por uma primeira etapa de 8 aulas dedicada ao que o ateliê chama de ABC da cerâmica.",
-        "Nesse ciclo, o aluno aprende técnicas de modelagem, como placa, cobrinha, pinch e kurinuki, enquanto se aproxima dos aspectos científicos e de pesquisa que sustentam o fazer cerâmico.",
-        "A intenção não é acelerar o processo, mas construir repertório para que cada pessoa desenvolva projetos com mais independência, entendimento material e liberdade criativa.",
+        "A entrada na MUD começa com 8 aulas de base: o ABC da cerâmica.",
+        "Nesse ciclo, o aluno passa por placa, cobrinha, pinch e kurinuki enquanto entende secagem, queima e pesquisa material.",
+        "O foco não é acelerar, e sim dar repertório para criar com mais autonomia e liberdade.",
       ],
       methods: ["Placa", "Cobrinha", "Pinch", "Kurinuki", "Argilas", "Engobes", "Esmaltes"],
       note: "A cerâmica é lenta: secagem, queima e acabamento fazem parte da experiência. Aqui, esse tempo é tratado como riqueza do processo.",
@@ -112,8 +106,8 @@ export const ptDictionary: SiteDictionary = {
       eyebrow: "Sobre a MUD",
       title: "Método, troca e tempo real de ateliê.",
       paragraphs: [
-        "A MUD nasceu do desejo de criar um espaço em que aprender cerâmica significasse também desacelerar, observar e construir repertório com presença.",
-        "No cotidiano do ateliê, técnica, escuta e pesquisa material convivem com afeto, autonomia e liberdade para que cada pessoa encontre sua própria linguagem.",
+        "A MUD nasceu para unir aprendizado técnico, presença e tempo real de ateliê.",
+        "Aqui, técnica, escuta e pesquisa material convivem com afeto e liberdade para cada pessoa encontrar sua linguagem.",
       ],
       cta: "Conhecer a história da MUD",
     },
@@ -128,7 +122,7 @@ export const ptDictionary: SiteDictionary = {
       eyebrow: "Experiências sob consulta",
       title: "A cerâmica também pode receber encontros, equipes e visitantes.",
       description:
-        "A MUD abre espaço para conversas sobre formatos especiais quando houver encaixe com a rotina do ateliê e com a qualidade da experiência.",
+        "Formatos especiais entram na conversa quando fazem sentido para a rotina do ateliê e a qualidade da experiência.",
       items: [
         "Team building e grupos corporativos",
         "Aniversários e encontros privados",
@@ -138,25 +132,22 @@ export const ptDictionary: SiteDictionary = {
     },
     blog: {
       eyebrow: "Blog",
-      title: "Conteúdo para quem está chegando ou quer aprofundar o olhar.",
-      description:
-        "Um espaço editorial para esclarecer dúvidas frequentes, apoiar buscas locais e compartilhar o universo da cerâmica a partir da MUD.",
+      title: "Conteúdo para a primeira aula e para aprofundar o olhar.",
+      description: "Textos para dúvidas frequentes, busca local e conversas honestas sobre cerâmica.",
       cta: "Explorar o blog",
     },
     location: {
       eyebrow: "Endereço",
-      title: "No Leblon, com acesso simples para a rotina do bairro, da Zona Sul e de quem está de passagem pelo Rio.",
-      description:
-        "A escola funciona na Rua Ataulfo de Paiva, em Leblon, Rio de Janeiro — um ponto prático para alunos recorrentes e para quem descobre a MUD durante a estadia na cidade.",
+      title: "No Leblon, com acesso simples para a rotina do bairro e para quem visita o Rio.",
+      description: "Rua Ataulfo de Paiva, Leblon: um endereço prático para alunos recorrentes e primeiras visitas.",
       cta: "Ver contato e mapa",
     },
   },
   about: {
     hero: {
       eyebrow: "Sobre",
-      title: "Uma escola de cerâmica que cresce sem perder afeto, escuta e presença.",
-      description:
-        "A MUD une ensino técnico, investigação material e um ambiente acolhedor para quem deseja criar com mais consciência e autonomia.",
+      title: "Uma escola de cerâmica que cresce sem perder afeto e presença.",
+      description: "Ensino técnico, pesquisa material e um ateliê acolhedor para criar com mais consciência.",
     },
     story: [
       "Convencida de que o mundo precisaria parar para refletir sobre prioridades, Vik Inaudi teve o privilégio de continuar trabalhando em seu ateliê durante a pandemia de 2020, no mesmo espaço que hoje recebe a MUD Leblon.",
@@ -165,8 +156,8 @@ export const ptDictionary: SiteDictionary = {
     ],
     philosophyTitle: "Filosofia",
     philosophy: [
-      "A MUD entende a cerâmica como arte milenar, ofício e campo de investigação. Por isso, o ensino começa pela base e convida o aluno a compreender o material para depois expandir repertório e linguagem própria.",
-      "O ambiente do ateliê valoriza trocas, escuta e autonomia. Acolhe iniciantes sem infantilizar o processo e acompanha cada pessoa com atenção para que o aprendizado seja sério, mas nunca rígido ou impessoal.",
+        "A MUD entende a cerâmica como arte, ofício e investigação. Por isso, o ensino começa pela base e cresce em direção à linguagem própria.",
+        "O ateliê valoriza trocas, escuta e autonomia. Recebe iniciantes com seriedade, sem tornar o processo rígido ou impessoal.",
     ],
     valuesTitle: "Valores do ateliê",
     values: [
@@ -192,8 +183,7 @@ export const ptDictionary: SiteDictionary = {
       "Porque o acompanhamento pedagógico respeita o nível e o interesse de cada aluno.",
       "Porque a escola conversa bem com moradores, famílias, expatriados e visitantes curiosos.",
     ],
-    slowNote:
-      "Na MUD, aprender cerâmica significa também aprender a esperar: secar, queimar, observar e voltar para a peça faz parte da formação do olhar.",
+      slowNote: "Na MUD, aprender cerâmica também é aprender a esperar: secar, queimar, observar e voltar para a peça.",
     exhibitions: {
       eyebrow: "Exposições",
       title: "Exposições MUD - Escola de Cerâmica",
@@ -248,70 +238,58 @@ export const ptDictionary: SiteDictionary = {
   classes: {
     hero: {
       eyebrow: "Aulas",
-      title: "Formatos pensados para começar bem, aprofundar a prática e encontrar o seu ritmo.",
-      description:
-        "Da primeira experiência ao aprofundamento contínuo, a MUD apresenta a cerâmica como campo de técnica, pesquisa, criatividade e presença.",
+      title: "Formatos para começar bem, aprofundar a prática e encontrar seu ritmo.",
+      description: "Da primeira aula ao percurso contínuo, a MUD trata a cerâmica como técnica, pesquisa, criatividade e presença.",
     },
     intro: [
-      "Na MUD, oferecemos diferentes formatos de aula para acolher perfis diversos sem perder o rigor técnico, a escuta e o prazer de trabalhar com as mãos.",
-      "O objetivo é que cada aluno ganhe repertório para desenvolver projetos próprios, compreenda melhor a matéria e avance de forma gradual, acompanhada e consciente.",
+      "Formatos para perfis diversos, sempre com rigor técnico, escuta e prazer de trabalhar com as mãos.",
+      "A ideia é que cada aluno ganhe repertório para desenvolver projetos próprios com mais clareza e autonomia.",
     ],
     tracks: [
       {
         key: "adults",
         title: "Aulas para adultos",
-        summary:
-          "Uma prática contínua para quem deseja aprender os fundamentos da cerâmica, desenvolver sua própria linguagem e ganhar autonomia ao longo do tempo.",
-        details:
-          "Ideal para iniciantes e também para quem quer aprofundar técnica, repertório e projetos autorais.",
+          summary: "Prática contínua para aprender fundamentos, ganhar repertório e desenvolver linguagem própria.",
+          details: "Para iniciantes e para quem quer aprofundar técnica e projetos autorais.",
         badge: "Turmas mensalistas",
         cta: "Falar sobre aulas para adultos",
       },
       {
         key: "kids",
         title: "Aulas infantis",
-        summary:
-          "De forma lúdica, experimentamos as técnicas a partir do desejo e do interesse das crianças.",
-        details:
-          "Por meio de propostas interdisciplinares, trabalhamos com projetos que acompanham seu desenvolvimento criativo e pedagógico.",
+          summary: "Experimentação lúdica guiada pelo interesse e pela curiosidade das crianças.",
+          details: "Projetos interdisciplinares com atenção ao desenvolvimento criativo e pedagógico.",
         badge: "Lúdico e sensorial",
         cta: "Falar sobre aulas infantis",
       },
         {
           key: "oneOff",
           title: "Aula avulsa",
-          summary:
-            "Ideal para quem quer viver uma primeira experiência com a cerâmica e descobrir se esse universo faz sentido para você.",
-          details:
-            "Uma ótima opção para primeiras visitas, para presentear alguém ou para quem está de passagem pela cidade.",
+          summary: "Primeira experiência para sentir o ateliê e descobrir se a cerâmica faz sentido para você.",
+          details: "Boa para visitas, presentes e quem está de passagem pelo Rio.",
           badge: "Primeiro contato",
           cta: "Falar sobre aula avulsa",
         },
         {
           key: "wheel",
           title: "Aulas de torno",
-          summary:
-            "Voltadas para quem deseja explorar a modelagem no torno cerâmico, uma técnica que combina precisão, ritmo e sensibilidade.",
-          details:
-            "Ao longo das aulas, trabalhamos os fundamentos de centralização da peça e construção de formas. Indicadas tanto para iniciantes curiosos quanto para quem deseja aprofundar sua prática e incorporar o torno ao seu repertório na cerâmica.",
+          summary: "Para explorar o torno com precisão, ritmo e sensibilidade.",
+          details: "Trabalhamos centralização e construção de formas para iniciantes e praticantes.",
           badge: "Torno cerâmico",
           cta: "Falar sobre aulas de torno",
         },
         {
           key: "groups",
           title: "Aulas para grupos fechados",
-        summary:
-          "Propostas voltadas para equipes de empresas, celebrações de aniversário ou encontros entre amigos.",
-        details:
-          "Uma experiência em grupo, com clima leve e colaborativo, em um formato flexível para celebrações, encontros especiais e atividades de team building.",
+        summary: "Formatos para empresas, aniversários e encontros entre amigos.",
+        details: "Experiência colaborativa e flexível para celebrações, encontros especiais e team building.",
         badge: "Sob medida",
         cta: "Falar sobre grupos",
       },
     ],
     abc: {
       title: "O ciclo inicial de 8 aulas",
-      description:
-        "O ABC da cerâmica é a etapa em que o aluno aprende fundamentos de modelagem e se aproxima dos conhecimentos necessários para criar suas próprias argilas, esmaltes e engobes.",
+      description: "O ABC da cerâmica apresenta fundamentos de modelagem e aproxima o aluno da pesquisa de argilas, esmaltes e engobes.",
       steps: [
         "Técnicas básicas: placa, cobrinha, pinch e kurinuki",
         "Compreensão de secagem, queima, acabamento e comportamento do barro",
@@ -323,18 +301,15 @@ export const ptDictionary: SiteDictionary = {
       items: [
         {
           title: "Modelagem",
-          description:
-            "A peça nasce no ritmo da mão, da observação e da repetição. Não é um processo de pressa.",
+          description: "A peça nasce no ritmo da mão, da observação e da repetição.",
         },
         {
           title: "Secagem e queima",
-          description:
-            "Depois da aula, a peça ainda precisa secar e passar por etapas de forno antes de estar pronta.",
+          description: "Depois da aula, a peça ainda precisa secar e passar por etapas de forno.",
         },
         {
           title: "Retorno e continuidade",
-          description:
-            "Esse intervalo faz parte da experiência e ajuda o aluno a compreender a cerâmica como prática de longo prazo.",
+          description: "Esse intervalo faz parte da experiência e ajuda a compreender a cerâmica no longo prazo.",
         },
       ],
     },
@@ -373,8 +348,7 @@ export const ptDictionary: SiteDictionary = {
     ],
     cta: {
       title: "Quer descobrir qual formato faz mais sentido para você?",
-      description:
-        "Chame no WhatsApp para tirar dúvidas rápidas ou envie um formulário com o tipo de interesse, idioma e disponibilidade.",
+      description: "Fale no WhatsApp para tirar dúvidas rápidas ou envie seu interesse com idioma e disponibilidade.",
       primary: "Falar no WhatsApp",
       secondary: "Ir para inscrição",
     },
@@ -447,9 +421,8 @@ export const ptDictionary: SiteDictionary = {
   inquiry: {
     hero: {
       eyebrow: "Inscrição e interesse",
-      title: "Conte o que você procura e a MUD responde com mais clareza e cuidado.",
-      description:
-        "Use o formulário para aulas adultas, infantis, aula avulsa ou pedidos para grupos e empresas. Para retorno mais rápido, o WhatsApp segue como canal principal.",
+      title: "Conte o que você procura e a MUD responde com mais clareza.",
+      description: "Use o formulário para aulas adultas, infantis, avulsas ou grupos. Para retorno rápido, o WhatsApp segue como canal principal.",
     },
     tracksTitle: "Escolha o tipo de interesse",
     tracks: [
@@ -497,22 +470,20 @@ export const ptDictionary: SiteDictionary = {
       },
     ],
     formTitle: "Formulário de interesse",
-    formIntro:
-      "As informações abaixo ajudam a escola a responder melhor e já deixam o atendimento pronto para futuras integrações de CRM e acompanhamento.",
+    formIntro: "Essas informações ajudam a escola a responder com mais precisão.",
     sideTitle: "Antes de enviar",
     sidePoints: [
       "WhatsApp é o canal mais rápido para dúvidas imediatas.",
-      "As vagas, horários e formatos são confirmados individualmente.",
-      "Na cerâmica, o tempo de secagem e queima faz parte da experiência — e também do planejamento.",
+      "Vagas, horários e formatos são confirmados individualmente.",
+      "Secagem e queima fazem parte da experiência e também do planejamento.",
     ],
     whatsappCta: "Prefiro falar no WhatsApp",
   },
   blog: {
     hero: {
       eyebrow: "Blog",
-      title: "Textos para orientar a primeira visita e aprofundar o universo da cerâmica.",
-      description:
-        "Conteúdo pensado para dúvidas reais de quem procura aulas de cerâmica no Leblon, no Rio de Janeiro e em uma experiência artesanal de confiança.",
+      title: "Textos para orientar a primeira visita e ampliar o olhar.",
+      description: "Conteúdo pensado para dúvidas reais de quem busca cerâmica no Leblon.",
     },
     latestTitle: "Artigos recentes",
     empty: "Novos textos serão publicados em breve.",
@@ -522,19 +493,15 @@ export const ptDictionary: SiteDictionary = {
   contact: {
     hero: {
       eyebrow: "Contato",
-      title: "Fale com a MUD pelo canal que fizer mais sentido para você.",
-      description:
-        "WhatsApp para conversas rápidas, formulário para pedidos mais estruturados e Instagram para acompanhar o dia a dia do ateliê.",
+      title: "Fale com a MUD pelo canal que fizer mais sentido.",
+      description: "WhatsApp para conversas rápidas, formulário para pedidos estruturados e Instagram para acompanhar o ateliê.",
     },
     formTitle: "Enviar mensagem",
-    formIntro:
-      "Se preferir escrever com mais contexto, envie um formulário com seus dados, tipo de interesse e disponibilidade.",
+    formIntro: "Se preferir escrever com mais contexto, envie um formulário com seus dados e disponibilidade.",
     detailsTitle: "Endereço e canais",
-    detailsBody:
-      "A escola está no Leblon, na Rua Ataulfo de Paiva, Sobreloja 14/15. Use o mapa para traçar a rota ou clique no WhatsApp para um atendimento mais direto.",
+    detailsBody: "A escola fica no Leblon, na Rua Ataulfo de Paiva, Sobreloja 14/15. Use o mapa ou chame no WhatsApp.",
     mapTitle: "Como chegar",
-    mapBody:
-      "O mapa abaixo aponta a localização da MUD no Leblon para facilitar visitas, primeiras aulas e encontros presenciais.",
+    mapBody: "O mapa abaixo facilita visitas, primeiras aulas e encontros presenciais.",
     whatsappCta: "Chamar no WhatsApp",
     instagramCta: "Abrir Instagram",
   },
@@ -570,8 +537,7 @@ export const ptDictionary: SiteDictionary = {
     ],
   },
   footer: {
-    statement:
-      "Escola e ateliê de cerâmica em Leblon, voltada a técnica, pesquisa, criatividade e presença.",
+    statement: "Escola e ateliê de cerâmica no Leblon, com técnica, pesquisa e presença.",
     contactTitle: "Contato",
     linksTitle: "Navegação",
     socialTitle: "Redes e canais",

@@ -36,6 +36,12 @@ export default async function AdminDashboardLayout({
             <Link href="/admin/content" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
               Conteúdo
             </Link>
+            <Link href="/admin/content/services" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
+              Serviços
+            </Link>
+            <Link href="/admin/content/blog" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
+              Blog
+            </Link>
             <form action={logoutAction}>
               <button type="submit" className="rounded-full border border-outline/60 bg-white px-4 py-2 text-sm font-medium text-ink transition hover:border-terracotta/40 hover:text-terracotta">
                 Sair

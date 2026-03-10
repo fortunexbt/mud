@@ -1,17 +1,17 @@
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
+import { AboutPage } from "../../../components/pages/about-page";
+import { BlogIndexPage } from "../../../components/pages/blog-index-page";
+import { BlogPostPage } from "../../../components/pages/blog-post-page";
+import { ClassesPage } from "../../../components/pages/classes-page";
+import { ContactPage } from "../../../components/pages/contact-page";
+import { HomePage } from "../../../components/pages/home-page";
+import { InquiryPage } from "../../../components/pages/inquiry-page";
+import { PrivacyPage } from "../../../components/pages/privacy-page";
+import { TeamPage } from "../../../components/pages/team-page";
+import { SiteFrame } from "../../../components/site/site-frame";
 import { JsonLd } from "@/components/ui/json-ld";
-import { AboutPage } from "@/components/pages/about-page";
-import { BlogIndexPage } from "@/components/pages/blog-index-page";
-import { BlogPostPage } from "@/components/pages/blog-post-page";
-import { ClassesPage } from "@/components/pages/classes-page";
-import { ContactPage } from "@/components/pages/contact-page";
-import { HomePage } from "@/components/pages/home-page";
-import { InquiryPage } from "@/components/pages/inquiry-page";
-import { PrivacyPage } from "@/components/pages/privacy-page";
-import { TeamPage } from "@/components/pages/team-page";
-import { SiteFrame } from "@/components/site/site-frame";
 import { getDictionary } from "@/content/site";
 import { siteConfig } from "@/config/site";
 import { getPostBySlug, getPosts, getPostTranslations } from "@/lib/blog";

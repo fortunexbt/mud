@@ -15,8 +15,8 @@ interface StickyCtaBarProps {
 
 export function StickyCtaBar({ primary, secondary }: StickyCtaBarProps) {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-outline/60 bg-background/94 px-4 py-3 shadow-[0_-18px_40px_-24px_rgba(47,32,21,0.3)] backdrop-blur lg:hidden">
-      <div className="mx-auto flex max-w-md items-center gap-4">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-outline/45 bg-[linear-gradient(180deg,rgba(245,240,233,0.84),rgba(233,223,211,0.96))] px-4 pb-[calc(0.85rem+env(safe-area-inset-bottom))] pt-3 shadow-[0_-18px_40px_-24px_rgba(47,32,21,0.28)] backdrop-blur-2xl lg:hidden">
+      <div className="mx-auto flex max-w-md items-center gap-3 rounded-[1.6rem] border border-white/45 bg-white/58 p-2 shadow-soft">
         <Link
           href={primary.href}
           target={primary.external ? "_blank" : undefined}
@@ -25,7 +25,7 @@ export function StickyCtaBar({ primary, secondary }: StickyCtaBarProps) {
         >
           {primary.label}
         </Link>
-        <Link href={secondary.href} className="shrink-0 text-sm font-semibold text-terracotta">
+        <Link href={secondary.href} className="shrink-0 rounded-full px-3 py-2 text-sm font-semibold text-ink transition hover:text-terracotta">
           {secondary.label}
         </Link>
       </div>

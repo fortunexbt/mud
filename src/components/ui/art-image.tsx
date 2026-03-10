@@ -28,7 +28,13 @@ export function ArtImage({
   const asset = getMediaAsset(mediaKey);
 
   return (
-    <div className={cn("relative overflow-hidden rounded-[1.6rem] bg-sand shadow-soft sm:rounded-organic sm:shadow-card", aspect, className)}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-[1.7rem] border border-outline/30 bg-sand shadow-soft sm:rounded-[2.2rem] sm:shadow-card",
+        aspect,
+        className,
+      )}
+    >
       <Image
         src={asset.src}
         alt={asset.alt}
@@ -37,7 +43,7 @@ export function ArtImage({
         sizes={sizes}
         className={cn("object-cover", imageClassName)}
         style={{
-          objectPosition: asset.objectPosition,
+          objectPosition: asset.objectPosition || "50% 50%",
           filter,
         }}
       />

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AdminContentPage() {
   return (
     <div className="space-y-6">
@@ -16,15 +18,17 @@ export default function AdminContentPage() {
             <li>Leads salvos em banco de dados.</li>
             <li>Painel para acompanhar contatos do site.</li>
             <li>Status e notas internas por lead.</li>
+            <li>Edição de formatos de aula no painel.</li>
+            <li>Criação e edição de posts de blog no painel.</li>
           </ul>
         </article>
 
         <article className="rounded-[1.6rem] border border-outline/50 bg-white/82 p-5 shadow-soft">
           <h3 className="font-display text-[1.5rem] text-ink">Próxima etapa natural</h3>
           <ul className="mt-4 grid gap-3 text-sm leading-7 text-muted">
-            <li>Serviços e formatos de aula editáveis no painel.</li>
             <li>FAQ, horários e textos de contato editáveis.</li>
             <li>Configurações institucionais em vez de conteúdo hardcoded.</li>
+            <li>Equipe, exposições e seções da home editáveis no painel.</li>
           </ul>
         </article>
 
@@ -36,6 +40,24 @@ export default function AdminContentPage() {
             <li>Blocos administráveis para páginas e seções do site.</li>
           </ul>
         </article>
+      </section>
+
+      <section className="grid gap-4 lg:grid-cols-2">
+        <Link href="/admin/content/services" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Serviços</p>
+          <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Editar aulas e formatos</h3>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Ajuste títulos, resumos, badges, CTAs e visibilidade dos formatos que aparecem na home e na página de aulas.
+          </p>
+        </Link>
+
+        <Link href="/admin/content/blog" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Blog</p>
+          <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Criar e editar posts</h3>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Publique novos artigos, mantenha rascunhos e substitua gradualmente o fluxo de Markdown estático por conteúdo editável no painel.
+          </p>
+        </Link>
       </section>
 
       <section className="rounded-[1.8rem] border border-outline/50 bg-surface/45 p-6 shadow-soft">

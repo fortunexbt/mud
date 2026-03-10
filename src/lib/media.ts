@@ -128,6 +128,8 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
   },
 };
 
+export const mediaKeys = Object.keys(mediaAssets) as MediaKey[];
+
 export function getMediaAsset(key: MediaKey) {
   return mediaAssets[key];
 }

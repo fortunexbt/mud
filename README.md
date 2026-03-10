@@ -143,17 +143,22 @@ The project now includes a protected admin area for MUD directors:
 - `/admin/leads` - lead inbox with search and status filters
 - `/admin/leads/[id]` - lead detail, status update, and internal notes
 - `/admin/content` - current CMS scope and next-step content management guidance
+- `/admin/content/services` - editing for class/service cards used on the site
+- `/admin/content/blog` - CRUD for database-backed blog posts
 
 Current admin capabilities:
 
 - browse leads stored from the website forms
 - mark lead status (`new`, `contacted`, `qualified`, `closed`, `spam`)
 - add internal notes per lead
+- edit service/class card copy and visibility for the public site
+- create, edit, and publish blog posts from the dashboard
 
 Current limitation:
 
 - the public site content still largely comes from typed dictionaries and Markdown files inside the repo
-- a full Wix-like editing experience for pages, services, and blog posts is possible, but it requires migrating those content sources into editable database-backed models first
+- services and blog now have a database-backed editing path, but the rest of the pages still come from typed dictionaries and static content
+- a fuller Wix-like editing experience for pages, team, exhibitions, FAQs, hero copy, and institutional settings still requires migrating more of the site into editable database-backed models
 
 ## SEO and metadata
 

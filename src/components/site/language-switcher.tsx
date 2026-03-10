@@ -18,24 +18,24 @@ export function LanguageSwitcher({ currentLocale, localePaths, label, className,
   return (
     <div
       className={cn(
-        "flex items-center gap-1.5 rounded-full border border-outline/55 bg-white/78 px-1.5 py-1 text-sm shadow-soft backdrop-blur",
-        compact ? "px-1 py-1" : "",
+        "flex items-center gap-1 rounded-full border border-outline/45 bg-white/80 p-1 text-sm shadow-soft backdrop-blur",
+        compact ? "gap-0.5 p-0.5" : "",
         className,
       )}
     >
       <span className="sr-only">{label}</span>
-      <GlobeIcon className={cn("hidden h-4 w-4 text-muted sm:block", compact ? "sm:hidden" : "")} aria-hidden="true" />
+      <GlobeIcon className={cn("ml-1 hidden h-4 w-4 text-muted md:block", compact ? "md:hidden" : "")} aria-hidden="true" />
       {(Object.keys(localePaths) as Locale[]).map((locale) => (
         <Link
           key={locale}
           href={localePaths[locale]}
           aria-current={locale === currentLocale ? "page" : undefined}
           className={cn(
-            "rounded-full px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition",
-            compact ? "px-2 py-1 tracking-[0.12em]" : "",
+            "inline-flex min-h-8 min-w-[2.2rem] items-center justify-center rounded-full px-2.5 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.16em] transition",
+            compact ? "min-h-7 min-w-[2rem] px-2 text-[0.64rem] tracking-[0.12em]" : "",
             locale === currentLocale
-              ? "bg-ink text-white"
-              : "text-muted hover:bg-sand/85 hover:text-ink",
+              ? "bg-ink text-white shadow-[0_10px_24px_-18px_rgba(47,32,21,0.7)]"
+              : "text-muted hover:bg-sand/82 hover:text-ink",
           )}
         >
           {locale.toUpperCase()}
