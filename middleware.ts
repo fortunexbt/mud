@@ -11,6 +11,11 @@ import {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    return NextResponse.next();
+  }
+
   const segments = pathname.split("/").filter(Boolean);
   const maybeLocale = segments[0];
 
@@ -55,5 +60,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|apple-touch-icon.png|icon-192.png|icon-512.png|favicon-16x16.png|favicon-32x32.png|.*\\..*).*)"],
+  matcher: ["/((?!admin|api|_next/static|_next/image|favicon.ico|apple-touch-icon.png|icon-192.png|icon-512.png|favicon-16x16.png|favicon-32x32.png|.*\\..*).*)"],
 };

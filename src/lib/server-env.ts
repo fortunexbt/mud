@@ -24,6 +24,10 @@ export function getAdminSessionSecret() {
   return getRequiredEnv("ADMIN_SESSION_SECRET");
 }
 
+export function hasAdminConfig() {
+  return Boolean(process.env.ADMIN_PASSWORD?.trim() && process.env.ADMIN_SESSION_SECRET?.trim());
+}
+
 export function safeCompare(input: string, expected: string) {
   const inputBuffer = Buffer.from(input);
   const expectedBuffer = Buffer.from(expected);

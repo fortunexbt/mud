@@ -42,5 +42,5 @@ export function getLocalizedBusinessType(locale: Locale) {
 }
 
 export function hasLeadRoutingConfigured() {
-  return Boolean(siteConfig.formsWebhookUrl);
+  return Boolean(process.env.DATABASE_URL?.trim() || siteConfig.formsWebhookUrl);
 }

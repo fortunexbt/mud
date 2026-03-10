@@ -61,8 +61,11 @@ npm run typecheck
 - `NEXT_PUBLIC_INSTAGRAM_URL` - Instagram profile URL
 - `NEXT_PUBLIC_CONTACT_EMAIL` - institutional email shown in footer/contact
 - `NEXT_PUBLIC_OPENING_HOURS` - optional hours string for future display
+- `DATABASE_URL` - Postgres connection string used for lead storage and admin dashboard
 - `LEAD_WEBHOOK_URL` - webhook destination for form submissions
 - `LEAD_WEBHOOK_SECRET` - optional bearer token for the webhook
+- `ADMIN_PASSWORD` - shared password used to enter the director dashboard
+- `ADMIN_SESSION_SECRET` - signing secret for admin session cookies
 
 If `LEAD_WEBHOOK_URL` is not set, the forms stay usable in the UI but clearly surface that automatic delivery still needs configuration.
 
@@ -125,10 +128,32 @@ Behavior:
 - validates payloads with Zod
 - captures UTM data and referrer info
 - includes a honeypot field (`company`)
-- forwards to `LEAD_WEBHOOK_URL` when configured
-- returns `503` with a clear UI message when webhook delivery is not configured yet
+- stores leads in Postgres when `DATABASE_URL` is configured
+- optionally forwards to `LEAD_WEBHOOK_URL` when configured
+- keeps submissions usable even if webhook delivery fails, as long as the database write succeeds
+- returns `503` only when neither database storage nor webhook routing is configured
 
 To connect email, CRM, or automation later, point `LEAD_WEBHOOK_URL` to your handler and map the payload there.
+
+## Admin dashboard
+
+The project now includes a protected admin area for MUD directors:
+
+- `/admin/login` - dashboard login
+- `/admin/leads` - lead inbox with search and status filters
+- `/admin/leads/[id]` - lead detail, status update, and internal notes
+- `/admin/content` - current CMS scope and next-step content management guidance
+
+Current admin capabilities:
+
+- browse leads stored from the website forms
+- mark lead status (`new`, `contacted`, `qualified`, `closed`, `spam`)
+- add internal notes per lead
+
+Current limitation:
+
+- the public site content still largely comes from typed dictionaries and Markdown files inside the repo
+- a full Wix-like editing experience for pages, services, and blog posts is possible, but it requires migrating those content sources into editable database-backed models first
 
 ## SEO and metadata
 
