@@ -86,33 +86,33 @@
 
 @keyframes loading-visual-fade {
   0% {
-    opacity: 0;
-    transform: translate3d(0, 0.9rem, 0) scale(0.95);
+    opacity: 0.62;
+    transform: translate3d(0, 0.5rem, 0) scale(0.97);
   }
 
-  24% {
+  18% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
   }
 
-  72% {
-    opacity: 1;
+  76% {
+    opacity: 0.96;
     transform: translate3d(0, 0, 0) scale(1.015);
   }
 
   100% {
-    opacity: 0;
-    transform: translate3d(0, -0.5rem, 0) scale(1.03);
+    opacity: 0.28;
+    transform: translate3d(0, -0.35rem, 0) scale(1.02);
   }
 }
 
 @keyframes loading-label-fade {
-  0%, 10% {
-    opacity: 0;
-    transform: translate3d(0, 0.4rem, 0);
+  0% {
+    opacity: 0.52;
+    transform: translate3d(0, 0.2rem, 0);
   }
 
-  30% {
+  22% {
     opacity: 0.9;
     transform: translate3d(0, 0, 0);
   }
@@ -123,8 +123,8 @@
   }
 
   100% {
-    opacity: 0;
-    transform: translate3d(0, -0.35rem, 0);
+    opacity: 0.34;
+    transform: translate3d(0, -0.2rem, 0);
   }
 }
 
