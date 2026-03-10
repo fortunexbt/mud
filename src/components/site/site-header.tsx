@@ -30,6 +30,22 @@ export function SiteHeader({
   whatsappHref,
 }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -45,7 +61,7 @@ export function SiteHeader({
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-outline/40 bg-background/90 backdrop-blur-2xl">
+      <header className={cn("sticky top-0 z-50 border-b border-outline/40 bg-background/90 backdrop-blur-2xl transition-transform duration-300", isVisible ? "translate-y-0" : "-translate-y-full")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex min-h-[5rem] items-center gap-4 py-3 sm:min-h-[5.35rem] sm:py-4">
             <SiteLogo href={`/${locale}`} className="px-3.5 py-2.5" imageClassName="w-[4.95rem] sm:w-[6rem]" />

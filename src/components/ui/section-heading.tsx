@@ -20,8 +20,8 @@ export function SectionHeading({
   const HeadingTag = as;
   const titleClasses =
     as === "h1"
-      ? "font-display text-[clamp(2.8rem,8vw,5.1rem)] leading-[0.95] text-ink"
-      : "font-display text-[clamp(2.15rem,5vw,3.65rem)] leading-[0.98] text-ink";
+      ? "font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[0.95] text-ink"
+      : "font-display text-[clamp(1.8rem,4vw,3.2rem)] leading-[0.98] text-ink";
 
   return (
     <div

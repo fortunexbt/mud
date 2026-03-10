@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BlogCard } from "@/components/cards/blog-card";
 import { ClassCard } from "@/components/cards/class-card";
 import { ArrowRightIcon } from "@/components/icons";
@@ -123,36 +124,38 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] lg:items-end">
-          <SectionHeading
-            eyebrow={dictionary.home.classes.eyebrow}
-            title={dictionary.home.classes.title}
-            description={dictionary.home.classes.intro}
-          />
-
-          <div className="rounded-[1.8rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(245,240,233,0.74))] p-5 shadow-soft sm:p-6">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
-              {dictionary.home.experiences.eyebrow}
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted">{dictionary.home.experiences.description}</p>
-            <Link href={paths.inquiry} className={buttonClasses({ variant: "secondary", className: "mt-5 w-full justify-center" })}>
-              {dictionary.common.secondaryInquiry}
-            </Link>
-          </div>
-        </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5">
-          {dictionary.home.classes.cards.map((track) => (
-            <ClassCard
-              key={track.key}
-              track={track}
-              actionHref={`${paths.inquiry}?interest=${track.key}#form`}
-              actionLabel={dictionary.common.learnMore}
+      <ScrollReveal>
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] lg:items-end">
+            <SectionHeading
+              eyebrow={dictionary.home.classes.eyebrow}
+              title={dictionary.home.classes.title}
+              description={dictionary.home.classes.intro}
             />
-          ))}
-        </div>
-      </section>
+
+            <div className="rounded-[1.8rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(245,240,233,0.74))] p-5 shadow-soft sm:p-6">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
+                {dictionary.home.experiences.eyebrow}
+              </p>
+              <p className="mt-3 text-sm leading-7 text-muted">{dictionary.home.experiences.description}</p>
+              <Link href={paths.inquiry} className={buttonClasses({ variant: "secondary", className: "mt-5 w-full justify-center" })}>
+                {dictionary.common.secondaryInquiry}
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+            {dictionary.home.classes.cards.map((track) => (
+              <ClassCard
+                key={track.key}
+                track={track}
+                actionHref={`${paths.inquiry}?interest=${track.key}#form`}
+                actionLabel={dictionary.common.learnMore}
+              />
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       <section className="border-y border-outline/40 bg-surface/42">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:px-8 lg:py-20">

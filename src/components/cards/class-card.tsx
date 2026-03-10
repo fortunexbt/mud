@@ -11,7 +11,7 @@ interface ClassCardProps {
 
 export function ClassCard({ track, actionHref, actionLabel }: ClassCardProps) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.85rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(245,240,233,0.72))] p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card sm:rounded-[2.15rem] sm:p-6">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.85rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(245,240,233,0.72))] p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card active:scale-[0.98] sm:rounded-[2.15rem] sm:p-6">
       <div className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,rgba(195,111,65,0.12),transparent_70%)]" />
       <div className="relative flex h-full flex-col">
         <div className="inline-flex w-fit rounded-full border border-outline/40 bg-white/74 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-terracotta sm:text-xs">

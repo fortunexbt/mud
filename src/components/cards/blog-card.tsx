@@ -33,7 +33,7 @@ export function BlogCard({ post, locale, readLabel, variant = "featured" }: Blog
 
   if (variant === "compact") {
     return (
-      <article className="overflow-hidden rounded-[1.65rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(245,240,233,0.7))] p-4 shadow-soft sm:p-5">
+      <article className="group overflow-hidden rounded-[1.65rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(245,240,233,0.7))] p-4 shadow-soft transition duration-300 active:scale-[0.98] sm:p-5">
         <ArtImage
           mediaKey={post.cover}
           aspect="aspect-[16/10]"
@@ -54,7 +54,7 @@ export function BlogCard({ post, locale, readLabel, variant = "featured" }: Blog
   }
 
   return (
-    <article className="grid gap-4 overflow-hidden rounded-[1.85rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(245,240,233,0.72))] p-4 shadow-soft lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <article className="group grid gap-4 overflow-hidden rounded-[1.85rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(245,240,233,0.72))] p-4 shadow-soft transition duration-300 active:scale-[0.98] lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
       <ArtImage
         mediaKey={post.cover}
         aspect="aspect-[16/11]"
