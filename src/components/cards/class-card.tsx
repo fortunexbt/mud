@@ -23,10 +23,6 @@ export function ClassCard({ track, actionHref, actionLabel }: ClassCardProps) {
           <p className="text-[0.98rem] leading-7 text-muted sm:text-base">{track.summary}</p>
         </div>
 
-        <div className="mt-5 rounded-[1.35rem] border border-outline/35 bg-white/58 px-4 py-4 text-sm leading-6 text-muted">
-          {track.details}
-        </div>
-
         {actionHref && actionLabel ? (
           <div className="mt-auto pt-6">
             <Link href={actionHref} className="inline-flex items-center gap-2 text-sm font-semibold text-terracotta transition group-hover:gap-3">

@@ -1,13 +1,13 @@
 import Link from "next/link";
 
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ClassCard } from "@/components/cards/class-card";
 import type { PageContext } from "@/components/pages/types";
 import { ArtImage } from "@/components/ui/art-image";
 import { buttonClasses } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function ClassesPage({ locale, dictionary, paths, whatsappHref }: PageContext) {
-  const processEyebrow = locale === "pt" ? "Processo" : locale === "es" ? "Proceso" : "Process";
+export function ClassesPage({ locale, dictionary, paths }: PageContext) {
   const faqEyebrow = locale === "pt" ? "FAQ" : locale === "es" ? "Preguntas" : "FAQ";
   const contactEyebrow = locale === "pt" ? "Contato" : locale === "es" ? "Contacto" : "Contact";
 
@@ -33,9 +33,6 @@ export function ClassesPage({ locale, dictionary, paths, whatsappHref }: PageCon
               <Link href={paths.inquiry} className={buttonClasses({})}>
                 {dictionary.classes.cta.secondary}
               </Link>
-              <Link href={whatsappHref} target="_blank" rel="noreferrer" className={buttonClasses({ variant: "secondary" })}>
-                {dictionary.classes.cta.primary}
-              </Link>
             </div>
           </div>
 
@@ -45,34 +42,30 @@ export function ClassesPage({ locale, dictionary, paths, whatsappHref }: PageCon
               aspect="aspect-[4/4.4]"
               filter="grayscale(0.16) sepia(0.16) saturate(0.9) contrast(1.04)"
             />
-            <div className="rounded-[1.8rem] border border-outline/45 bg-white/84 p-5 shadow-soft sm:p-6">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-terracotta sm:text-xs">
-                {dictionary.classes.abc.title}
-              </p>
-              <p className="mt-3 text-base leading-8 text-muted">{dictionary.classes.abc.description}</p>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-12 xl:gap-5">
-          {dictionary.classes.tracks.map((track, index) => (
-            <div key={track.key} className={index < 3 ? "xl:col-span-4" : "xl:col-span-6"}>
-              <ClassCard
-                track={track}
-                actionHref={`${paths.inquiry}?interest=${track.key}#form`}
-                actionLabel={dictionary.common.learnMore}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      <ScrollReveal>
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-12 xl:gap-5">
+            {dictionary.classes.tracks.map((track, index) => (
+              <div key={track.key} className={index < 3 ? "xl:col-span-4" : "xl:col-span-6"}>
+                <ClassCard
+                  track={track}
+                  actionHref={`${paths.inquiry}?interest=${track.key}#form`}
+                  actionLabel={dictionary.common.learnMore}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       <section className="border-y border-outline/40 bg-surface/42">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="space-y-6">
-            <SectionHeading eyebrow="ABC" title={dictionary.classes.abc.title} description={dictionary.classes.abc.description} />
+            <SectionHeading eyebrow="ABC" title={dictionary.classes.abc.title} description={dictionary.classes.abc.description} align="center" />
             <div className="grid gap-3">
               {dictionary.classes.abc.steps.map((step, index) => (
                 <article key={step} className="rounded-[1.6rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-6">
@@ -80,21 +73,6 @@ export function ClassesPage({ locale, dictionary, paths, whatsappHref }: PageCon
                     {String(index + 1).padStart(2, "0")}
                   </p>
                   <p className="mt-3 text-sm leading-7 text-muted sm:text-base">{step}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <SectionHeading eyebrow={processEyebrow} title={dictionary.classes.timeline.title} />
-            <div className="grid gap-4 md:grid-cols-2">
-              {dictionary.classes.timeline.items.map((item, index) => (
-                <article key={item.title} className="rounded-[1.7rem] border border-outline/45 bg-white/84 p-5 shadow-soft sm:p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-terracotta sm:text-xs">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-3 font-display text-[1.55rem] leading-tight text-ink sm:text-[1.8rem]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted sm:text-base">{item.description}</p>
                 </article>
               ))}
             </div>
@@ -128,10 +106,7 @@ export function ClassesPage({ locale, dictionary, paths, whatsappHref }: PageCon
               <p className="mt-4 max-w-2xl text-base leading-8 text-white/75">{dictionary.classes.cta.description}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href={whatsappHref} target="_blank" rel="noreferrer" className={buttonClasses({})}>
-                {dictionary.classes.cta.primary}
-              </Link>
-              <Link href={paths.inquiry} className={buttonClasses({ variant: "ghost", className: "text-white hover:text-white/82" })}>
+              <Link href={paths.inquiry} className={buttonClasses({})}>
                 {dictionary.classes.cta.secondary}
               </Link>
             </div>

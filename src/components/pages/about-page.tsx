@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import type { PageContext } from "@/components/pages/types";
 import { ArtImage } from "@/components/ui/art-image";
 import { buttonClasses } from "@/components/ui/button";
@@ -69,43 +70,45 @@ export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageConte
         </div>
       </section>
 
-      <section className="border-b border-outline/40 bg-surface/38">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-20">
-          <div className="space-y-5">
-            <div className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
-                {dictionary.about.valuesTitle}
-              </p>
-              <p className="mt-4 font-display text-[2rem] leading-tight text-ink sm:text-[2.45rem]">{dictionary.about.slowNote}</p>
+      <ScrollReveal>
+        <section className="border-b border-outline/40 bg-surface/38">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-20">
+            <div className="space-y-5">
+              <div className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
+                  {dictionary.about.valuesTitle}
+                </p>
+                <p className="mt-4 font-display text-[2rem] leading-tight text-ink sm:text-[2.45rem]">{dictionary.about.slowNote}</p>
+              </div>
+              <ArtImage
+                mediaKey="founderPortrait"
+                aspect="aspect-[4/4.8]"
+                filter="sepia(0.14) saturate(0.92) contrast(1.03)"
+              />
             </div>
-            <ArtImage
-              mediaKey="founderPortrait"
-              aspect="aspect-[4/4.8]"
-              filter="sepia(0.14) saturate(0.92) contrast(1.03)"
-            />
-          </div>
 
-          <div className="space-y-8">
-            <div>
-              <SectionHeading eyebrow={dictionary.about.philosophyTitle} title={dictionary.about.valuesTitle} />
-              <div className="mt-6 space-y-4 text-base leading-8 text-muted">
-                {dictionary.about.philosophy.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+            <div className="space-y-8">
+              <div>
+                <SectionHeading eyebrow={dictionary.about.philosophyTitle} title={dictionary.about.valuesTitle} />
+                <div className="mt-6 space-y-4 text-base leading-8 text-muted">
+                  {dictionary.about.philosophy.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                {dictionary.about.values.map((value) => (
+                  <article key={value.title} className="rounded-[1.7rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-6">
+                    <h3 className="font-display text-[1.65rem] leading-tight text-ink">{value.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-muted sm:text-base">{value.description}</p>
+                  </article>
                 ))}
               </div>
             </div>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              {dictionary.about.values.map((value) => (
-                <article key={value.title} className="rounded-[1.7rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-6">
-                  <h3 className="font-display text-[1.65rem] leading-tight text-ink">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted sm:text-base">{value.description}</p>
-                </article>
-              ))}
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {exhibitions.length ? (
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">

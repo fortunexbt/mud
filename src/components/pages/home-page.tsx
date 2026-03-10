@@ -17,27 +17,7 @@ interface HomePageProps extends PageContext {
 }
 
 export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: HomePageProps) {
-  const foundationCopy = {
-    pt: {
-      badge: "ABC da cerâmica",
-      title: "8 aulas iniciais para criar base real.",
-      description: "Placa, cobrinha, pinch, kurinuki e repertório material com tempo para construir autonomia.",
-    },
-    es: {
-      badge: "ABC de la cerámica",
-      title: "8 clases iniciales para construir una base real.",
-      description: "Plancha, churro, pinch, kurinuki y repertorio material para avanzar con más autonomía.",
-    },
-    en: {
-      badge: "The ceramics ABC",
-      title: "8 opening classes to build a real foundation.",
-      description: "Slab, coil, pinch, kurinuki, and material understanding that grows into real autonomy.",
-    },
-  }[locale];
-
   const addressLine = `${siteConfig.address.street} · ${siteConfig.address.neighborhood} · ${siteConfig.address.city} · CEP ${siteConfig.address.postalCode}`;
-  const heroLocationLine = `${siteConfig.address.street} · ${siteConfig.address.neighborhood} · ${siteConfig.address.city}`;
-  const editorialPoints = dictionary.about.whyPoints.slice(0, 2);
   const featuredPost = posts[0];
   const secondaryPost = posts[1];
 
@@ -66,24 +46,6 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                 >
                   {dictionary.home.hero.primaryCta}
                 </Link>
-                <Link
-                  href={paths.classes}
-                  className={buttonClasses({
-                    variant: "secondary",
-                    size: "lg",
-                    className: "w-full justify-center sm:w-auto",
-                  })}
-                >
-                  {dictionary.home.hero.secondaryCta}
-                </Link>
-              </div>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                {dictionary.home.hero.trustPoints.map((point) => (
-                  <div key={point} className="rounded-[1.4rem] border border-outline/45 bg-white/74 px-4 py-3 text-sm font-medium text-ink shadow-soft">
-                    {point}
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -95,30 +57,6 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                 priority
                 filter="grayscale(0.06) sepia(0.12) saturate(0.92) contrast(1.03)"
               />
-
-              <div className="grid gap-4 lg:grid-cols-2">
-                <div className="rounded-[1.75rem] border border-outline/45 bg-background/96 p-5 shadow-soft sm:p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
-                    {foundationCopy.badge}
-                  </p>
-                  <p className="mt-3 font-display text-[1.75rem] leading-tight text-ink sm:text-[2rem]">
-                    {foundationCopy.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted">{foundationCopy.description}</p>
-                </div>
-
-                <div className="rounded-[1.75rem] border border-outline/45 bg-white/88 p-5 shadow-soft sm:p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
-                    {dictionary.home.location.eyebrow}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted">{heroLocationLine}</p>
-                  <Link href={paths.contact} className={buttonClasses({ variant: "secondary", className: "mt-5" })}>
-                    {dictionary.home.location.cta}
-                  </Link>
-                </div>
-              </div>
-
-              <p className="text-sm leading-7 text-muted/88">{dictionary.home.hero.note}</p>
             </div>
           </div>
         </div>
@@ -126,25 +64,14 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
 
       <ScrollReveal>
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] lg:items-end">
-            <SectionHeading
-              eyebrow={dictionary.home.classes.eyebrow}
-              title={dictionary.home.classes.title}
-              description={dictionary.home.classes.intro}
-            />
+          <SectionHeading
+            eyebrow={dictionary.home.classes.eyebrow}
+            title={dictionary.home.classes.title}
+            description={dictionary.home.classes.intro}
+            className="mb-8"
+          />
 
-            <div className="rounded-[1.8rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(245,240,233,0.74))] p-5 shadow-soft sm:p-6">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
-                {dictionary.home.experiences.eyebrow}
-              </p>
-              <p className="mt-3 text-sm leading-7 text-muted">{dictionary.home.experiences.description}</p>
-              <Link href={paths.inquiry} className={buttonClasses({ variant: "secondary", className: "mt-5 w-full justify-center" })}>
-                {dictionary.common.secondaryInquiry}
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5">
             {dictionary.home.classes.cards.map((track) => (
               <ClassCard
                 key={track.key}
@@ -165,29 +92,6 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
               title={dictionary.home.pedagogy.title}
               description={dictionary.home.pedagogy.paragraphs[0]}
             />
-
-            <div className="space-y-4 text-base leading-8 text-muted">
-              {dictionary.home.pedagogy.paragraphs.slice(1).map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-3 pt-1">
-              {dictionary.home.pedagogy.methods.map((method) => (
-                <span
-                  key={method}
-                  className="rounded-full border border-outline/40 bg-white/82 px-4 py-2 text-sm font-medium text-ink shadow-soft"
-                >
-                  {method}
-                </span>
-              ))}
-            </div>
-
-            <div className="rounded-[1.8rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-6">
-              <p className="font-display text-[1.8rem] leading-tight text-ink sm:text-[2.1rem]">
-                {dictionary.home.pedagogy.note}
-              </p>
-            </div>
           </div>
 
           <div className="grid gap-5">
@@ -200,26 +104,9 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
             <div className="rounded-[1.95rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
               <SectionHeading eyebrow={dictionary.home.about.eyebrow} title={dictionary.home.about.title} />
 
-              <div className="mt-5 space-y-4 text-base leading-8 text-muted">
-                {dictionary.home.about.paragraphs.slice(0, 1).map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {editorialPoints.map((point) => (
-                  <div key={point} className="rounded-[1.35rem] bg-surface/78 px-4 py-4 text-sm leading-6 text-muted">
-                    {point}
-                  </div>
-                ))}
-              </div>
-
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link href={paths.about} className={buttonClasses({ variant: "secondary" })}>
                   {dictionary.home.about.cta}
-                </Link>
-                <Link href={paths.team} className={buttonClasses({ variant: "ghost" })}>
-                  {dictionary.home.team.cta}
                 </Link>
               </div>
             </div>
@@ -262,9 +149,6 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
             />
             <p className="text-base leading-8 text-muted">{addressLine}</p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href={paths.contact} className={buttonClasses({ className: "w-full justify-center sm:w-auto" })}>
-                {dictionary.home.location.cta}
-              </Link>
               <Link
                 href={siteConfig.mapsPlaceUrl}
                 target="_blank"
@@ -285,26 +169,6 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
               aspect="aspect-[16/11]"
               filter="sepia(0.16) saturate(0.88) contrast(1.03)"
             />
-
-            <div className="rounded-[1.8rem] border border-outline/35 bg-white/72 p-5 shadow-soft sm:p-6">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
-                {dictionary.home.experiences.eyebrow}
-              </p>
-              <h3 className="mt-3 font-display text-[1.75rem] leading-tight text-ink sm:text-[2rem]">
-                {dictionary.home.experiences.title}
-              </h3>
-              <ul className="mt-5 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {dictionary.home.experiences.items.map((item) => (
-                  <li key={item} className="rounded-[1.25rem] bg-surface/76 px-4 py-3">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link href={paths.inquiry} className={buttonClasses({ variant: "ghost", className: "mt-5 px-0 text-sm" })}>
-                <span>{dictionary.home.experiences.cta}</span>
-                <ArrowRightIcon className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
