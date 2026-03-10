@@ -65,7 +65,7 @@ export function GallerySection({ locale }: GallerySectionProps) {
   return (
     <section className="relative overflow-hidden border-y border-outline/40 bg-[linear-gradient(180deg,rgba(237,227,215,0.18),rgba(255,255,255,0.62))]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-[radial-gradient(circle_at_top,rgba(195,111,65,0.18),transparent_60%)]" />
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <SectionHeading eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
           <Link

@@ -14,7 +14,7 @@ export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageConte
   return (
     <main id="main">
       <section className="border-b border-outline/40">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8 lg:py-14">
           <div className="space-y-6">
             <SectionHeading
               as="h1"
@@ -72,7 +72,7 @@ export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageConte
 
       <ScrollReveal>
         <section className="border-b border-outline/40 bg-surface/38">
-          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-14">
             <div className="space-y-5">
               <div className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
@@ -111,7 +111,7 @@ export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageConte
       </ScrollReveal>
 
       {exhibitions.length ? (
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <SectionHeading
             eyebrow={dictionary.about.exhibitions!.eyebrow}
             title={dictionary.about.exhibitions!.title}
@@ -145,7 +145,7 @@ export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageConte
         </section>
       ) : null}
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="rounded-[2rem] border border-outline/45 bg-ink px-5 py-8 text-white shadow-card sm:px-8 sm:py-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
             <h2 className="font-display text-[2rem] leading-tight sm:text-[2.6rem]">{dictionary.classes.cta.title}</h2>

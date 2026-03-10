@@ -14,7 +14,7 @@ export function BlogIndexPage({ locale, dictionary, posts }: BlogIndexPageProps)
   return (
     <main id="main">
       <section className="border-b border-outline/40">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
           <SectionHeading
             as="h1"
             eyebrow={dictionary.blog.hero.eyebrow}
@@ -24,7 +24,7 @@ export function BlogIndexPage({ locale, dictionary, posts }: BlogIndexPageProps)
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         {featuredPost ? (
           <div className="space-y-10">
             <div>

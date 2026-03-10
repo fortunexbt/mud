@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -63,8 +64,8 @@ export function SiteHeader({
     <>
       <header className={cn("sticky top-0 z-50 border-b border-outline/40 bg-background/90 backdrop-blur-2xl transition-transform duration-300", isVisible ? "translate-y-0" : "-translate-y-full")}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex min-h-[5rem] items-center gap-4 py-3 sm:min-h-[5.35rem] sm:py-4">
-            <SiteLogo href={`/${locale}`} className="px-3.5 py-2.5" imageClassName="w-[4.95rem] sm:w-[6rem]" />
+          <div className="flex min-h-[4rem] items-center gap-4 py-2 sm:min-h-[5.35rem] sm:py-4">
+            <SiteLogo href={`/${locale}`} className="px-3.5 py-2.5" imageClassName="w-[4rem] sm:w-[6rem]" />
 
             <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex" aria-label="Primary">
               {navItems.map((item) => (
@@ -133,59 +134,65 @@ export function SiteHeader({
         </div>
       </header>
 
-      {menuOpen ? (
-        <div className="fixed inset-0 z-40 xl:hidden">
-          <button
-            type="button"
-            aria-label={dictionary.nav.closeMenu}
-            onClick={closeMenu}
-            className="absolute inset-0 bg-[rgba(47,32,21,0.24)] backdrop-blur-xl backdrop-saturate-150"
-          />
-          <div className="absolute inset-x-3 top-[5.6rem] rounded-[2rem] border border-outline/45 bg-background/98 p-4 shadow-card backdrop-blur-md sm:inset-x-6 sm:top-[6rem]">
-            <div className="rounded-[1.6rem] border border-outline/35 bg-white/74 p-4">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta/90 sm:text-xs">
-                {dictionary.nav.languageSwitcher}
-              </p>
+      <AnimatePresence>
+        {menuOpen ? (
+          <div className="fixed inset-0 z-40 xl:hidden">
+            <motion.button
+              type="button"
+              aria-label={dictionary.nav.closeMenu}
+              onClick={closeMenu}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-[rgba(47,32,21,0.2)] backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-x-3 top-[4.5rem] flex flex-col items-center justify-center rounded-[2.2rem] border border-outline/35 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(245,240,233,0.92))] p-4 shadow-[0_40px_80px_-20px_rgba(47,32,21,0.2)] sm:inset-x-8 sm:p-6"
+            >
               <LanguageSwitcher
                 currentLocale={locale}
                 localePaths={localePaths}
                 label={dictionary.nav.languageSwitcher}
-                compact
-                className="mt-3 bg-background/92"
+                className="mb-4 w-full justify-center bg-white/40 shadow-none sm:mb-6"
               />
-            </div>
 
-            <nav className="mt-4 grid gap-2" aria-label="Mobile primary">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={item.page === currentPage ? "page" : undefined}
-                  onClick={closeMenu}
-                  className={cn(
-                    "rounded-[1.2rem] border px-4 py-3 text-sm font-medium transition",
-                    item.page === currentPage
-                      ? "border-transparent bg-ink text-white shadow-soft"
-                      : "border-outline/40 bg-white/76 text-ink hover:bg-white",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+              <nav className="flex w-full flex-col gap-1.5" aria-label="Mobile primary">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={item.page === currentPage ? "page" : undefined}
+                    onClick={closeMenu}
+                    className={cn(
+                      "rounded-[1.4rem] py-3.5 text-center text-[1.1rem] font-display transition-all active:scale-[0.98]",
+                      item.page === currentPage
+                        ? "bg-ink text-white shadow-soft"
+                        : "bg-surface/30 text-ink/90 hover:bg-surface/60 hover:text-ink",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
 
-            <Link
-              href={whatsappHref}
-              target="_blank"
-              rel="noreferrer"
-              onClick={closeMenu}
-              className={buttonClasses({ className: "mt-4 w-full justify-center" })}
-            >
-              {dictionary.common.primaryWhatsApp}
-            </Link>
+              <Link
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                onClick={closeMenu}
+                className={buttonClasses({ className: "mt-6 w-full justify-center py-4 text-[0.95rem] active:scale-[0.98]" })}
+              >
+                {dictionary.common.primaryWhatsApp}
+              </Link>
+            </motion.div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }

@@ -5,7 +5,7 @@ export function PrivacyPage({ dictionary }: PageContext) {
   return (
     <main id="main">
       <section className="border-b border-outline/40">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <SectionHeading
             as="h1"
             eyebrow={dictionary.privacy.hero.eyebrow}
@@ -15,7 +15,7 @@ export function PrivacyPage({ dictionary }: PageContext) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid gap-5">
           {dictionary.privacy.sections.map((section) => (
             <article key={section.title} className="rounded-[2rem] border border-outline/50 bg-white/82 p-6 shadow-soft sm:p-8">

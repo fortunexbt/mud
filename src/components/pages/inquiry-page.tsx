@@ -27,7 +27,7 @@ export function InquiryPage({
   return (
     <main id="main">
       <section className="border-b border-outline/40">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
           <div className="grid gap-6 lg:items-end">
             <SectionHeading
               as="h1"
@@ -75,7 +75,7 @@ export function InquiryPage({
       </section>
 
       <ScrollReveal>
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
             <div id="form" className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-5 shadow-soft sm:p-8">
               <SectionHeading
@@ -95,28 +95,25 @@ export function InquiryPage({
               </div>
             </div>
 
-            <aside className="space-y-5 lg:sticky lg:top-28 lg:self-start">
-              <div className="rounded-[1.85rem] border border-outline/45 bg-surface/84 p-5 shadow-soft sm:p-7">
-                <h2 className="font-display text-[1.9rem] leading-tight text-ink sm:text-[2.2rem]">{dictionary.inquiry.sideTitle}</h2>
-                <ul className="mt-5 grid gap-3 text-sm leading-7 text-muted">
+            <aside className="hidden lg:block space-y-5 lg:sticky lg:top-28 lg:self-start">
+              <div className="rounded-[1.85rem] border border-outline/45 bg-surface/40 p-5 sm:p-7">
+                <h2 className="font-display text-[1.6rem] leading-tight text-ink sm:text-[2rem]">{dictionary.inquiry.sideTitle}</h2>
+                <div className="mt-4 space-y-3 text-sm leading-6 text-muted">
                   {dictionary.inquiry.sidePoints.map((point) => (
-                    <li key={point} className="rounded-[1.3rem] bg-white/78 px-4 py-3">
-                      {point}
-                    </li>
+                    <p key={point}>{point}</p>
                   ))}
-                </ul>
-              </div>
-
-              <div className="rounded-[1.85rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-7">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-terracotta sm:text-xs">
-                  {dictionary.inquiry.whatsappCta}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-muted">{sideMessage}</p>
-                <Link href={whatsappHref} target="_blank" rel="noreferrer" className={buttonClasses({ className: "mt-5 w-full justify-center" })}>
+                </div>
+                <Link href={whatsappHref} target="_blank" rel="noreferrer" className={buttonClasses({ className: "mt-6 w-full justify-center" })}>
                   {dictionary.inquiry.whatsappCta}
                 </Link>
               </div>
             </aside>
+          </div>
+          
+          <div className="mt-8 text-center lg:hidden">
+            <Link href={whatsappHref} target="_blank" rel="noreferrer" className="text-sm font-semibold text-terracotta underline decoration-terracotta/40 underline-offset-4 transition hover:decoration-terracotta">
+              {dictionary.inquiry.whatsappCta}
+            </Link>
           </div>
         </section>
       </ScrollReveal>

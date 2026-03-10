@@ -26,7 +26,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
       <section className="relative overflow-hidden border-b border-outline/40">
         <div className="pointer-events-none absolute inset-0 bg-grain opacity-70" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top,rgba(195,111,65,0.16),transparent_64%)]" />
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.96fr)] lg:items-start lg:gap-12">
             <div className="relative z-10 lg:pr-6">
               <SectionHeading
@@ -63,7 +63,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
       </section>
 
       <ScrollReveal>
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <SectionHeading
             eyebrow={dictionary.home.classes.eyebrow}
             title={dictionary.home.classes.title}
@@ -85,7 +85,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
       </ScrollReveal>
 
       <section className="border-y border-outline/40 bg-surface/42">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:px-8 lg:py-14">
           <div className="space-y-6">
             <SectionHeading
               eyebrow={dictionary.home.pedagogy.eyebrow}
@@ -117,7 +117,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
       <GallerySection locale={locale} />
 
       <section className="border-y border-outline/40 bg-surface/35">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <SectionHeading
               eyebrow={dictionary.home.blog.eyebrow}
@@ -139,7 +139,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="overflow-hidden rounded-[2.25rem] border border-outline/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(245,240,233,0.72))] p-5 shadow-soft sm:p-8 lg:grid lg:grid-cols-[0.92fr_1.08fr] lg:gap-8 lg:p-10">
           <div className="space-y-6">
             <SectionHeading

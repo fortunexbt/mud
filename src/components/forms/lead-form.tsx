@@ -339,13 +339,13 @@ export function LeadForm({
           />
         </div>
 
-        <details className="group rounded-[1.5rem] border border-outline/50 bg-white/72 px-4 py-4 shadow-soft">
+        <details className="group rounded-[1.5rem] border border-outline/50 bg-white/50 px-4 py-4 shadow-soft transition-colors hover:bg-white/80">
           <summary className="cursor-pointer list-none">
             <span className="flex items-center justify-between gap-4 text-sm font-semibold text-ink">
               {optionalDetails.label}
               <span className="text-terracotta transition group-open:rotate-45">+</span>
             </span>
-            <span className="mt-2 block text-sm leading-6 text-muted">{optionalDetails.hint}</span>
+            <span className="mt-2 block text-[0.85rem] leading-6 text-muted">{optionalDetails.hint}</span>
           </summary>
 
           <div className="mt-4 grid gap-4 border-t border-outline/50 pt-4 sm:grid-cols-2">
@@ -466,7 +466,7 @@ function Field({
 
 function inputClasses(error?: string) {
   return cn(
-    "min-h-11 rounded-[1.25rem] border bg-white/82 px-4 text-[0.95rem] text-ink outline-none transition placeholder:text-muted/65 focus:border-terracotta focus:bg-white focus:ring-2 focus:ring-terracotta/20 sm:min-h-12 sm:rounded-full",
-    error ? "border-red-300" : "border-outline/60",
+    "min-h-11 rounded-[1.25rem] border bg-white/60 px-4 text-[0.95rem] text-ink outline-none transition-all placeholder:text-muted/65 focus:border-terracotta focus:bg-white focus:ring-4 focus:ring-terracotta/10 sm:min-h-12 sm:rounded-2xl",
+    error ? "border-red-300" : "border-outline/40 hover:border-outline/80",
   );
 }

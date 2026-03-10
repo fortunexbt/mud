@@ -14,7 +14,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
   return (
     <main id="main">
       <section className="border-b border-outline/40">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:px-8 lg:py-14">
           <div className="space-y-6">
             <SectionHeading
               as="h1"
@@ -47,7 +47,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
       </section>
 
       <ScrollReveal>
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-12 xl:gap-5">
             {dictionary.classes.tracks.map((track, index) => (
               <div key={track.key} className={index < 3 ? "xl:col-span-4" : "xl:col-span-6"}>
@@ -63,7 +63,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
       </ScrollReveal>
 
       <section className="border-y border-outline/40 bg-surface/42">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="space-y-6">
             <SectionHeading eyebrow="ABC" title={dictionary.classes.abc.title} description={dictionary.classes.abc.description} align="center" />
             <div className="grid gap-3">
@@ -80,7 +80,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <SectionHeading eyebrow={faqEyebrow} title={dictionary.classes.faqTitle} />
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           {dictionary.classes.faqs.map((faq) => (
@@ -98,7 +98,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
       </section>
 
       <section className="border-t border-outline/40 bg-ink">
-        <div className="mx-auto max-w-7xl px-4 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-18">
+        <div className="mx-auto max-w-7xl px-4 py-14 text-white sm:px-6 sm:py-10 lg:px-8 lg:py-18">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-clay/90 sm:text-xs">{contactEyebrow}</p>

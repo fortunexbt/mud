@@ -12,7 +12,7 @@ interface NotFoundContentProps {
 
 export function NotFoundContent({ dictionary, homeHref, whatsappHref }: NotFoundContentProps) {
   return (
-    <main id="main" className="mx-auto grid min-h-[70vh] max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-24">
+    <main id="main" className="mx-auto grid min-h-[70vh] max-w-6xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-24">
       <ArtImage mediaKey="glowLogo" aspect="aspect-[1/1]" className="min-h-[20rem]" overlay={false} />
       <div className="flex flex-col justify-center">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta">404</p>

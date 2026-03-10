@@ -16,7 +16,7 @@ export function BlogPostPage({ locale, dictionary, post, relatedPosts }: BlogPos
     <main id="main">
       <article>
         <section className="border-b border-outline/40">
-          <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
             <Link href={getLocalizedPath(locale, "blog")} className="text-sm font-semibold text-terracotta">
               {dictionary.blog.backToBlog}
             </Link>
@@ -41,7 +41,7 @@ export function BlogPostPage({ locale, dictionary, post, relatedPosts }: BlogPos
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <div
             className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-li:text-muted prose-a:text-terracotta prose-strong:text-ink"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
@@ -63,7 +63,7 @@ export function BlogPostPage({ locale, dictionary, post, relatedPosts }: BlogPos
 
       {relatedPosts.length ? (
         <section className="border-t border-outline/40 bg-surface/42">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
             <h2 className="font-display text-[2rem] leading-tight text-ink sm:text-[2.45rem]">{dictionary.blog.latestTitle}</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {relatedPosts.map((item) => (

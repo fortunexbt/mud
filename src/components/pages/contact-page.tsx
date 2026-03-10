@@ -17,7 +17,7 @@ export function ContactPage({ locale, dictionary, configured, whatsappHref }: Pa
   return (
     <main id="main">
       <section className="border-b border-outline/40">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
           <div className="grid gap-6 lg:items-end">
             <SectionHeading
               as="h1"
@@ -30,7 +30,7 @@ export function ContactPage({ locale, dictionary, configured, whatsappHref }: Pa
       </section>
 
       <ScrollReveal>
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
             <div className="space-y-5">
               <div className="rounded-[1.85rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-7">

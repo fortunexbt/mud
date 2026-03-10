@@ -30,10 +30,10 @@ export const esDictionary: SiteDictionary = {
   },
   home: {
     hero: {
-      eyebrow: "Cerámica, aprendizaje y presencia en Leblon - Río de Janeiro",
-      title: "Un atelier-escuela para quienes buscan técnica, creación y voz propia.",
+      eyebrow: "Leblon, Río de Janeiro",
+      title: "Un atelier-escuela de cerámica.",
       description:
-        "MUD recibe a adultos, niños y principiantes en un atelier calmo, técnico y acogedor en Leblon.",
+        "MUD recibe a adultos, niños y principiantes en un atelier calmo y acogedor.",
       primaryCta: "Hablar por WhatsApp",
       secondaryCta: "Conocer las clases",
       note: "Portugués, español e inglés para vecinos, expatriados y visitantes.",
@@ -146,18 +146,16 @@ export const esDictionary: SiteDictionary = {
   about: {
     hero: {
       eyebrow: "Sobre",
-      title: "Una escuela de cerámica que crece sin perder afecto ni presencia.",
-      description: "Enseñanza técnica, investigación material y un atelier acogedor para crear con más conciencia.",
+      title: "Una escuela construida con afecto y presencia.",
+      description: "Enseñanza técnica y un atelier acogedor para crear con intención.",
     },
     story: [
-      "Convencida de que el mundo tendría que detenerse para revisar prioridades, Vik Inaudi pudo seguir trabajando en su atelier durante la pandemia de 2020, en el mismo espacio que hoy recibe a MUD Leblon.",
-      "En ese período, muchas personas entraban preguntando por cursos de cerámica y arte. La búsqueda revelaba algo más profundo que una curiosidad pasajera: una necesidad real de reconexión con la creatividad y con el propio tiempo.",
-      "Así nació MUD: no solo como un lugar para aprender una técnica, sino como un espacio de presencia, aprendizaje e investigación, donde el barro funciona como materia y también como mediador sensible.",
+      "MUD nació en la pandemia de 2020, cuando la gente empezó a buscar el atelier para tomar clases. La búsqueda revelaba una necesidad real de reconexión con el trabajo manual.",
+      "Así surgió la escuela: no solo para enseñar técnica, sino como un espacio de presencia, estudio e intercambio.",
     ],
     philosophyTitle: "Filosofía",
     philosophy: [
-        "MUD entiende la cerámica como arte, oficio e investigación. Por eso la enseñanza empieza por la base y crece hacia una comprensión más amplia del material.",
-        "El atelier valora intercambio, escucha y autonomía. Recibe a principiantes con cercanía y seriedad.",
+        "MUD entiende la cerámica como arte, oficio e investigación. El atelier valora el intercambio, la escucha y la autonomía, recibiendo a principiantes con afecto y presencia.",
     ],
     valuesTitle: "Valores del atelier",
     values: [
@@ -238,12 +236,11 @@ export const esDictionary: SiteDictionary = {
   classes: {
     hero: {
       eyebrow: "Clases",
-      title: "Formatos para empezar bien, profundizar la práctica y encontrar tu ritmo.",
-      description: "Desde la primera clase hasta el recorrido continuo, MUD entiende la cerámica como técnica, investigación, creatividad y presencia.",
+      title: "Formatos para cada ritmo.",
+      description: "Desde la primera clase hasta la práctica continua.",
     },
     intro: [
-      "Formatos para perfiles diversos, siempre con rigor técnico, escucha y placer por el trabajo manual.",
-      "La idea es construir repertorio para desarrollar proyectos propios con más claridad y autonomía.",
+      "Formatos para perfiles diversos, siempre con rigor técnico y placer por el trabajo manual.",
     ],
     tracks: [
       {
@@ -356,14 +353,14 @@ export const esDictionary: SiteDictionary = {
   team: {
     hero: {
       eyebrow: "Equipo",
-      title: "Un equipo cercano, plural y comprometido con el proceso de cada alumno.",
+      title: "Un equipo comprometido con tu proceso.",
       description:
-        "MUD reúne ceramistas, profesoras y profesionales de la educación que entienden la técnica como punto de partida para la autoría, la investigación y el intercambio.",
+        "Ceramistas y profesoras que entienden la técnica como punto de partida.",
     },
     founderRole: "Fundadora y directora",
     founderBio: [
       "Vik Inaudi nació en Argentina y vivió casi 20 años en Roma, donde descubrió su camino como ceramista.",
-      "En Río encontró una vocación por la educación y fundó MUD como un espacio de aprendizaje, escucha y presencia a través de la cerámica.",
+      "En Río, fundó MUD como un espacio de aprendizaje y presencia.",
     ],
     facultyTitle: "Profesoras y equipo",
     facultyIntro:
@@ -462,8 +459,8 @@ export const esDictionary: SiteDictionary = {
   blog: {
     hero: {
       eyebrow: "Blog",
-      title: "Textos para orientar la primera visita y ampliar la mirada.",
-      description: "Contenido pensado para dudas reales de quien busca cerámica en Leblon.",
+      title: "Textos para apoyar tu práctica.",
+      description: "Respuestas reales y orientación sobre cerámica.",
     },
     latestTitle: "Artículos recientes",
     empty: "Pronto publicaremos nuevos textos.",
@@ -473,8 +470,8 @@ export const esDictionary: SiteDictionary = {
   contact: {
     hero: {
       eyebrow: "Contacto",
-      title: "Habla con MUD por el canal que mejor se adapte a ti.",
-      description: "WhatsApp para conversaciones rápidas, formulario para pedidos estructurados e Instagram para seguir el atelier.",
+      title: "Habla con MUD.",
+      description: "WhatsApp para conversaciones rápidas, formulario para pedidos e Instagram para seguir el atelier.",
     },
     formTitle: "Enviar mensaje",
     formIntro: "Si prefieres escribir con más contexto, envía un formulario con tus datos y disponibilidad.",

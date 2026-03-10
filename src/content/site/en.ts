@@ -30,10 +30,10 @@ export const enDictionary: SiteDictionary = {
   },
   home: {
     hero: {
-      eyebrow: "Ceramics, learning, and presence in Leblon - Rio de Janeiro",
-      title: "A ceramics studio-school for people seeking technique, creation, and authorship.",
+      eyebrow: "Leblon, Rio de Janeiro",
+      title: "A ceramics studio-school.",
       description:
-        "MUD welcomes adults, children, and first-timers into a calm, rigorous, and warm studio in Leblon.",
+        "MUD welcomes adults, kids, and beginners into a calm and welcoming studio.",
       primaryCta: "Chat on WhatsApp",
       secondaryCta: "Explore classes",
       note: "Portuguese, Spanish, and English for locals, expats, and visitors.",
@@ -146,18 +146,16 @@ export const enDictionary: SiteDictionary = {
   about: {
     hero: {
       eyebrow: "About",
-      title: "A ceramics school growing without losing warmth or human scale.",
-      description: "Technical teaching, material research, and a welcoming studio for more intentional making.",
+      title: "A ceramics school built on warmth and presence.",
+      description: "Technical teaching and a welcoming studio for intentional making.",
     },
     story: [
-      "Convinced that the world needed to pause and reconsider its priorities, Vik Inaudi was able to keep working in her studio during the pandemic in 2020, in the same space that now hosts MUD Leblon.",
-      "During that period, many people came in asking about ceramics and art classes. The demand revealed more than curiosity. It pointed to a real need for creativity, reconnection, and meaningful making.",
-      "That is how MUD began: not only as a place to learn technique, but as a space for presence, study, exchange, and material research, with clay as both raw matter and emotional mediator.",
+      "MUD began during the 2020 pandemic when people started asking for classes. The demand revealed more than curiosity—it pointed to a real need for creativity and reconnection.",
+      "That is how the studio was born: not only as a place to learn technique, but as a space for presence, study, and exchange.",
     ],
     philosophyTitle: "Philosophy",
     philosophy: [
-        "MUD sees ceramics as art, craft, and investigation. Teaching starts with the basics and grows toward material understanding and personal language.",
-        "The studio values exchange, listening, and autonomy. It welcomes beginners with seriousness, warmth, and attention.",
+        "MUD sees ceramics as art, craft, and investigation. The studio values exchange, listening, and autonomy, welcoming beginners with warmth and attention.",
     ],
     valuesTitle: "Studio values",
     values: [
@@ -238,12 +236,11 @@ export const enDictionary: SiteDictionary = {
   classes: {
     hero: {
       eyebrow: "Classes",
-      title: "Formats for a strong beginning, deeper practice, and finding your rhythm.",
-      description: "From the first class to long-term practice, MUD treats ceramics as technique, research, creativity, and presence.",
+      title: "Formats for every rhythm.",
+      description: "From the first class to long-term practice.",
     },
     intro: [
-      "Different formats for different profiles, always with technical rigor, attentive guidance, and the pleasure of working by hand.",
-      "The goal is to build enough repertoire for independent projects over time.",
+      "Different formats for different profiles, always with technical rigor and the pleasure of working by hand.",
     ],
     tracks: [
       {
@@ -356,14 +353,14 @@ export const enDictionary: SiteDictionary = {
   team: {
     hero: {
       eyebrow: "Team",
-      title: "A close, plural team committed to each student’s learning process.",
+      title: "A team committed to your process.",
       description:
-        "MUD brings together ceramists, teachers, and education professionals who treat technique as a starting point for authorship, research, and exchange.",
+        "Ceramists and teachers who treat technique as a starting point.",
     },
     founderRole: "Founder and director",
     founderBio: [
       "Vik Inaudi was born in Argentina and lived in Rome for nearly 20 years, where she discovered her path as a ceramist.",
-      "In Rio, she found a vocation for education and created MUD as a space for learning, listening, and presence through ceramics.",
+      "In Rio, she created MUD as a space for learning and presence.",
     ],
     facultyTitle: "Teachers and studio team",
     facultyIntro:
@@ -461,9 +458,9 @@ export const enDictionary: SiteDictionary = {
   },
   blog: {
     hero: {
-      eyebrow: "Blog",
-      title: "Writing to support a first visit and broaden the conversation.",
-      description: "Content built around real questions from people looking for ceramics in Leblon.",
+      eyebrow: "Journal",
+      title: "Writing to support your practice.",
+      description: "Honest answers and guidance for ceramics.",
     },
     latestTitle: "Latest articles",
     empty: "New pieces will be published soon.",
@@ -473,8 +470,8 @@ export const enDictionary: SiteDictionary = {
   contact: {
     hero: {
       eyebrow: "Contact",
-      title: "Reach MUD through the channel that feels right.",
-      description: "WhatsApp for faster conversations, forms for structured inquiries, and Instagram for daily studio life.",
+      title: "Reach MUD.",
+      description: "WhatsApp for fast conversations, forms for inquiries, and Instagram for daily studio life.",
     },
     formTitle: "Send a message",
     formIntro: "If you would rather write with more context, send a form with your details and availability.",

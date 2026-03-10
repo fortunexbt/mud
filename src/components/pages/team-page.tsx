@@ -10,7 +10,7 @@ export function TeamPage({ dictionary }: PageContext) {
   return (
     <main id="main">
       <section className="border-b border-outline/40">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8 lg:py-14">
           <div className="space-y-6">
             <SectionHeading
               as="h1"
@@ -37,7 +37,7 @@ export function TeamPage({ dictionary }: PageContext) {
       {featuredMember && dictionary.team.featuredTitle && dictionary.team.featuredIntro ? (
         <ScrollReveal>
           <section className="border-b border-outline/40 bg-surface/42">
-            <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
               <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
                 <ArtImage mediaKey={featuredMember.imageKey} aspect="aspect-[4/4.8]" filter="sepia(0.1) saturate(0.94) contrast(1.02)" />
                 <div className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
@@ -56,7 +56,7 @@ export function TeamPage({ dictionary }: PageContext) {
       ) : null}
 
       <ScrollReveal>
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <SectionHeading eyebrow={dictionary.team.facultyTitle} title={dictionary.team.facultyIntro} align="left" />
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {dictionary.team.members.map((member) => (
