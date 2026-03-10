@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logoWordmark from "../../../images, logos, favicon, etc/FINAL LOGO NO WHITESPACE.png";
 import { InstagramIcon, MapPinIcon, WhatsAppIcon } from "@/components/icons";
 import type { SiteDictionary } from "@/content/site";
 import type { PageKey } from "@/lib/routes";
@@ -53,7 +52,7 @@ export function SiteFooter({
                 <div className="flex h-[4.5rem] w-[9.25rem] items-center overflow-hidden rounded-[1.35rem] border border-white/10 bg-background/95 px-3 shadow-soft">
                   <div className="relative h-[5.6rem] w-full">
                     <Image
-                      src={logoWordmark}
+                      src="/brand/logo-wordmark.png"
                       alt="MUD Escola de Cerâmica"
                       fill
                       className="object-contain"
@@ -116,7 +115,7 @@ export function SiteFooter({
                   <div className="flex h-[5.15rem] w-[11.5rem] items-center overflow-hidden rounded-[1.6rem] border border-white/10 bg-background/95 px-4 shadow-soft">
                     <div className="relative h-[6.6rem] w-full">
                       <Image
-                        src={logoWordmark}
+                        src="/brand/logo-wordmark.png"
                         alt="MUD Escola de Cerâmica"
                         fill
                         className="object-contain"

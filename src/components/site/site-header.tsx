@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logoWordmark from "../../../images, logos, favicon, etc/FINAL LOGO NO WHITESPACE.png";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { buttonClasses } from "@/components/ui/button";
 import type { SiteDictionary } from "@/content/site";
@@ -37,7 +36,7 @@ export function SiteHeader({
           <div className="flex h-11 w-[7.7rem] items-center overflow-hidden rounded-[1rem] bg-background/95 px-2 sm:h-12 sm:w-[8.6rem] sm:rounded-[1.1rem]">
             <div className="relative h-[4.8rem] w-full">
               <Image
-                src={logoWordmark}
+                src="/brand/logo-wordmark.png"
                 alt="MUD Escola de Cerâmica"
                 fill
                 className="object-contain"

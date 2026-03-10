@@ -2,13 +2,34 @@
 node_modules/
 out/
 dist/
+build/
+coverage/
+.cache/
+.npm/
+.pnpm-store/
+.turbo/
 .vercel/
+
 .DS_Store
 *.log
-coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 .env
 .env.local
 .env.production
-tsconfig.tsbuildinfo
+.env.development.local
+.env.test.local
+.env.production.local
+
+*.tsbuildinfo
+.eslintcache
+tmp/
+temp/
+
 GENERATED MUD MEDIA/
 images, logos, favicon, etc/
+
+# Local design/source assets stay excluded from Railway uploads.
+# Any file needed at runtime must be copied into public/ or src/ and committed there.
