@@ -154,14 +154,7 @@ export function SiteHeader({
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-x-3 top-[4.5rem] flex flex-col items-center justify-center rounded-[2.2rem] border border-outline/35 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(245,240,233,0.92))] p-4 shadow-[0_40px_80px_-20px_rgba(47,32,21,0.2)] sm:inset-x-8 sm:p-6"
             >
-              <LanguageSwitcher
-                currentLocale={locale}
-                localePaths={localePaths}
-                label={dictionary.nav.languageSwitcher}
-                className="mb-4 w-full justify-center bg-white/40 shadow-none sm:mb-6"
-              />
-
-              <nav className="flex w-full flex-col gap-1.5" aria-label="Mobile primary">
+              <nav className="flex w-full flex-col gap-1.5 mt-2" aria-label="Mobile primary">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
