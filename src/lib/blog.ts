@@ -118,32 +118,36 @@ async function getManagedPublishedPosts(locale: Locale) {
     return [] as BlogPost[];
   }
 
-  const result = await dbQuery(
-    `
-      SELECT *
-      FROM cms_blog_posts
-      WHERE locale = $1 AND status = 'published'
-      ORDER BY published_at DESC, created_at DESC
-    `,
-    [locale],
-  );
+  try {
+    const result = await dbQuery(
+      `
+        SELECT *
+        FROM cms_blog_posts
+        WHERE locale = $1 AND status = 'published'
+        ORDER BY published_at DESC, created_at DESC
+      `,
+      [locale],
+    );
 
-  return Promise.all(
-    result.rows.map(async (row) => {
-      const record = mapManagedRow(row);
-      return {
-        slug: record.slug,
-        title: record.title,
-        excerpt: record.excerpt,
-        publishedAt: record.publishedAt,
-        category: record.category,
-        translationKey: record.translationKey,
-        cover: record.cover,
-        readTime: readingTime(record.contentMarkdown).text,
-        contentHtml: await markdownToHtml(record.contentMarkdown),
-      } satisfies BlogPost;
-    }),
-  );
+    return Promise.all(
+      result.rows.map(async (row) => {
+        const record = mapManagedRow(row);
+        return {
+          slug: record.slug,
+          title: record.title,
+          excerpt: record.excerpt,
+          publishedAt: record.publishedAt,
+          category: record.category,
+          translationKey: record.translationKey,
+          cover: record.cover,
+          readTime: readingTime(record.contentMarkdown).text,
+          contentHtml: await markdownToHtml(record.contentMarkdown),
+        } satisfies BlogPost;
+      }),
+    );
+  } catch {
+    return [] as BlogPost[];
+  }
 }
 
 async function getStaticPosts(locale: Locale) {

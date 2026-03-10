@@ -71,33 +71,37 @@ export async function getManagedServiceTracks(locale: Locale): Promise<ClassTrac
     return defaults;
   }
 
-  await seedDefaultTracks(locale);
+  try {
+    await seedDefaultTracks(locale);
 
-  const result = await dbQuery(
-    `
-      SELECT *
-      FROM cms_service_tracks
-      WHERE locale = $1 AND is_active = TRUE
-      ORDER BY sort_order ASC, created_at ASC
-    `,
-    [locale],
-  );
+    const result = await dbQuery(
+      `
+        SELECT *
+        FROM cms_service_tracks
+        WHERE locale = $1 AND is_active = TRUE
+        ORDER BY sort_order ASC, created_at ASC
+      `,
+      [locale],
+    );
 
-  if (!result.rows.length) {
+    if (!result.rows.length) {
+      return defaults;
+    }
+
+    return result.rows.map((row) => {
+      const record = mapRow(row);
+      return {
+        key: record.serviceKey,
+        title: record.title,
+        summary: record.summary,
+        details: record.details,
+        badge: record.badge,
+        cta: record.cta,
+      } satisfies ClassTrack;
+    });
+  } catch {
     return defaults;
   }
-
-  return result.rows.map((row) => {
-    const record = mapRow(row);
-    return {
-      key: record.serviceKey,
-      title: record.title,
-      summary: record.summary,
-      details: record.details,
-      badge: record.badge,
-      cta: record.cta,
-    } satisfies ClassTrack;
-  });
 }
 
 export async function getServiceTrackEditorRows(locale: Locale) {
@@ -119,28 +123,44 @@ export async function getServiceTrackEditorRows(locale: Locale) {
     } satisfies ManagedServiceTrack));
   }
 
-  await seedDefaultTracks(locale);
+  try {
+    await seedDefaultTracks(locale);
 
-  const result = await dbQuery(
-    `
-      SELECT *
-      FROM cms_service_tracks
-      WHERE locale = $1
-      ORDER BY sort_order ASC, created_at ASC
-    `,
-    [locale],
-  );
+    const result = await dbQuery(
+      `
+        SELECT *
+        FROM cms_service_tracks
+        WHERE locale = $1
+        ORDER BY sort_order ASC, created_at ASC
+      `,
+      [locale],
+    );
 
-  const rows = result.rows.map((row) => mapRow(row));
-  const rowMap = new Map(rows.map((row) => [row.serviceKey, row]));
+    const rows = result.rows.map((row) => mapRow(row));
+    const rowMap = new Map(rows.map((row) => [row.serviceKey, row]));
 
-  return defaults.map((track, index) => {
-    const match = rowMap.get(track.key);
-    if (match) {
-      return match;
-    }
+    return defaults.map((track, index) => {
+      const match = rowMap.get(track.key);
+      if (match) {
+        return match;
+      }
 
-    return {
+      return {
+        id: null,
+        locale,
+        serviceKey: track.key,
+        title: track.title,
+        summary: track.summary,
+        details: track.details,
+        badge: track.badge,
+        cta: track.cta,
+        sortOrder: index,
+        isActive: true,
+        isDefault: true,
+      } satisfies ManagedServiceTrack;
+    });
+  } catch {
+    return defaults.map((track, index) => ({
       id: null,
       locale,
       serviceKey: track.key,
@@ -152,8 +172,8 @@ export async function getServiceTrackEditorRows(locale: Locale) {
       sortOrder: index,
       isActive: true,
       isDefault: true,
-    } satisfies ManagedServiceTrack;
-  });
+    } satisfies ManagedServiceTrack));
+  }
 }
 
 export async function saveManagedServiceTrack(input: {

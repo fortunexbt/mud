@@ -33,10 +33,10 @@ export const enDictionary: SiteDictionary = {
       eyebrow: "Ceramics, learning, and presence in Leblon - Rio de Janeiro",
       title: "A ceramics studio-school for people seeking technique, creation, and authorship.",
       description:
-        "We welcome adults, children, and curious first-timers who want to explore creative processes in a calm, inspiring, and generous studio environment. Here, technique and experimentation move together, encouraging each student to develop their own language.",
+        "MUD welcomes adults, children, and first-timers into a calm, rigorous, and warm studio in Leblon.",
       primaryCta: "Chat on WhatsApp",
       secondaryCta: "Explore classes",
-      note: "Portuguese, Spanish, and English across ongoing classes, kids classes, one-off sessions, and group formats.",
+      note: "Portuguese, Spanish, and English for locals, expats, and visitors.",
       trustPoints: [
         "Studio-school in Leblon",
         "Ongoing, kids, and one-off classes",
@@ -47,32 +47,29 @@ export const enDictionary: SiteDictionary = {
       eyebrow: "Classes",
       title: "Different entry points, the same care for the process.",
       intro:
-        "At MUD, we offer different class formats designed to welcome different profiles without losing technical rigor, attentive guidance, or the pleasure of working by hand.",
+        "Different class formats for different profiles, always with technique, attention, and the pleasure of making by hand.",
       cards: [
         {
           key: "adults",
           title: "Adult classes",
-          summary: "An ongoing practice for people who want to learn the foundations of ceramics, build their own visual language, and grow more independent over time.",
-          details:
-            "Ideal for beginners and also for anyone ready to deepen technique, repertoire, and personal projects.",
+          summary: "An ongoing practice for learning foundations, building repertoire, and developing a personal language.",
+          details: "For beginners and for anyone ready to deepen technique and personal projects.",
           badge: "Monthly groups",
           cta: "Ask about adult classes",
         },
         {
           key: "kids",
           title: "Kids classes",
-          summary: "In a playful way, children explore techniques through their own interests, curiosity, and desire to make.",
-          details:
-            "Interdisciplinary projects support their creative and pedagogical development in a safe, warm, and imaginative environment.",
+          summary: "A playful format guided by each child’s curiosity, interest, and desire to make.",
+          details: "Interdisciplinary projects in a safe, warm, and imaginative environment.",
           badge: "Playful and sensory",
           cta: "Ask about kids classes",
         },
         {
           key: "oneOff",
           title: "One-off class",
-          summary: "Ideal for anyone who wants a first experience with ceramics and to discover whether this world feels right for them.",
-          details:
-            "A great option for first visits, gifts, or anyone passing through the city.",
+          summary: "A first experience to feel the studio rhythm and see whether ceramics fits you.",
+          details: "Great for first visits, gifts, and people passing through Rio.",
           badge: "First experience",
           cta: "Ask about the one-off class",
         },
@@ -80,17 +77,15 @@ export const enDictionary: SiteDictionary = {
           key: "wheel",
           title: "Wheel-throwing classes",
           summary: "For people who want to explore the pottery wheel through technique, rhythm, and sensitivity.",
-          details:
-            "Classes cover centering and form-building, for curious beginners and for students who want to deepen their ceramics practice.",
+          details: "Classes cover centering and form-building for beginners and returning makers.",
           badge: "Pottery wheel",
           cta: "Ask about wheel classes",
         },
         {
           key: "groups",
           title: "Private group classes",
-          summary: "Formats designed for company teams, birthday celebrations, or gatherings among friends.",
-          details:
-            "A light, collaborative group experience in a flexible format for celebrations, special gatherings, and team building.",
+          summary: "Formats for company teams, birthdays, and gatherings among friends.",
+          details: "A flexible, collaborative experience for celebrations, special gatherings, and team building.",
           badge: "Tailored",
           cta: "Plan a group experience",
         },
@@ -100,9 +95,9 @@ export const enDictionary: SiteDictionary = {
       eyebrow: "The ceramics ABC",
       title: "Foundation before shortcuts.",
       paragraphs: [
-        "At MUD, entering the ceramics world begins with an 8-class foundation the studio calls the ceramics ABC.",
-        "During this cycle, students work through techniques such as slab, coil, pinch, and kurinuki while becoming familiar with the scientific and research-based side of the ceramic process.",
-        "The goal is not speed. It is to build enough understanding for each student to develop projects with more autonomy, material awareness, and creative freedom.",
+        "At MUD, the journey begins with an 8-class foundation called the ceramics ABC.",
+        "Students move through slab, coil, pinch, and kurinuki while learning drying, firing, and material research.",
+        "The goal is not speed, but enough repertoire to create with more autonomy and freedom.",
       ],
       methods: ["Slab", "Coil", "Pinch", "Kurinuki", "Clay bodies", "Engobes", "Glazes"],
       note: "Ceramics is slow by nature: drying, firing, and finishing are part of the experience. Here, that time is treated as an essential part of the work.",
@@ -111,8 +106,8 @@ export const enDictionary: SiteDictionary = {
       eyebrow: "About MUD",
       title: "Method, exchange, and real studio time.",
       paragraphs: [
-        "MUD was born from the desire to build a place where learning ceramics also means slowing down, observing, and building repertoire with presence.",
-        "In the day-to-day life of the studio, technique, listening, and material research live alongside warmth, autonomy, and freedom for each person to find their own language.",
+        "MUD was created to connect technical learning, presence, and real studio time.",
+        "Technique, listening, and material research live alongside warmth and freedom for each person to find their own language.",
       ],
       cta: "Read MUD’s story",
     },
@@ -127,7 +122,7 @@ export const enDictionary: SiteDictionary = {
       eyebrow: "Special formats",
       title: "Ceramics can also hold teams, groups, and visitors.",
       description:
-        "MUD is open to conversations about special formats whenever they make sense for the rhythm of the studio and the quality of the experience.",
+        "Special formats enter the conversation when they fit the studio rhythm and the quality of the experience.",
       items: [
         "Team building and company groups",
         "Birthdays and private gatherings",
@@ -137,25 +132,22 @@ export const enDictionary: SiteDictionary = {
     },
     blog: {
       eyebrow: "Journal",
-      title: "Writing for first visits, practical questions, and a deeper relationship with ceramics.",
-      description:
-        "An editorial space for local search, frequent questions, and a more thoughtful introduction to the MUD universe.",
+      title: "Writing for a first visit and a deeper look.",
+      description: "An editorial space for real questions, local search, and honest ceramics guidance.",
       cta: "Explore the blog",
     },
     location: {
       eyebrow: "Location",
-      title: "In Leblon, easy to reach for neighborhood routines, the South Zone, and visitors passing through Rio.",
-      description:
-        "The school is based on Rua Ataulfo de Paiva in Leblon, a practical address for regular students and for visitors discovering ceramics while in the city.",
+      title: "In Leblon, easy to reach for neighborhood routines and for visitors in Rio.",
+      description: "Rua Ataulfo de Paiva, Leblon: a practical address for regular students and first visits.",
       cta: "See contact details and map",
     },
   },
   about: {
     hero: {
       eyebrow: "About",
-      title: "A ceramics school growing without losing warmth, listening, or human scale.",
-      description:
-        "MUD brings together technical teaching, material research, and a welcoming studio environment for people who want to create with more intention and autonomy.",
+      title: "A ceramics school growing without losing warmth or human scale.",
+      description: "Technical teaching, material research, and a welcoming studio for more intentional making.",
     },
     story: [
       "Convinced that the world needed to pause and reconsider its priorities, Vik Inaudi was able to keep working in her studio during the pandemic in 2020, in the same space that now hosts MUD Leblon.",
@@ -164,8 +156,8 @@ export const enDictionary: SiteDictionary = {
     ],
     philosophyTitle: "Philosophy",
     philosophy: [
-      "MUD sees ceramics as an ancient art, a craft, and a field of investigation. Teaching therefore starts with the basics and gradually opens toward broader material understanding and personal language.",
-      "The studio environment values exchange, listening, and autonomy. It welcomes beginners without flattening the process and follows each student with seriousness, warmth, and attention.",
+        "MUD sees ceramics as art, craft, and investigation. Teaching starts with the basics and grows toward material understanding and personal language.",
+        "The studio values exchange, listening, and autonomy. It welcomes beginners with seriousness, warmth, and attention.",
     ],
     valuesTitle: "Studio values",
     values: [
@@ -191,8 +183,7 @@ export const enDictionary: SiteDictionary = {
       "Because the pedagogy respects each student’s level, pace, and interests.",
       "Because the school works naturally for locals, families, expats, and curious visitors.",
     ],
-    slowNote:
-      "Learning ceramics at MUD also means learning to wait: drying, firing, observing, and returning to a piece are part of the way the eye is trained.",
+    slowNote: "Learning ceramics at MUD also means learning to wait: dry, fire, observe, and return to the piece.",
     exhibitions: {
       eyebrow: "Exhibitions",
       title: "The studio’s production also meets the public through annual exhibitions.",
@@ -247,42 +238,35 @@ export const enDictionary: SiteDictionary = {
   classes: {
     hero: {
       eyebrow: "Classes",
-      title: "Formats designed for a strong beginning, deeper practice, and finding your rhythm.",
-      description:
-        "From the first encounter to long-term practice, MUD presents ceramics as technique, research, creativity, and presence.",
+      title: "Formats for a strong beginning, deeper practice, and finding your rhythm.",
+      description: "From the first class to long-term practice, MUD treats ceramics as technique, research, creativity, and presence.",
     },
     intro: [
-      "At MUD, we offer different class formats to welcome different profiles without losing technical rigor, attentive guidance, or the pleasure of working by hand.",
-      "The goal is for each student to develop enough material understanding and technical repertoire to move toward independent projects over time.",
+      "Different formats for different profiles, always with technical rigor, attentive guidance, and the pleasure of working by hand.",
+      "The goal is to build enough repertoire for independent projects over time.",
     ],
     tracks: [
       {
         key: "adults",
         title: "Adult classes",
-        summary:
-          "An ongoing practice for people who want to learn the foundations of ceramics, build their own visual language, and grow more independent over time.",
-        details:
-          "Ideal for beginners and also for anyone ready to deepen technique, repertoire, and personal projects.",
+          summary: "An ongoing practice for learning foundations, building repertoire, and developing a personal language.",
+          details: "For beginners and for anyone ready to deepen technique and personal projects.",
         badge: "Monthly groups",
         cta: "Ask about adult classes",
       },
       {
         key: "kids",
         title: "Kids classes",
-        summary:
-          "In a playful way, children explore techniques through their own interests, curiosity, and desire to make.",
-        details:
-          "Interdisciplinary projects support their creative and educational development in a safe, warm, and imaginative environment.",
+          summary: "A playful format guided by each child’s curiosity, interest, and desire to make.",
+          details: "Interdisciplinary projects in a safe, warm, and imaginative environment.",
         badge: "Playful and sensory",
         cta: "Ask about kids classes",
       },
         {
           key: "oneOff",
           title: "One-off class",
-          summary:
-            "Ideal for anyone who wants a first experience with ceramics and to discover whether this world feels right for them.",
-          details:
-            "A great option for first visits, gifts, or anyone passing through the city.",
+          summary: "A first experience to feel the studio rhythm and see whether ceramics fits you.",
+          details: "Great for first visits, gifts, and people passing through Rio.",
           badge: "First step",
           cta: "Ask about the one-off class",
         },
@@ -290,26 +274,22 @@ export const enDictionary: SiteDictionary = {
           key: "wheel",
           title: "Wheel-throwing classes",
           summary: "For people who want to explore the pottery wheel through technique, rhythm, and sensitivity.",
-          details:
-            "Classes cover centering and form-building, for curious beginners and for students who want to deepen their ceramics practice.",
+          details: "Classes cover centering and form-building for beginners and returning makers.",
           badge: "Pottery wheel",
           cta: "Ask about wheel classes",
         },
         {
           key: "groups",
           title: "Private group classes",
-        summary:
-          "Formats designed for company teams, birthday celebrations, or gatherings among friends.",
-        details:
-          "A light, collaborative group experience in a flexible format for celebrations, special gatherings, and team building.",
+        summary: "Formats for company teams, birthdays, and gatherings among friends.",
+        details: "A flexible, collaborative experience for celebrations, special gatherings, and team building.",
         badge: "Tailored",
         cta: "Ask about groups",
       },
     ],
     abc: {
       title: "The 8-class foundation cycle",
-      description:
-        "The ceramics ABC is the stage where students learn essential handbuilding techniques while getting closer to the knowledge needed to work with their own clay bodies, glazes, and engobes.",
+      description: "The ceramics ABC introduces handbuilding foundations while bringing students closer to clay bodies, glazes, and engobes.",
       steps: [
         "Core techniques: slab, coil, pinch, and kurinuki",
         "Understanding drying, firing, finishing, and how clay behaves",
@@ -321,18 +301,15 @@ export const enDictionary: SiteDictionary = {
       items: [
         {
           title: "Making",
-          description:
-            "Pieces emerge through the rhythm of the hand, observation, and repetition. It is not a rushed medium.",
+          description: "Pieces emerge through the rhythm of the hand, observation, and repetition.",
         },
         {
           title: "Drying and firing",
-          description:
-            "After class, pieces still need time to dry and move through kiln stages before they are ready.",
+          description: "After class, pieces still need time to dry and move through kiln stages.",
         },
         {
           title: "Return and continuity",
-          description:
-            "That interval is part of the experience and helps students understand ceramics as a long-form practice.",
+          description: "That interval is part of the experience and helps students understand ceramics as a long-form practice.",
         },
       ],
     },
@@ -371,8 +348,7 @@ export const enDictionary: SiteDictionary = {
     ],
     cta: {
       title: "Want help choosing the right format?",
-      description:
-        "Message MUD on WhatsApp for a faster conversation, or send a structured inquiry with your interest, language, and availability.",
+      description: "Message MUD on WhatsApp for a faster reply, or send your interest with language and availability.",
       primary: "Chat on WhatsApp",
       secondary: "Go to inquiry",
     },
@@ -427,9 +403,8 @@ export const enDictionary: SiteDictionary = {
   inquiry: {
     hero: {
       eyebrow: "Inquiry and enrollment",
-      title: "Tell MUD what you are looking for and the studio can respond with more clarity and care.",
-      description:
-        "Use the form for adult classes, kids classes, one-off sessions, or group and company requests. For the fastest reply, WhatsApp remains the primary channel.",
+      title: "Tell MUD what you are looking for and the studio can respond with more clarity.",
+      description: "Use the form for adult classes, kids classes, one-off sessions, or groups. For the fastest reply, WhatsApp remains the main channel.",
     },
     tracksTitle: "Choose your interest",
     tracks: [
@@ -475,22 +450,20 @@ export const enDictionary: SiteDictionary = {
       },
     ],
     formTitle: "Inquiry form",
-    formIntro:
-      "The information below helps the school respond more precisely and keeps the lead structured for future CRM and follow-up workflows.",
+    formIntro: "The information below helps the school respond more precisely.",
     sideTitle: "Before you send",
     sidePoints: [
       "WhatsApp is the fastest channel for immediate questions.",
-      "Availability, schedules, and class formats are confirmed individually.",
-      "In ceramics, drying and firing time are part of the experience and of the planning.",
+      "Availability, schedules, and formats are confirmed individually.",
+      "Drying and firing are part of the experience and of the planning.",
     ],
     whatsappCta: "I’d rather use WhatsApp",
   },
   blog: {
     hero: {
       eyebrow: "Blog",
-      title: "Writing to support a first visit and deepen the ceramics conversation.",
-      description:
-        "Content built around real questions from people looking for ceramics classes in Leblon, Rio de Janeiro, and a trustworthy handmade experience.",
+      title: "Writing to support a first visit and broaden the conversation.",
+      description: "Content built around real questions from people looking for ceramics in Leblon.",
     },
     latestTitle: "Latest articles",
     empty: "New pieces will be published soon.",
@@ -500,19 +473,15 @@ export const enDictionary: SiteDictionary = {
   contact: {
     hero: {
       eyebrow: "Contact",
-      title: "Reach MUD through the channel that feels right for you.",
-      description:
-        "WhatsApp for faster conversations, forms for structured inquiries, and Instagram for a closer look at everyday studio life.",
+      title: "Reach MUD through the channel that feels right.",
+      description: "WhatsApp for faster conversations, forms for structured inquiries, and Instagram for daily studio life.",
     },
     formTitle: "Send a message",
-    formIntro:
-      "If you would rather write with more context, send a form with your details, your interest, and your availability.",
+    formIntro: "If you would rather write with more context, send a form with your details and availability.",
     detailsTitle: "Address and channels",
-    detailsBody:
-      "The school is in Leblon, at Rua Ataulfo de Paiva, Sobreloja 14/15. Use the map to plan your route or message MUD on WhatsApp for a more direct conversation.",
+    detailsBody: "The school is in Leblon, at Rua Ataulfo de Paiva, Sobreloja 14/15. Use the map or message MUD on WhatsApp.",
     mapTitle: "How to find us",
-    mapBody:
-      "The map below points to MUD’s location in Leblon for visits, first classes, and in-person meetings.",
+    mapBody: "The map below helps with visits, first classes, and in-person meetings.",
     whatsappCta: "Open WhatsApp",
     instagramCta: "Open Instagram",
   },
@@ -548,8 +517,7 @@ export const enDictionary: SiteDictionary = {
     ],
   },
   footer: {
-    statement:
-      "A ceramics school and atelier in Leblon, rooted in technique, research, creativity, and presence.",
+    statement: "A ceramics school and atelier in Leblon, rooted in technique, research, and presence.",
     contactTitle: "Contact",
     linksTitle: "Navigation",
     socialTitle: "Channels",
