@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logoWordmark from "../../../images, logos, favicon, etc/MUD (Logo no escoladeceramica).png";
+import logoWordmark from "../../../images, logos, favicon, etc/FINAL LOGO NO WHITESPACE.png";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { buttonClasses } from "@/components/ui/button";
 import type { SiteDictionary } from "@/content/site";

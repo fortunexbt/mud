@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logoWordmark from "../../../images, logos, favicon, etc/MUD (Logo no escoladeceramica).png";
+import logoWordmark from "../../../images, logos, favicon, etc/FINAL LOGO NO WHITESPACE.png";
 import { InstagramIcon, MapPinIcon, WhatsAppIcon } from "@/components/icons";
 import type { SiteDictionary } from "@/content/site";
 import type { PageKey } from "@/lib/routes";
