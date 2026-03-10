@@ -64,6 +64,68 @@
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white;
   }
+
+  .loading-screen {
+    background-image:
+      radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.46), transparent 28%),
+      radial-gradient(circle at 18% 16%, rgba(214, 141, 98, 0.15), transparent 24%),
+      radial-gradient(circle at 82% 18%, rgba(86, 125, 118, 0.15), transparent 22%),
+      linear-gradient(180deg, rgba(247, 242, 236, 0.98), rgba(239, 231, 220, 0.96));
+  }
+
+  .loading-visual {
+    animation: loading-visual-fade 2.35s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  .loading-label {
+    animation: loading-label-fade 2.35s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+}
+
+@keyframes loading-visual-fade {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0.9rem, 0) scale(0.95);
+  }
+
+  24% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  72% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1.015);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -0.5rem, 0) scale(1.03);
+  }
+}
+
+@keyframes loading-label-fade {
+  0%, 10% {
+    opacity: 0;
+    transform: translate3d(0, 0.4rem, 0);
+  }
+
+  30% {
+    opacity: 0.9;
+    transform: translate3d(0, 0, 0);
+  }
+
+  76% {
+    opacity: 0.78;
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -0.35rem, 0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -78,5 +140,10 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .loading-visual,
+  .loading-label {
+    animation: none !important;
   }
 }
