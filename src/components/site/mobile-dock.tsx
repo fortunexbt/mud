@@ -33,17 +33,17 @@ export function MobileDock({ items, currentPage }: MobileDockProps) {
           const Icon = iconMap[item.page as keyof typeof iconMap];
 
           return (
-            <Link
-              key={item.page}
-              href={item.href}
-              aria-current={item.page === currentPage ? "page" : undefined}
-              className={cn(
-                "flex min-h-[3.9rem] flex-col items-center justify-center gap-1 rounded-[1.1rem] px-2 py-2 text-center transition",
-                item.page === currentPage
-                  ? "bg-ink text-white shadow-soft"
-                  : "text-ink/88 hover:bg-white/64 hover:text-ink",
-              )}
-            >
+              <Link
+                key={item.page}
+                href={item.href}
+                aria-current={item.page === currentPage ? "page" : undefined}
+                className={cn(
+                  "flex min-h-[3.5rem] min-w-[3.5rem] flex-col items-center justify-center gap-0.5 rounded-[1.1rem] px-2 py-1 text-center transition active:scale-[0.95]",
+                  item.page === currentPage
+                    ? "bg-ink text-white shadow-soft"
+                    : "text-ink/88 hover:bg-white/64 hover:text-ink",
+                )}
+              >
               <Icon className="h-4 w-4 opacity-90" />
               <span className="text-[0.62rem] font-semibold uppercase tracking-[0.12em]">{item.label}</span>
             </Link>

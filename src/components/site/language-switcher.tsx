@@ -31,8 +31,8 @@ export function LanguageSwitcher({ currentLocale, localePaths, label, className,
           href={localePaths[locale]}
           aria-current={locale === currentLocale ? "page" : undefined}
           className={cn(
-            "inline-flex min-h-8 min-w-[2.2rem] items-center justify-center rounded-full px-2.5 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.16em] transition",
-            compact ? "min-h-7 min-w-[2rem] px-2 text-[0.64rem] tracking-[0.12em]" : "",
+            "inline-flex min-h-11 min-w-[2.75rem] items-center justify-center rounded-full px-2.5 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.16em] transition active:scale-[0.95]",
+            compact ? "min-h-11 min-w-[2.5rem] px-2 text-[0.64rem] tracking-[0.12em]" : "",
             locale === currentLocale
               ? "bg-ink text-white shadow-[0_10px_24px_-18px_rgba(47,32,21,0.7)]"
               : "text-muted hover:bg-sand/82 hover:text-ink",
