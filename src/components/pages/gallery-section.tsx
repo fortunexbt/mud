@@ -103,7 +103,7 @@ export function GallerySection({ locale }: GallerySectionProps) {
                   width={900}
                   height={1200}
                   sizes="(min-width: 1280px) 22vw, (min-width: 768px) 45vw, 100vw"
-                  priority={index < 2}
+                  priority={false}
                   className="h-[18rem] w-full object-cover transition duration-700 group-hover:scale-[1.03] sm:h-[23rem]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(245,240,233,0.03),rgba(38,25,18,0.12))]" />

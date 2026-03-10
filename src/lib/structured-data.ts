@@ -2,14 +2,14 @@ import { siteConfig } from "@/config/site";
 import type { Locale } from "@/lib/i18n-config";
 import { absoluteUrl } from "@/lib/utils";
 
-export function buildOrganizationJsonLd(locale: Locale, pagePath: string) {
+export function buildOrganizationJsonLd(locale: Locale) {
   const address = siteConfig.address;
 
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "EducationalOrganization", "School"],
     name: siteConfig.name,
-    url: absoluteUrl(siteConfig.url, pagePath),
+    url: siteConfig.url,
     image: absoluteUrl(siteConfig.url, "/icon-512.png"),
     description: siteConfig.description,
     address: {
@@ -70,6 +70,7 @@ export function buildBlogPostingJsonLd(input: {
   publishedAt: string;
   locale: Locale;
   path: string;
+  image: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -80,7 +81,7 @@ export function buildBlogPostingJsonLd(input: {
     dateModified: input.publishedAt,
     inLanguage: input.locale,
     mainEntityOfPage: absoluteUrl(siteConfig.url, input.path),
-    image: absoluteUrl(siteConfig.url, "/icon-512.png"),
+    image: absoluteUrl(siteConfig.url, input.image),
     author: {
       "@type": "Organization",
       name: siteConfig.name,

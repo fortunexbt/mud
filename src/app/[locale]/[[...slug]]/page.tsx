@@ -15,11 +15,12 @@ import { JsonLd } from "@/components/ui/json-ld";
 import { getDictionary } from "@/content/site";
 import { siteConfig } from "@/config/site";
 import { getPostBySlug, getPosts, getPostTranslations } from "@/lib/blog";
+import { getMediaAsset } from "@/lib/media";
 import { hasLeadRoutingConfigured } from "@/config/site";
-import { defaultLocale, isLocale, locales, type Locale } from "@/lib/i18n-config";
-import { buildMetadata } from "@/lib/metadata";
+import { isLocale, locales, type Locale } from "@/lib/i18n-config";
 import { getNavItems, getPagePaths } from "@/lib/navigation";
 import { getLocalizedPath, getRouteSegments, resolveRoute, type PageKey } from "@/lib/routes";
+import { buildResolvedMetadata, resolveSocialMetadata } from "@/lib/social";
 import {
   buildBlogPostingJsonLd,
   buildBreadcrumbJsonLd,
@@ -70,67 +71,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
   const { locale: localeParam, slug = [] } = await params;
-  const locale = isLocale(localeParam) ? localeParam : defaultLocale;
-  const dictionary = getDictionary(locale);
-  const route = resolveRoute(locale, slug);
+  const data = await resolveSocialMetadata({ localeParam, slug });
 
-  if (!route) {
-    return buildMetadata({
-      locale,
-      path: `/${locale}/${slug.join("/")}`,
-      title: dictionary.seo.pages.notFound.title,
-      description: dictionary.seo.pages.notFound.description,
-    });
-  }
-
-  if (route.type === "blogPost") {
-    const post = await getPostBySlug(locale, route.slug);
-
-    if (!post) {
-      return buildMetadata({
-        locale,
-        path: `/${locale}/${slug.join("/")}`,
-        title: dictionary.seo.pages.notFound.title,
-        description: dictionary.seo.pages.notFound.description,
-      });
-    }
-
-    const translations = await getPostTranslations(post.translationKey);
-    const languages = Object.fromEntries(
-      translations.map((entry) => [
-        entry.locale,
-        absoluteUrl(siteConfig.url, getLocalizedPath(entry.locale, "blog", { slug: entry.slug })),
-      ]),
-    );
-
-    languages["x-default"] = languages.pt || absoluteUrl(siteConfig.url, "/pt");
-
-    return buildMetadata({
-      locale,
-      path: getLocalizedPath(locale, "blog", { slug: post.slug }),
-      title: `${post.title} | ${siteConfig.shortName}`,
-      description: post.excerpt,
-      languages,
-    });
-  }
-
-  const page = route.page;
-  const pagePaths = Object.fromEntries(
-    locales.map((currentLocale) => [currentLocale, getLocalizedPath(currentLocale, page)]),
-  );
-
-  return buildMetadata({
-    locale,
-    path: getLocalizedPath(locale, page),
-    title: dictionary.seo.pages[page].title,
-    description: dictionary.seo.pages[page].description,
-    languages: {
-      ...Object.fromEntries(
-        Object.entries(pagePaths).map(([key, value]) => [key, absoluteUrl(siteConfig.url, value)]),
-      ),
-      "x-default": absoluteUrl(siteConfig.url, pagePaths.pt),
-    },
-  });
+  return buildResolvedMetadata(data);
 }
 
 export default async function LocalizedPage({ params, searchParams }: PageProps) {
@@ -162,12 +105,7 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
   };
 
   let pageContent: ReactNode | null = null;
-  const pageJsonLd = buildOrganizationJsonLd(
-    locale,
-    route.type === "blogPost"
-      ? getLocalizedPath(locale, "blog", { slug: route.slug })
-      : paths[currentPage],
-  );
+  const pageJsonLd = buildOrganizationJsonLd(locale);
   let extraJsonLd: Record<string, unknown> | null = null;
 
   if (route.type === "blogPost") {
@@ -211,6 +149,7 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
       publishedAt: post.publishedAt,
       locale,
       path: getLocalizedPath(locale, "blog", { slug: post.slug }),
+      image: getMediaAsset(post.cover).src.src,
     });
   } else {
     switch (route.page) {

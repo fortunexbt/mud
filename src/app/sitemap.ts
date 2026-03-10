@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/utils";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries = getAllStaticRoutes().map((route) => ({
     url: absoluteUrl(siteConfig.url, getLocalizedPath(route.locale, route.page)),
-    lastModified: new Date(),
+    lastModified: new Date("2025-01-01"),
   }));
 
   const postEntries = (

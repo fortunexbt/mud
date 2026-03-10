@@ -8,6 +8,15 @@ import { defaultLocale, isLocale, type Locale } from "@/lib/i18n-config";
 import { getNavItems, getPagePaths } from "@/lib/navigation";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
+export async function generateMetadata() {
+  return {
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
+
 export default async function NotFound() {
   const headerList = await headers();
   const localeFromHeader = headerList.get("x-locale");

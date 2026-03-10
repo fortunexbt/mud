@@ -48,7 +48,7 @@ export function SiteHeader({
       <header className="sticky top-0 z-50 border-b border-outline/40 bg-background/90 backdrop-blur-2xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex min-h-[5rem] items-center gap-4 py-3 sm:min-h-[5.35rem] sm:py-4">
-            <SiteLogo href={`/${locale}`} priority className="px-3.5 py-2.5" imageClassName="w-[4.95rem] sm:w-[6rem]" />
+            <SiteLogo href={`/${locale}`} className="px-3.5 py-2.5" imageClassName="w-[4.95rem] sm:w-[6rem]" />
 
             <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex" aria-label="Primary">
               {navItems.map((item) => (

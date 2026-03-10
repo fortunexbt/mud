@@ -62,6 +62,10 @@ export function resolveLocaleFromHeader(value: string | null) {
     if (candidate.startsWith("es")) {
       return "es" satisfies Locale;
     }
+
+    if (candidate.startsWith("en")) {
+      return "en" satisfies Locale;
+    }
   }
 
   return null;

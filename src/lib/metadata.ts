@@ -10,7 +10,24 @@ export interface SeoInput {
   path: string;
   locale: Locale;
   image?: string;
+  openGraphImage?: {
+    url: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  twitterImage?: {
+    url: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
   languages?: Record<string, string>;
+  openGraphType?: "website" | "article";
+  section?: string;
+  publishedTime?: string;
+  authors?: string[];
+  tags?: string[];
 }
 
 export function buildMetadata({
@@ -19,9 +36,28 @@ export function buildMetadata({
   path,
   locale,
   image = "/icon-512.png",
+  openGraphImage,
+  twitterImage,
   languages,
+  openGraphType = "website",
+  section,
+  publishedTime,
+  authors,
+  tags,
 }: SeoInput): Metadata {
   const canonical = absoluteUrl(siteConfig.url, path);
+  const resolvedOpenGraphImage = openGraphImage || {
+    url: absoluteUrl(siteConfig.url, image),
+    width: 1200,
+    height: 630,
+    alt: title,
+  };
+  const resolvedTwitterImage = twitterImage || {
+    url: absoluteUrl(siteConfig.url, image),
+    width: 1200,
+    height: 630,
+    alt: title,
+  };
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -38,19 +74,28 @@ export function buildMetadata({
         },
     },
     openGraph: {
-      type: "website",
-      locale,
+      type: openGraphType,
+      locale: {
+        pt: "pt_BR",
+        es: "es_ES",
+        en: "en_US",
+      }[locale],
       title,
       description,
       url: canonical,
       siteName: siteConfig.name,
-      images: [{ url: absoluteUrl(siteConfig.url, image), width: 1200, height: 630 }],
+      images: [resolvedOpenGraphImage],
+      ...(section ? { section } : {}),
+      ...(publishedTime ? { publishedTime } : {}),
+      ...(authors ? { authors } : {}),
+      ...(tags ? { tags } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [absoluteUrl(siteConfig.url, image)],
+      images: [resolvedTwitterImage],
     },
+    category: section,
   };
 }
