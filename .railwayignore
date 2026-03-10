@@ -1,0 +1,14 @@
+.next/
+node_modules/
+out/
+dist/
+.vercel/
+.DS_Store
+*.log
+coverage/
+.env
+.env.local
+.env.production
+tsconfig.tsbuildinfo
+GENERATED MUD MEDIA/
+images, logos, favicon, etc/

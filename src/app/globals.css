@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 245 240 233;
+  --surface: 237 227 215;
+  --surface-alt: 225 211 196;
+  --sand: 223 208 191;
+  --clay: 214 141 98;
+  --terracotta: 195 111 65;
+  --ink: 47 32 21;
+  --muted: 96 80 66;
+  --sage: 86 125 118;
+  --outline: 176 157 140;
+}
+
+@layer base {
+  * {
+    @apply border-outline;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-body text-ink antialiased;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(214, 141, 98, 0.16), transparent 28%),
+      radial-gradient(circle at 100% 10%, rgba(86, 125, 118, 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(245, 240, 233, 0.98), rgba(236, 228, 216, 0.96));
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+  }
+
+  main {
+    isolation: isolate;
+  }
+
+  section {
+    scroll-margin-top: 6rem;
+  }
+
+  ::selection {
+    background: rgba(195, 111, 65, 0.18);
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  img {
+    @apply select-none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
