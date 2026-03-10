@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logoPrimary from "@/assets/brand/logo-primary.png";
 import { cn } from "@/lib/utils";
 
 interface SiteLogoProps {
@@ -20,16 +19,18 @@ export function SiteLogo({
   const content = (
     <span
       className={cn(
-        "relative inline-flex items-center overflow-hidden rounded-[1.55rem] border border-outline/40 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(245,240,233,0.74))] px-3 py-2 shadow-soft",
+        "relative inline-flex items-center overflow-hidden rounded-[1.45rem] border border-outline/40 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(245,240,233,0.74))] px-3 py-2 shadow-soft",
         className,
       )}
     >
       <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(195,111,65,0.1),transparent_62%)]" />
       <Image
-        src={logoPrimary}
+        src="/brand/logo-wordmark.png"
         alt="MUD Escola de Cerâmica"
+        width={3393}
+        height={2840}
         priority={priority}
-        className={cn("relative h-auto w-[4.75rem] sm:w-[5.8rem]", imageClassName)}
+        className={cn("relative h-auto w-[4.8rem] sm:w-[5.8rem]", imageClassName)}
       />
     </span>
   );

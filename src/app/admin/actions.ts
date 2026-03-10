@@ -4,6 +4,13 @@ import { redirect } from "next/navigation";
 
 import { clearAdminSession, createAdminSession, isValidAdminPassword, requireAdmin } from "@/lib/admin-auth";
 import {
+  authenticateAdminUser,
+  createAdminUser,
+  setAdminUserActive,
+  updateAdminUserPassword,
+  type AdminRole,
+} from "@/lib/admin-users";
+import {
   deleteAdminBlogPost,
   saveAdminBlogPost,
   type ManagedBlogPostStatus,
@@ -17,9 +24,22 @@ import type { ClassTrack } from "@/content/site/types";
 const validStatuses: LeadStatus[] = ["new", "contacted", "qualified", "closed", "spam"];
 const validBlogStatuses: ManagedBlogPostStatus[] = ["draft", "published"];
 const validServiceKeys: ClassTrack["key"][] = ["adults", "kids", "oneOff", "wheel", "groups"];
+const validAdminRoles: AdminRole[] = ["director", "editor"];
 
 export async function loginAction(formData: FormData) {
+  const email = String(formData.get("email") || "").trim().toLowerCase();
   const password = String(formData.get("password") || "").trim();
+
+  if (email) {
+    const user = await authenticateAdminUser(email, password);
+
+    if (!user) {
+      redirect("/admin/login?error=1");
+    }
+
+    await createAdminSession({ userId: user.id, email: user.email });
+    redirect("/admin/leads");
+  }
 
   if (!password || !isValidAdminPassword(password)) {
     redirect("/admin/login?error=1");
@@ -108,7 +128,11 @@ export async function saveBlogPostAction(formData: FormData) {
     cover,
     status,
     authorLabel,
-  });
+  }).catch(() => null);
+
+  if (!saved) {
+    redirect(id ? `/admin/content/blog/${id}?error=validation` : "/admin/content/blog/new?error=validation");
+  }
 
   redirect(`/admin/content/blog/${saved.id}?saved=1`);
 }
@@ -169,4 +193,64 @@ export async function resetServiceTrackAction(formData: FormData) {
 
   await resetManagedServiceTrack(localeValue as Locale, serviceKey);
   redirect(`/admin/content/services?locale=${localeValue}&saved=1`);
+}
+
+export async function createAdminUserAction(formData: FormData) {
+  const actor = await requireAdmin();
+
+  const fullName = String(formData.get("fullName") || "").trim();
+  const email = String(formData.get("email") || "").trim().toLowerCase();
+  const password = String(formData.get("password") || "").trim();
+  const role = String(formData.get("role") || "director").trim() as AdminRole;
+
+  if (!fullName || !email || password.length < 10 || !validAdminRoles.includes(role)) {
+    redirect("/admin/users?error=create");
+  }
+
+  if (actor.mode === "user" && actor.role !== "director") {
+    redirect("/admin/users?error=forbidden");
+  }
+
+  const created = await createAdminUser({ fullName, email, password, role }).catch(() => null);
+  if (!created) {
+    redirect("/admin/users?error=create");
+  }
+
+  redirect("/admin/users?saved=1");
+}
+
+export async function updateAdminUserPasswordAction(formData: FormData) {
+  const actor = await requireAdmin();
+
+  const userId = String(formData.get("userId") || "").trim();
+  const password = String(formData.get("password") || "").trim();
+
+  if (!userId || password.length < 10) {
+    redirect("/admin/users?error=password");
+  }
+
+  if (actor.mode === "user" && actor.role !== "director" && actor.id !== userId) {
+    redirect("/admin/users?error=forbidden");
+  }
+
+  await updateAdminUserPassword(userId, password);
+  redirect("/admin/users?saved=1");
+}
+
+export async function toggleAdminUserAction(formData: FormData) {
+  const actor = await requireAdmin();
+
+  const userId = String(formData.get("userId") || "").trim();
+  const nextValue = String(formData.get("nextValue") || "").trim();
+
+  if (!userId || !["true", "false"].includes(nextValue)) {
+    redirect("/admin/users?error=toggle");
+  }
+
+  if (actor.mode === "user" && actor.role !== "director") {
+    redirect("/admin/users?error=forbidden");
+  }
+
+  await setAdminUserActive(userId, nextValue === "true");
+  redirect("/admin/users?saved=1");
 }

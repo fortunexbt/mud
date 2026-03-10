@@ -31,7 +31,7 @@ export default async function AdminLoginPage({
         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-terracotta">MUD Admin</p>
         <h1 className="mt-3 font-display text-[2.3rem] leading-tight text-ink">Painel da diretoria</h1>
         <p className="mt-3 text-base leading-7 text-muted">
-          Entre para acompanhar os formulários recebidos e a operação do site.
+          Entre para acompanhar os formulários recebidos e a operação do site. Contas de diretoria podem usar e-mail + senha. O acesso legado por senha compartilhada continua disponível enquanto a transição não termina.
         </p>
 
         {!hasAdminConfig() ? (
@@ -41,19 +41,28 @@ export default async function AdminLoginPage({
         ) : (
           <form action={loginAction} className="mt-6 grid gap-4">
             <label className="grid gap-2 text-sm font-medium text-ink">
-              <span>Senha do painel</span>
+              <span>E-mail da diretoria</span>
+              <input
+                type="email"
+                name="email"
+                className="min-h-12 rounded-[1.2rem] border border-outline/60 bg-white px-4 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20"
+                placeholder="Opcional por enquanto"
+                autoComplete="email"
+              />
+            </label>
+            <label className="grid gap-2 text-sm font-medium text-ink">
+              <span>Senha</span>
               <input
                 type="password"
                 name="password"
                 className="min-h-12 rounded-[1.2rem] border border-outline/60 bg-white px-4 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20"
                 placeholder="Digite a senha da diretoria"
-                autoFocus
                 required
               />
             </label>
             {hasError ? (
               <p className="rounded-[1.2rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                A senha informada não confere.
+                Credenciais inválidas.
               </p>
             ) : null}
             <button

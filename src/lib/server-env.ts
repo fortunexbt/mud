@@ -25,7 +25,7 @@ export function getAdminSessionSecret() {
 }
 
 export function hasAdminConfig() {
-  return Boolean(process.env.ADMIN_PASSWORD?.trim() && process.env.ADMIN_SESSION_SECRET?.trim());
+  return Boolean(process.env.ADMIN_SESSION_SECRET?.trim() && (process.env.ADMIN_PASSWORD?.trim() || process.env.DATABASE_URL?.trim()));
 }
 
 export function safeCompare(input: string, expected: string) {

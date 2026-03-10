@@ -46,7 +46,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
         <div className="pointer-events-none absolute inset-0 bg-grain opacity-70" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top,rgba(195,111,65,0.16),transparent_64%)]" />
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(20rem,0.92fr)] lg:items-start lg:gap-12">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.96fr)] lg:items-start lg:gap-12">
             <div className="relative z-10 lg:pr-6">
               <SectionHeading
                 as="h1"
@@ -56,7 +56,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                 className="max-w-[42rem]"
               />
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
                   href={whatsappHref}
                   target="_blank"
@@ -77,9 +77,9 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                 </Link>
               </div>
 
-              <p className="mt-5 max-w-xl text-sm leading-7 text-muted/90">{dictionary.home.hero.note}</p>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-muted/90">{dictionary.home.hero.note}</p>
 
-              <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 {dictionary.home.hero.trustPoints.map((point) => (
                   <div key={point} className="rounded-[1.4rem] border border-outline/45 bg-white/74 px-4 py-3 text-sm font-medium text-ink shadow-soft">
                     {point}
@@ -97,7 +97,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                 filter="grayscale(0.06) sepia(0.12) saturate(0.92) contrast(1.03)"
               />
 
-              <div className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
+              <div className="grid gap-4 lg:grid-cols-2">
                 <div className="rounded-[1.75rem] border border-outline/45 bg-background/96 p-5 shadow-soft sm:p-6">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
                     {foundationCopy.badge}
@@ -124,7 +124,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,22rem)] lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] lg:items-end">
           <SectionHeading
             eyebrow={dictionary.home.classes.eyebrow}
             title={dictionary.home.classes.title}
@@ -197,13 +197,13 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
             <div className="rounded-[1.95rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
               <SectionHeading eyebrow={dictionary.home.about.eyebrow} title={dictionary.home.about.title} />
 
-              <div className="mt-6 space-y-4 text-base leading-8 text-muted">
+              <div className="mt-5 space-y-4 text-base leading-8 text-muted">
                 {dictionary.home.about.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
 
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 {editorialPoints.map((point) => (
                   <div key={point} className="rounded-[1.35rem] bg-surface/78 px-4 py-4 text-sm leading-6 text-muted">
                     {point}
@@ -241,7 +241,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
           </div>
 
           {featuredPost ? (
-            <div className="mt-8 grid gap-5 xl:grid-cols-[minmax(0,1.25fr)_minmax(18rem,0.75fr)]">
+            <div className="mt-8 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
               <BlogCard post={featuredPost} locale={locale} readLabel={dictionary.blog.readArticle} variant="featured" />
               {secondaryPost ? <BlogCard post={secondaryPost} locale={locale} readLabel={dictionary.blog.readArticle} variant="compact" /> : null}
             </div>

@@ -145,6 +145,7 @@ The project now includes a protected admin area for MUD directors:
 - `/admin/content` - current CMS scope and next-step content management guidance
 - `/admin/content/services` - editing for class/service cards used on the site
 - `/admin/content/blog` - CRUD for database-backed blog posts
+- `/admin/users` - director account management and password resets
 
 Current admin capabilities:
 
@@ -153,6 +154,7 @@ Current admin capabilities:
 - add internal notes per lead
 - edit service/class card copy and visibility for the public site
 - create, edit, and publish blog posts from the dashboard
+- maintain individual director/editor accounts while still supporting the temporary shared-password legacy login
 
 Current limitation:
 

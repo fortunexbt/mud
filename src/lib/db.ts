@@ -144,6 +144,24 @@ export async function ensureDatabase() {
       await pool.query(`
         CREATE INDEX IF NOT EXISTS cms_service_tracks_locale_sort_idx ON cms_service_tracks(locale, sort_order ASC, created_at ASC);
       `);
+
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS admin_users (
+          id TEXT PRIMARY KEY,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          full_name TEXT NOT NULL,
+          email TEXT NOT NULL UNIQUE,
+          password_hash TEXT NOT NULL,
+          role TEXT NOT NULL DEFAULT 'director',
+          is_active BOOLEAN NOT NULL DEFAULT TRUE,
+          last_login_at TIMESTAMPTZ
+        );
+      `);
+
+      await pool.query(`
+        CREATE INDEX IF NOT EXISTS admin_users_email_idx ON admin_users(email);
+      `);
     })();
   }
 

@@ -18,7 +18,7 @@ export default async function AdminDashboardLayout({
   children: ReactNode;
   params: Promise<unknown>;
 }) {
-  await requireAdmin();
+  const actor = await requireAdmin();
 
   return (
     <div className="min-h-screen bg-background text-ink">
@@ -27,6 +27,9 @@ export default async function AdminDashboardLayout({
           <div>
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">MUD Admin</p>
             <h1 className="mt-1 font-display text-[1.8rem] leading-tight">Painel da diretoria</h1>
+            <p className="mt-2 text-sm text-muted">
+              {actor.mode === "user" ? `${actor.fullName} · ${actor.email}` : actor.label}
+            </p>
           </div>
 
           <div className="flex items-center gap-2">
@@ -41,6 +44,9 @@ export default async function AdminDashboardLayout({
             </Link>
             <Link href="/admin/content/blog" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
               Blog
+            </Link>
+            <Link href="/admin/users" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
+              Usuários
             </Link>
             <form action={logoutAction}>
               <button type="submit" className="rounded-full border border-outline/60 bg-white px-4 py-2 text-sm font-medium text-ink transition hover:border-terracotta/40 hover:text-terracotta">

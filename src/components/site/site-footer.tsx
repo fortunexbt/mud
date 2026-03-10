@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { InstagramIcon, MapPinIcon, WhatsAppIcon } from "@/components/icons";
-import { SiteLogo } from "@/components/site/site-logo";
+import { SiteLogo } from "./site-logo";
 import { buttonClasses } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import type { SiteDictionary } from "@/content/site";
