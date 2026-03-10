@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logoPrimary from "@/assets/brand/logo-primary.png";
+import logoWordmark from "../../../images, logos, favicon, etc/MUD (Logo no escoladeceramica).png";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { buttonClasses } from "@/components/ui/button";
 import type { SiteDictionary } from "@/content/site";
@@ -37,10 +37,10 @@ export function SiteHeader({
           <div className="flex h-11 w-[7.7rem] items-center overflow-hidden rounded-[1rem] bg-background/95 px-2 sm:h-12 sm:w-[8.6rem] sm:rounded-[1.1rem]">
             <div className="relative h-[4.8rem] w-full">
               <Image
-                src={logoPrimary}
+                src={logoWordmark}
                 alt="MUD Escola de Cerâmica"
                 fill
-                className="object-contain [transform:translateY(-5%)_scale(1.72)]"
+                className="object-contain"
                 priority
                 sizes="(min-width: 640px) 138px, 123px"
               />
