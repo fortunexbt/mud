@@ -33,6 +33,9 @@ export default async function AdminDashboardLayout({
           </div>
 
           <div className="flex items-center gap-2">
+            <Link href="/admin" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
+              Início
+            </Link>
             <Link href="/admin/leads" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
               Leads
             </Link>
@@ -45,9 +48,11 @@ export default async function AdminDashboardLayout({
             <Link href="/admin/content/blog" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
               Blog
             </Link>
-            <Link href="/admin/users" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
-              Usuários
-            </Link>
+            {actor.mode === "legacy" || actor.role === "director" ? (
+              <Link href="/admin/users" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
+                Usuários
+              </Link>
+            ) : null}
             <form action={logoutAction}>
               <button type="submit" className="rounded-full border border-outline/60 bg-white px-4 py-2 text-sm font-medium text-ink transition hover:border-terracotta/40 hover:text-terracotta">
                 Sair

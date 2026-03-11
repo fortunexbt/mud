@@ -37,7 +37,23 @@ export default async function AdminUsersPage({
         {query.saved === "1" ? (
           <p className="mt-4 rounded-[1.2rem] border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">Alterações salvas.</p>
         ) : null}
-        {query.error ? (
+        {query.error === "create" ? (
+          <p className="mt-4 rounded-[1.2rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            Não foi possível criar a conta. Verifique se o e-mail já não está em uso e se os dados estão corretos.
+          </p>
+        ) : query.error === "forbidden" ? (
+          <p className="mt-4 rounded-[1.2rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            Você não tem permissão para realizar esta ação.
+          </p>
+        ) : query.error === "password" ? (
+          <p className="mt-4 rounded-[1.2rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            A senha deve ter pelo menos 10 caracteres.
+          </p>
+        ) : query.error === "toggle" ? (
+          <p className="mt-4 rounded-[1.2rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            Não foi possível alterar o status da conta.
+          </p>
+        ) : query.error ? (
           <p className="mt-4 rounded-[1.2rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
             Não foi possível concluir a ação. Revise os dados e tente novamente.
           </p>

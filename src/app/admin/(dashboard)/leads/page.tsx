@@ -29,6 +29,14 @@ function statusLabel(status: LeadStatus) {
   return "Spam";
 }
 
+function statusColor(status: LeadStatus) {
+  if (status === "new") return "bg-blue-100 text-blue-800";
+  if (status === "contacted") return "bg-amber-100 text-amber-800";
+  if (status === "qualified") return "bg-emerald-100 text-emerald-800";
+  if (status === "closed") return "bg-surface text-ink";
+  return "bg-red-100 text-red-800";
+}
+
 export default async function AdminLeadsPage({
   searchParams,
 }: {
@@ -116,7 +124,7 @@ export default async function AdminLeadsPage({
                     {lead.interest || lead.formType}
                   </div>
                   <div>
-                    <span className="inline-flex rounded-full bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink">
+                    <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] ${statusColor(lead.status)}`}>
                       {statusLabel(lead.status)}
                     </span>
                   </div>

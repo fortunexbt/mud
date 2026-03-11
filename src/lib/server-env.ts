@@ -5,6 +5,8 @@ const envSchema = z.object({
   DATABASE_URL: z.string().optional(),
   ADMIN_PASSWORD: z.string(),
   ADMIN_SESSION_SECRET: z.string(),
+  RESEND_API_KEY: z.string().optional(),
+  EMAIL_FROM: z.string().optional(),
 });
 
 const env = envSchema.parse(process.env);
@@ -23,6 +25,14 @@ export function getAdminPassword() {
 
 export function getAdminSessionSecret() {
   return env.ADMIN_SESSION_SECRET;
+}
+
+export function getResendApiKey() {
+  return env.RESEND_API_KEY?.trim() || "";
+}
+
+export function getEmailFrom() {
+  return env.EMAIL_FROM?.trim() || "MUD <onboarding@resend.dev>";
 }
 
 export function hasAdminConfig() {

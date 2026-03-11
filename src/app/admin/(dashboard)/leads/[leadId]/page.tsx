@@ -26,6 +26,14 @@ function statusLabel(status: LeadStatus) {
   return "Spam";
 }
 
+function statusColor(status: LeadStatus) {
+  if (status === "new") return "bg-blue-100 text-blue-800";
+  if (status === "contacted") return "bg-amber-100 text-amber-800";
+  if (status === "qualified") return "bg-emerald-100 text-emerald-800";
+  if (status === "closed") return "bg-surface text-ink";
+  return "bg-red-100 text-red-800";
+}
+
 function interestLabel(value: string | null | undefined) {
   if (!value) return "-";
   if (value === "adults") return "Adultos";
@@ -57,7 +65,7 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ lea
           </h2>
           <p className="mt-2 text-sm text-muted">Recebido em {formatDate(lead.createdAt)}</p>
         </div>
-        <span className="inline-flex rounded-full bg-surface px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] text-ink">
+        <span className={`inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] ${statusColor(lead.status)}`}>
           {statusLabel(lead.status)}
         </span>
       </div>

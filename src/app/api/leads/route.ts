@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import { createLead, markLeadWebhookStatus } from "@/lib/leads";
 import { leadSchema } from "@/lib/forms";
 import { hasDatabaseUrl } from "@/lib/server-env";
+import { sendLeadNotificationEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   let payload: unknown;
@@ -47,6 +48,11 @@ export async function POST(request: Request) {
     try {
       const lead = await createLead(result.data);
       leadId = lead.id;
+      
+      // Async background email notification
+      sendLeadNotificationEmail(lead).catch((err) => {
+        console.error("Non-fatal error sending lead email notification:", err);
+      });
     } catch {
       if (!canSendWebhook) {
         return NextResponse.json({ ok: false, message: "Lead storage failed." }, { status: 500 });
