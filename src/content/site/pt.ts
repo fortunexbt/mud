@@ -294,9 +294,8 @@ export const ptDictionary: SiteDictionary = {
       description:
         "Criamos um material próprio que chamamos de ABC da Cerâmica, que orienta e organiza nossas aulas.",
       steps: [
-        "Começamos com 8 aulas base, em que o aluno experimenta pinch pot (belisco), placa, acordelado e torno.",
-        "Ao longo do ciclo, vivencia todas as etapas do processo, desde amassar o barro até a peça pronta.",
-        "O foco é desenvolver autonomia, liberdade criativa e repertório técnico para cada aluno construir sua própria relação com a cerâmica.",
+        "Começamos com 8 aulas base. Nesse ciclo, o aluno experimenta diferentes técnicas de modelagem, pinch pot (belisco), placa, acordelado e torno, enquanto vivencia todas as etapas do processo: desde amassar o barro até a peça pronta.",
+        "Nosso foco é desenvolver autonomia, liberdade criativa e repertório técnico, para que cada aluno possa construir sua própria relação com a cerâmica.",
       ],
     },
     timeline: {

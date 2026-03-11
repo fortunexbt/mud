@@ -293,9 +293,8 @@ export const esDictionary: SiteDictionary = {
       title: "Metodología",
       description: "Creamos un material propio al que llamamos ABC de la Cerámica, que orienta y organiza nuestras clases.",
       steps: [
-        "Comenzamos con 8 clases base, en las que el alumno experimenta pinch pot (pellizco), plancha, acordelado y torno.",
-        "A lo largo de ese ciclo, recorre todas las etapas del proceso, desde amasar el barro hasta la pieza terminada.",
-        "El foco es desarrollar autonomía, libertad creativa y repertorio técnico para que cada alumno construya su propia relación con la cerámica.",
+        "Comenzamos con 8 clases base. En ese ciclo, el alumno experimenta distintas técnicas de modelado, pinch pot (pellizco), plancha, acordelado y torno, mientras recorre todas las etapas del proceso: desde amasar el barro hasta la pieza terminada.",
+        "Nuestro foco es desarrollar autonomía, libertad creativa y repertorio técnico, para que cada alumno pueda construir su propia relación con la cerámica.",
       ],
     },
     timeline: {

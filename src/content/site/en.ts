@@ -293,9 +293,8 @@ export const enDictionary: SiteDictionary = {
       title: "Methodology",
       description: "We created our own material, which we call the Ceramics ABC, to guide and organize our classes.",
       steps: [
-        "We begin with 8 foundation classes, in which students experience pinch pot, slab, coil, and wheel techniques.",
-        "Throughout that cycle, they move through every stage of the process, from wedging the clay to the finished piece.",
-        "The focus is to develop autonomy, creative freedom, and technical repertoire so that each student can build their own relationship with ceramics.",
+        "We begin with 8 foundation classes. During that cycle, students experience different modeling techniques - pinch pot, slab, coil, and wheel - while moving through every stage of the process, from wedging the clay to the finished piece.",
+        "Our focus is to develop autonomy, creative freedom, and technical repertoire so that each student can build their own relationship with ceramics.",
       ],
     },
     timeline: {

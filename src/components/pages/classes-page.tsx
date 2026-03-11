@@ -61,21 +61,21 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
       </ScrollReveal>
 
       <section className="border-y border-outline/40 bg-surface/42">
-        <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-          <div className="space-y-6">
+        <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+          <div className="space-y-7">
             <SectionHeading
               eyebrow={dictionary.classes.abcEyebrow}
               title={dictionary.classes.abc.title}
               description={dictionary.classes.abc.description}
               align="center"
             />
-            <div className="grid gap-3">
+            <div className="grid gap-4 md:grid-cols-2 md:items-start">
               {dictionary.classes.abc.steps.map((step, index) => (
-                <article key={step} className="rounded-[1.6rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-terracotta sm:text-xs">
+                <article key={step} className="rounded-[1.8rem] border border-outline/45 bg-white/88 p-6 shadow-soft sm:p-7">
+                  <p className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-full border border-terracotta/18 bg-sand/72 px-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-terracotta sm:text-xs">
                     {String(index + 1).padStart(2, "0")}
                   </p>
-                  <p className="mt-3 text-sm leading-7 text-muted sm:text-base">{step}</p>
+                  <p className="mt-4 max-w-[34rem] text-sm leading-7 text-muted sm:text-base sm:leading-8">{step}</p>
                 </article>
               ))}
             </div>
