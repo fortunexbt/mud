@@ -363,7 +363,7 @@ export const esDictionary: SiteDictionary = {
       description:
         "Ceramistas y profesoras que entienden la técnica como punto de partida.",
     },
-    founderRole: "Fundadora",
+    founderRole: "Fundadora y directora",
     founderBio: [
       "Vik Inaudi nació en Argentina y vivió casi 20 años en Roma, donde descubrió su camino como ceramista.",
       "En Río, fundó MUD como un espacio de aprendizaje y presencia.",
