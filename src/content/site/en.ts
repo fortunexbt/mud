@@ -387,7 +387,7 @@ export const enDictionary: SiteDictionary = {
           "After studying Political Science at UnB, she left years of office work behind to dedicate herself to art in 2019.",
           "In class, she prioritizes each student’s individuality and freedom of expression.",
         ],
-        imageKey: "cristianeBelacianoPortrait",
+        imageKey: "teamPlaceholder",
       },
       {
         name: "Cristiane Belaciano",
@@ -396,7 +396,7 @@ export const enDictionary: SiteDictionary = {
           "Born in Rio, she spent 22 years working as a dentist before turning to ceramics, bringing precision and close attention to form.",
           "After extensive studio practice and work as an assistant, she now shares her knowledge with MUD students.",
         ],
-        imageKey: "teamPlaceholder",
+        imageKey: "cristianeBelacianoPortrait",
       },
     ],
     cta: "Talk to the team",

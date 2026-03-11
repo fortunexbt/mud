@@ -387,7 +387,7 @@ export const esDictionary: SiteDictionary = {
           "Con formación en Ciencia Política por la UnB, dejó años de trabajo de oficina para dedicarse al arte en 2019.",
           "En sus clases prioriza la individualidad de cada alumno y la libertad de expresión.",
         ],
-        imageKey: "cristianeBelacianoPortrait",
+        imageKey: "teamPlaceholder",
       },
       {
         name: "Cristiane Belaciano",
@@ -396,7 +396,7 @@ export const esDictionary: SiteDictionary = {
           "Carioca, trabajó 22 años como odontóloga antes de dedicarse a la cerámica, llevando consigo precisión y atención a la forma.",
           "Después de mucha práctica de atelier y experiencia como asistente, hoy comparte sus conocimientos con los alumnos de MUD.",
         ],
-        imageKey: "teamPlaceholder",
+        imageKey: "cristianeBelacianoPortrait",
       },
     ],
     cta: "Quiero hablar con el equipo",
