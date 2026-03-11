@@ -44,6 +44,8 @@ export function ArtImage({
         fill
         priority={priority}
         sizes={sizes}
+        placeholder="blur"
+        quality={80}
         className={cn("object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.02]", imageClassName)}
         style={{
           objectPosition: asset.objectPosition || "50% 50%",

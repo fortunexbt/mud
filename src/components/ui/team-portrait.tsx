@@ -29,7 +29,9 @@ export function TeamPortrait({ member, placeholderLabel, className, priority = f
         alt={asset.alt}
         fill
         priority={priority}
-        sizes="(min-width: 1280px) 20vw, (min-width: 768px) 40vw, 100vw"
+        placeholder="blur"
+        quality={78}
+        sizes="(min-width: 1280px) 360px, (min-width: 1024px) calc((100vw - 5.5rem) / 3), (min-width: 768px) calc((100vw - 3.75rem) / 2), calc(100vw - 2rem)"
         className="object-cover"
         style={{ objectPosition: asset.objectPosition }}
       />

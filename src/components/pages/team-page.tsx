@@ -32,7 +32,14 @@ export function TeamPage({ locale, dictionary }: PageContext) {
           </div>
 
           <div className="rounded-[1.95rem] border border-outline/45 bg-white/84 p-4 shadow-soft sm:p-5">
-            <ArtImage mediaKey="founderPortrait" aspect="aspect-[4/4.35]" filter="sepia(0.15) saturate(0.88) contrast(1.02)" locale={locale} />
+            <ArtImage
+              mediaKey="founderPortrait"
+              aspect="aspect-[4/4.35]"
+              filter="sepia(0.15) saturate(0.88) contrast(1.02)"
+              sizes="(min-width: 1280px) 560px, (min-width: 1024px) 48vw, 100vw"
+              priority
+              locale={locale}
+            />
           </div>
         </div>
       </section>
@@ -42,7 +49,13 @@ export function TeamPage({ locale, dictionary }: PageContext) {
           <section className="border-b border-outline/40 bg-surface/42">
             <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
               <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-                <ArtImage mediaKey={featuredMember.imageKey} aspect="aspect-[4/4.8]" filter="sepia(0.1) saturate(0.94) contrast(1.02)" locale={locale} />
+                <ArtImage
+                  mediaKey={featuredMember.imageKey}
+                  aspect="aspect-[4/4.8]"
+                  filter="sepia(0.1) saturate(0.94) contrast(1.02)"
+                  sizes="(min-width: 1280px) 500px, (min-width: 1024px) 45vw, 100vw"
+                  locale={locale}
+                />
                 <div className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
                   <SectionHeading eyebrow={dictionary.team.featuredTitle} title={featuredMember.name} description={featuredMember.tagline} />
                   <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-terracotta">{featuredMember.role}</p>
@@ -67,7 +80,7 @@ export function TeamPage({ locale, dictionary }: PageContext) {
           variants={{
             visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+          className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
         >
           {dictionary.team.members.map((member) => (
             <motion.div

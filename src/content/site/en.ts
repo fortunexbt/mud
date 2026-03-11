@@ -394,15 +394,6 @@ export const enDictionary: SiteDictionary = {
         imageKey: "brunaLanesPortrait",
       },
       {
-        name: "Luiza Bittencourt",
-        role: "Adult teacher",
-        bio: [
-          "After studying Political Science at UnB, she left years of office work behind to dedicate herself to art in 2019.",
-          "In class, she prioritizes each student’s individuality and freedom of expression.",
-        ],
-        imageKey: "teamPlaceholder",
-      },
-      {
         name: "Cristiane Belaciano",
         role: "Adult teacher",
         bio: [

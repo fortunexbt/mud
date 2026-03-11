@@ -394,15 +394,6 @@ export const esDictionary: SiteDictionary = {
         imageKey: "brunaLanesPortrait",
       },
       {
-        name: "Luiza Bittencourt",
-        role: "Profesora de adultos",
-        bio: [
-          "Con formación en Ciencia Política por la UnB, dejó años de trabajo de oficina para dedicarse al arte en 2019.",
-          "En sus clases prioriza la individualidad de cada alumno y la libertad de expresión.",
-        ],
-        imageKey: "teamPlaceholder",
-      },
-      {
         name: "Cristiane Belaciano",
         role: "Profesora de adultos",
         bio: [
