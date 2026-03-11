@@ -16,6 +16,7 @@ import apronsGlazingClass from "@/assets/generated/aprons-glazing-class.png";
 import apronShelvingBack from "@/assets/generated/apron-shelving-back.png";
 import apronsOverheadWorkshop from "@/assets/generated/aprons-overhead-workshop.png";
 import apronsKidsBacks from "@/assets/generated/aprons-kids-backs.png";
+import cristianeBelaciano from "@/assets/editorial/cristiane-belaciano.jpeg";
 import doloresPortrait from "@/assets/editorial/dolores.jpeg";
 import exhibition2025 from "@/assets/editorial/exhibition-2025.jpeg";
 import exhibition2024 from "@/assets/editorial/exhibition-2024.jpeg";
@@ -39,6 +40,7 @@ export type MediaKey =
   | "brandTag"
   | "brandSeal"
   | "legacyBlogHeader"
+  | "cristianeBelacianoPortrait"
   | "doloresPortrait"
   | "mudExhibition2025"
   | "mudExhibition2024"
@@ -100,6 +102,11 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
     src: apronsGlazingClass,
     alt: "Turma da MUD esmaltando peças no ateliê",
     objectPosition: "50% 50%",
+  },
+  cristianeBelacianoPortrait: {
+    src: cristianeBelaciano,
+    alt: "Cristiane Belaciano no ateliê da MUD, usando avental da escola.",
+    objectPosition: "50% 32%",
   },
   doloresPortrait: {
     src: doloresPortrait,

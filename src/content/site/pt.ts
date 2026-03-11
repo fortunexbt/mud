@@ -394,7 +394,7 @@ export const ptDictionary: SiteDictionary = {
           "Formada em Pedagogia pela UFRJ, atua em projetos ligados à Arte-Educação e à mediação escolar de crianças da Educação Infantil e Fundamental.",
           "Encantada pelos trabalhos manuais, encontra na MUD formas de redescobrir a relação com a arte e o fazer em ateliê.",
         ],
-        imageKey: "teamPlaceholder",
+        imageKey: "cristianeBelacianoPortrait",
       },
       {
         name: "Luiza Bittencourt",
