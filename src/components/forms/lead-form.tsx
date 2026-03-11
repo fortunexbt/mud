@@ -180,7 +180,7 @@ export function LeadForm({
               label={dictionary.form.labels.preferredLanguage}
               input={
                 <select name="preferredLanguage" className={inputClasses()}>
-                  <option value="">{dictionary.form.languages[locale]}</option>
+                  <option value="">-</option>
                   {Object.entries(dictionary.form.languages).map(([value, label]) => (
                     <option key={value} value={value}>
                       {label}
