@@ -1,15 +1,16 @@
 import { BlogCard } from "@/components/cards/blog-card";
+import { BlogCardSkeleton } from "@/components/ui/blog-card-skeleton";
 import type { PageContext } from "@/components/pages/types";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { BlogPostMeta } from "@/lib/blog";
 
 interface BlogIndexPageProps extends PageContext {
-  posts: BlogPostMeta[];
+  posts: BlogPostMeta[] | null;
 }
 
 export function BlogIndexPage({ locale, dictionary, posts }: BlogIndexPageProps) {
-  const featuredPost = posts[0];
-  const remainingPosts = posts.slice(1);
+  const featuredPost = posts?.[0];
+  const remainingPosts = posts?.slice(1);
 
   return (
     <main id="main">
@@ -25,7 +26,20 @@ export function BlogIndexPage({ locale, dictionary, posts }: BlogIndexPageProps)
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        {featuredPost ? (
+        {posts === null ? (
+          <div className="space-y-10">
+            <div>
+              <div className="mt-8">
+                <BlogCardSkeleton variant="featured" />
+              </div>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {[...Array(3)].map((_, i) => (
+                <BlogCardSkeleton key={i} variant="compact" />
+              ))}
+            </div>
+          </div>
+        ) : featuredPost ? (
           <div className="space-y-10">
             <div>
               <h2 className="font-display text-[2rem] leading-tight text-ink sm:text-[2.45rem]">{dictionary.blog.latestTitle}</h2>
@@ -34,7 +48,7 @@ export function BlogIndexPage({ locale, dictionary, posts }: BlogIndexPageProps)
               </div>
             </div>
 
-            {remainingPosts.length ? (
+            {remainingPosts && remainingPosts.length ? (
               <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                 {remainingPosts.map((post) => (
                   <BlogCard key={post.slug} post={post} locale={locale} readLabel={dictionary.blog.readArticle} variant="compact" />

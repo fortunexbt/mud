@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { siteConfig } from "@/config/site";
 import { formatPhoneDisplay } from "@/lib/utils";
 
-export function ContactPage({ locale, dictionary, configured, whatsappHref }: PageContext) {
+export function ContactPage({ locale, dictionary, whatsappHref }: PageContext) {
   const moreOptionsLabel =
     locale === "pt" ? "Mais formas de contato" : locale === "es" ? "Más formas de contacto" : "More contact options";
 
@@ -101,7 +101,7 @@ export function ContactPage({ locale, dictionary, configured, whatsappHref }: Pa
             <div className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-5 shadow-soft sm:p-8">
               <SectionHeading eyebrow={dictionary.contact.formTitle} title={dictionary.contact.formTitle} description={dictionary.contact.formIntro} />
               <div className="mt-7">
-                <LeadForm locale={locale} dictionary={dictionary} formType="contact" configured={configured} />
+                <LeadForm locale={locale} dictionary={dictionary} formType="contact" />
               </div>
             </div>
           </div>

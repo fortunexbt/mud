@@ -1,15 +1,16 @@
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import dynamic from "next/dynamic";
 
-import { AboutPage } from "../../../components/pages/about-page";
-import { BlogIndexPage } from "../../../components/pages/blog-index-page";
-import { BlogPostPage } from "../../../components/pages/blog-post-page";
-import { ClassesPage } from "../../../components/pages/classes-page";
-import { ContactPage } from "../../../components/pages/contact-page";
-import { HomePage } from "../../../components/pages/home-page";
-import { InquiryPage } from "../../../components/pages/inquiry-page";
-import { PrivacyPage } from "../../../components/pages/privacy-page";
-import { TeamPage } from "../../../components/pages/team-page";
+const AboutPage = dynamic(() => import("../../../components/pages/about-page").then((mod) => mod.AboutPage));
+const BlogIndexPage = dynamic(() => import("../../../components/pages/blog-index-page").then((mod) => mod.BlogIndexPage));
+const BlogPostPage = dynamic(() => import("../../../components/pages/blog-post-page").then((mod) => mod.BlogPostPage));
+const ClassesPage = dynamic(() => import("../../../components/pages/classes-page").then((mod) => mod.ClassesPage));
+const ContactPage = dynamic(() => import("../../../components/pages/contact-page").then((mod) => mod.ContactPage));
+const HomePage = dynamic(() => import("../../../components/pages/home-page").then((mod) => mod.HomePage));
+const InquiryPage = dynamic(() => import("../../../components/pages/inquiry-page").then((mod) => mod.InquiryPage));
+const PrivacyPage = dynamic(() => import("../../../components/pages/privacy-page").then((mod) => mod.PrivacyPage));
+const TeamPage = dynamic(() => import("../../../components/pages/team-page").then((mod) => mod.TeamPage));
 import { SiteFrame } from "../../../components/site/site-frame";
 import { JsonLd } from "@/components/ui/json-ld";
 import { getDictionary } from "@/content/site";

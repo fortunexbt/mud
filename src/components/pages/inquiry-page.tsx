@@ -14,7 +14,6 @@ interface InquiryPageProps extends PageContext {
 export function InquiryPage({
   locale,
   dictionary,
-  configured,
   whatsappHref,
   initialInterest,
 }: InquiryPageProps) {
@@ -89,7 +88,6 @@ export function InquiryPage({
                   locale={locale}
                   dictionary={dictionary}
                   formType="inquiry"
-                  configured={configured}
                   initialInterest={initialInterest}
                 />
               </div>

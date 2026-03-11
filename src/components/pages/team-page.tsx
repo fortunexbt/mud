@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { TeamCard } from "@/components/cards/team-card";
 import type { PageContext } from "@/components/pages/types";
@@ -55,16 +56,30 @@ export function TeamPage({ dictionary }: PageContext) {
         </ScrollReveal>
       ) : null}
 
-      <ScrollReveal>
-        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-          <SectionHeading eyebrow={dictionary.team.facultyTitle} title={dictionary.team.facultyIntro} align="left" />
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {dictionary.team.members.map((member) => (
-              <TeamCard key={member.name} member={member} placeholderLabel={dictionary.team.portraitPending} />
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <SectionHeading eyebrow={dictionary.team.facultyTitle} title={dictionary.team.facultyIntro} align="left" />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+          className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+        >
+          {dictionary.team.members.map((member) => (
+            <motion.div
+              key={member.name}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+              }}
+            >
+              <TeamCard member={member} placeholderLabel={dictionary.team.portraitPending} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
     </main>
   );
 }

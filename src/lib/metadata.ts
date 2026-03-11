@@ -47,15 +47,15 @@ export function buildMetadata({
 }: SeoInput): Metadata {
   const canonical = absoluteUrl(siteConfig.url, path);
   const resolvedOpenGraphImage = openGraphImage || {
-    url: absoluteUrl(siteConfig.url, image),
+    url: absoluteUrl(siteConfig.url, "/opengraph-image.png"),
     width: 1200,
     height: 630,
     alt: title,
   };
   const resolvedTwitterImage = twitterImage || {
-    url: absoluteUrl(siteConfig.url, image),
-    width: 1200,
-    height: 630,
+    url: absoluteUrl(siteConfig.url, "/twitter-image.png"),
+    width: 1600,
+    height: 900,
     alt: title,
   };
 
