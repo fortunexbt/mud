@@ -239,6 +239,7 @@ export const ptDictionary: SiteDictionary = {
       title: "Formatos para cada ritmo.",
       description: "Da primeira aula à prática contínua.",
     },
+    abcEyebrow: "ABC da cerâmica",
     intro: [
       "Aprender cerâmica é também um tempo para si.",
       "Oferecemos diferentes formatos de aulas sempre com base técnica, acompanhamento atento e o prazer de criar com as mãos.",
@@ -312,6 +313,7 @@ export const ptDictionary: SiteDictionary = {
         },
       ],
     },
+    faqEyebrow: "FAQ",
     faqTitle: "Perguntas frequentes",
     faqs: [
       {
@@ -345,6 +347,7 @@ export const ptDictionary: SiteDictionary = {
           "Sim. A escola recebe consultas para grupos privados, empresas, eventos e experiências especiais, sempre avaliando formato e disponibilidade.",
       },
     ],
+    contactEyebrow: "Contato",
     cta: {
       title: "Quer descobrir qual formato faz mais sentido para você?",
       description: "Fale no WhatsApp para tirar dúvidas rápidas ou envie seu interesse com idioma e disponibilidade.",
@@ -495,12 +498,14 @@ export const ptDictionary: SiteDictionary = {
       title: "Fale com a MUD.",
       description: "WhatsApp para conversas rápidas, formulário para pedidos e Instagram para acompanhar o ateliê.",
     },
+    moreOptionsLabel: "Mais formas de contato",
     formTitle: "Enviar mensagem",
     formIntro: "Se preferir escrever com mais contexto, envie um formulário com seus dados e disponibilidade.",
     detailsTitle: "Endereço e canais",
     detailsBody: "A escola fica no Leblon, na Rua Ataulfo de Paiva, Sobreloja 14/15. Use o mapa ou chame no WhatsApp.",
     mapTitle: "Como chegar",
     mapBody: "O mapa abaixo facilita visitas, primeiras aulas e encontros presenciais.",
+    mapEmbedTitle: "Mapa da MUD Escola de Cerâmica",
     whatsappCta: "Chamar no WhatsApp",
     instagramCta: "Abrir Instagram",
   },

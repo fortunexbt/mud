@@ -7,10 +7,7 @@ import { ArtImage } from "@/components/ui/art-image";
 import { buttonClasses } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function ClassesPage({ locale, dictionary, paths }: PageContext) {
-  const faqEyebrow = locale === "pt" ? "FAQ" : locale === "es" ? "Preguntas" : "FAQ";
-  const contactEyebrow = locale === "pt" ? "Contato" : locale === "es" ? "Contacto" : "Contact";
-
+export function ClassesPage({ dictionary, paths }: PageContext) {
   return (
     <main id="main">
       <section className="border-b border-outline/40">
@@ -65,7 +62,12 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
       <section className="border-y border-outline/40 bg-surface/42">
         <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="space-y-6">
-            <SectionHeading eyebrow="ABC" title={dictionary.classes.abc.title} description={dictionary.classes.abc.description} align="center" />
+            <SectionHeading
+              eyebrow={dictionary.classes.abcEyebrow}
+              title={dictionary.classes.abc.title}
+              description={dictionary.classes.abc.description}
+              align="center"
+            />
             <div className="grid gap-3">
               {dictionary.classes.abc.steps.map((step, index) => (
                 <article key={step} className="rounded-[1.6rem] border border-outline/45 bg-white/82 p-5 shadow-soft sm:p-6">
@@ -81,7 +83,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <SectionHeading eyebrow={faqEyebrow} title={dictionary.classes.faqTitle} />
+        <SectionHeading eyebrow={dictionary.classes.faqEyebrow} title={dictionary.classes.faqTitle} />
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           {dictionary.classes.faqs.map((faq) => (
             <details key={faq.question} className="group rounded-[1.7rem] border border-outline/45 bg-white/82 px-5 py-4 shadow-soft sm:px-6">
@@ -101,7 +103,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
         <div className="mx-auto max-w-7xl px-4 py-14 text-white sm:px-6 sm:py-10 lg:px-8 lg:py-18">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-clay/90 sm:text-xs">{contactEyebrow}</p>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-clay/90 sm:text-xs">{dictionary.classes.contactEyebrow}</p>
               <h2 className="mt-3 font-display text-[2rem] leading-tight sm:text-[2.7rem]">{dictionary.classes.cta.title}</h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-white/75">{dictionary.classes.cta.description}</p>
             </div>

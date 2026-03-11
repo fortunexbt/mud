@@ -1,10 +1,14 @@
 import { siteConfig } from "@/config/site";
 
-export function MapEmbed() {
+interface MapEmbedProps {
+  title: string;
+}
+
+export function MapEmbed({ title }: MapEmbedProps) {
   return (
     <div className="overflow-hidden rounded-[1.75rem] border border-outline/50 bg-white/78 shadow-soft sm:rounded-[2rem]">
       <iframe
-        title="MUD Escola de Cerâmica map"
+        title={title}
         src={siteConfig.mapsEmbedUrl}
         className="h-[18rem] w-full border-0 sm:h-[22rem]"
         loading="lazy"

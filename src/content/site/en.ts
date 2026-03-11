@@ -47,7 +47,7 @@ export const enDictionary: SiteDictionary = {
       eyebrow: "Classes",
       title: "Different entry points, the same care for the process.",
       intro:
-        "Different class formats for different profiles, always with technique, attention, and the pleasure of making by hand.",
+        "Learning ceramics is also time for yourself. We offer different class formats, always grounded in technique, attentive guidance, and the pleasure of creating with your hands.",
       cards: [
         {
           key: "adults",
@@ -93,11 +93,11 @@ export const enDictionary: SiteDictionary = {
     },
     pedagogy: {
       eyebrow: "The ceramics ABC",
-      title: "Foundation before shortcuts.",
+      title: "Methodology",
       paragraphs: [
-        "At MUD, the journey begins with an 8-class foundation called the ceramics ABC.",
-        "Students move through slab, coil, pinch, and kurinuki while learning drying, firing, and material research.",
-        "The goal is not speed, but enough repertoire to create with more autonomy and freedom.",
+        "We created our own material, which we call the Ceramics ABC, to guide and organize our classes.",
+        "We begin with 8 foundation classes. During that cycle, students experience different modeling techniques - pinch pot, slab, coil, and wheel - while moving through every stage of the process, from wedging the clay to the finished piece.",
+        "Our focus is to develop autonomy, creative freedom, and technical repertoire so that each student can build their own relationship with ceramics.",
       ],
       methods: ["Slab", "Coil", "Pinch", "Kurinuki", "Clay bodies", "Engobes", "Glazes"],
       note: "Ceramics is slow by nature: drying, firing, and finishing are part of the experience. Here, that time is treated as an essential part of the work.",
@@ -239,8 +239,10 @@ export const enDictionary: SiteDictionary = {
       title: "Formats for every rhythm.",
       description: "From the first class to long-term practice.",
     },
+    abcEyebrow: "Ceramics ABC",
     intro: [
-      "Different formats for different profiles, always with technical rigor and the pleasure of working by hand.",
+      "Learning ceramics is also time for yourself.",
+      "We offer different class formats, always grounded in technique, attentive guidance, and the pleasure of creating with your hands.",
     ],
     tracks: [
       {
@@ -285,12 +287,12 @@ export const enDictionary: SiteDictionary = {
       },
     ],
     abc: {
-      title: "The 8-class foundation cycle",
-      description: "The ceramics ABC introduces handbuilding foundations while bringing students closer to clay bodies, glazes, and engobes.",
+      title: "Methodology",
+      description: "We created our own material, which we call the Ceramics ABC, to guide and organize our classes.",
       steps: [
-        "Core techniques: slab, coil, pinch, and kurinuki",
-        "Understanding drying, firing, finishing, and how clay behaves",
-        "A gradual move toward material research and project autonomy",
+        "We begin with 8 foundation classes, in which students experience pinch pot, slab, coil, and wheel techniques.",
+        "Throughout that cycle, they move through every stage of the process, from wedging the clay to the finished piece.",
+        "The focus is to develop autonomy, creative freedom, and technical repertoire so that each student can build their own relationship with ceramics.",
       ],
     },
     timeline: {
@@ -310,6 +312,7 @@ export const enDictionary: SiteDictionary = {
         },
       ],
     },
+    faqEyebrow: "FAQ",
     faqTitle: "Frequently asked questions",
     faqs: [
       {
@@ -343,6 +346,7 @@ export const enDictionary: SiteDictionary = {
           "Yes. The school takes inquiries for private groups, companies, events, and special experiences, always depending on format and availability.",
       },
     ],
+    contactEyebrow: "Contact",
     cta: {
       title: "Want help choosing the right format?",
       description: "Message MUD on WhatsApp for a faster reply, or send your interest with language and availability.",
@@ -473,12 +477,14 @@ export const enDictionary: SiteDictionary = {
       title: "Reach MUD.",
       description: "WhatsApp for fast conversations, forms for inquiries, and Instagram for daily studio life.",
     },
+    moreOptionsLabel: "More contact options",
     formTitle: "Send a message",
     formIntro: "If you would rather write with more context, send a form with your details and availability.",
     detailsTitle: "Address and channels",
     detailsBody: "The school is in Leblon, at Rua Ataulfo de Paiva, Sobreloja 14/15. Use the map or message MUD on WhatsApp.",
     mapTitle: "How to find us",
     mapBody: "The map below helps with visits, first classes, and in-person meetings.",
+    mapEmbedTitle: "Map of MUD Escola de Cerâmica",
     whatsappCta: "Open WhatsApp",
     instagramCta: "Open Instagram",
   },

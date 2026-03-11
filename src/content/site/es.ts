@@ -47,7 +47,7 @@ export const esDictionary: SiteDictionary = {
       eyebrow: "Clases",
       title: "Distintas puertas de entrada, el mismo cuidado con el proceso.",
       intro:
-        "Formatos para perfiles distintos, siempre con técnica, escucha y placer por el trabajo manual.",
+        "Aprender cerámica también es un tiempo para uno mismo. Ofrecemos diferentes formatos de clases siempre con base técnica, acompañamiento atento y el placer de crear con las manos.",
       cards: [
         {
           key: "adults",
@@ -93,11 +93,11 @@ export const esDictionary: SiteDictionary = {
     },
     pedagogy: {
       eyebrow: "ABC de la cerámica",
-      title: "Base antes que atajo.",
+      title: "Metodología",
       paragraphs: [
-        "La entrada a MUD comienza con 8 clases de base: el ABC de la cerámica.",
-        "En ese ciclo, el alumno pasa por plancha, churro, pinch y kurinuki mientras entiende secado, horno e investigación material.",
-        "La idea no es acelerar, sino dar repertorio para crear con más autonomía y libertad.",
+        "Creamos un material propio al que llamamos ABC de la Cerámica, que orienta y organiza nuestras clases.",
+        "Comenzamos con 8 clases base. En ese ciclo, el alumno experimenta distintas técnicas de modelado, pinch pot (pellizco), plancha, acordelado y torno, mientras recorre todas las etapas del proceso: desde amasar el barro hasta la pieza terminada.",
+        "Nuestro foco es desarrollar autonomía, libertad creativa y repertorio técnico, para que cada alumno pueda construir su propia relación con la cerámica.",
       ],
       methods: ["Plancha", "Churro", "Pinch", "Kurinuki", "Arcillas", "Engobes", "Esmaltes"],
       note: "La cerámica es lenta: secado, horno y terminación forman parte de la experiencia. Aquí ese tiempo se trata como parte de su valor.",
@@ -239,8 +239,10 @@ export const esDictionary: SiteDictionary = {
       title: "Formatos para cada ritmo.",
       description: "Desde la primera clase hasta la práctica continua.",
     },
+    abcEyebrow: "ABC de la cerámica",
     intro: [
-      "Formatos para perfiles diversos, siempre con rigor técnico y placer por el trabajo manual.",
+      "Aprender cerámica también es un tiempo para uno mismo.",
+      "Ofrecemos diferentes formatos de clases siempre con base técnica, acompañamiento atento y el placer de crear con las manos.",
     ],
     tracks: [
       {
@@ -285,12 +287,12 @@ export const esDictionary: SiteDictionary = {
       },
     ],
     abc: {
-      title: "El ciclo inicial de 8 clases",
-      description: "El ABC de la cerámica presenta fundamentos de modelado y acerca al alumno a la investigación de arcillas, esmaltes y engobes.",
+      title: "Metodología",
+      description: "Creamos un material propio al que llamamos ABC de la Cerámica, que orienta y organiza nuestras clases.",
       steps: [
-        "Técnicas básicas: plancha, churro, pinch y kurinuki",
-        "Comprensión de secado, horno, acabado y comportamiento del barro",
-        "Introducción gradual a la investigación material y a la autonomía de proyecto",
+        "Comenzamos con 8 clases base, en las que el alumno experimenta pinch pot (pellizco), plancha, acordelado y torno.",
+        "A lo largo de ese ciclo, recorre todas las etapas del proceso, desde amasar el barro hasta la pieza terminada.",
+        "El foco es desarrollar autonomía, libertad creativa y repertorio técnico para que cada alumno construya su propia relación con la cerámica.",
       ],
     },
     timeline: {
@@ -310,6 +312,7 @@ export const esDictionary: SiteDictionary = {
         },
       ],
     },
+    faqEyebrow: "Preguntas",
     faqTitle: "Preguntas frecuentes",
     faqs: [
       {
@@ -343,6 +346,7 @@ export const esDictionary: SiteDictionary = {
           "Sí. La escuela recibe consultas para grupos privados, empresas, eventos y experiencias especiales, siempre evaluando formato y disponibilidad.",
       },
     ],
+    contactEyebrow: "Contacto",
     cta: {
       title: "¿Quieres descubrir qué formato encaja mejor contigo?",
       description: "Escríbenos por WhatsApp para dudas rápidas o envía tu interés con idioma y disponibilidad.",
@@ -473,12 +477,14 @@ export const esDictionary: SiteDictionary = {
       title: "Habla con MUD.",
       description: "WhatsApp para conversaciones rápidas, formulario para pedidos e Instagram para seguir el atelier.",
     },
+    moreOptionsLabel: "Más formas de contacto",
     formTitle: "Enviar mensaje",
     formIntro: "Si prefieres escribir con más contexto, envía un formulario con tus datos y disponibilidad.",
     detailsTitle: "Dirección y canales",
     detailsBody: "La escuela está en Leblon, en Rua Ataulfo de Paiva, Sobreloja 14/15. Usa el mapa o escribe por WhatsApp.",
     mapTitle: "Cómo llegar",
     mapBody: "El mapa facilita visitas, primeras clases y encuentros presenciales.",
+    mapEmbedTitle: "Mapa de MUD Escola de Cerâmica",
     whatsappCta: "Escribir por WhatsApp",
     instagramCta: "Abrir Instagram",
   },

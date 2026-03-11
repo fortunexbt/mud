@@ -9,7 +9,14 @@ import { getNavItems, getPagePaths } from "@/lib/navigation";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export async function generateMetadata() {
+  const headerList = await headers();
+  const localeFromHeader = headerList.get("x-locale");
+  const locale: Locale = localeFromHeader && isLocale(localeFromHeader) ? localeFromHeader : defaultLocale;
+  const dictionary = getDictionary(locale);
+
   return {
+    title: dictionary.seo.pages.notFound.title,
+    description: dictionary.seo.pages.notFound.description,
     robots: {
       index: false,
       follow: false,

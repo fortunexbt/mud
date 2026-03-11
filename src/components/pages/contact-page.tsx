@@ -11,9 +11,6 @@ import { siteConfig } from "@/config/site";
 import { formatPhoneDisplay } from "@/lib/utils";
 
 export function ContactPage({ locale, dictionary, whatsappHref }: PageContext) {
-  const moreOptionsLabel =
-    locale === "pt" ? "Mais formas de contato" : locale === "es" ? "Más formas de contacto" : "More contact options";
-
   return (
     <main id="main">
       <section className="border-b border-outline/40">
@@ -74,7 +71,7 @@ export function ContactPage({ locale, dictionary, whatsappHref }: PageContext) {
                   {siteConfig.email ? <Link href={`mailto:${siteConfig.email}`} className="hover:text-ink">{siteConfig.email}</Link> : null}
                 </div>
                 <details className="mt-4 rounded-[1.4rem] border border-outline/45 bg-white/72 px-4 py-4 text-sm leading-7 text-muted sm:hidden">
-                  <summary className="cursor-pointer list-none font-semibold text-ink">{moreOptionsLabel}</summary>
+                  <summary className="cursor-pointer list-none font-semibold text-ink">{dictionary.contact.moreOptionsLabel}</summary>
                   <div className="mt-3 space-y-3 border-t border-outline/45 pt-3">
                     <Link href={whatsappHref} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-ink">
                       <WhatsAppIcon className="h-4 w-4 text-terracotta" />
@@ -94,7 +91,7 @@ export function ContactPage({ locale, dictionary, whatsappHref }: PageContext) {
                   <h2 className="font-display text-[1.8rem] leading-tight text-ink sm:text-[2.1rem]">{dictionary.contact.mapTitle}</h2>
                   <p className="mt-2 text-sm leading-7 text-muted">{dictionary.contact.mapBody}</p>
                 </div>
-                <MapEmbed />
+                <MapEmbed title={dictionary.contact.mapEmbedTitle} />
               </div>
             </div>
 

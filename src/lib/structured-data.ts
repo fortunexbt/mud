@@ -1,9 +1,11 @@
+import { getDictionary } from "@/content/site";
 import { siteConfig } from "@/config/site";
 import type { Locale } from "@/lib/i18n-config";
 import { absoluteUrl } from "@/lib/utils";
 
 export function buildOrganizationJsonLd(locale: Locale) {
   const address = siteConfig.address;
+  const dictionary = getDictionary(locale);
 
   return {
     "@context": "https://schema.org",
@@ -11,7 +13,7 @@ export function buildOrganizationJsonLd(locale: Locale) {
     name: siteConfig.name,
     url: siteConfig.url,
     image: absoluteUrl(siteConfig.url, "/icon-512.png"),
-    description: siteConfig.description,
+    description: dictionary.seo.defaultDescription,
     address: {
       "@type": "PostalAddress",
       streetAddress: address.street,

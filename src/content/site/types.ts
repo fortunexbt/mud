@@ -160,6 +160,7 @@ export interface SiteDictionary {
       title: string;
       description: string;
     };
+    abcEyebrow: string;
     intro: string[];
     tracks: ClassTrack[];
     abc: {
@@ -171,8 +172,10 @@ export interface SiteDictionary {
       title: string;
       items: Array<{ title: string; description: string }>;
     };
+    faqEyebrow: string;
     faqTitle: string;
     faqs: FaqItem[];
+    contactEyebrow: string;
     cta: {
       title: string;
       description: string;
@@ -228,12 +231,14 @@ export interface SiteDictionary {
       title: string;
       description: string;
     };
+    moreOptionsLabel: string;
     formTitle: string;
     formIntro: string;
     detailsTitle: string;
     detailsBody: string;
     mapTitle: string;
     mapBody: string;
+    mapEmbedTitle: string;
     whatsappCta: string;
     instagramCta: string;
   };
