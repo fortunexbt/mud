@@ -8,7 +8,11 @@ import { siteConfig } from "@/config/site";
 const resend = getResendApiKey() ? new Resend(getResendApiKey()) : null;
 
 export async function sendLeadNotificationEmail(lead: LeadRecord) {
+  const apiKey = getResendApiKey();
+  console.log("DEBUG: Resend API Key length:", apiKey?.length);
+  
   if (!resend) {
+    console.error("DEBUG: Resend client not initialized. Check RESEND_API_KEY.");
     return false;
   }
 
@@ -19,12 +23,14 @@ export async function sendLeadNotificationEmail(lead: LeadRecord) {
     if (siteConfig.email) {
       recipients.push(siteConfig.email);
     }
+    console.log("DEBUG: SiteConfig Email:", siteConfig.email);
 
     // Attempt to notify all active directors from the database
     if (hasDatabaseUrl()) {
       const directors = await dbQuery<{ email: string }>(
         `SELECT email FROM admin_users WHERE role = 'director' AND is_active = true`
       );
+      console.log("DEBUG: Found directors in DB:", directors.rows.length);
       for (const row of directors.rows) {
         if (!recipients.includes(row.email)) {
           recipients.push(row.email);
@@ -32,10 +38,12 @@ export async function sendLeadNotificationEmail(lead: LeadRecord) {
       }
     }
 
+    console.log("DEBUG: Recipients list:", recipients);
     if (recipients.length === 0) {
       console.warn("No recipients configured for lead notifications.");
       return false;
     }
+
 
     const { error } = await resend.emails.send({
       from: getEmailFrom(),
