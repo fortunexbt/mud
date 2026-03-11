@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { CloseIcon, MenuIcon } from "@/components/icons";
+import { CloseIcon, InstagramIcon, MenuIcon } from "@/components/icons";
+import { siteConfig } from "@/config/site";
 import { LanguageSwitcher } from "./language-switcher";
 import { SiteLogo } from "./site-logo";
 import { buttonClasses } from "@/components/ui/button";
@@ -93,6 +94,15 @@ export function SiteHeader({
                 compact
                 className="bg-white/84"
               />
+              <Link
+                href={siteConfig.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={buttonClasses({ variant: "secondary", size: "sm", className: "shrink-0 px-3" })}
+                aria-label="Instagram"
+              >
+                <InstagramIcon className="h-5 w-5 text-ink" />
+              </Link>
               <Link
                 href={whatsappHref}
                 target="_blank"

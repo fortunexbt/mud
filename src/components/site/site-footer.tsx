@@ -149,9 +149,6 @@ export function SiteFooter({
           <p>
             © {year} {dictionary.footer.rights}
           </p>
-          <Link href={instagramUrl} target="_blank" rel="noreferrer" className="hover:text-white/60">
-            Instagram
-          </Link>
         </div>
       </div>
     </footer>

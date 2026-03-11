@@ -233,23 +233,23 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
   }
 
   return (
-    <SiteFrame
-      locale={locale}
-      dictionary={dictionary}
-      currentPage={currentPage}
-      navItems={navItems.map((item) => ({ ...item }))}
-      localePaths={localePaths}
-      instagramUrl={siteConfig.instagramUrl}
-      whatsappHref={whatsappHref}
-      privacyHref={paths.privacy}
-      email={siteConfig.email || undefined}
-      phone={siteConfig.whatsappNumber}
-      addressLines={[
-        siteConfig.address.street,
-        `${siteConfig.address.neighborhood} - ${siteConfig.address.city}`,
-        `CEP ${siteConfig.address.postalCode}`,
-      ]}
-    >
+      <SiteFrame
+        locale={locale}
+        dictionary={dictionary}
+        currentPage={currentPage}
+        navItems={navItems.map((item) => ({ ...item }))}
+        localePaths={localePaths}
+        instagramUrl={siteConfig.instagramUrl}
+        whatsappHref={whatsappHref}
+        privacyHref={paths.privacy}
+        email={siteConfig.email || undefined}
+        phone={siteConfig.whatsappNumber}
+        addressLines={[
+          siteConfig.address.street,
+          `${siteConfig.address.neighborhood} - ${siteConfig.address.city}`,
+          `CEP ${siteConfig.address.postalCode}`,
+        ]}
+      >
       <JsonLd data={pageJsonLd} />
       {extraJsonLd ? <JsonLd data={extraJsonLd} /> : null}
       {breadcrumbs ? <JsonLd data={breadcrumbs} /> : null}

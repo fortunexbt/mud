@@ -145,7 +145,8 @@ async function getManagedPublishedPosts(locale: Locale) {
         } satisfies BlogPost;
       }),
     );
-  } catch {
+  } catch (error) {
+    console.error("Failed to fetch managed blog posts:", error);
     return [] as BlogPost[];
   }
 }

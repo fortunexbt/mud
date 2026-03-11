@@ -6,9 +6,7 @@ import { ArtImage } from "@/components/ui/art-image";
 import { buttonClasses } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageContext) {
-  const fullStoryLabel =
-    locale === "pt" ? "Ler história completa" : locale === "es" ? "Leer la historia completa" : "Read the full story";
+export function AboutPage({ dictionary, paths, whatsappHref }: PageContext) {
   const exhibitions = dictionary.about.exhibitions?.items ?? [];
 
   return (
@@ -24,19 +22,10 @@ export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageConte
             />
 
             <div className="space-y-4 text-base leading-8 text-muted">
-              {dictionary.about.story.slice(0, 2).map((paragraph) => (
+              {dictionary.about.story.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-
-            <details className="rounded-[1.5rem] border border-outline/45 bg-white/76 px-4 py-4 text-sm leading-7 text-muted shadow-soft">
-              <summary className="cursor-pointer list-none font-semibold text-ink">{fullStoryLabel}</summary>
-              <div className="mt-3 space-y-3 border-t border-outline/45 pt-3">
-                {dictionary.about.story.slice(2).map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </details>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href={paths.classes} className={buttonClasses({})}>
