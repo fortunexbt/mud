@@ -394,12 +394,23 @@ export const ptDictionary: SiteDictionary = {
     members: [
       {
         name: "Juliana Moreno",
-        role: "directora e professora",
+        role: "Diretora e Professora",
         bio: [
-          "Formada em Pedagogia pela UFRJ, atua em projetos ligados à Arte-Educação e à mediação escolar de crianças da Educação Infantil e Fundamental.",
-          "Encantada pelos trabalhos manuais, encontra na MUD formas de redescobrir a relação com a arte e o fazer em ateliê.",
+          "Juliana é formada em Artes Visuais e Pedagogia pela UFRJ. Atua em projetos de arte-educação, desenvolvendo práticas pedagógicas baseadas nas múltiplas linguagens e no fazer com as mãos.",
+          "Na cerâmica, investiga o legado do barro como ferramenta de criação, aprendizado e processo de autoconhecimento para crianças, jovens e adultos.",
+          "Seu trabalho tem forte relação com a educação artística, criando experiências sensíveis que estimulam imaginação, expressão e autonomia.",
         ],
-        imageKey: "teamPlaceholder",
+        imageKey: "julianaMorenoPortrait",
+      },
+      {
+        name: "Bruna Lanes",
+        role: "Professora",
+        bio: [
+          "Artista visual que transita por múltiplas linguagens, como pintura, costura, bordado, gravura, cerâmica e tatuagem.",
+          "Desde a infância envolvida com as artes manuais, desenvolve uma produção marcada por cores intensas e formas simbólicas.",
+          "Na cerâmica, encontra no barro um caminho para reconectar corpo e mente, acalmar a ansiedade e criar peças sensíveis e expressivas.",
+        ],
+        imageKey: "brunaLanesPortrait",
       },
       {
         name: "Luiza Bittencourt",

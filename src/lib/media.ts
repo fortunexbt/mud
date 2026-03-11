@@ -15,15 +15,17 @@ import apronKneadingVertical from "@/assets/generated/apron-kneading-vertical.pn
 import apronKneadingSquare from "@/assets/generated/apron-kneading-square.png";
 import apronWheelTrim from "@/assets/generated/apron-wheel-trim.png";
 import apronsGlazingClass from "@/assets/generated/aprons-glazing-class.png";
-import apronShelvingBack from "@/assets/generated/apron-shelving-back.png";
 import apronsOverheadWorkshop from "@/assets/generated/aprons-overhead-workshop.png";
 import apronsKidsBacks from "@/assets/generated/aprons-kids-backs.png";
+import brunaLanesPortrait from "@/assets/editorial/Bruna Lanes.jpeg";
 import cristianeBelaciano from "@/assets/editorial/cristiane-belaciano.jpeg";
 import doloresPortrait from "@/assets/editorial/dolores.jpeg";
 import exhibition2025 from "@/assets/editorial/exhibition-2025.jpeg";
 import exhibition2024 from "@/assets/editorial/exhibition-2024.jpeg";
 import exhibition2023 from "@/assets/editorial/exhibition-2023.jpeg";
 import exhibition2022 from "@/assets/editorial/exhibition-2022.jpeg";
+import julianaMorenoPortrait from "@/assets/editorial/Juliana Dolores.jpeg";
+import vikPortrait from "@/assets/editorial/Vik.jpeg";
 
 export type MediaKey =
   | "logoPrimary"
@@ -38,6 +40,8 @@ export type MediaKey =
   | "processHands"
   | "founderPortrait"
   | "teamPlaceholder"
+  | "julianaMorenoPortrait"
+  | "brunaLanesPortrait"
   | "kidsStudio"
   | "brandTag"
   | "brandSeal"
@@ -88,18 +92,28 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
     objectPosition: "50% 50%",
   },
   founderPortrait: {
-    src: apronShelvingBack,
+    src: vikPortrait,
     alt: localizedAlt(
-      "Ambiente do ateliê da MUD com avental da marca diante de prateleiras cheias de peças",
-      "Ambiente del atelier de MUD con el delantal de la marca frente a estantes llenas de piezas",
-      "MUD studio setting with the brand apron in front of shelves full of pieces",
+      "Vik Inaudi no ateliê da MUD.",
+      "Vik Inaudi en el atelier de MUD.",
+      "Vik Inaudi at the MUD studio.",
     ),
-    objectPosition: "50% 40%",
+    objectPosition: "50% 30%",
   },
   teamPlaceholder: {
     src: apronKneadingSquare,
     alt: localizedAlt("Imagem provisória do retrato da equipe da MUD", "Imagen provisoria del retrato del equipo de MUD", "Placeholder portrait for the MUD team"),
     objectPosition: "50% 50%",
+  },
+  julianaMorenoPortrait: {
+    src: julianaMorenoPortrait,
+    alt: localizedAlt("Juliana Moreno no ateliê da MUD.", "Juliana Moreno en el atelier de MUD.", "Juliana Moreno at the MUD studio."),
+    objectPosition: "50% 28%",
+  },
+  brunaLanesPortrait: {
+    src: brunaLanesPortrait,
+    alt: localizedAlt("Bruna Lanes no ateliê da MUD.", "Bruna Lanes en el atelier de MUD.", "Bruna Lanes at the MUD studio."),
+    objectPosition: "50% 28%",
   },
   kidsStudio: {
     src: apronsKidsBacks,

@@ -375,12 +375,23 @@ export const enDictionary: SiteDictionary = {
     members: [
       {
         name: "Juliana Moreno",
-        role: "Administration · Teacher for kids and adults",
+        role: "Director and Teacher",
         bio: [
-          "With a degree in Pedagogy from UFRJ, she works on projects connected to art education and school mediation.",
-          "Drawn to manual practices, she sees MUD as a place to reconnect art, teaching, and atelier work.",
+          "Juliana holds degrees in Visual Arts and Pedagogy from UFRJ. She works in art education projects, developing teaching practices grounded in multiple languages and hands-on making.",
+          "In ceramics, she explores the legacy of clay as a tool for creation, learning, and self-knowledge for children, teens, and adults.",
+          "Her work is deeply connected to arts education, creating sensitive experiences that encourage imagination, expression, and autonomy.",
         ],
-        imageKey: "teamPlaceholder",
+        imageKey: "julianaMorenoPortrait",
+      },
+      {
+        name: "Bruna Lanes",
+        role: "Teacher",
+        bio: [
+          "A visual artist moving across painting, sewing, embroidery, printmaking, ceramics, and tattooing.",
+          "Involved with handmade practices since childhood, she develops work marked by intense colors and symbolic forms.",
+          "In ceramics, she finds in clay a way to reconnect body and mind, calm anxiety, and create sensitive, expressive pieces.",
+        ],
+        imageKey: "brunaLanesPortrait",
       },
       {
         name: "Luiza Bittencourt",
