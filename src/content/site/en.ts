@@ -374,7 +374,7 @@ export const enDictionary: SiteDictionary = {
           "With a degree in Pedagogy from UFRJ, she works on projects connected to art education and school mediation.",
           "Drawn to manual practices, she sees MUD as a place to reconnect art, teaching, and atelier work.",
         ],
-        imageKey: "cristianeBelacianoPortrait",
+        imageKey: "teamPlaceholder",
       },
       {
         name: "Luiza Bittencourt",
@@ -383,7 +383,7 @@ export const enDictionary: SiteDictionary = {
           "After studying Political Science at UnB, she left years of office work behind to dedicate herself to art in 2019.",
           "In class, she prioritizes each student’s individuality and freedom of expression.",
         ],
-        imageKey: "teamPlaceholder",
+        imageKey: "cristianeBelacianoPortrait",
       },
       {
         name: "Cristiane Belaciano",

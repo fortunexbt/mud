@@ -374,7 +374,7 @@ export const esDictionary: SiteDictionary = {
           "Formada en Pedagogía por la UFRJ, trabaja con proyectos ligados al Arte-Educación y la mediación escolar.",
           "Encantada por el trabajo manual, encuentra en MUD una forma de redescubrir el vínculo entre arte y práctica de atelier.",
         ],
-        imageKey: "cristianeBelacianoPortrait",
+        imageKey: "teamPlaceholder",
       },
       {
         name: "Luiza Bittencourt",
@@ -383,7 +383,7 @@ export const esDictionary: SiteDictionary = {
           "Con formación en Ciencia Política por la UnB, dejó años de trabajo de oficina para dedicarse al arte en 2019.",
           "En sus clases prioriza la individualidad de cada alumno y la libertad de expresión.",
         ],
-        imageKey: "teamPlaceholder",
+        imageKey: "cristianeBelacianoPortrait",
       },
       {
         name: "Cristiane Belaciano",
