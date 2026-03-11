@@ -363,25 +363,43 @@ export const enDictionary: SiteDictionary = {
       description:
         "Ceramists and teachers who treat technique as a starting point.",
     },
-    founderRole: "Founder and director",
+    founderRole: "Founder",
     founderBio: [
       "Vik Inaudi was born in Argentina and lived in Rome for nearly 20 years, where she discovered her path as a ceramist.",
       "In Rio, she created MUD as a space for learning and presence.",
     ],
-    facultyTitle: "Teachers and studio team",
+    featuredTitle: "Direction",
+    featuredIntro:
+      "Juliana stays close to the pedagogical life of MUD, shaping the studio's day-to-day rhythm with careful attention to each student's process.",
+    featuredMember: {
+      name: "Juliana Moreno",
+      role: "Director and Teacher",
+      tagline: "Art education, hands-on practice, and a careful approach to the processes of children, teens, and adults.",
+      bio: [
+        "Juliana holds degrees in Visual Arts and Pedagogy from UFRJ. She works in art education projects, developing teaching practices grounded in multiple languages and hands-on making.",
+        "In ceramics, she explores the legacy of clay as a tool for creation, learning, and self-knowledge for children, teens, and adults.",
+        "Her work is deeply connected to arts education, creating sensitive experiences that encourage imagination, expression, and autonomy.",
+      ],
+      highlights: [
+        "Visual Arts and Pedagogy at UFRJ",
+        "Art education through multiple languages",
+        "Processes for children, teens, and adults",
+      ],
+      imageKey: "julianaMorenoPortrait",
+    },
+    facultyTitle: "Studio teachers",
     facultyIntro:
-      "Different backgrounds meet in the studio to support a warm, attentive, and technically consistent learning experience.",
+      "Different paths meet at MUD to sustain a warm, attentive, and technically consistent learning experience.",
     portraitPending: "Photo coming soon",
     members: [
       {
-        name: "Juliana Moreno",
-        role: "Director and Teacher",
+        name: "Dolores Damiano",
+        role: "Teacher",
         bio: [
-          "Juliana holds degrees in Visual Arts and Pedagogy from UFRJ. She works in art education projects, developing teaching practices grounded in multiple languages and hands-on making.",
-          "In ceramics, she explores the legacy of clay as a tool for creation, learning, and self-knowledge for children, teens, and adults.",
-          "Her work is deeply connected to arts education, creating sensitive experiences that encourage imagination, expression, and autonomy.",
+          "Born in Argentina and having spent time in Australia, Dolores found in the endless possibilities of clay a path of constant reinvention.",
+          "Her work grows from the dialogue between technique and experimentation, art and therapy, always in motion.",
         ],
-        imageKey: "julianaMorenoPortrait",
+        imageKey: "doloresPortrait",
       },
       {
         name: "Bruna Lanes",

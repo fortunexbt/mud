@@ -363,25 +363,43 @@ export const esDictionary: SiteDictionary = {
       description:
         "Ceramistas y profesoras que entienden la técnica como punto de partida.",
     },
-    founderRole: "Fundadora y directora",
+    founderRole: "Fundadora",
     founderBio: [
       "Vik Inaudi nació en Argentina y vivió casi 20 años en Roma, donde descubrió su camino como ceramista.",
       "En Río, fundó MUD como un espacio de aprendizaje y presencia.",
     ],
-    facultyTitle: "Profesoras y equipo",
+    featuredTitle: "Dirección",
+    featuredIntro:
+      "Juliana acompaña de cerca la vida pedagógica de MUD, articulando el día a día de la escuela con una escucha sensible al proceso de cada alumno.",
+    featuredMember: {
+      name: "Juliana Moreno",
+      role: "Directora y Profesora",
+      tagline: "Arte-educación, hacer con las manos y una conducción atenta a los procesos de niños, jóvenes y adultos.",
+      bio: [
+        "Juliana es licenciada en Artes Visuales y Pedagogía por la UFRJ. Trabaja en proyectos de arte-educación, desarrollando prácticas pedagógicas basadas en los múltiples lenguajes y en el hacer con las manos.",
+        "En la cerámica, investiga el legado del barro como herramienta de creación, aprendizaje y proceso de autoconocimiento para niños, jóvenes y adultos.",
+        "Su trabajo tiene una fuerte relación con la educación artística, creando experiencias sensibles que estimulan imaginación, expresión y autonomía.",
+      ],
+      highlights: [
+        "Artes Visuales y Pedagogía en la UFRJ",
+        "Arte-educación y múltiples lenguajes",
+        "Procesos para niños, jóvenes y adultos",
+      ],
+      imageKey: "julianaMorenoPortrait",
+    },
+    facultyTitle: "Profesoras del atelier",
     facultyIntro:
-      "Trayectorias distintas se encuentran en el atelier para sostener una experiencia pedagógica cálida, atenta y técnicamente consistente.",
+      "Trayectorias distintas se encuentran en MUD para sostener una experiencia cálida, atenta y técnicamente consistente.",
     portraitPending: "Foto pronto",
     members: [
       {
-        name: "Juliana Moreno",
-        role: "Directora y Profesora",
+        name: "Dolores Damiano",
+        role: "Profesora",
         bio: [
-          "Juliana es licenciada en Artes Visuales y Pedagogía por la UFRJ. Trabaja en proyectos de arte-educación, desarrollando prácticas pedagógicas basadas en los múltiples lenguajes y en el hacer con las manos.",
-          "En la cerámica, investiga el legado del barro como herramienta de creación, aprendizaje y proceso de autoconocimiento para niños, jóvenes y adultos.",
-          "Su trabajo tiene una fuerte relación con la educación artística, creando experiencias sensibles que estimulan imaginación, expresión y autonomía.",
+          "Nacida en Argentina y con pasos por Australia, Dolores descubrió en las infinitas posibilidades del barro un camino de reinvención constante.",
+          "Su trabajo nace del diálogo entre técnica y experimentación, arte y terapia, siempre en movimiento.",
         ],
-        imageKey: "julianaMorenoPortrait",
+        imageKey: "doloresPortrait",
       },
       {
         name: "Bruna Lanes",

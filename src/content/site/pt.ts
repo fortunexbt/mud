@@ -364,43 +364,43 @@ export const ptDictionary: SiteDictionary = {
       description:
         "Ceramistas e professoras que entendem a técnica como ponto de partida.",
     },
-    founderRole: "fundadora e diretora",
+    founderRole: "fundadora",
     founderBio: [
       "Vik Inaudi nasceu na Argentina e viveu quase 20 anos em Roma, onde descobriu sua trajetória como ceramista.",
       "No Rio, fundou a MUD como espaço de aprendizado e presença.",
     ],
-    featuredTitle: "Professora em destaque",
+    featuredTitle: "Direção",
     featuredIntro:
-      "Dolores Damiano soma à equipe um percurso atravessado por deslocamentos, experimentação e um olhar atento para as múltiplas possibilidades da argila.",
+      "Juliana acompanha de perto a vida pedagógica da MUD, articulando o dia a dia da escola com uma escuta sensível ao processo de cada aluno.",
     featuredMember: {
-      name: "Dolores Damiano",
-      role: "Professora",
-      tagline: "Técnica e experimentação em diálogo contínuo com arte, terapia e reinvenção.",
+      name: "Juliana Moreno",
+      role: "Diretora e Professora",
+      tagline: "Arte-educação, fazer com as mãos e uma condução atenta aos processos de crianças, jovens e adultos.",
       bio: [
-        "Nascida na Argentina e com passagens pela Austrália, Dolores descobriu nas infinitas possibilidades da argila um caminho de constante reinvenção.",
-        "Seu trabalho nasce do diálogo entre técnica e experimentação, arte e terapia, sempre em movimento.",
+        "Juliana é formada em Artes Visuais e Pedagogia pela UFRJ. Atua em projetos de arte-educação, desenvolvendo práticas pedagógicas baseadas nas múltiplas linguagens e no fazer com as mãos.",
+        "Na cerâmica, investiga o legado do barro como ferramenta de criação, aprendizado e processo de autoconhecimento para crianças, jovens e adultos.",
+        "Seu trabalho tem forte relação com a educação artística, criando experiências sensíveis que estimulam imaginação, expressão e autonomia.",
       ],
       highlights: [
-        "Argentina e passagens pela Austrália",
-        "Técnica e experimentação em diálogo",
-        "Arte e terapia em movimento",
+        "Artes Visuais e Pedagogia pela UFRJ",
+        "Arte-educação e múltiplas linguagens",
+        "Processos para crianças, jovens e adultos",
       ],
-      imageKey: "doloresPortrait",
+      imageKey: "julianaMorenoPortrait",
     },
-    facultyTitle: "Professoras e equipe",
+    facultyTitle: "Professoras do ateliê",
     facultyIntro:
-      "Trajetórias diferentes se encontram no ateliê para sustentar uma experiência pedagógica calorosa, atenta e tecnicamente consistente.",
+      "Trajetórias diferentes se encontram na MUD para sustentar uma experiência calorosa, atenta e tecnicamente consistente.",
     portraitPending: "Foto em breve",
     members: [
       {
-        name: "Juliana Moreno",
-        role: "Diretora e Professora",
+        name: "Dolores Damiano",
+        role: "Professora",
         bio: [
-          "Juliana é formada em Artes Visuais e Pedagogia pela UFRJ. Atua em projetos de arte-educação, desenvolvendo práticas pedagógicas baseadas nas múltiplas linguagens e no fazer com as mãos.",
-          "Na cerâmica, investiga o legado do barro como ferramenta de criação, aprendizado e processo de autoconhecimento para crianças, jovens e adultos.",
-          "Seu trabalho tem forte relação com a educação artística, criando experiências sensíveis que estimulam imaginação, expressão e autonomia.",
+          "Nascida na Argentina e com passagens pela Austrália, Dolores descobriu nas infinitas possibilidades da argila um caminho de constante reinvenção.",
+          "Seu trabalho nasce do diálogo entre técnica e experimentação, arte e terapia, sempre em movimento.",
         ],
-        imageKey: "julianaMorenoPortrait",
+        imageKey: "doloresPortrait",
       },
       {
         name: "Bruna Lanes",
