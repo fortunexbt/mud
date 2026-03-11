@@ -190,16 +190,16 @@ export const esDictionary: SiteDictionary = {
         "Reúnen procesos desarrollados a lo largo del año y muestran cómo el aprendizaje técnico se convierte en lenguaje propio y presencia pública.",
       ],
       items: [
-        {
-          year: "2025",
-          editionLabel: "Exposición MUD 2025",
-          title: "Quando o vazio sustenta a forma",
-          date: "Muestra anual",
-          location: ["MUD Escola de Cerâmica", "Leblon, Río de Janeiro"],
-          description:
-            "Muestra colectiva dedicada a las relaciones entre vacío, estructura y presencia material en las investigaciones desarrolladas en el atelier.",
-          posterKey: "mudExhibition2025",
-        },
+          {
+            year: "2025",
+            editionLabel: "Exposición MUD 2025",
+            title: "Quando o vazio sustenta a forma",
+            date: "Muestra anual",
+            location: ["MUD Escola de Cerâmica", "Leblon, Río de Janeiro"],
+            description:
+              "Muestra colectiva dedicada a las relaciones entre vacío, estructura y presencia material en las investigaciones desarrolladas en el atelier.",
+            posterKey: "mudExhibition2025",
+          },
         {
           year: "2024",
           editionLabel: "Exposición MUD 2024",

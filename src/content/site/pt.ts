@@ -190,16 +190,16 @@ export const ptDictionary: SiteDictionary = {
         "Entendemos a exposição como um espaço de experimentação e partilha, que incentiva nossos alunos a expandirem suas investigações e a explorarem diferentes formas de expressão artística por meio da cerâmica.",
       ],
       items: [
-        {
-          year: "2025",
-          editionLabel: "4ª edição",
-          title: "Quando o vazio sustenta a forma",
-          date: "04 de dezembro de 2025, às 16h",
-          location: ["Rua Ataulfo de Paiva, 1174"],
-          description:
-            "Na 4ª edição da exposição MUD, investigamos a relação entre presença e ausência, estrutura e suspensão. \"Quando o vazio sustenta a forma\" propõe pensar o espaço interno como parte ativa da obra cerâmica. A mostra aconteceu em 4 de dezembro de 2025, às 16h, na Rua Ataulfo de Paiva, 1174.",
-          posterKey: "mudExhibition2025",
-        },
+          {
+            year: "2025",
+            editionLabel: "4ª edição",
+            title: "Quando o vazio sustenta a forma",
+            date: "04 de dezembro de 2025, às 16h",
+            location: ["Rua Ataulfo de Paiva, 1174"],
+            description:
+              "Na 4ª edição da exposição MUD, investigamos a relação entre presença e ausência, estrutura e suspensão. \"Quando o vazio sustenta a forma\" propõe pensar o espaço interno como parte ativa da obra cerâmica.",
+            posterKey: "mudExhibition2025",
+          },
         {
           year: "2024",
           editionLabel: "3ª edição da Exposição MUD 2024",
