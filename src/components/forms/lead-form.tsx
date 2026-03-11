@@ -138,6 +138,7 @@ export function LeadForm({
           {showInterestField ? (
             <Field
               label={dictionary.form.labels.interest}
+              className="sm:col-span-2"
               input={
                 <select name="interest" defaultValue={initialInterest || ""} className={inputClasses()} required>
                   <option value="">—</option>
@@ -166,11 +167,12 @@ export function LeadForm({
 
         <details className="group rounded-[1.5rem] border border-outline/50 bg-white/50 px-4 py-4 shadow-soft transition-colors hover:bg-white/80">
           <summary className="cursor-pointer list-none">
-            <span className="flex items-center justify-between gap-4 text-sm font-semibold text-ink">
-              {optionalDetails.label}
-              <span className="text-terracotta transition group-open:rotate-45">+</span>
-            </span>
-            <span className="mt-2 block text-[0.85rem] leading-6 text-muted">{optionalDetails.hint}</span>
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-sm font-semibold text-ink">
+                {optionalDetails.label}
+              </span>
+              <span className="text-terracotta transition group-open:rotate-45 text-lg font-bold">+</span>
+            </div>
           </summary>
 
           <div className="mt-4 grid gap-4 border-t border-outline/50 pt-4 sm:grid-cols-2">
@@ -193,6 +195,7 @@ export function LeadForm({
             />
             <Field
               label={dictionary.form.labels.foundUs}
+              className="sm:col-span-2"
               input={
                 <select name="foundUs" className={inputClasses()}>
                   <option value="">—</option>
