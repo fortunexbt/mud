@@ -42,7 +42,7 @@ export function InquiryPage({
                 key={track.key}
                 href={`?interest=${track.key}#form`}
                 className={cn(
-                  "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold",
+                  "shrink-0 rounded-full border px-[1.125rem] py-2.5 text-sm font-semibold shadow-soft",
                   initialInterest === track.key ? "border-transparent bg-ink text-white" : "border-outline/45 bg-white/82 text-ink",
                 )}
               >
@@ -91,9 +91,24 @@ export function InquiryPage({
                   initialInterest={initialInterest}
                 />
               </div>
+
+              <div className="mt-6 rounded-[1.5rem] border border-outline/45 bg-surface/42 p-4 lg:hidden sm:p-5">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-terracotta sm:text-xs">
+                  {dictionary.inquiry.sideTitle}
+                </p>
+                <p className="mt-3 text-sm leading-7 text-muted">{sideMessage}</p>
+                <Link
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={buttonClasses({ variant: "secondary", className: "mt-4 w-full justify-center" })}
+                >
+                  {dictionary.inquiry.whatsappCta}
+                </Link>
+              </div>
             </div>
 
-            <aside className="hidden lg:block space-y-5 lg:sticky lg:top-28 lg:self-start">
+            <aside className="hidden space-y-5 lg:sticky lg:top-28 lg:block lg:self-start">
               <div className="rounded-[1.85rem] border border-outline/45 bg-surface/40 p-5 sm:p-7">
                 <h2 className="font-display text-[1.6rem] leading-tight text-ink sm:text-[2rem]">{dictionary.inquiry.sideTitle}</h2>
                 <div className="mt-4 space-y-3 text-sm leading-6 text-muted">
@@ -106,12 +121,6 @@ export function InquiryPage({
                 </Link>
               </div>
             </aside>
-          </div>
-          
-          <div className="mt-8 text-center lg:hidden">
-            <Link href={whatsappHref} target="_blank" rel="noreferrer" className="text-sm font-semibold text-terracotta underline decoration-terracotta/40 underline-offset-4 transition hover:decoration-terracotta">
-              {dictionary.inquiry.whatsappCta}
-            </Link>
           </div>
         </section>
       </ScrollReveal>

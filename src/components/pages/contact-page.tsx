@@ -34,6 +34,7 @@ export function ContactPage({ locale, dictionary, whatsappHref }: PageContext) {
                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-terracotta/90 sm:text-xs">
                   {dictionary.contact.detailsTitle}
                 </p>
+                <p className="mt-3 max-w-xl text-sm leading-7 text-muted">{dictionary.contact.detailsBody}</p>
                 <div className="mt-5 rounded-[1.5rem] bg-surface/72 px-4 py-4 text-sm leading-7 text-muted">
                   <p className="flex items-start gap-3">
                     <MapPinIcon className="mt-1 h-5 w-5 shrink-0 text-terracotta" />

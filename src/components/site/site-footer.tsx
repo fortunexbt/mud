@@ -39,7 +39,7 @@ export function SiteFooter({
   return (
     <footer className="relative overflow-hidden border-t border-outline/40 bg-ink text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(214,141,98,0.16),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.05),transparent_24%)]" />
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+      <div className="mx-auto max-w-7xl px-4 pb-28 pt-10 sm:px-6 sm:pb-12 sm:pt-12 lg:px-8 lg:py-14">
         <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-card backdrop-blur sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[1.08fr_0.88fr_0.9fr] lg:gap-10">
             <div className="space-y-6">

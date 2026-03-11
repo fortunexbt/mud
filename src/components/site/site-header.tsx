@@ -68,14 +68,14 @@ export function SiteHeader({
           <div className="flex min-h-[4rem] items-center gap-4 py-2 sm:min-h-[5.35rem] sm:py-4">
             <SiteLogo href={`/${locale}`} className="px-3.5 py-2.5" imageClassName="w-[4rem] sm:w-[6rem]" />
 
-            <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex" aria-label={dictionary.nav.primaryNavLabel}>
+            <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex xl:gap-1.5" aria-label={dictionary.nav.primaryNavLabel}>
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   aria-current={item.page === currentPage ? "page" : undefined}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition",
+                      "rounded-full px-3.5 py-2.5 text-sm font-medium transition xl:px-4",
                     item.page === currentPage
                       ? "bg-sand/72 text-ink shadow-soft"
                       : "text-muted hover:bg-white/72 hover:text-ink",
@@ -86,7 +86,7 @@ export function SiteHeader({
               ))}
             </nav>
 
-            <div className="ml-auto hidden items-center gap-3 lg:flex">
+            <div className="ml-auto hidden items-center gap-2 lg:flex xl:gap-3">
               <LanguageSwitcher
                 currentLocale={locale}
                 localePaths={localePaths}
@@ -98,7 +98,7 @@ export function SiteHeader({
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className={buttonClasses({ variant: "secondary", size: "sm", className: "shrink-0 px-3" })}
+                className={buttonClasses({ variant: "secondary", size: "sm", className: "hidden shrink-0 px-3 xl:inline-flex" })}
                 aria-label="Instagram"
               >
                 <InstagramIcon className="h-5 w-5 text-ink" />
@@ -111,15 +111,6 @@ export function SiteHeader({
               >
                 {dictionary.common.primaryWhatsApp}
               </Link>
-              <button
-                type="button"
-                onClick={() => setMenuOpen((value) => !value)}
-                className="inline-flex min-h-11 items-center justify-center rounded-[1.1rem] border border-outline/45 bg-white/82 px-3 shadow-soft transition hover:bg-white xl:hidden"
-                aria-label={menuOpen ? dictionary.nav.closeMenu : dictionary.nav.openMenu}
-                aria-expanded={menuOpen}
-              >
-                {menuOpen ? <CloseIcon className="h-5 w-5 text-ink" /> : <MenuIcon className="h-5 w-5 text-ink" />}
-              </button>
             </div>
 
             <div className="ml-auto flex items-center gap-2 lg:hidden">
@@ -133,7 +124,7 @@ export function SiteHeader({
               <button
                 type="button"
                 onClick={() => setMenuOpen((value) => !value)}
-                className="inline-flex min-h-11 items-center justify-center rounded-[1.1rem] border border-outline/45 bg-white/82 px-3 shadow-soft transition hover:bg-white"
+                className="inline-flex min-h-11 items-center justify-center rounded-[1.1rem] border border-outline/45 bg-white/82 px-3.5 shadow-soft transition hover:bg-white"
                 aria-label={menuOpen ? dictionary.nav.closeMenu : dictionary.nav.openMenu}
                 aria-expanded={menuOpen}
               >
@@ -183,15 +174,27 @@ export function SiteHeader({
                 ))}
               </nav>
 
-              <Link
-                href={whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                onClick={closeMenu}
-                className={buttonClasses({ className: "mt-6 w-full justify-center py-4 text-[0.95rem] active:scale-[0.98]" })}
-              >
-                {dictionary.common.primaryWhatsApp}
-              </Link>
+              <div className="mt-6 grid w-full gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
+                <Link
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={closeMenu}
+                  className={buttonClasses({ className: "w-full justify-center py-4 text-[0.95rem] active:scale-[0.98]" })}
+                >
+                  {dictionary.common.primaryWhatsApp}
+                </Link>
+                <Link
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={closeMenu}
+                  className={buttonClasses({ variant: "secondary", className: "w-full justify-center border-outline/40 bg-white/78 px-4 sm:w-auto" })}
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon className="h-5 w-5 text-ink" />
+                </Link>
+              </div>
             </motion.div>
           </div>
         ) : null}

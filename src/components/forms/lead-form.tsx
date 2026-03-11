@@ -74,7 +74,7 @@ export function LeadForm({
   const responseMessage = getResponseMessage();
 
   return (
-    <div className={cn("space-y-4", className)}>
+    <div className={cn("space-y-5", className)}>
       {responseMessage ? (
         <div
           className={cn(
@@ -91,21 +91,18 @@ export function LeadForm({
         </div>
       ) : null}
 
-      <form className="grid gap-4" action={formAction} noValidate>
-        {/* Hidden inputs to capture context that was previously managed via state */}
+      <form className="grid gap-5" action={formAction} noValidate>
         <input type="hidden" name="formType" value={formType} />
         <input type="hidden" name="locale" value={locale} />
         <input type="hidden" name="pagePath" value={typeof window !== "undefined" ? window.location.pathname : ""} />
         <input type="hidden" name="referrer" value={typeof window !== "undefined" ? document.referrer : ""} />
-        
-        {/* UTM Inputs - would need to be populated dynamically, keeping for structure */}
         <input type="hidden" name="utmSource" value="" />
         <input type="hidden" name="utmMedium" value="" />
         <input type="hidden" name="utmCampaign" value="" />
         <input type="hidden" name="utmTerm" value="" />
         <input type="hidden" name="utmContent" value="" />
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
           <Field
             label={dictionary.form.labels.firstName}
             input={<input name="firstName" className={inputClasses()} placeholder={dictionary.form.placeholders.firstName} autoComplete="given-name" required />}
@@ -152,12 +149,13 @@ export function LeadForm({
           />
         </div>
 
-        <details className="group rounded-[1.5rem] border border-outline/50 bg-white/50 px-4 py-4 shadow-soft transition-colors hover:bg-white/80">
+        <details className="group rounded-[1.5rem] border border-outline/50 bg-white/55 px-4 py-4 shadow-soft transition-colors hover:bg-white/82 sm:px-5">
           <summary className="cursor-pointer list-none">
             <div className="flex items-center justify-between gap-4">
-              <span className="text-sm font-semibold text-ink">
-                {optionalDetails.label}
-              </span>
+              <div className="space-y-1.5">
+                <span className="block text-sm font-semibold text-ink">{optionalDetails.label}</span>
+                <span className="block max-w-2xl text-xs leading-5 text-muted/85 sm:text-[0.82rem]">{optionalDetails.hint}</span>
+              </div>
               <span className="text-terracotta transition group-open:rotate-45 text-lg font-bold">+</span>
             </div>
           </summary>
@@ -207,8 +205,8 @@ export function LeadForm({
           </span>
         </label>
 
-        <div className="flex flex-wrap items-center gap-4">
-          <Button type="submit" disabled={isPending}>
+        <div className="flex flex-wrap items-center gap-4 pt-1">
+          <Button type="submit" size="lg" disabled={isPending}>
             {isPending ? `${dictionary.common.loading}...` : dictionary.form.labels.submit}
           </Button>
         </div>
@@ -227,7 +225,7 @@ function Field({
   className?: string;
 }) {
   return (
-    <label className={cn("grid gap-2 text-sm font-medium text-ink", className)}>
+    <label className={cn("grid gap-2.5 text-sm font-medium text-ink", className)}>
       <span>{label}</span>
       {input}
     </label>
@@ -235,5 +233,5 @@ function Field({
 }
 
 function inputClasses() {
-  return "min-h-11 rounded-[1.25rem] border border-outline/40 bg-white/60 px-4 text-[0.95rem] text-ink outline-none transition-all placeholder:text-muted/65 focus:border-terracotta focus:bg-white focus:ring-4 focus:ring-terracotta/10 sm:min-h-12 sm:rounded-2xl hover:border-outline/80";
+  return "min-h-12 rounded-[1.25rem] border border-outline/40 bg-white/68 px-[1.125rem] text-[0.98rem] text-ink outline-none transition-all placeholder:text-muted/65 focus:border-terracotta focus:bg-white focus:ring-4 focus:ring-terracotta/10 hover:border-outline/80 sm:min-h-[3.35rem] sm:rounded-2xl";
 }

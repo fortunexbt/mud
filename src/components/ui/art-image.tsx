@@ -33,7 +33,7 @@ export function ArtImage({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[1.7rem] border border-outline/30 bg-sand shadow-soft sm:rounded-[2.2rem] sm:shadow-card",
+        "group relative overflow-hidden rounded-[1.7rem] border border-outline/30 bg-sand shadow-soft sm:rounded-[2.2rem] sm:shadow-card",
         aspect,
         className,
       )}
@@ -44,7 +44,7 @@ export function ArtImage({
         fill
         priority={priority}
         sizes={sizes}
-        className={cn("object-cover", imageClassName)}
+        className={cn("object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.02]", imageClassName)}
         style={{
           objectPosition: asset.objectPosition || "50% 50%",
           filter,

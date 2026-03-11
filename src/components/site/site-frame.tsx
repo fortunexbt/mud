@@ -45,7 +45,7 @@ export function SiteFrame({
   );
 
   return (
-    <div className={showMobileDock ? "min-h-screen bg-background pb-28 text-ink sm:pb-0" : "min-h-screen bg-background text-ink"}>
+    <div className={showMobileDock ? "min-h-screen bg-background pb-32 text-ink sm:pb-0" : "min-h-screen bg-background text-ink"}>
       <IntroOverlay hasPlayed={hasPlayedIntro} />
       <a href="#main" className="skip-link">
         {dictionary.nav.skipToContent}
