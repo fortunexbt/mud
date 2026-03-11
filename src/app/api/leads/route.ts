@@ -46,14 +46,18 @@ export async function POST(request: Request) {
 
   if (canStoreInDatabase) {
     try {
+      console.log("DEBUG: Attempting to store lead in database");
       const lead = await createLead(result.data);
+      console.log("DEBUG: Lead stored successfully, ID:", lead.id);
       leadId = lead.id;
       
       // Async background email notification
+      console.log("DEBUG: Triggering email notification");
       sendLeadNotificationEmail(lead).catch((err) => {
         console.error("Non-fatal error sending lead email notification:", err);
       });
-    } catch {
+    } catch (e) {
+      console.error("DEBUG: Error storing lead:", e);
       if (!canSendWebhook) {
         return NextResponse.json({ ok: false, message: "Lead storage failed." }, { status: 500 });
       }
