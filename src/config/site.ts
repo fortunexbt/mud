@@ -34,7 +34,7 @@ export const siteConfig = {
   mapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.046413402483!2d-43.23198801626762!3d-22.985320687033628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd546f3a82613%3A0x19905dba8e9689e!2sMUD%20ESCOLA%20DE%20CER%C3%82MICA!5e0!3m2!1sen!2sit!4v1773080702607!5m2!1sen!2sit",
   mapsPlaceUrl:
-    "https://www.google.com/maps/place/MUD+ESCOLA+DE+CER%C3%82MICA/@-22.9853207,-43.231988,17z/",
+    "https://www.google.com/maps/place/MUD+ESCOLA+DE+CER%C3%82MICA/@-22.9853257,-43.2271171,17z/data=!3m1!4b1!4m6!3m5!1s0x9bd546f3a82613:0x19905dba8e9689e!8m2!3d-22.9853257!4d-43.2271171!16s%2Fg%2F11l06bsmvt?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D",
   mapsQuery:
     "Rua Ataulfo de Paiva, 1174, Sobreloja 14/15, Leblon, Rio de Janeiro, RJ, Brasil, 22440-035",
 };
