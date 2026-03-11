@@ -7,6 +7,7 @@ import { hasDatabaseUrl } from "@/lib/server-env";
 import { sendLeadNotificationEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
+  console.log("DEBUG: POST /api/leads triggered");
   let payload: unknown;
 
   try {
@@ -44,6 +45,8 @@ export async function POST(request: Request) {
 
   let leadId: string | null = null;
 
+  console.log("DEBUG: canStoreInDatabase:", canStoreInDatabase);
+  
   if (canStoreInDatabase) {
     try {
       console.log("DEBUG: Attempting to store lead in database");
