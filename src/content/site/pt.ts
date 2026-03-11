@@ -47,7 +47,7 @@ export const ptDictionary: SiteDictionary = {
       eyebrow: "Aulas",
       title: "Formas diferentes de começar, o mesmo cuidado com o processo.",
       intro:
-        "Formatos para perfis diferentes, sempre com base técnica, escuta e prazer de fazer com as mãos.",
+        "Aprender cerâmica é também um tempo para si. Oferecemos diferentes formatos de aulas sempre com base técnica, acompanhamento atento e o prazer de criar com as mãos.",
       cards: [
         {
           key: "adults",
@@ -93,11 +93,11 @@ export const ptDictionary: SiteDictionary = {
     },
     pedagogy: {
       eyebrow: "ABC da cerâmica",
-      title: "Fundamento antes do atalho.",
+      title: "Metodologia",
       paragraphs: [
-        "A entrada na MUD começa com 8 aulas de base: o ABC da cerâmica.",
-        "Nesse ciclo, o aluno passa por placa, cobrinha, pinch e kurinuki enquanto entende secagem, queima e pesquisa material.",
-        "O foco não é acelerar, e sim dar repertório para criar com mais autonomia e liberdade.",
+        "Criamos um material próprio que chamamos de ABC da Cerâmica, que orienta e organiza nossas aulas.",
+        "Começamos com 8 aulas base. Nesse ciclo, o aluno experimenta diferentes técnicas de modelagem, pinch pot (belisco), placa, acordelado e torno, enquanto vivencia todas as etapas do processo: desde amassar o barro até a peça pronta.",
+        "Nosso foco é desenvolver autonomia, liberdade criativa e repertório técnico, para que cada aluno possa construir sua própria relação com a cerâmica.",
       ],
       methods: ["Placa", "Cobrinha", "Pinch", "Kurinuki", "Argilas", "Engobes", "Esmaltes"],
       note: "A cerâmica é lenta: secagem, queima e acabamento fazem parte da experiência. Aqui, esse tempo é tratado como riqueza do processo.",
@@ -240,7 +240,8 @@ export const ptDictionary: SiteDictionary = {
       description: "Da primeira aula à prática contínua.",
     },
     intro: [
-      "Formatos para perfis diversos, sempre com rigor técnico e prazer de trabalhar com as mãos.",
+      "Aprender cerâmica é também um tempo para si.",
+      "Oferecemos diferentes formatos de aulas sempre com base técnica, acompanhamento atento e o prazer de criar com as mãos.",
     ],
     tracks: [
       {
@@ -285,12 +286,13 @@ export const ptDictionary: SiteDictionary = {
       },
     ],
     abc: {
-      title: "O ciclo inicial de 8 aulas",
-      description: "O ABC da cerâmica apresenta fundamentos de modelagem e aproxima o aluno da pesquisa de argilas, esmaltes e engobes.",
+      title: "Metodologia",
+      description:
+        "Criamos um material próprio que chamamos de ABC da Cerâmica, que orienta e organiza nossas aulas.",
       steps: [
-        "Técnicas básicas: placa, cobrinha, pinch e kurinuki",
-        "Compreensão de secagem, queima, acabamento e comportamento do barro",
-        "Introdução gradual à pesquisa material e à autonomia de projeto",
+        "Começamos com 8 aulas base, em que o aluno experimenta pinch pot (belisco), placa, acordelado e torno.",
+        "Ao longo do ciclo, vivencia todas as etapas do processo, desde amassar o barro até a peça pronta.",
+        "O foco é desenvolver autonomia, liberdade criativa e repertório técnico para cada aluno construir sua própria relação com a cerâmica.",
       ],
     },
     timeline: {

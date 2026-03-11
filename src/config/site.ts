@@ -1,9 +1,5 @@
 import type { Locale } from "@/lib/i18n-config";
 
-if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_SITE_URL) {
-  console.warn("WARNING: NEXT_PUBLIC_SITE_URL is not set in production. Canonical URLs may be incorrect.");
-}
-
 export const siteConfig = {
   name: "MUD Escola de Cerâmica",
   shortName: "MUD",

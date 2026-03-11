@@ -9,7 +9,7 @@ import {
   resolveLocaleFromHeader,
 } from "@/lib/i18n-config";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname === "/admin" || pathname.startsWith("/admin/")) {

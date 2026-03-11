@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { TeamCard } from "@/components/cards/team-card";
