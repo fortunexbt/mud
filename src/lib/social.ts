@@ -45,72 +45,210 @@ export interface ResolvedSocialMetadata {
   card: SocialCardData;
 }
 
-const pageThemes: Record<PageKey, SocialTheme> = {
-  home: {
-    eyebrow: "Ceramics school + atelier",
-    chips: ["Rio de Janeiro", "Adults + kids", "Warm studio rhythm"],
-    mediaKey: "heroProcess",
-    accentFrom: "#d7a27a",
-    accentTo: "#6f8f83",
-    surface: "#f4ece2",
+const pageThemes: Record<Locale, Record<PageKey, SocialTheme>> = {
+  pt: {
+    home: {
+      eyebrow: "Escola + ateliê de cerâmica",
+      chips: ["Rio de Janeiro", "Adultos + crianças", "Ritmo acolhedor de ateliê"],
+      mediaKey: "heroProcess",
+      accentFrom: "#d7a27a",
+      accentTo: "#6f8f83",
+      surface: "#f4ece2",
+    },
+    about: {
+      eyebrow: "História do ateliê",
+      chips: ["Pedagogia", "Exposições", "Prática artesanal"],
+      mediaKey: "founderPortrait",
+      accentFrom: "#b56f52",
+      accentTo: "#7b8f83",
+      surface: "#f3e9de",
+    },
+    classes: {
+      eyebrow: "Percursos de aprendizagem",
+      chips: ["Modelagem", "Torno", "Avulsa + grupos"],
+      mediaKey: "brandSeal",
+      accentFrom: "#b86845",
+      accentTo: "#7aa08f",
+      surface: "#f6ecdf",
+    },
+    team: {
+      eyebrow: "Artistas + educadoras",
+      chips: ["Acompanhamento", "Turmas pequenas", "Orientação de ateliê"],
+      mediaKey: "doloresPortrait",
+      accentFrom: "#a45d49",
+      accentTo: "#647b75",
+      surface: "#f2e7da",
+    },
+    inquiry: {
+      eyebrow: "Comece sua inscrição",
+      chips: ["Contato rápido", "Horários flexíveis", "Retorno por WhatsApp"],
+      mediaKey: "brandTag",
+      accentFrom: "#bb744f",
+      accentTo: "#6f887d",
+      surface: "#f5eadf",
+    },
+    blog: {
+      eyebrow: "Blog + reflexões",
+      chips: ["Notas de processo", "Cultura de ateliê", "Prática cerâmica"],
+      mediaKey: "legacyBlogHeader",
+      accentFrom: "#b67852",
+      accentTo: "#5f7b75",
+      surface: "#f4eadf",
+    },
+    contact: {
+      eyebrow: "Visite o ateliê",
+      chips: ["Leblon", "Mapa + rotas", "Contato direto"],
+      mediaKey: "processHands",
+      accentFrom: "#c27a57",
+      accentTo: "#6c8c84",
+      surface: "#f4eadf",
+    },
+    privacy: {
+      eyebrow: "Privacidade + confiança",
+      chips: ["Políticas claras", "Contato seguro", "Uso respeitoso de dados"],
+      mediaKey: "moodboard",
+      accentFrom: "#8d654f",
+      accentTo: "#556d69",
+      surface: "#eee3d7",
+    },
   },
-  about: {
-    eyebrow: "Studio story",
-    chips: ["Pedagogy", "Exhibitions", "Handcrafted practice"],
-    mediaKey: "founderPortrait",
-    accentFrom: "#b56f52",
-    accentTo: "#7b8f83",
-    surface: "#f3e9de",
+  es: {
+    home: {
+      eyebrow: "Escuela + atelier de cerámica",
+      chips: ["Río de Janeiro", "Adultos + niños", "Ritmo cálido de atelier"],
+      mediaKey: "heroProcess",
+      accentFrom: "#d7a27a",
+      accentTo: "#6f8f83",
+      surface: "#f4ece2",
+    },
+    about: {
+      eyebrow: "Historia del atelier",
+      chips: ["Pedagogía", "Exposiciones", "Práctica artesanal"],
+      mediaKey: "founderPortrait",
+      accentFrom: "#b56f52",
+      accentTo: "#7b8f83",
+      surface: "#f3e9de",
+    },
+    classes: {
+      eyebrow: "Recorridos de aprendizaje",
+      chips: ["Modelado", "Torno", "Suelta + grupos"],
+      mediaKey: "brandSeal",
+      accentFrom: "#b86845",
+      accentTo: "#7aa08f",
+      surface: "#f6ecdf",
+    },
+    team: {
+      eyebrow: "Artistas + educadoras",
+      chips: ["Acompañamiento", "Grupos pequeños", "Guía de atelier"],
+      mediaKey: "doloresPortrait",
+      accentFrom: "#a45d49",
+      accentTo: "#647b75",
+      surface: "#f2e7da",
+    },
+    inquiry: {
+      eyebrow: "Comienza tu inscripción",
+      chips: ["Contacto rápido", "Horarios flexibles", "Seguimiento por WhatsApp"],
+      mediaKey: "brandTag",
+      accentFrom: "#bb744f",
+      accentTo: "#6f887d",
+      surface: "#f5eadf",
+    },
+    blog: {
+      eyebrow: "Blog + reflexiones",
+      chips: ["Notas de proceso", "Cultura de atelier", "Práctica cerámica"],
+      mediaKey: "legacyBlogHeader",
+      accentFrom: "#b67852",
+      accentTo: "#5f7b75",
+      surface: "#f4eadf",
+    },
+    contact: {
+      eyebrow: "Visita el atelier",
+      chips: ["Leblon", "Mapa + rutas", "Contacto directo"],
+      mediaKey: "processHands",
+      accentFrom: "#c27a57",
+      accentTo: "#6c8c84",
+      surface: "#f4eadf",
+    },
+    privacy: {
+      eyebrow: "Privacidad + confianza",
+      chips: ["Políticas claras", "Contacto seguro", "Uso respetuoso de datos"],
+      mediaKey: "moodboard",
+      accentFrom: "#8d654f",
+      accentTo: "#556d69",
+      surface: "#eee3d7",
+    },
   },
-  classes: {
-    eyebrow: "Learning pathways",
-    chips: ["Handbuilding", "Wheel", "One-off + groups"],
-    mediaKey: "brandSeal",
-    accentFrom: "#b86845",
-    accentTo: "#7aa08f",
-    surface: "#f6ecdf",
-  },
-  team: {
-    eyebrow: "Artists + educators",
-    chips: ["Mentorship", "Small groups", "Studio guidance"],
-    mediaKey: "doloresPortrait",
-    accentFrom: "#a45d49",
-    accentTo: "#647b75",
-    surface: "#f2e7da",
-  },
-  inquiry: {
-    eyebrow: "Start your enrollment",
-    chips: ["Fast contact", "Flexible schedules", "WhatsApp follow-up"],
-    mediaKey: "brandTag",
-    accentFrom: "#bb744f",
-    accentTo: "#6f887d",
-    surface: "#f5eadf",
-  },
-  blog: {
-    eyebrow: "Journal + reflections",
-    chips: ["Process notes", "Studio culture", "Ceramic practice"],
-    mediaKey: "legacyBlogHeader",
-    accentFrom: "#b67852",
-    accentTo: "#5f7b75",
-    surface: "#f4eadf",
-  },
-  contact: {
-    eyebrow: "Visit the studio",
-    chips: ["Leblon", "Map + directions", "Direct contact"],
-    mediaKey: "processHands",
-    accentFrom: "#c27a57",
-    accentTo: "#6c8c84",
-    surface: "#f4eadf",
-  },
-  privacy: {
-    eyebrow: "Privacy + trust",
-    chips: ["Clear policies", "Contact safety", "Respectful data use"],
-    mediaKey: "moodboard",
-    accentFrom: "#8d654f",
-    accentTo: "#556d69",
-    surface: "#eee3d7",
+  en: {
+    home: {
+      eyebrow: "Ceramics school + atelier",
+      chips: ["Rio de Janeiro", "Adults + kids", "Warm studio rhythm"],
+      mediaKey: "heroProcess",
+      accentFrom: "#d7a27a",
+      accentTo: "#6f8f83",
+      surface: "#f4ece2",
+    },
+    about: {
+      eyebrow: "Studio story",
+      chips: ["Pedagogy", "Exhibitions", "Handcrafted practice"],
+      mediaKey: "founderPortrait",
+      accentFrom: "#b56f52",
+      accentTo: "#7b8f83",
+      surface: "#f3e9de",
+    },
+    classes: {
+      eyebrow: "Learning pathways",
+      chips: ["Handbuilding", "Wheel", "One-off + groups"],
+      mediaKey: "brandSeal",
+      accentFrom: "#b86845",
+      accentTo: "#7aa08f",
+      surface: "#f6ecdf",
+    },
+    team: {
+      eyebrow: "Artists + educators",
+      chips: ["Mentorship", "Small groups", "Studio guidance"],
+      mediaKey: "doloresPortrait",
+      accentFrom: "#a45d49",
+      accentTo: "#647b75",
+      surface: "#f2e7da",
+    },
+    inquiry: {
+      eyebrow: "Start your enrollment",
+      chips: ["Fast contact", "Flexible schedules", "WhatsApp follow-up"],
+      mediaKey: "brandTag",
+      accentFrom: "#bb744f",
+      accentTo: "#6f887d",
+      surface: "#f5eadf",
+    },
+    blog: {
+      eyebrow: "Journal + reflections",
+      chips: ["Process notes", "Studio culture", "Ceramic practice"],
+      mediaKey: "legacyBlogHeader",
+      accentFrom: "#b67852",
+      accentTo: "#5f7b75",
+      surface: "#f4eadf",
+    },
+    contact: {
+      eyebrow: "Visit the studio",
+      chips: ["Leblon", "Map + directions", "Direct contact"],
+      mediaKey: "processHands",
+      accentFrom: "#c27a57",
+      accentTo: "#6c8c84",
+      surface: "#f4eadf",
+    },
+    privacy: {
+      eyebrow: "Privacy + trust",
+      chips: ["Clear policies", "Contact safety", "Respectful data use"],
+      mediaKey: "moodboard",
+      accentFrom: "#8d654f",
+      accentTo: "#556d69",
+      surface: "#eee3d7",
+    },
   },
 };
+
+function getPageTheme(locale: Locale, page: PageKey) {
+  return pageThemes[locale][page];
+}
 
 function getPageLabel(locale: Locale, page: PageKey) {
   const dictionary = getDictionary(locale);
@@ -180,7 +318,7 @@ function formatPublishedLabel(locale: Locale, publishedAt: string) {
 }
 
 function buildPageCard(locale: Locale, page: PageKey, path: string, title: string, description: string): SocialCardData {
-  const theme = pageThemes[page];
+  const theme = getPageTheme(locale, page);
   const asset = getAssetUrl(theme.mediaKey);
 
   return {
@@ -201,7 +339,7 @@ function buildPageCard(locale: Locale, page: PageKey, path: string, title: strin
 
 function buildBlogCard(locale: Locale, path: string, title: string, description: string, post: BlogPost): SocialCardData {
   const asset = getAssetUrl(post.cover);
-  const theme = pageThemes.blog;
+  const theme = getPageTheme(locale, "blog");
 
   return {
     eyebrow: post.category,

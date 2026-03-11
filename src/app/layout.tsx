@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { Manrope, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
 
+import { getDictionary } from "@/content/site";
 import { siteConfig } from "@/config/site";
 import { defaultLocale, isLocale } from "@/lib/i18n-config";
 
@@ -23,7 +24,7 @@ const displayFont = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: siteConfig.name,
-  description: siteConfig.description,
+  description: getDictionary(defaultLocale).seo.defaultDescription,
   icons: {
     icon: [
       { url: "/favicon.ico" },
