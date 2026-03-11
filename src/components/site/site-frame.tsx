@@ -69,7 +69,7 @@ export function SiteFrame({
         phone={phone}
         addressLines={addressLines}
       />
-      {showMobileDock ? <MobileDock items={dockItems} currentPage={currentPage} /> : null}
+      {showMobileDock ? <MobileDock items={dockItems} currentPage={currentPage} dictionary={dictionary} /> : null}
     </div>
   );
 }

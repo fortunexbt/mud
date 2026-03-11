@@ -68,7 +68,7 @@ export function SiteHeader({
           <div className="flex min-h-[4rem] items-center gap-4 py-2 sm:min-h-[5.35rem] sm:py-4">
             <SiteLogo href={`/${locale}`} className="px-3.5 py-2.5" imageClassName="w-[4rem] sm:w-[6rem]" />
 
-            <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex" aria-label="Primary">
+            <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex" aria-label={dictionary.nav.primaryNavLabel}>
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -164,7 +164,7 @@ export function SiteHeader({
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-x-3 top-[4.5rem] flex flex-col items-center justify-center rounded-[2.2rem] border border-outline/35 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(245,240,233,0.92))] p-4 shadow-[0_40px_80px_-20px_rgba(47,32,21,0.2)] sm:inset-x-8 sm:p-6"
             >
-              <nav className="flex w-full flex-col gap-1.5 mt-2" aria-label="Mobile primary">
+              <nav className="mt-2 flex w-full flex-col gap-1.5" aria-label={dictionary.nav.mobileNavLabel}>
                 {navItems.map((item) => (
                   <Link
                     key={item.href}

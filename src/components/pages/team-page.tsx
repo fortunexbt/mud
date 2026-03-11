@@ -7,7 +7,7 @@ import type { PageContext } from "@/components/pages/types";
 import { ArtImage } from "@/components/ui/art-image";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function TeamPage({ dictionary }: PageContext) {
+export function TeamPage({ locale, dictionary }: PageContext) {
   const featuredMember = dictionary.team.featuredMember;
 
   return (
@@ -32,7 +32,7 @@ export function TeamPage({ dictionary }: PageContext) {
           </div>
 
           <div className="rounded-[1.95rem] border border-outline/45 bg-white/84 p-4 shadow-soft sm:p-5">
-            <ArtImage mediaKey="founderPortrait" aspect="aspect-[4/4.35]" filter="sepia(0.15) saturate(0.88) contrast(1.02)" />
+            <ArtImage mediaKey="founderPortrait" aspect="aspect-[4/4.35]" filter="sepia(0.15) saturate(0.88) contrast(1.02)" locale={locale} />
           </div>
         </div>
       </section>
@@ -42,7 +42,7 @@ export function TeamPage({ dictionary }: PageContext) {
           <section className="border-b border-outline/40 bg-surface/42">
             <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
               <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-                <ArtImage mediaKey={featuredMember.imageKey} aspect="aspect-[4/4.8]" filter="sepia(0.1) saturate(0.94) contrast(1.02)" />
+                <ArtImage mediaKey={featuredMember.imageKey} aspect="aspect-[4/4.8]" filter="sepia(0.1) saturate(0.94) contrast(1.02)" locale={locale} />
                 <div className="rounded-[1.9rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
                   <SectionHeading eyebrow={dictionary.team.featuredTitle} title={featuredMember.name} description={featuredMember.tagline} />
                   <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-terracotta">{featuredMember.role}</p>
@@ -77,7 +77,7 @@ export function TeamPage({ dictionary }: PageContext) {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
               }}
             >
-              <TeamCard member={member} placeholderLabel={dictionary.team.portraitPending} />
+              <TeamCard member={member} placeholderLabel={dictionary.team.portraitPending} locale={locale} />
             </motion.div>
           ))}
         </motion.div>

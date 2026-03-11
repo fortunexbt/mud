@@ -46,20 +46,7 @@ export function LeadForm({
 
   const showInterestField = formType === "inquiry";
 
-  const optionalDetails = {
-    pt: {
-      label: "Informações complementares",
-      hint: "Disponibilidade, idioma e contexto ajudam a MUD a responder com mais precisão.",
-    },
-    es: {
-      label: "Más detalles",
-      hint: "Disponibilidad, idioma y contexto ayudan a MUD a responder con más precisión.",
-    },
-    en: {
-      label: "More details",
-      hint: "Availability, language, and context help MUD respond with more precision.",
-    },
-  }[locale];
+  const optionalDetails = dictionary.form.optionalDetails;
 
   const getResponseMessage = () => {
     if (!state) return null;

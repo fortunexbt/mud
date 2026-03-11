@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import type { MediaKey } from "@/lib/media";
+import type { Locale } from "@/lib/i18n-config";
 import { getMediaAsset } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,7 @@ interface ArtImageProps {
   overlay?: boolean;
   aspect?: string;
   filter?: string;
+  locale?: Locale;
 }
 
 export function ArtImage({
@@ -24,8 +26,9 @@ export function ArtImage({
   overlay = true,
   aspect = "aspect-[4/5]",
   filter,
+  locale = "pt",
 }: ArtImageProps) {
-  const asset = getMediaAsset(mediaKey);
+  const asset = getMediaAsset(mediaKey, locale);
 
   return (
     <div

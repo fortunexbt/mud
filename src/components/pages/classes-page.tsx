@@ -7,7 +7,7 @@ import { ArtImage } from "@/components/ui/art-image";
 import { buttonClasses } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function ClassesPage({ dictionary, paths }: PageContext) {
+export function ClassesPage({ locale, dictionary, paths }: PageContext) {
   return (
     <main id="main">
       <section className="border-b border-outline/40">
@@ -38,6 +38,7 @@ export function ClassesPage({ dictionary, paths }: PageContext) {
               mediaKey="processHands"
               aspect="aspect-[4/4.4]"
               filter="grayscale(0.16) sepia(0.16) saturate(0.9) contrast(1.04)"
+              locale={locale}
             />
           </div>
         </div>

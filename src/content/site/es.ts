@@ -17,6 +17,9 @@ export const esDictionary: SiteDictionary = {
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
     skipToContent: "Saltar al contenido",
+    primaryNavLabel: "Navegación principal",
+    mobileNavLabel: "Navegación principal móvil",
+    mobileDockLabel: "Navegación inferior móvil",
   },
   common: {
     primaryWhatsApp: "Hablar por WhatsApp",
@@ -124,7 +127,7 @@ export const esDictionary: SiteDictionary = {
       description:
         "Los formatos especiales entran en la conversación cuando encajan con la rutina del atelier y la calidad de la experiencia.",
       items: [
-        "Team building y grupos corporativos",
+        "Integración de equipos y grupos corporativos",
         "Cumpleaños y encuentros privados",
         "Experiencias para visitantes y expatriados",
       ],
@@ -578,6 +581,10 @@ export const esDictionary: SiteDictionary = {
       "Alianza / empresa",
       "Otro",
     ],
+    optionalDetails: {
+      label: "Más detalles",
+      hint: "Disponibilidad, idioma y contexto ayudan a MUD a responder con más precisión.",
+    },
     consentHint:
       "Usaremos tus datos solo para responder al contacto, organizar la atención y mejorar futuros flujos de seguimiento.",
     successTitle: "Mensaje enviado",

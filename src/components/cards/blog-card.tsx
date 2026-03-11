@@ -39,6 +39,7 @@ export function BlogCard({ post, locale, readLabel, variant = "featured" }: Blog
           aspect="aspect-[16/10]"
           className="min-h-[13rem]"
           filter="sepia(0.1) saturate(0.92) contrast(1.03)"
+          locale={locale}
         />
         <div className="mt-4 space-y-3">
           {meta}
@@ -60,6 +61,7 @@ export function BlogCard({ post, locale, readLabel, variant = "featured" }: Blog
         aspect="aspect-[16/11]"
         className="min-h-[14rem] lg:min-h-full"
         filter="sepia(0.12) saturate(0.9) contrast(1.04)"
+        locale={locale}
       />
       <div className="flex flex-col gap-4 p-1 sm:p-2">
         {meta}

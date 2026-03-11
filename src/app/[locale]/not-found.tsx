@@ -58,7 +58,7 @@ export default async function NotFound() {
           `CEP ${siteConfig.address.postalCode}`,
         ]}
       >
-      <NotFoundContent dictionary={dictionary} homeHref={paths.home} whatsappHref={whatsappHref} />
+      <NotFoundContent locale={locale} dictionary={dictionary} homeHref={paths.home} whatsappHref={whatsappHref} />
     </SiteFrame>
   );
 }

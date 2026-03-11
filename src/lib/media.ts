@@ -1,5 +1,7 @@
 import type { StaticImageData } from "next/image";
 
+import type { Locale } from "@/lib/i18n-config";
+
 import moodboard from "@/assets/brand/mud-moodboard.png";
 import glowLogo from "@/assets/brand/mud-glow.png";
 import logoPrimary from "@/assets/brand/logo-primary.png";
@@ -49,94 +51,143 @@ export type MediaKey =
 
 export interface MediaAsset {
   src: StaticImageData;
-  alt: string;
+  alt: Record<Locale, string>;
   objectPosition?: string;
   className?: string;
 }
 
+function localizedAlt(pt: string, es: string, en: string) {
+  return { pt, es, en };
+}
+
 export const mediaAssets: Record<MediaKey, MediaAsset> = {
-  logoPrimary: { src: logoPrimary, alt: "Logo da MUD Escola de Cerâmica" },
-  logoSoft: { src: logoSoft, alt: "Logo da MUD sobre fundo claro" },
-  logoTextured: { src: logoTextured, alt: "Logo da MUD com elementos orgânicos" },
-  logoClay: { src: logoClay, alt: "Logo da MUD em fundo argila" },
-  logoSlate: { src: logoSlate, alt: "Logo da MUD em fundo azul petróleo" },
-  logoTeal: { src: logoTeal, alt: "Logo da MUD em fundo verde" },
-  moodboard: { src: moodboard, alt: "Moodboard da identidade visual da MUD" },
-  glowLogo: { src: glowLogo, alt: "Versão iluminada do monograma MUD" },
+  logoPrimary: { src: logoPrimary, alt: localizedAlt("Logo da MUD Escola de Cerâmica", "Logo de MUD Escola de Cerâmica", "MUD Escola de Cerâmica logo") },
+  logoSoft: { src: logoSoft, alt: localizedAlt("Logo da MUD sobre fundo claro", "Logo de MUD sobre fondo claro", "MUD logo on a light background") },
+  logoTextured: { src: logoTextured, alt: localizedAlt("Logo da MUD com elementos orgânicos", "Logo de MUD con elementos orgánicos", "MUD logo with organic elements") },
+  logoClay: { src: logoClay, alt: localizedAlt("Logo da MUD em fundo argila", "Logo de MUD sobre fondo arcilla", "MUD logo on a clay-colored background") },
+  logoSlate: { src: logoSlate, alt: localizedAlt("Logo da MUD em fundo azul petróleo", "Logo de MUD sobre fondo azul petróleo", "MUD logo on a deep teal background") },
+  logoTeal: { src: logoTeal, alt: localizedAlt("Logo da MUD em fundo verde", "Logo de MUD sobre fondo verde", "MUD logo on a green background") },
+  moodboard: { src: moodboard, alt: localizedAlt("Moodboard da identidade visual da MUD", "Moodboard de la identidad visual de MUD", "Moodboard for MUD's visual identity") },
+  glowLogo: { src: glowLogo, alt: localizedAlt("Versão iluminada do monograma MUD", "Versión iluminada del monograma MUD", "Illuminated version of the MUD monogram") },
   heroProcess: {
     src: apronKneadingVertical,
-    alt: "Avental da MUD em uso enquanto mãos modelam barro sobre a mesa do ateliê",
+    alt: localizedAlt(
+      "Avental da MUD em uso enquanto mãos modelam barro sobre a mesa do ateliê",
+      "Delantal de MUD en uso mientras unas manos modelan barro sobre la mesa del atelier",
+      "MUD apron in use while hands shape clay on the studio table",
+    ),
     objectPosition: "50% 38%",
   },
   processHands: {
     src: apronsOverheadWorkshop,
-    alt: "Vista superior de uma mesa de oficina com aventais MUD, ferramentas e peças em cerâmica",
+    alt: localizedAlt(
+      "Vista superior de uma mesa de oficina com aventais MUD, ferramentas e peças em cerâmica",
+      "Vista superior de una mesa de taller con delantales MUD, herramientas y piezas de cerámica",
+      "Overhead view of a workshop table with MUD aprons, tools, and ceramic pieces",
+    ),
     objectPosition: "50% 50%",
   },
   founderPortrait: {
     src: apronShelvingBack,
-    alt: "Ambiente do ateliê da MUD com avental da marca diante de prateleiras cheias de peças",
+    alt: localizedAlt(
+      "Ambiente do ateliê da MUD com avental da marca diante de prateleiras cheias de peças",
+      "Ambiente del atelier de MUD con el delantal de la marca frente a estantes llenas de piezas",
+      "MUD studio setting with the brand apron in front of shelves full of pieces",
+    ),
     objectPosition: "50% 40%",
   },
   teamPlaceholder: {
     src: apronKneadingSquare,
-    alt: "Placeholder de retrato da equipe da MUD",
+    alt: localizedAlt("Imagem provisória do retrato da equipe da MUD", "Imagen provisoria del retrato del equipo de MUD", "Placeholder portrait for the MUD team"),
     objectPosition: "50% 50%",
   },
   kidsStudio: {
     src: apronsKidsBacks,
-    alt: "Crianças usando aventais da MUD em atividade no ateliê",
+    alt: localizedAlt(
+      "Crianças usando aventais da MUD em atividade no ateliê",
+      "Niños usando delantales de MUD durante una actividad en el atelier",
+      "Children wearing MUD aprons during a studio activity",
+    ),
     objectPosition: "50% 50%",
   },
   brandTag: {
     src: apronsSketchTable,
-    alt: "Mesa de criação com aventais da MUD, cadernos, ferramentas e peças em argila",
+    alt: localizedAlt(
+      "Mesa de criação com aventais da MUD, cadernos, ferramentas e peças em argila",
+      "Mesa de creación con delantales de MUD, cuadernos, herramientas y piezas de arcilla",
+      "Creative table with MUD aprons, notebooks, tools, and clay pieces",
+    ),
     objectPosition: "50% 50%",
   },
   brandSeal: {
     src: apronWheelTrim,
-    alt: "Peça sendo torneada com avental da MUD em destaque",
+    alt: localizedAlt(
+      "Peça sendo torneada com avental da MUD em destaque",
+      "Pieza trabajada en torno con el delantal de MUD en destaque",
+      "Piece being shaped on the wheel with a MUD apron in view",
+    ),
     objectPosition: "50% 45%",
   },
   legacyBlogHeader: {
     src: apronsGlazingClass,
-    alt: "Turma da MUD esmaltando peças no ateliê",
+    alt: localizedAlt(
+      "Turma da MUD esmaltando peças no ateliê",
+      "Clase de MUD esmaltando piezas en el atelier",
+      "MUD class glazing pieces in the studio",
+    ),
     objectPosition: "50% 50%",
   },
   cristianeBelacianoPortrait: {
     src: cristianeBelaciano,
-    alt: "Cristiane Belaciano no ateliê da MUD, usando avental da escola.",
+    alt: localizedAlt(
+      "Cristiane Belaciano no ateliê da MUD, usando avental da escola.",
+      "Cristiane Belaciano en el atelier de MUD, usando el delantal de la escuela.",
+      "Cristiane Belaciano at the MUD studio wearing the school's apron.",
+    ),
     objectPosition: "50% 32%",
   },
   doloresPortrait: {
     src: doloresPortrait,
-    alt: "Dolores Damiano no ateliê da MUD, usando avental da escola.",
+    alt: localizedAlt(
+      "Dolores Damiano no ateliê da MUD, usando avental da escola.",
+      "Dolores Damiano en el atelier de MUD, usando el delantal de la escuela.",
+      "Dolores Damiano at the MUD studio wearing the school's apron.",
+    ),
     objectPosition: "50% 36%",
   },
   mudExhibition2025: {
     src: exhibition2025,
-    alt: 'Cartaz da exposição MUD 2025 "Quando o vazio sustenta a forma".',
+    alt: localizedAlt(
+      'Cartaz da exposição MUD 2025 "Quando o vazio sustenta a forma".',
+      'Cartel de la exposición MUD 2025 "Quando o vazio sustenta a forma".',
+      'Poster for the MUD 2025 exhibition "Quando o vazio sustenta a forma".',
+    ),
     objectPosition: "50% 50%",
   },
   mudExhibition2024: {
     src: exhibition2024,
-    alt: 'Cartaz da exposição MUD 2024 "As Américas".',
+    alt: localizedAlt('Cartaz da exposição MUD 2024 "As Américas".', 'Cartel de la exposición MUD 2024 "As Américas".', 'Poster for the MUD 2024 exhibition "As Américas".'),
     objectPosition: "50% 50%",
   },
   mudExhibition2023: {
     src: exhibition2023,
-    alt: 'Cartaz da exposição MUD 2023 "YBY - Nossa Terra".',
+    alt: localizedAlt('Cartaz da exposição MUD 2023 "YBY - Nossa Terra".', 'Cartel de la exposición MUD 2023 "YBY - Nossa Terra".', 'Poster for the MUD 2023 exhibition "YBY - Nossa Terra".'),
     objectPosition: "50% 50%",
   },
   mudExhibition2022: {
     src: exhibition2022,
-    alt: 'Cartaz da exposição MUD 2022 "O Possível".',
+    alt: localizedAlt('Cartaz da exposição MUD 2022 "O Possível".', 'Cartel de la exposición MUD 2022 "O Possível".', 'Poster for the MUD 2022 exhibition "O Possível".'),
     objectPosition: "50% 50%",
   },
 };
 
 export const mediaKeys = Object.keys(mediaAssets) as MediaKey[];
 
-export function getMediaAsset(key: MediaKey) {
-  return mediaAssets[key];
+export function getMediaAsset(key: MediaKey, locale: Locale = "pt") {
+  const asset = mediaAssets[key];
+
+  return {
+    ...asset,
+    alt: asset.alt[locale],
+  };
 }

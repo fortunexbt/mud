@@ -292,8 +292,8 @@ function getSocialImageUrl(locale: Locale, path: string, kind: "opengraph" | "tw
   return absoluteUrl(siteConfig.url, `/api/${kind}?${searchParams.toString()}`);
 }
 
-function getAssetUrl(key: MediaKey) {
-  const asset = getMediaAsset(key);
+function getAssetUrl(key: MediaKey, locale: Locale) {
+  const asset = getMediaAsset(key, locale);
 
   return {
     url: absoluteUrl(siteConfig.url, asset.src.src),
@@ -319,7 +319,7 @@ function formatPublishedLabel(locale: Locale, publishedAt: string) {
 
 function buildPageCard(locale: Locale, page: PageKey, path: string, title: string, description: string): SocialCardData {
   const theme = getPageTheme(locale, page);
-  const asset = getAssetUrl(theme.mediaKey);
+  const asset = getAssetUrl(theme.mediaKey, locale);
 
   return {
     eyebrow: theme.eyebrow,
@@ -338,7 +338,7 @@ function buildPageCard(locale: Locale, page: PageKey, path: string, title: strin
 }
 
 function buildBlogCard(locale: Locale, path: string, title: string, description: string, post: BlogPost): SocialCardData {
-  const asset = getAssetUrl(post.cover);
+  const asset = getAssetUrl(post.cover, locale);
   const theme = getPageTheme(locale, "blog");
 
   return {

@@ -6,7 +6,7 @@ import { ArtImage } from "@/components/ui/art-image";
 import { buttonClasses } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-export function AboutPage({ dictionary, paths, whatsappHref }: PageContext) {
+export function AboutPage({ locale, dictionary, paths, whatsappHref }: PageContext) {
   const exhibitions = dictionary.about.exhibitions?.items ?? [];
 
   return (
@@ -42,6 +42,7 @@ export function AboutPage({ dictionary, paths, whatsappHref }: PageContext) {
               mediaKey="brandSeal"
               aspect="aspect-[4/4.65]"
               filter="sepia(0.18) saturate(0.9) contrast(1.04)"
+              locale={locale}
             />
             <div className="rounded-[1.8rem] border border-outline/45 bg-white/78 p-5 shadow-soft sm:p-6">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-terracotta sm:text-xs">
@@ -73,6 +74,7 @@ export function AboutPage({ dictionary, paths, whatsappHref }: PageContext) {
                 mediaKey="founderPortrait"
                 aspect="aspect-[4/4.8]"
                 filter="sepia(0.14) saturate(0.92) contrast(1.03)"
+                locale={locale}
               />
             </div>
 
@@ -114,7 +116,7 @@ export function AboutPage({ dictionary, paths, whatsappHref }: PageContext) {
             {exhibitions.map((item) => (
               <article key={item.year} className="overflow-hidden rounded-[1.85rem] border border-outline/45 bg-white/84 shadow-soft">
                 <div className="grid gap-0 xl:grid-cols-[0.86fr_1.14fr]">
-                  <ArtImage mediaKey={item.posterKey} aspect="aspect-[4/5.15]" className="rounded-none border-0 shadow-none xl:aspect-auto" overlay={false} />
+                  <ArtImage mediaKey={item.posterKey} aspect="aspect-[4/5.15]" className="rounded-none border-0 shadow-none xl:aspect-auto" overlay={false} locale={locale} />
                   <div className="space-y-4 p-5 sm:p-6">
                     <div className="flex items-center justify-between gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-terracotta">
                       <span>{item.editionLabel}</span>

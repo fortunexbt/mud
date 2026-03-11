@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import type { TeamMember } from "@/content/site/types";
+import type { Locale } from "@/lib/i18n-config";
 import { getMediaAsset } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
@@ -11,14 +12,15 @@ interface TeamPortraitProps {
   placeholderLabel: string;
   className?: string;
   priority?: boolean;
+  locale?: Locale;
 }
 
-export function TeamPortrait({ member, placeholderLabel, className, priority = false }: TeamPortraitProps) {
+export function TeamPortrait({ member, placeholderLabel, className, priority = false, locale = "pt" }: TeamPortraitProps) {
   if (member.imageKey === "teamPlaceholder") {
     return <TeamPortraitPlaceholder name={member.name} label={placeholderLabel} className={className} />;
   }
 
-  const asset = getMediaAsset(member.imageKey);
+  const asset = getMediaAsset(member.imageKey, locale);
 
   return (
     <div className={cn("relative overflow-hidden rounded-[1.35rem] border border-outline/45 bg-sand shadow-soft sm:rounded-[1.6rem]", className)}>

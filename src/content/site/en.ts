@@ -17,6 +17,9 @@ export const enDictionary: SiteDictionary = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     skipToContent: "Skip to content",
+    primaryNavLabel: "Primary navigation",
+    mobileNavLabel: "Mobile primary navigation",
+    mobileDockLabel: "Mobile bottom navigation",
   },
   common: {
     primaryWhatsApp: "Chat on WhatsApp",
@@ -578,6 +581,10 @@ export const enDictionary: SiteDictionary = {
       "Partnership / company",
       "Other",
     ],
+    optionalDetails: {
+      label: "More details",
+      hint: "Availability, language, and context help MUD respond with more precision.",
+    },
     consentHint:
       "Your information is used only to answer your message, organize communication, and improve future follow-up flows.",
     successTitle: "Message sent",

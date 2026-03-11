@@ -67,6 +67,9 @@ export interface SiteDictionary {
     openMenu: string;
     closeMenu: string;
     skipToContent: string;
+    primaryNavLabel: string;
+    mobileNavLabel: string;
+    mobileDockLabel: string;
   };
   common: {
     primaryWhatsApp: string;
@@ -291,6 +294,10 @@ export interface SiteDictionary {
     interests: Record<"adults" | "kids" | "oneOff" | "wheel" | "groups", string>;
     languages: Record<"pt" | "es" | "en", string>;
     foundUsOptions: string[];
+    optionalDetails: {
+      label: string;
+      hint: string;
+    };
     consentHint: string;
     successTitle: string;
     successBody: string;

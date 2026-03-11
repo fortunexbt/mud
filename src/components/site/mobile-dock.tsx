@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { CompassIcon, ComposeIcon, GridIcon, HomeIcon } from "@/components/icons";
+import type { SiteDictionary } from "@/content/site";
 import type { PageKey } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,7 @@ interface MobileDockItem {
 interface MobileDockProps {
   items: MobileDockItem[];
   currentPage: PageKey;
+  dictionary: SiteDictionary;
 }
 
 const iconMap = {
@@ -22,12 +24,12 @@ const iconMap = {
   inquiry: ComposeIcon,
 } as const;
 
-export function MobileDock({ items, currentPage }: MobileDockProps) {
+export function MobileDock({ items, currentPage, dictionary }: MobileDockProps) {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-outline/45 bg-[linear-gradient(180deg,rgba(245,240,233,0.88),rgba(232,223,212,0.98))] px-3 pb-[calc(0.8rem+env(safe-area-inset-bottom))] pt-3 shadow-[0_-18px_40px_-28px_rgba(47,32,21,0.32)] backdrop-blur-2xl sm:hidden">
       <nav
         className="mx-auto grid max-w-md grid-cols-4 gap-2 rounded-[1.75rem] border border-white/45 bg-white/56 p-2 shadow-card"
-        aria-label="Primary mobile navigation"
+        aria-label={dictionary.nav.mobileDockLabel}
       >
         {items.map((item) => {
           const Icon = iconMap[item.page as keyof typeof iconMap];

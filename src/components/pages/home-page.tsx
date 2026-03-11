@@ -60,6 +60,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
                 aspect="aspect-[4/4.7]"
                 priority
                 filter="grayscale(0.06) sepia(0.12) saturate(0.92) contrast(1.03)"
+                locale={locale}
               />
             </div>
           </div>
@@ -103,6 +104,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
               mediaKey="processHands"
               aspect="aspect-[16/11]"
               filter="grayscale(0.22) sepia(0.18) saturate(0.8) contrast(1.05)"
+              locale={locale}
             />
 
             <div className="rounded-[1.95rem] border border-outline/45 bg-white/84 p-6 shadow-soft sm:p-8">
@@ -172,6 +174,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
               mediaKey="brandTag"
               aspect="aspect-[16/11]"
               filter="sepia(0.16) saturate(0.88) contrast(1.03)"
+              locale={locale}
             />
           </div>
         </div>

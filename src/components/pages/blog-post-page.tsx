@@ -36,7 +36,7 @@ export function BlogPostPage({ locale, dictionary, post, relatedPosts }: BlogPos
             <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.6rem,7vw,4.5rem)] leading-[0.97] text-ink">{post.title}</h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-muted sm:text-[1.06rem]">{post.excerpt}</p>
             <div className="mt-10">
-              <ArtImage mediaKey={post.cover} aspect="aspect-[16/9]" className="max-h-[35rem]" filter="sepia(0.12) saturate(0.92) contrast(1.04)" />
+              <ArtImage mediaKey={post.cover} aspect="aspect-[16/9]" className="max-h-[35rem]" filter="sepia(0.12) saturate(0.92) contrast(1.04)" locale={locale} />
             </div>
           </div>
         </section>
