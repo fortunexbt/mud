@@ -109,15 +109,6 @@ export function SiteFooter({
                 </h2>
                 <div className="mt-4 grid gap-3 text-sm text-white/76">
                   <Link
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 hover:text-white"
-                  >
-                    <WhatsAppIcon className="h-4 w-4 text-clay" />
-                    {formatPhoneDisplay(phone)}
-                  </Link>
-                  <Link
                     href={instagramUrl}
                     target="_blank"
                     rel="noreferrer"
