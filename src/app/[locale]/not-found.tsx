@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+import { headers, cookies } from "next/headers";
 
 import { NotFoundContent } from "@/components/pages/not-found-content";
 import { SiteFrame } from "@/components/site/site-frame";
@@ -22,12 +22,15 @@ export default async function NotFound() {
   const localeFromHeader = headerList.get("x-locale");
   const locale: Locale = localeFromHeader && isLocale(localeFromHeader) ? localeFromHeader : defaultLocale;
   const dictionary = getDictionary(locale);
+  const cookieStore = await cookies();
+  const hasPlayedIntro = cookieStore.has("mud-intro-played");
   const paths = getPagePaths(locale);
   const navItems = getNavItems(locale, dictionary);
   const whatsappHref = buildWhatsAppUrl(locale, "general");
 
   return (
       <SiteFrame
+        hasPlayedIntro={hasPlayedIntro}
         locale={locale}
         dictionary={dictionary}
         currentPage="home"

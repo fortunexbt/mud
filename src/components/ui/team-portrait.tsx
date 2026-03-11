@@ -10,9 +10,10 @@ interface TeamPortraitProps {
   member: TeamMember;
   placeholderLabel: string;
   className?: string;
+  priority?: boolean;
 }
 
-export function TeamPortrait({ member, placeholderLabel, className }: TeamPortraitProps) {
+export function TeamPortrait({ member, placeholderLabel, className, priority = false }: TeamPortraitProps) {
   if (member.imageKey === "teamPlaceholder") {
     return <TeamPortraitPlaceholder name={member.name} label={placeholderLabel} className={className} />;
   }
@@ -25,6 +26,7 @@ export function TeamPortrait({ member, placeholderLabel, className }: TeamPortra
         src={asset.src}
         alt={asset.alt}
         fill
+        priority={priority}
         sizes="(min-width: 1280px) 20vw, (min-width: 768px) 40vw, 100vw"
         className="object-cover"
         style={{ objectPosition: asset.objectPosition }}

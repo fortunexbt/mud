@@ -29,6 +29,7 @@ export function SiteLogo({
         alt="MUD Escola de Cerâmica"
         width={3393}
         height={2840}
+        sizes="100px"
         priority={priority}
         className={cn("relative h-auto w-[4.8rem] sm:w-[5.8rem]", imageClassName)}
       />

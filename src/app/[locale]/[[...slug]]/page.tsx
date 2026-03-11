@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
 import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 
@@ -80,6 +81,8 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function LocalizedPage({ params, searchParams }: PageProps) {
   const { locale: localeParam, slug = [] } = await params;
   const query = await searchParams;
+  const cookieStore = await cookies();
+  const hasPlayedIntro = cookieStore.has("mud-intro-played");
 
   if (!isLocale(localeParam)) {
     notFound();
@@ -235,6 +238,7 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
 
   return (
       <SiteFrame
+        hasPlayedIntro={hasPlayedIntro}
         locale={locale}
         dictionary={dictionary}
         currentPage={currentPage}

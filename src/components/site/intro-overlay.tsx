@@ -4,13 +4,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import logoPrimary from "@/assets/brand/logo-primary.png";
 
-export function IntroOverlay() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+export function IntroOverlay({ hasPlayed }: { hasPlayed: boolean }) {
+  const [isVisible, setIsVisible] = useState(!hasPlayed);
+  const [isAnimating, setIsAnimating] = useState(!hasPlayed);
 
   useEffect(() => {
     // Only play on first visit per session
-    const hasPlayed = sessionStorage.getItem("mud-intro-played");
     if (hasPlayed) return;
 
     // Check for reduced motion
@@ -25,11 +24,11 @@ export function IntroOverlay() {
     const timer = setTimeout(() => {
       setIsAnimating(false);
       setTimeout(() => setIsVisible(false), 1000); // Wait for fade-out
-      sessionStorage.setItem("mud-intro-played", "true");
+      document.cookie = "mud-intro-played=true; path=/; max-age=31536000"; // 1 year
     }, 2000); // Hold for 2s
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [hasPlayed]);
 
   if (!isVisible) return null;
 
@@ -44,6 +43,7 @@ export function IntroOverlay() {
           src={logoPrimary}
           alt="MUD"
           priority
+          sizes="(min-width: 768px) 20rem, 60vw"
           className="h-auto w-full object-contain"
         />
       </div>

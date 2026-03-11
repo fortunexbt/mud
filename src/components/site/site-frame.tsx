@@ -21,6 +21,7 @@ interface SiteFrameProps {
   email?: string;
   phone: string;
   addressLines: string[];
+  hasPlayedIntro: boolean;
 }
 
 export function SiteFrame({
@@ -36,6 +37,7 @@ export function SiteFrame({
   email,
   phone,
   addressLines,
+  hasPlayedIntro,
 }: SiteFrameProps) {
   const showMobileDock = currentPage !== "privacy";
   const dockItems = navItems.filter(
@@ -44,7 +46,7 @@ export function SiteFrame({
 
   return (
     <div className={showMobileDock ? "min-h-screen bg-background pb-28 text-ink sm:pb-0" : "min-h-screen bg-background text-ink"}>
-      <IntroOverlay />
+      <IntroOverlay hasPlayed={hasPlayedIntro} />
       <a href="#main" className="skip-link">
         {dictionary.nav.skipToContent}
       </a>
