@@ -16,11 +16,6 @@ export function IntroOverlay({ hasPlayed }: { hasPlayed: boolean }) {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsVisible(true);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsAnimating(true);
-
     const timer = setTimeout(() => {
       setIsAnimating(false);
       setTimeout(() => setIsVisible(false), 1000); // Wait for fade-out
