@@ -25,6 +25,7 @@ import exhibition2024 from "@/assets/editorial/exhibition-2024.jpeg";
 import exhibition2023 from "@/assets/editorial/exhibition-2023.jpeg";
 import exhibition2022 from "@/assets/editorial/exhibition-2022.jpeg";
 import julianaMorenoPortrait from "@/assets/editorial/Juliana Dolores.jpeg";
+import mudLocationExterior from "@/assets/editorial/mud location.jpeg";
 import vikPortrait from "@/assets/editorial/Vik.jpeg";
 
 export type MediaKey =
@@ -44,6 +45,7 @@ export type MediaKey =
   | "brunaLanesPortrait"
   | "kidsStudio"
   | "brandTag"
+  | "mudLocationExterior"
   | "brandSeal"
   | "legacyBlogHeader"
   | "cristianeBelacianoPortrait"
@@ -132,6 +134,15 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
       "Creative table with MUD aprons, notebooks, tools, and clay pieces",
     ),
     objectPosition: "50% 50%",
+  },
+  mudLocationExterior: {
+    src: mudLocationExterior,
+    alt: localizedAlt(
+      "Fachada do prédio da MUD em Leblon, com o ateliê no andar superior.",
+      "Fachada del edificio de MUD en Leblon, con el atelier en la planta superior.",
+      "Facade of MUD's building in Leblon, with the studio on the upper floor.",
+    ),
+    objectPosition: "50% 18%",
   },
   brandSeal: {
     src: apronWheelTrim,

@@ -171,7 +171,7 @@ export function HomePage({ locale, dictionary, paths, whatsappHref, posts }: Hom
 
           <div className="mt-8 grid gap-4 lg:mt-0">
             <ArtImage
-              mediaKey="brandTag"
+              mediaKey="mudLocationExterior"
               aspect="aspect-[16/11]"
               filter="sepia(0.16) saturate(0.88) contrast(1.03)"
               locale={locale}
