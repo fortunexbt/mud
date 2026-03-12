@@ -142,7 +142,7 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
       "Fachada del edificio de MUD en Leblon, con el atelier en la planta superior.",
       "Facade of MUD's building in Leblon, with the studio on the upper floor.",
     ),
-    objectPosition: "50% 18%",
+    objectPosition: "50% 14%",
   },
   brandSeal: {
     src: apronWheelTrim,
