@@ -12,7 +12,16 @@ export default async function AdminFaqPage({
 }) {
   const query = await searchParams;
   const locale = typeof query.locale === "string" && locales.includes(query.locale as Locale) ? (query.locale as Locale) : "pt";
-  const rows = await getFaqEditorRows(locale);
+  
+  let rows;
+  try {
+    console.log("AdminFaqPage: Attempting to fetch FAQ rows for:", locale);
+    rows = await getFaqEditorRows(locale);
+    console.log("AdminFaqPage: FAQ rows fetched successfully, count:", rows.length);
+  } catch (err) {
+    console.error("AdminFaqPage: CRITICAL ERROR fetching FAQ rows:", err);
+    throw err;
+  }
 
   return (
     <div className="space-y-6">
