@@ -5,14 +5,17 @@ import { saveExhibitionAction } from "@/app/admin/actions";
 import { TextEditor } from "./editors/TextEditor";
 import { ListEditor } from "./editors/ListEditor";
 import { ImageSelector } from "./editors/ImageSelector";
+import { type MediaAsset } from "@/lib/media-db";
 import type { Locale } from "@/lib/i18n-config";
 
 export function ExhibitionEditor({
   locale,
   initialData,
+  assets,
 }: {
   locale: Locale;
   initialData: Record<string, unknown>;
+  assets: MediaAsset[];
 }) {
   const [data, setData] = useState<Record<string, unknown>>(initialData);
 
@@ -31,7 +34,7 @@ export function ExhibitionEditor({
         <TextEditor label="Título" value={data.title as string} onChange={(val) => update("title", val)} />
         <TextEditor label="Data" value={data.date as string} onChange={(val) => update("date", val)} />
         <div className="md:col-span-2">
-          <ImageSelector label="Pôster" value={data.posterKey as string} onChange={(val) => update("posterKey", val)} />
+          <ImageSelector label="Pôster" value={data.posterKey as string} onChange={(val) => update("posterKey", val)} assets={assets} />
         </div>
         <div className="md:col-span-2">
           <TextEditor label="Descrição" value={data.description as string} onChange={(val) => update("description", val)} multiline />

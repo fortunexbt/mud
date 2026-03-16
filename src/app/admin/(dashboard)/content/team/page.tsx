@@ -2,6 +2,9 @@ import { resetTeamMemberAction, saveTeamMemberAction } from "@/app/admin/actions
 import { getTeamMemberEditorRows } from "@/lib/team-content";
 import { localeLabels, locales, type Locale } from "@/lib/i18n-config";
 import { mediaKeys } from "@/lib/media";
+import { AdminPageHeader } from "@/components/admin/ui/AdminPageHeader";
+import { AdminCard } from "@/components/admin/ui/AdminCard";
+import { SubmitButton } from "@/components/admin/SubmitButton";
 
 export default async function AdminTeamPage({
   searchParams,
@@ -14,48 +17,38 @@ export default async function AdminTeamPage({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-[1.8rem] border border-outline/50 bg-white/82 p-6 shadow-soft">
-        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Equipe</p>
-        <h2 className="mt-2 font-display text-[2rem] leading-tight text-ink">Editar membros da equipe</h2>
-        <p className="mt-3 max-w-3xl text-base leading-7 text-muted">
-          Edite informações dos membros da equipe, incluindo fundadora, membro em destaque e faculty. Cada membro tem nome, função, biografia e foto.
-        </p>
-        {query.saved === "1" ? (
-          <p className="mt-4 rounded-[1.2rem] border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">Alterações salvas.</p>
-        ) : null}
-        {query.error ? (
-          <p className="mt-4 rounded-[1.2rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">Revise os campos obrigatórios antes de salvar.</p>
-        ) : null}
-      </section>
+      <AdminPageHeader
+        eyebrow="Equipe"
+        title="Editar membros da equipe"
+        description="Gerencie os membros da equipe (fundadora, faculty, destaque)."
+      >
+        <div className="flex flex-wrap gap-2">
+          {locales.map((entry) => (
+            <a
+              key={entry}
+              href={`/admin/content/team?locale=${entry}`}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition ${entry === locale ? "bg-ink text-white" : "border border-outline/60 bg-white text-ink hover:border-terracotta/35 hover:text-terracotta"}`}
+            >
+              {localeLabels[entry]}
+            </a>
+          ))}
+        </div>
+      </AdminPageHeader>
 
-      <section className="flex flex-wrap gap-2">
-        {locales.map((entry) => (
-          <a
-            key={entry}
-            href={`/admin/content/team?locale=${entry}`}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition ${entry === locale ? "bg-ink text-white" : "border border-outline/60 bg-white text-ink hover:border-terracotta/35 hover:text-terracotta"}`}
-          >
-            {localeLabels[entry]}
-          </a>
-        ))}
-      </section>
+      {(query.saved === "1" || query.error) && (
+        <p className={`rounded-[1.2rem] border px-4 py-3 text-sm ${query.saved === "1" ? "border-emerald-200 bg-emerald-50 text-emerald-800" : "border-red-200 bg-red-50 text-red-800"}`}>
+          {query.saved === "1" ? "Alterações salvas." : "Erro ao salvar."}
+        </p>
+      )}
 
       <section className="grid gap-5">
         {rows.map((row) => (
-          <div key={row.memberKey} className="rounded-[1.8rem] border border-outline/50 bg-white/82 p-5 shadow-soft sm:p-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-terracotta">
-                  {row.isFeatured ? "Membro em Destaque" : row.memberKey === "founder" ? "Fundadora" : "Faculty"}
-                </p>
-                <h3 className="mt-1 font-display text-[1.8rem] leading-tight text-ink">{row.name}</h3>
-              </div>
-              <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] ${row.isActive ? "bg-sand text-ink" : "bg-surface text-muted"}`}>
-                {row.isActive ? "Ativo" : "Oculto"}
-              </span>
-            </div>
-
-            <form action={saveTeamMemberAction} className="mt-5 grid gap-4">
+          <AdminCard
+            key={row.memberKey}
+            title={row.name}
+            subtitle={row.role}
+          >
+            <form action={saveTeamMemberAction} className="grid gap-4">
               <input type="hidden" name="locale" value={locale} />
               <input type="hidden" name="memberKey" value={row.memberKey} />
               <input type="hidden" name="isFeatured" value={row.isFeatured ? "true" : "false"} />
@@ -80,7 +73,7 @@ export default async function AdminTeamPage({
                   </select>
                 </label>
                 <label className="grid gap-2 text-sm font-medium text-ink md:col-span-2">
-                  <span>Biografia (separe parágrafos com linha vazia)</span>
+                  <span>Biografia</span>
                   <textarea name="bio" defaultValue={row.bio.join("\n\n")} className="min-h-[8rem] rounded-[1.2rem] border border-outline/60 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20" required />
                 </label>
                 {row.isFeatured ? (
@@ -107,9 +100,7 @@ export default async function AdminTeamPage({
               </label>
 
               <div className="flex flex-wrap gap-3">
-                <button type="submit" className="inline-flex min-h-11 items-center justify-center rounded-full border border-transparent bg-terracotta px-5 text-sm font-semibold text-white shadow-soft transition hover:bg-clay">
-                  Salvar membro
-                </button>
+                <SubmitButton label="Salvar membro" />
               </div>
             </form>
 
@@ -120,7 +111,7 @@ export default async function AdminTeamPage({
                 Restaurar texto padrão
               </button>
             </form>
-          </div>
+          </AdminCard>
         ))}
       </section>
     </div>

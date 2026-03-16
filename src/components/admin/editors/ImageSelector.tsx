@@ -1,20 +1,16 @@
-import { useEffect, useState } from "react";
+"use client";
+
 import Image from "next/image";
-import { getMediaAssets, type MediaAsset } from "@/lib/media-db";
+import { type MediaAsset } from "@/lib/media-db";
 
 interface ImageSelectorProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
+  assets: MediaAsset[];
 }
 
-export function ImageSelector({ label, value, onChange }: ImageSelectorProps) {
-  const [assets, setAssets] = useState<MediaAsset[]>([]);
-
-  useEffect(() => {
-    getMediaAssets().then(setAssets);
-  }, []);
-
+export function ImageSelector({ label, value, onChange, assets }: ImageSelectorProps) {
   const selectedAsset = assets.find(a => a.fileKey === value);
 
   return (
