@@ -4,11 +4,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { BlogCard } from "@/components/cards/blog-card";
 import { ClassCard } from "@/components/cards/class-card";
 import { ArrowRightIcon } from "@/components/icons";
-import dynamic from "next/dynamic";
-const GallerySection = dynamic(() => import("@/components/pages/gallery-section").then((mod) => mod.GallerySection), {
-  ssr: true,
-  loading: () => <div className="h-96 w-full bg-surface/40 animate-pulse" />,
-});
+import { GallerySection } from "@/components/pages/gallery-section";
 import type { PageContext } from "@/components/pages/types";
 import { ArtImage } from "@/components/ui/art-image";
 import { buttonClasses } from "@/components/ui/button";
