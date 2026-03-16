@@ -22,18 +22,21 @@ export interface ManagedTeamMember {
 }
 
 function mapRow(row: Record<string, unknown>): ManagedTeamMember {
+  const bio = safeJsonParse(row.bio as string | null | undefined, []);
+  const highlights = safeJsonParse(row.highlights as string | null | undefined, []);
+  
   return {
     id: String(row.id),
     locale: row.locale as Locale,
     memberKey: String(row.member_key),
     name: String(row.name),
     role: String(row.role),
-    bio: safeJsonParse(row.bio as string | null | undefined, []),
+    bio: Array.isArray(bio) ? bio : [],
     imageKey: String(row.image_key),
     sortOrder: Number(row.sort_order),
     isFeatured: Boolean(row.is_featured),
     tagline: row.tagline ? String(row.tagline) : undefined,
-    highlights: safeJsonParse(row.highlights as string | null | undefined, []),
+    highlights: Array.isArray(highlights) ? highlights : [],
     isActive: Boolean(row.is_active),
     isDefault: false,
   };

@@ -17,11 +17,12 @@ export interface ManagedHomeSection {
 }
 
 function mapRow(row: Record<string, unknown>): ManagedHomeSection {
+  const content = safeJsonParse(row.content_json as string | null | undefined, {});
   return {
     id: String(row.id),
     locale: row.locale as Locale,
     sectionKey: row.section_key as HomeSectionKey,
-    contentJson: safeJsonParse(row.content_json as string | null | undefined, {}),
+    contentJson: typeof content === 'object' && content !== null ? content as Record<string, unknown> : {},
     isActive: Boolean(row.is_active),
     isDefault: false,
   };

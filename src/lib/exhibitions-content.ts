@@ -23,6 +23,8 @@ export interface ManagedExhibition {
 }
 
 function mapRow(row: Record<string, unknown>): ManagedExhibition {
+  const location = safeJsonParse(row.location_json as string | null | undefined, []);
+  
   return {
     id: String(row.id),
     locale: row.locale as Locale,
@@ -31,7 +33,7 @@ function mapRow(row: Record<string, unknown>): ManagedExhibition {
     editionLabel: String(row.edition_label),
     title: String(row.title),
     date: String(row.date),
-    location: safeJsonParse(row.location_json as string | null | undefined, []),
+    location: Array.isArray(location) ? location as string[] : [],
     description: String(row.description),
     posterKey: String(row.poster_key),
     sortOrder: Number(row.sort_order),
