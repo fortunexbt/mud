@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { type MediaAsset } from "@/lib/media-db";
+
+export interface MediaAsset {
+  id: string;
+  fileKey: string;
+  fileUrl: string;
+  altText: string;
+}
 
 interface ImageSelectorProps {
   label: string;

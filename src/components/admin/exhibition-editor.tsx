@@ -5,8 +5,14 @@ import { saveExhibitionAction } from "@/app/admin/actions";
 import { TextEditor } from "./editors/TextEditor";
 import { ListEditor } from "./editors/ListEditor";
 import { ImageSelector } from "./editors/ImageSelector";
-import { type MediaAsset } from "@/lib/media-db";
 import type { Locale } from "@/lib/i18n-config";
+
+export interface MediaAsset {
+  id: string;
+  fileKey: string;
+  fileUrl: string;
+  altText: string;
+}
 
 export function ExhibitionEditor({
   locale,
