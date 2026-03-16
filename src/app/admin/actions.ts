@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 import { clearAdminSession, createAdminSession, isValidAdminPassword, requireAdmin } from "@/lib/admin-auth";
 import {
@@ -45,7 +46,8 @@ export async function loginAction(formData: FormData) {
     }
 
     await createAdminSession({ userId: user.id, email: user.email });
-    redirect("/admin/leads");
+    revalidatePath("/", "layout");
+  redirect("/admin/leads");
   }
 
   if (!password || !isValidAdminPassword(password)) {
@@ -53,6 +55,7 @@ export async function loginAction(formData: FormData) {
   }
 
   await createAdminSession();
+  revalidatePath("/", "layout");
   redirect("/admin/leads");
 }
 
@@ -72,6 +75,7 @@ export async function updateLeadStatusAction(formData: FormData) {
   }
 
   await updateLeadStatus(leadId, status);
+  revalidatePath("/", "layout");
   redirect(`/admin/leads/${leadId}?saved=1`);
 }
 
@@ -86,6 +90,7 @@ export async function addLeadNoteAction(formData: FormData) {
   }
 
   await addLeadNote({ leadId, body: note, authorLabel: "diretoria MUD" });
+  revalidatePath("/", "layout");
   redirect(`/admin/leads/${leadId}?saved=1`);
 }
 
@@ -141,6 +146,7 @@ export async function saveBlogPostAction(formData: FormData) {
     redirect(id ? `/admin/content/blog/${id}?error=validation` : "/admin/content/blog/new?error=validation");
   }
 
+  revalidatePath("/", "layout");
   redirect(`/admin/content/blog/${saved.id}?saved=1`);
 }
 
@@ -153,6 +159,7 @@ export async function deleteBlogPostAction(formData: FormData) {
   }
 
   await deleteAdminBlogPost(id);
+  revalidatePath("/", "layout");
   redirect("/admin/content/blog?deleted=1");
 }
 
@@ -185,6 +192,7 @@ export async function saveServiceTrackAction(formData: FormData) {
     isActive,
   });
 
+  revalidatePath("/", "layout");
   redirect(`/admin/content/services?locale=${localeValue}&saved=1`);
 }
 
@@ -199,6 +207,7 @@ export async function resetServiceTrackAction(formData: FormData) {
   }
 
   await resetManagedServiceTrack(localeValue as Locale, serviceKey);
+  revalidatePath("/", "layout");
   redirect(`/admin/content/services?locale=${localeValue}&saved=1`);
 }
 
@@ -223,6 +232,7 @@ export async function createAdminUserAction(formData: FormData) {
     redirect("/admin/users?error=create");
   }
 
+  revalidatePath("/", "layout");
   redirect("/admin/users?saved=1");
 }
 
@@ -241,6 +251,7 @@ export async function updateAdminUserPasswordAction(formData: FormData) {
   }
 
   await updateAdminUserPassword(userId, password);
+  revalidatePath("/", "layout");
   redirect("/admin/users?saved=1");
 }
 
@@ -259,6 +270,7 @@ export async function toggleAdminUserAction(formData: FormData) {
   }
 
   await setAdminUserActive(userId, nextValue === "true");
+  revalidatePath("/", "layout");
   redirect("/admin/users?saved=1");
 }
 
@@ -306,6 +318,7 @@ export async function saveTeamMemberAction(formData: FormData) {
     isActive,
   });
 
+  revalidatePath("/", "layout");
   redirect(`/admin/content/team?locale=${localeValue}&saved=1`);
 }
 
@@ -334,6 +347,8 @@ export async function saveFaqAction(formData: FormData) {
     isActive,
   });
 
+  let translationError = false;
+
   // Auto-translate to other locales if requested
   if (autoTranslate) {
     const targetLocales = locales.filter(l => l !== localeValue);
@@ -342,18 +357,27 @@ export async function saveFaqAction(formData: FormData) {
       const translatedQuestion = await translateText(question, localeValue, targetLocale);
       const translatedAnswer = await translateText(answer, localeValue, targetLocale);
       
+      if (!translatedQuestion.success || !translatedAnswer.success) {
+        translationError = true;
+      }
+
       await saveManagedFaq({
         locale: targetLocale,
         faqKey,
-        question: translatedQuestion,
-        answer: translatedAnswer,
+        question: translatedQuestion.text,
+        answer: translatedAnswer.text,
         sortOrder,
         isActive,
       });
     }
   }
 
-  redirect(`/admin/content/faq?locale=${localeValue}&saved=1`);
+  const queryParams = new URLSearchParams({ saved: "1" });
+  if (translationError) {
+    queryParams.set("warning", "translation");
+  }
+
+  redirect(`/admin/content/faq?locale=${localeValue}&${queryParams.toString()}`);
 }
 
 export async function resetFaqAction(formData: FormData) {
@@ -367,6 +391,7 @@ export async function resetFaqAction(formData: FormData) {
   }
 
   await resetManagedFaq(localeValue as Locale, faqKey);
+  revalidatePath("/", "layout");
   redirect(`/admin/content/faq?locale=${localeValue}&saved=1`);
 }
 
@@ -390,6 +415,8 @@ export async function saveContactTextAction(formData: FormData) {
     body,
   });
 
+  let translationError = false;
+
   if (autoTranslate) {
     const targetLocales = locales.filter(l => l !== localeValue);
     
@@ -397,16 +424,25 @@ export async function saveContactTextAction(formData: FormData) {
       const translatedTitle = await translateText(title, localeValue, targetLocale);
       const translatedBody = await translateText(body, localeValue, targetLocale);
       
+      if (!translatedTitle.success || !translatedBody.success) {
+        translationError = true;
+      }
+
       await saveManagedContactText({
         locale: targetLocale,
         sectionKey,
-        title: translatedTitle,
-        body: translatedBody,
+        title: translatedTitle.text,
+        body: translatedBody.text,
       });
     }
   }
 
-  redirect(`/admin/content/contact?locale=${localeValue}&saved=1`);
+  const queryParams = new URLSearchParams({ saved: "1" });
+  if (translationError) {
+    queryParams.set("warning", "translation");
+  }
+
+  redirect(`/admin/content/contact?locale=${localeValue}&${queryParams.toString()}`);
 }
 
 export async function resetTeamMemberAction(formData: FormData) {
@@ -420,6 +456,7 @@ export async function resetTeamMemberAction(formData: FormData) {
   }
 
   await resetManagedTeamMember(localeValue as Locale, memberKey);
+  revalidatePath("/", "layout");
   redirect(`/admin/content/team?locale=${localeValue}&saved=1`);
 }
 
@@ -434,6 +471,7 @@ export async function resetContactTextAction(formData: FormData) {
   }
 
   await resetManagedContactText(localeValue as Locale, sectionKey);
+  revalidatePath("/", "layout");
   redirect(`/admin/content/contact?locale=${localeValue}&saved=1`);
 }
 
@@ -473,6 +511,8 @@ export async function saveExhibitionAction(formData: FormData) {
     isActive,
   });
 
+  let translationError = false;
+
   if (autoTranslate) {
     const targetLocales = locales.filter(l => l !== localeValue);
     
@@ -484,17 +524,22 @@ export async function saveExhibitionAction(formData: FormData) {
       
       const joinedLocation = location.join(" || ");
       const translatedJoinedLocation = await translateText(joinedLocation, localeValue, targetLocale);
-      const translatedLocation = translatedJoinedLocation.split("||").map(l => l.trim());
+      
+      if (!translatedEditionLabel.success || !translatedTitle.success || !translatedDate.success || !translatedDescription.success || !translatedJoinedLocation.success) {
+        translationError = true;
+      }
+      
+      const translatedLocation = translatedJoinedLocation.text.split("||").map(l => l.trim());
       
       await saveManagedExhibition({
         locale: targetLocale,
         exhibitionKey,
         year,
-        editionLabel: translatedEditionLabel,
-        title: translatedTitle,
-        date: translatedDate,
+        editionLabel: translatedEditionLabel.text,
+        title: translatedTitle.text,
+        date: translatedDate.text,
         location: translatedLocation,
-        description: translatedDescription,
+        description: translatedDescription.text,
         posterKey,
         sortOrder,
         isActive,
@@ -502,7 +547,12 @@ export async function saveExhibitionAction(formData: FormData) {
     }
   }
 
-  redirect(`/admin/content/exhibitions?locale=${localeValue}&saved=1`);
+  const queryParams = new URLSearchParams({ saved: "1" });
+  if (translationError) {
+    queryParams.set("warning", "translation");
+  }
+
+  redirect(`/admin/content/exhibitions?locale=${localeValue}&${queryParams.toString()}`);
 }
 
 export async function resetExhibitionAction(formData: FormData) {
@@ -516,6 +566,7 @@ export async function resetExhibitionAction(formData: FormData) {
   }
 
   await resetManagedExhibition(localeValue as Locale, exhibitionKey);
+  revalidatePath("/", "layout");
   redirect(`/admin/content/exhibitions?locale=${localeValue}&saved=1`);
 }
 
@@ -545,6 +596,7 @@ export async function saveHomeSectionAction(formData: FormData) {
     isActive,
   });
 
+  revalidatePath("/", "layout");
   redirect(`/admin/content/home?locale=${localeValue}&saved=1`);
 }
 
@@ -559,6 +611,7 @@ export async function resetHomeSectionAction(formData: FormData) {
   }
 
   await resetManagedHomeSection(localeValue as Locale, sectionKey);
+  revalidatePath("/", "layout");
   redirect(`/admin/content/home?locale=${localeValue}&saved=1`);
 }
 
@@ -581,5 +634,6 @@ export async function saveSettingsAction(formData: FormData) {
     hours,
   });
 
+  revalidatePath("/", "layout");
   redirect("/admin/settings?saved=1");
 }

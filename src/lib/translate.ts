@@ -1,11 +1,11 @@
 import { generateText } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 
-export async function translateText(text: string, sourceLocale: string, targetLocale: string) {
+export async function translateText(text: string, sourceLocale: string, targetLocale: string): Promise<{ text: string; success: boolean }> {
   const apiKey = process.env.OPENAI_API_KEY;
   
   if (!apiKey || !text.trim()) {
-    return text;
+    return { text, success: false };
   }
 
   const openai = createOpenAI({ apiKey });
@@ -27,12 +27,12 @@ export async function translateText(text: string, sourceLocale: string, targetLo
       Maintain the tone, which is warm, artisanal, editorial, and sophisticated.
       Return ONLY the translated text, with no additional commentary, quotes, or markdown wrapping.`,
       prompt: text,
-      temperature: 0.3, // Lower temperature for more consistent, accurate translations
+      temperature: 0.3,
     });
 
-    return translatedText.trim();
+    return { text: translatedText.trim(), success: true };
   } catch (error) {
     console.error("Translation failed:", error);
-    return text; // Fallback to original text on failure
+    return { text, success: false }; // Fallback to original text on failure
   }
 }

@@ -20,7 +20,7 @@ function mapRow(row: Record<string, unknown>): ManagedHomeSection {
     id: String(row.id),
     locale: row.locale as Locale,
     sectionKey: row.section_key as HomeSectionKey,
-    contentJson: JSON.parse(String(row.content_json)),
+    contentJson: JSON.parse(String(row.content_json)) as Record<string, unknown>,
     isActive: Boolean(row.is_active),
     isDefault: false,
   };
@@ -35,7 +35,7 @@ function getDefaultHomeSections(locale: Locale): ManagedHomeSection[] {
     id: null,
     locale,
     sectionKey: key as HomeSectionKey,
-    contentJson: value,
+    contentJson: value as unknown as Record<string, unknown>,
     isActive: true,
     isDefault: true,
   }));
