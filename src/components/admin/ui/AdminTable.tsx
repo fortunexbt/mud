@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +12,7 @@ interface AdminTableProps<T> {
 export function AdminTable<T>({ columns, data, emptyMessage = "Nenhum registro encontrado.", rowHref }: AdminTableProps<T>) {
   return (
     <div className="overflow-hidden rounded-[1.5rem] border border-outline/50 shadow-soft">
-      <div className="grid gap-4 bg-surface/70 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-muted md:grid-cols-[repeat(auto-fit,minmax(100px,1fr))]">
+      <div className="hidden gap-4 bg-surface/70 px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-muted md:grid md:grid-cols-[repeat(auto-fit,minmax(100px,1fr))]">
         {columns.map((col, idx) => (
           <span key={idx}>{col.header}</span>
         ))}

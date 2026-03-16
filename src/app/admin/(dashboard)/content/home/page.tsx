@@ -4,6 +4,7 @@ import { localeLabels, locales, type Locale } from "@/lib/i18n-config";
 import { HomeSectionForm } from "@/components/admin/home-section-form";
 import { AdminPageHeader } from "@/components/admin/ui/AdminPageHeader";
 import { AdminCard } from "@/components/admin/ui/AdminCard";
+import { ConfirmResetForm } from "@/components/admin/ConfirmResetForm";
 
 export default async function AdminHomePage({
   searchParams,
@@ -53,17 +54,20 @@ export default async function AdminHomePage({
               <HomeSectionForm 
                 locale={locale} 
                 sectionKey={row.sectionKey} 
-                initialContent={row.contentJson} 
+                initialContent={row.contentJson as Record<string, unknown>} 
                 isActive={row.isActive} 
               />
 
-              <form action={resetHomeSectionAction} className="mt-4" onSubmit={(e) => { if (!confirm("Tem certeza que deseja restaurar o texto padrão desta seção?")) e.preventDefault(); }}>
+              <ConfirmResetForm
+                action={resetHomeSectionAction}
+                message="Tem certeza que deseja restaurar o texto padrão desta seção?"
+              >
                 <input type="hidden" name="locale" value={locale} />
                 <input type="hidden" name="sectionKey" value={row.sectionKey} />
                 <button type="submit" className="inline-flex min-h-10 items-center justify-center rounded-full border border-outline/60 bg-white px-4 text-sm font-semibold text-ink transition hover:border-terracotta/35 hover:text-terracotta">
                   Restaurar texto padrão
                 </button>
-              </form>
+              </ConfirmResetForm>
             </AdminCard>
           );
         })}

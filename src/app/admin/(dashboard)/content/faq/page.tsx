@@ -4,6 +4,7 @@ import { localeLabels, locales, type Locale } from "@/lib/i18n-config";
 import { AdminPageHeader } from "@/components/admin/ui/AdminPageHeader";
 import { AdminCard } from "@/components/admin/ui/AdminCard";
 import { SubmitButton } from "@/components/admin/SubmitButton";
+import { ConfirmResetForm } from "@/components/admin/ConfirmResetForm";
 
 export default async function AdminFaqPage({
   searchParams,
@@ -15,9 +16,7 @@ export default async function AdminFaqPage({
   
   let rows;
   try {
-    console.log("AdminFaqPage: Attempting to fetch FAQ rows for:", locale);
     rows = await getFaqEditorRows(locale);
-    console.log("AdminFaqPage: FAQ rows fetched successfully, count:", rows.length);
   } catch (err) {
     console.error("AdminFaqPage: CRITICAL ERROR fetching FAQ rows:", err);
     throw err;
@@ -92,13 +91,16 @@ export default async function AdminFaqPage({
               </div>
             </form>
 
-            <form action={resetFaqAction} className="mt-4" onSubmit={(e) => { if (!confirm("Tem certeza que deseja restaurar o texto padrão desta pergunta?")) e.preventDefault(); }}>
+            <ConfirmResetForm 
+              action={resetFaqAction} 
+              message="Tem certeza que deseja restaurar o texto padrão desta pergunta?"
+            >
               <input type="hidden" name="locale" value={locale} />
               <input type="hidden" name="faqKey" value={row.faqKey} />
               <button type="submit" className="inline-flex min-h-10 items-center justify-center rounded-full border border-outline/60 bg-white px-4 text-sm font-semibold text-ink transition hover:border-terracotta/35 hover:text-terracotta">
                 Restaurar texto padrão
               </button>
-            </form>
+            </ConfirmResetForm>
           </AdminCard>
         ))}
       </section>

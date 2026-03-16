@@ -3,9 +3,8 @@ import { getExhibitionEditorRows } from "@/lib/exhibitions-content";
 import { localeLabels, locales, type Locale } from "@/lib/i18n-config";
 import { AdminPageHeader } from "@/components/admin/ui/AdminPageHeader";
 import { AdminCard } from "@/components/admin/ui/AdminCard";
-import { SubmitButton } from "@/components/admin/SubmitButton";
+import { ConfirmResetForm } from "@/components/admin/ConfirmResetForm";
 import { ExhibitionEditor } from "@/components/admin/exhibition-editor";
-
 import { getMediaAssets } from "@/lib/media-db";
 
 export default async function AdminExhibitionsPage({
@@ -54,13 +53,16 @@ export default async function AdminExhibitionsPage({
             subtitle={row.title}
           >
             <ExhibitionEditor locale={locale} initialData={row as unknown as Record<string, unknown>} assets={assets} />
-            <form action={resetExhibitionAction} className="mt-4" onSubmit={(e) => { if (!confirm("Tem certeza que deseja restaurar o texto padrão desta exposição?")) e.preventDefault(); }}>
+            <ConfirmResetForm
+              action={resetExhibitionAction}
+              message="Tem certeza que deseja restaurar o texto padrão desta exposição?"
+            >
               <input type="hidden" name="locale" value={locale} />
               <input type="hidden" name="exhibitionKey" value={row.exhibitionKey} />
               <button type="submit" className="inline-flex min-h-10 items-center justify-center rounded-full border border-outline/60 bg-white px-4 text-sm font-semibold text-ink transition hover:border-terracotta/35 hover:text-terracotta">
                 Restaurar texto padrão
               </button>
-            </form>
+            </ConfirmResetForm>
           </AdminCard>
         ))}
       </section>
