@@ -31,6 +31,7 @@ import {
 } from "@/lib/structured-data";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { absoluteUrl } from "@/lib/utils";
+import { getManagedTeamMembers, getManagedFeaturedProfile } from "@/lib/team-content";
 
 type PageProps = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -178,9 +179,27 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
         pageContent = <ClassesPage locale={locale} dictionary={dictionary} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
         extraJsonLd = buildFaqJsonLd(dictionary.classes.faqs);
         break;
-      case "team":
-        pageContent = <TeamPage locale={locale} dictionary={dictionary} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
+      case "team": {
+        const [members, featuredMember] = await Promise.all([
+          getManagedTeamMembers(locale),
+          getManagedFeaturedProfile(locale),
+        ]);
+        pageContent = (
+          <TeamPage
+            locale={locale}
+            dictionary={getDictionary(locale, {
+              team: {
+                featuredMember,
+                members,
+              },
+            })}
+            paths={paths}
+            whatsappHref={whatsappHref}
+            configured={configured}
+          />
+        );
         break;
+      }
       case "inquiry":
         pageContent = (
           <InquiryPage

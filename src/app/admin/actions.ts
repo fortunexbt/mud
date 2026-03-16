@@ -19,6 +19,7 @@ import { locales, type Locale, isLocale } from "@/lib/i18n-config";
 import { addLeadNote, type LeadStatus, updateLeadStatus } from "@/lib/leads";
 import { mediaKeys, type MediaKey } from "@/lib/media";
 import { resetManagedServiceTrack, saveManagedServiceTrack } from "@/lib/service-content";
+import { resetManagedTeamMember, saveManagedTeamMember } from "@/lib/team-content";
 import type { ClassTrack } from "@/content/site/types";
 
 const validStatuses: LeadStatus[] = ["new", "contacted", "qualified", "closed", "spam"];
@@ -253,4 +254,65 @@ export async function toggleAdminUserAction(formData: FormData) {
 
   await setAdminUserActive(userId, nextValue === "true");
   redirect("/admin/users?saved=1");
+}
+
+export async function saveTeamMemberAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const memberKey = String(formData.get("memberKey") || "").trim();
+  const name = String(formData.get("name") || "").trim();
+  const role = String(formData.get("role") || "").trim();
+  const bioText = String(formData.get("bio") || "").trim();
+  const imageKey = String(formData.get("imageKey") || "").trim();
+  const sortOrder = Number(formData.get("sortOrder") || 0);
+  const isFeatured = formData.get("isFeatured") === "true";
+  const tagline = String(formData.get("tagline") || "").trim();
+  const highlightsText = String(formData.get("highlights") || "").trim();
+  const isActive = formData.get("isActive") === "on";
+
+  if (
+    !isLocale(localeValue) ||
+    !memberKey ||
+    !name ||
+    !role ||
+    !bioText ||
+    !imageKey ||
+    Number.isNaN(sortOrder)
+  ) {
+    redirect(`/admin/content/team?locale=${isLocale(localeValue) ? localeValue : locales[0]}&error=validation`);
+  }
+
+  const bio = bioText.split("\n\n").filter((p) => p.trim());
+  const highlights = highlightsText ? highlightsText.split("\n").filter((h) => h.trim()) : [];
+
+  await saveManagedTeamMember({
+    locale: localeValue as Locale,
+    memberKey,
+    name,
+    role,
+    bio,
+    imageKey,
+    sortOrder,
+    isFeatured,
+    tagline: isFeatured ? tagline : undefined,
+    highlights: isFeatured ? highlights : undefined,
+    isActive,
+  });
+
+  redirect(`/admin/content/team?locale=${localeValue}&saved=1`);
+}
+
+export async function resetTeamMemberAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const memberKey = String(formData.get("memberKey") || "").trim();
+
+  if (!isLocale(localeValue) || !memberKey) {
+    redirect("/admin/content/team?error=reset");
+  }
+
+  await resetManagedTeamMember(localeValue as Locale, memberKey);
+  redirect(`/admin/content/team?locale=${localeValue}&saved=1`);
 }

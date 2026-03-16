@@ -485,6 +485,12 @@ export const ptDictionary: SiteDictionary = {
     ],
     whatsappCta: "Prefiro falar no WhatsApp",
   },
+  booking: {
+    eyebrow: "Agendamento",
+    title: "Agende sua visita",
+    description: "Escolha um horário para conhecer o ateliê, conversar sobre seus interesses e descobrir qual formato combina com você.",
+    cta: "Ver horários disponíveis",
+  },
   blog: {
     hero: {
       eyebrow: "Blog",

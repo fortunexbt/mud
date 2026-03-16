@@ -482,6 +482,13 @@ export const enDictionary: SiteDictionary = {
     ],
     whatsappCta: "I’d rather use WhatsApp",
   },
+  booking: {
+    eyebrow: "Book a visit",
+    title: "Schedule your visit",
+    description:
+      "Choose a time to meet the studio, discuss your interests, and find the right format for you.",
+    cta: "View available times",
+  },
   blog: {
     hero: {
       eyebrow: "Journal",

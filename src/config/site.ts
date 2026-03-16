@@ -44,3 +44,23 @@ export function getLocalizedBusinessType(locale: Locale) {
 export function hasLeadRoutingConfigured() {
   return Boolean(process.env.DATABASE_URL?.trim() || siteConfig.formsWebhookUrl);
 }
+
+export function getBookingConfig() {
+  const calcomUrl = process.env.NEXT_PUBLIC_CALCOM_URL;
+  if (!calcomUrl) return null;
+
+  return {
+    url: calcomUrl,
+    embedConfig: {
+      theme: "light",
+      backgroundColor: "#faf8f5",
+      textColor: "#2d2a26",
+      primaryColor: "#c96e54",
+      hideLandingPageDetails: true,
+      hideEventTypeDetails: true,
+      layout: "month_view",
+    },
+  };
+}
+
+export type BookingConfig = ReturnType<typeof getBookingConfig>;

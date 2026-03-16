@@ -2,9 +2,11 @@ import Link from "next/link";
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { LeadForm } from "@/components/forms/lead-form";
+import { BookingEmbed } from "@/components/ui/booking-embed";
 import type { PageContext } from "@/components/pages/types";
 import { buttonClasses } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getBookingConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 interface InquiryPageProps extends PageContext {
@@ -17,6 +19,7 @@ export function InquiryPage({
   whatsappHref,
   initialInterest,
 }: InquiryPageProps) {
+  const bookingConfig = getBookingConfig();
   const sideMessage = {
     pt: "WhatsApp segue como o canal mais rápido para checar disponibilidade, idioma e formatos especiais.",
     es: "WhatsApp sigue siendo el canal más rápido para consultar disponibilidad, idioma y formatos especiales.",
@@ -124,6 +127,24 @@ export function InquiryPage({
           </div>
         </section>
       </ScrollReveal>
+
+      {bookingConfig && dictionary.booking && (
+        <ScrollReveal>
+          <section className="border-t border-outline/40 bg-surface/42">
+            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+              <div className="mx-auto max-w-2xl text-center mb-10">
+                <SectionHeading
+                  eyebrow={dictionary.booking.eyebrow}
+                  title={dictionary.booking.title}
+                  description={dictionary.booking.description}
+                  align="center"
+                />
+              </div>
+              <BookingEmbed calUrl={bookingConfig.url} config={bookingConfig.embedConfig} />
+            </div>
+          </section>
+        </ScrollReveal>
+      )}
     </main>
   );
 }

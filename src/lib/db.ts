@@ -162,6 +162,30 @@ export async function ensureDatabase() {
       await pool.query(`
         CREATE INDEX IF NOT EXISTS admin_users_email_idx ON admin_users(email);
       `);
+
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS cms_team_members (
+          id TEXT PRIMARY KEY,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          locale TEXT NOT NULL,
+          member_key TEXT NOT NULL,
+          name TEXT NOT NULL,
+          role TEXT NOT NULL,
+          bio TEXT NOT NULL,
+          image_key TEXT NOT NULL,
+          sort_order INTEGER NOT NULL DEFAULT 0,
+          is_featured BOOLEAN NOT NULL DEFAULT FALSE,
+          tagline TEXT,
+          highlights TEXT,
+          is_active BOOLEAN NOT NULL DEFAULT TRUE,
+          UNIQUE(locale, member_key)
+        );
+      `);
+
+      await pool.query(`
+        CREATE INDEX IF NOT EXISTS cms_team_members_locale_sort_idx ON cms_team_members(locale, sort_order ASC, created_at ASC);
+      `);
     })();
   }
 

@@ -3,14 +3,16 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { LeadForm } from "@/components/forms/lead-form";
 import { MapEmbed } from "@/components/forms/map-embed";
+import { BookingEmbed } from "@/components/ui/booking-embed";
 import { InstagramIcon, MapPinIcon, WhatsAppIcon } from "@/components/icons";
 import type { PageContext } from "@/components/pages/types";
 import { buttonClasses } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { siteConfig } from "@/config/site";
+import { siteConfig, getBookingConfig } from "@/config/site";
 import { formatPhoneDisplay } from "@/lib/utils";
 
 export function ContactPage({ locale, dictionary, whatsappHref }: PageContext) {
+  const bookingConfig = getBookingConfig();
   return (
     <main id="main">
       <section className="border-b border-outline/40">
@@ -105,6 +107,24 @@ export function ContactPage({ locale, dictionary, whatsappHref }: PageContext) {
           </div>
         </section>
       </ScrollReveal>
+
+      {bookingConfig && dictionary.booking && (
+        <ScrollReveal>
+          <section className="border-t border-outline/40 bg-surface/42">
+            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+              <div className="mx-auto max-w-2xl text-center mb-10">
+                <SectionHeading
+                  eyebrow={dictionary.booking.eyebrow}
+                  title={dictionary.booking.title}
+                  description={dictionary.booking.description}
+                  align="center"
+                />
+              </div>
+              <BookingEmbed calUrl={bookingConfig.url} config={bookingConfig.embedConfig} />
+            </div>
+          </section>
+        </ScrollReveal>
+      )}
     </main>
   );
 }

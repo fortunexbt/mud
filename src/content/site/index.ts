@@ -10,8 +10,29 @@ const dictionaries: Record<Locale, SiteDictionary> = {
   en: enDictionary,
 };
 
-export function getDictionary(locale: Locale) {
-  return dictionaries[locale];
+export interface DictionaryOverrides {
+  team?: {
+    founderRole?: string;
+    founderBio?: string[];
+    featuredMember?: SiteDictionary["team"]["featuredMember"];
+    members?: SiteDictionary["team"]["members"];
+  };
+}
+
+export function getDictionary(locale: Locale, overrides?: DictionaryOverrides): SiteDictionary {
+  const base = dictionaries[locale];
+  
+  if (!overrides) {
+    return base;
+  }
+
+  return {
+    ...base,
+    team: {
+      ...base.team,
+      ...overrides.team,
+    },
+  };
 }
 
 export type { SiteDictionary } from "@/content/site/types";

@@ -482,6 +482,12 @@ export const esDictionary: SiteDictionary = {
     ],
     whatsappCta: "Prefiero escribir por WhatsApp",
   },
+  booking: {
+    eyebrow: "Reservar",
+    title: "Agenda tu visita",
+    description: "Elige un horario para conocer el atelier, conversar sobre tus intereses y descubrir qué formato se adapta mejor a ti.",
+    cta: "Ver horarios disponibles",
+  },
   blog: {
     hero: {
       eyebrow: "Blog",

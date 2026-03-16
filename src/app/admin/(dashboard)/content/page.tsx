@@ -51,6 +51,14 @@ export default function AdminContentPage() {
           </p>
         </Link>
 
+        <Link href="/admin/content/team" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Equipe</p>
+          <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Editar membros da equipe</h3>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Edite informações da fundadora, membro em destaque e faculty. Nome, função, biografia e foto.
+          </p>
+        </Link>
+
         <Link href="/admin/content/blog" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Blog</p>
           <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Criar e editar posts</h3>

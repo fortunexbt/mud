@@ -217,6 +217,12 @@ export interface SiteDictionary {
     sidePoints: string[];
     whatsappCta: string;
   };
+  booking: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    cta: string;
+  };
   blog: {
     hero: {
       eyebrow: string;
