@@ -3,6 +3,7 @@ import { esDictionary } from "@/content/site/es";
 import { ptDictionary } from "@/content/site/pt";
 import type { SiteDictionary } from "@/content/site/types";
 import type { Locale } from "@/lib/i18n-config";
+import { deepMerge } from "@/lib/deep-merge";
 
 const dictionaries: Record<Locale, SiteDictionary> = {
   pt: ptDictionary,
@@ -11,27 +12,11 @@ const dictionaries: Record<Locale, SiteDictionary> = {
 };
 
 export interface DictionaryOverrides {
-  team?: {
-    founderRole?: string;
-    founderBio?: string[];
-    featuredMember?: SiteDictionary["team"]["featuredMember"];
-    members?: SiteDictionary["team"]["members"];
-  };
-  classes?: {
-    faqs?: SiteDictionary["classes"]["faqs"];
-  };
-  contact?: {
-    detailsTitle?: string;
-    detailsBody?: string;
-    mapTitle?: string;
-    mapBody?: string;
-    formTitle?: string;
-    formIntro?: string;
-  };
-  about?: {
-    exhibitions?: SiteDictionary["about"]["exhibitions"];
-  };
-  home?: Partial<Omit<SiteDictionary["home"], "classes">>;
+  team?: Partial<SiteDictionary["team"]>;
+  classes?: Partial<SiteDictionary["classes"]>;
+  contact?: Partial<SiteDictionary["contact"]>;
+  about?: Partial<SiteDictionary["about"]>;
+  home?: Partial<SiteDictionary["home"]>;
 }
 
 export function getDictionary(locale: Locale, overrides?: DictionaryOverrides): SiteDictionary {
@@ -41,29 +26,8 @@ export function getDictionary(locale: Locale, overrides?: DictionaryOverrides): 
     return base;
   }
 
-  return {
-    ...base,
-    team: {
-      ...base.team,
-      ...overrides.team,
-    },
-    classes: {
-      ...base.classes,
-      ...overrides.classes,
-    },
-    contact: {
-      ...base.contact,
-      ...overrides.contact,
-    },
-    about: {
-      ...base.about,
-      ...overrides.about,
-    },
-    home: {
-      ...base.home,
-      ...overrides.home,
-    }
-  };
+  // Deep merge overrides to ensure structural integrity
+  return deepMerge(base, overrides) as SiteDictionary;
 }
 
 export type { SiteDictionary } from "@/content/site/types";
