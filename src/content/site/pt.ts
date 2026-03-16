@@ -490,6 +490,7 @@ export const ptDictionary: SiteDictionary = {
     title: "Agende sua visita",
     description: "Escolha um horário para conhecer o ateliê, conversar sobre seus interesses e descobrir qual formato combina com você.",
     cta: "Ver horários disponíveis",
+    comingSoon: "Em breve: Agendamento online. Nossa integração de calendário estará disponível em breve.",
   },
   blog: {
     hero: {

@@ -128,7 +128,7 @@ export function InquiryPage({
         </section>
       </ScrollReveal>
 
-      {bookingConfig && dictionary.booking && (
+      {dictionary.booking && (
         <ScrollReveal>
           <section className="border-t border-outline/40 bg-surface/42">
             <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
@@ -140,7 +140,12 @@ export function InquiryPage({
                   align="center"
                 />
               </div>
-              <BookingEmbed provider={bookingConfig.provider} url={bookingConfig.url} config={bookingConfig.embedConfig} />
+              <BookingEmbed 
+                provider={bookingConfig?.provider} 
+                url={bookingConfig?.url} 
+                config={bookingConfig?.embedConfig} 
+                comingSoonText={dictionary.booking.comingSoon}
+              />
             </div>
           </section>
         </ScrollReveal>

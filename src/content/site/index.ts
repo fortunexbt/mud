@@ -17,6 +17,17 @@ export interface DictionaryOverrides {
     featuredMember?: SiteDictionary["team"]["featuredMember"];
     members?: SiteDictionary["team"]["members"];
   };
+  classes?: {
+    faqs?: SiteDictionary["classes"]["faqs"];
+  };
+  contact?: {
+    detailsTitle?: string;
+    detailsBody?: string;
+    mapTitle?: string;
+    mapBody?: string;
+    formTitle?: string;
+    formIntro?: string;
+  };
 }
 
 export function getDictionary(locale: Locale, overrides?: DictionaryOverrides): SiteDictionary {
@@ -31,6 +42,14 @@ export function getDictionary(locale: Locale, overrides?: DictionaryOverrides): 
     team: {
       ...base.team,
       ...overrides.team,
+    },
+    classes: {
+      ...base.classes,
+      ...overrides.classes,
+    },
+    contact: {
+      ...base.contact,
+      ...overrides.contact,
     },
   };
 }

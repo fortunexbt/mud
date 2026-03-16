@@ -4,18 +4,19 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface BookingEmbedProps {
-  provider: "calcom" | "calendly";
-  url: string;
+  provider?: "calcom" | "calendly";
+  url?: string;
   config?: Record<string, unknown>;
+  comingSoonText: string;
 }
 
-export function BookingEmbed({ provider, url, config }: BookingEmbedProps) {
+export function BookingEmbed({ provider, url, config, comingSoonText }: BookingEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const node = containerRef.current;
-    if (!node) return;
+    if (!node || !provider || !url) return;
     
     let script: HTMLScriptElement | null = null;
     let fallbackTimer: NodeJS.Timeout;
@@ -75,23 +76,46 @@ export function BookingEmbed({ provider, url, config }: BookingEmbedProps) {
     <div className="relative min-h-[650px] w-full overflow-hidden rounded-[1.5rem] border border-outline/40 bg-white shadow-sm">
       {!isLoaded && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white">
-          <div className="flex w-full max-w-3xl animate-pulse flex-col gap-4 p-8 sm:p-12">
-            <div className="h-8 w-1/3 rounded-full bg-surface/80" />
-            <div className="h-4 w-1/2 rounded-full bg-surface/80" />
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="h-[300px] rounded-[1.2rem] bg-surface/80" />
-              <div className="h-[300px] rounded-[1.2rem] bg-surface/80" />
+          {provider && url ? (
+            <div className="flex w-full max-w-3xl animate-pulse flex-col gap-4 p-8 sm:p-12">
+              <div className="h-8 w-1/3 rounded-full bg-surface/80" />
+              <div className="h-4 w-1/2 rounded-full bg-surface/80" />
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="h-[300px] rounded-[1.2rem] bg-surface/80" />
+                <div className="h-[300px] rounded-[1.2rem] bg-surface/80" />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="flex w-full max-w-3xl flex-col items-center text-center gap-4 p-8 sm:p-12">
+              <div className="flex w-full max-w-3xl animate-pulse flex-col gap-4 opacity-30 blur-sm pointer-events-none mb-[-350px]">
+                <div className="h-8 w-1/3 rounded-full bg-surface/80" />
+                <div className="h-4 w-1/2 rounded-full bg-surface/80" />
+                <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="h-[300px] rounded-[1.2rem] bg-surface/80" />
+                  <div className="h-[300px] rounded-[1.2rem] bg-surface/80" />
+                </div>
+              </div>
+              <div className="relative z-20 rounded-[1.5rem] border border-outline/45 bg-white/95 backdrop-blur-md px-6 py-5 shadow-soft max-w-lg">
+                <p className="font-display text-[1.4rem] text-ink mb-2">
+                  {comingSoonText.split(".")[0]}.
+                </p>
+                <p className="text-sm leading-6 text-muted">
+                  {comingSoonText.split(".").slice(1).join(".").trim()}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       )}
-      <div
-        ref={containerRef}
-        className={cn(
-          "h-full min-h-[650px] w-full transition-opacity duration-500",
-          isLoaded ? "opacity-100" : "opacity-0"
-        )}
-      />
+      {provider && url && (
+        <div
+          ref={containerRef}
+          className={cn(
+            "h-full min-h-[650px] w-full transition-opacity duration-500",
+            isLoaded ? "opacity-100" : "opacity-0"
+          )}
+        />
+      )}
     </div>
   );
 }

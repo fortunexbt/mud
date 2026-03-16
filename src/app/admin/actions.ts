@@ -15,7 +15,10 @@ import {
   saveAdminBlogPost,
   type ManagedBlogPostStatus,
 } from "@/lib/blog";
+import { resetManagedFaq, saveManagedFaq } from "@/lib/faq-content";
+import { resetManagedContactText, saveManagedContactText } from "@/lib/contact-content";
 import { locales, type Locale, isLocale } from "@/lib/i18n-config";
+import { translateText } from "@/lib/translate";
 import { addLeadNote, type LeadStatus, updateLeadStatus } from "@/lib/leads";
 import { mediaKeys, type MediaKey } from "@/lib/media";
 import { resetManagedServiceTrack, saveManagedServiceTrack } from "@/lib/service-content";
@@ -303,6 +306,106 @@ export async function saveTeamMemberAction(formData: FormData) {
   redirect(`/admin/content/team?locale=${localeValue}&saved=1`);
 }
 
+export async function saveFaqAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const faqKey = String(formData.get("faqKey") || "").trim();
+  const question = String(formData.get("question") || "").trim();
+  const answer = String(formData.get("answer") || "").trim();
+  const sortOrder = Number(formData.get("sortOrder") || 0);
+  const isActive = formData.get("isActive") === "on";
+  const autoTranslate = formData.get("autoTranslate") === "on";
+
+  if (!isLocale(localeValue) || !faqKey || !question || !answer || Number.isNaN(sortOrder)) {
+    redirect(`/admin/content/faq?locale=${isLocale(localeValue) ? localeValue : locales[0]}&error=validation`);
+  }
+
+  // Save for the current locale
+  await saveManagedFaq({
+    locale: localeValue as Locale,
+    faqKey,
+    question,
+    answer,
+    sortOrder,
+    isActive,
+  });
+
+  // Auto-translate to other locales if requested
+  if (autoTranslate) {
+    const targetLocales = locales.filter(l => l !== localeValue);
+    
+    for (const targetLocale of targetLocales) {
+      const translatedQuestion = await translateText(question, localeValue, targetLocale);
+      const translatedAnswer = await translateText(answer, localeValue, targetLocale);
+      
+      await saveManagedFaq({
+        locale: targetLocale,
+        faqKey,
+        question: translatedQuestion,
+        answer: translatedAnswer,
+        sortOrder,
+        isActive,
+      });
+    }
+  }
+
+  redirect(`/admin/content/faq?locale=${localeValue}&saved=1`);
+}
+
+export async function resetFaqAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const faqKey = String(formData.get("faqKey") || "").trim();
+
+  if (!isLocale(localeValue) || !faqKey) {
+    redirect("/admin/content/faq?error=reset");
+  }
+
+  await resetManagedFaq(localeValue as Locale, faqKey);
+  redirect(`/admin/content/faq?locale=${localeValue}&saved=1`);
+}
+
+export async function saveContactTextAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const sectionKey = String(formData.get("sectionKey") || "").trim() as "details" | "map" | "form";
+  const title = String(formData.get("title") || "").trim();
+  const body = String(formData.get("body") || "").trim();
+  const autoTranslate = formData.get("autoTranslate") === "on";
+
+  if (!isLocale(localeValue) || !["details", "map", "form"].includes(sectionKey) || !title || !body) {
+    redirect(`/admin/content/contact?locale=${isLocale(localeValue) ? localeValue : locales[0]}&error=validation`);
+  }
+
+  await saveManagedContactText({
+    locale: localeValue as Locale,
+    sectionKey,
+    title,
+    body,
+  });
+
+  if (autoTranslate) {
+    const targetLocales = locales.filter(l => l !== localeValue);
+    
+    for (const targetLocale of targetLocales) {
+      const translatedTitle = await translateText(title, localeValue, targetLocale);
+      const translatedBody = await translateText(body, localeValue, targetLocale);
+      
+      await saveManagedContactText({
+        locale: targetLocale,
+        sectionKey,
+        title: translatedTitle,
+        body: translatedBody,
+      });
+    }
+  }
+
+  redirect(`/admin/content/contact?locale=${localeValue}&saved=1`);
+}
+
 export async function resetTeamMemberAction(formData: FormData) {
   await requireAdmin();
 
@@ -315,4 +418,18 @@ export async function resetTeamMemberAction(formData: FormData) {
 
   await resetManagedTeamMember(localeValue as Locale, memberKey);
   redirect(`/admin/content/team?locale=${localeValue}&saved=1`);
+}
+
+export async function resetContactTextAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const sectionKey = String(formData.get("sectionKey") || "").trim() as "details" | "map" | "form";
+
+  if (!isLocale(localeValue) || !["details", "map", "form"].includes(sectionKey)) {
+    redirect("/admin/content/contact?error=reset");
+  }
+
+  await resetManagedContactText(localeValue as Locale, sectionKey);
+  redirect(`/admin/content/contact?locale=${localeValue}&saved=1`);
 }

@@ -186,6 +186,38 @@ export async function ensureDatabase() {
       await pool.query(`
         CREATE INDEX IF NOT EXISTS cms_team_members_locale_sort_idx ON cms_team_members(locale, sort_order ASC, created_at ASC);
       `);
+
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS cms_faqs (
+          id BIGSERIAL PRIMARY KEY,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          locale TEXT NOT NULL,
+          faq_key TEXT NOT NULL,
+          question TEXT NOT NULL,
+          answer TEXT NOT NULL,
+          sort_order INTEGER NOT NULL DEFAULT 0,
+          is_active BOOLEAN NOT NULL DEFAULT TRUE,
+          UNIQUE(locale, faq_key)
+        );
+      `);
+
+      await pool.query(`
+        CREATE INDEX IF NOT EXISTS cms_faqs_locale_sort_idx ON cms_faqs(locale, sort_order ASC);
+      `);
+
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS cms_contact_texts (
+          id BIGSERIAL PRIMARY KEY,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          locale TEXT NOT NULL,
+          section_key TEXT NOT NULL,
+          title TEXT NOT NULL,
+          body TEXT NOT NULL,
+          UNIQUE(locale, section_key)
+        );
+      `);
     })();
   }
 

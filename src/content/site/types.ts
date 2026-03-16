@@ -222,6 +222,7 @@ export interface SiteDictionary {
     title: string;
     description: string;
     cta: string;
+    comingSoon: string;
   };
   blog: {
     hero: {

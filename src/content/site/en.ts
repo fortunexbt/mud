@@ -488,6 +488,7 @@ export const enDictionary: SiteDictionary = {
     description:
       "Choose a time to meet the studio, discuss your interests, and find the right format for you.",
     cta: "View available times",
+    comingSoon: "Coming soon: Online booking. Our calendar integration will be available shortly.",
   },
   blog: {
     hero: {

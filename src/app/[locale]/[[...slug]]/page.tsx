@@ -32,6 +32,8 @@ import {
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { absoluteUrl } from "@/lib/utils";
 import { getManagedTeamMembers, getManagedFeaturedProfile } from "@/lib/team-content";
+import { getManagedFaqs } from "@/lib/faq-content";
+import { getManagedContactTexts } from "@/lib/contact-content";
 
 type PageProps = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -175,10 +177,16 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
       case "about":
         pageContent = <AboutPage locale={locale} dictionary={dictionary} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
         break;
-      case "classes":
-        pageContent = <ClassesPage locale={locale} dictionary={dictionary} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
-        extraJsonLd = buildFaqJsonLd(dictionary.classes.faqs);
+      case "classes": {
+        const faqs = await getManagedFaqs(locale);
+        const dictWithFaqs = getDictionary(locale, {
+          classes: { faqs }
+        });
+        
+        pageContent = <ClassesPage locale={locale} dictionary={dictWithFaqs} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
+        extraJsonLd = buildFaqJsonLd(dictWithFaqs.classes.faqs);
         break;
+      }
       case "team": {
         const [members, featuredMember] = await Promise.all([
           getManagedTeamMembers(locale),
@@ -230,9 +238,21 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
         );
         break;
       }
-      case "contact":
-        pageContent = <ContactPage locale={locale} dictionary={dictionary} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
+      case "contact": {
+        const contactTexts = await getManagedContactTexts(locale);
+        const dictWithContact = getDictionary(locale, {
+          contact: {
+            detailsTitle: contactTexts.details.title,
+            detailsBody: contactTexts.details.body,
+            mapTitle: contactTexts.map.title,
+            mapBody: contactTexts.map.body,
+            formTitle: contactTexts.form.title,
+            formIntro: contactTexts.form.body,
+          }
+        });
+        pageContent = <ContactPage locale={locale} dictionary={dictWithContact} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
         break;
+      }
       case "privacy":
         pageContent = <PrivacyPage locale={locale} dictionary={dictionary} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
         break;
