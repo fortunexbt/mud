@@ -25,6 +25,7 @@ export default async function AdminDashboardLayout({
     { href: "/admin/content/faq", label: "FAQ" },
     { href: "/admin/content/contact", label: "Contato" },
     { href: "/admin/content/home", label: "Home" },
+    { href: "/admin/content/media", label: "Mídia" },
   ];
 
   if (actor.mode === "legacy" || actor.role === "director") {

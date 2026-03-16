@@ -263,6 +263,16 @@ export async function ensureDatabase() {
       await pool.query(`
         CREATE INDEX IF NOT EXISTS cms_home_sections_locale_idx ON cms_home_sections(locale);
       `);
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS cms_media (
+          id BIGSERIAL PRIMARY KEY,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          file_key TEXT NOT NULL UNIQUE,
+          file_url TEXT NOT NULL,
+          alt_text TEXT,
+          mime_type TEXT NOT NULL
+        );
+      `);
     })();
   }
 

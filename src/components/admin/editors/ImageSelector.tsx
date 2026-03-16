@@ -1,7 +1,6 @@
-"use client";
-
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { mediaKeys, getMediaAsset } from "@/lib/media";
+import { getMediaAssets, type MediaAsset } from "@/lib/media-db";
 
 interface ImageSelectorProps {
   label: string;
@@ -10,7 +9,13 @@ interface ImageSelectorProps {
 }
 
 export function ImageSelector({ label, value, onChange }: ImageSelectorProps) {
-  const selectedAsset = value ? getMediaAsset(value as any) : null;
+  const [assets, setAssets] = useState<MediaAsset[]>([]);
+
+  useEffect(() => {
+    getMediaAssets().then(setAssets);
+  }, []);
+
+  const selectedAsset = assets.find(a => a.fileKey === value);
 
   return (
     <div className="grid gap-4">
@@ -21,22 +26,21 @@ export function ImageSelector({ label, value, onChange }: ImageSelectorProps) {
           onChange={(e) => onChange(e.target.value)}
           className="min-h-11 rounded-[1.2rem] border border-outline/60 bg-white px-4 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20"
         >
-          {mediaKeys.map((key) => (
-            <option key={key} value={key}>
-              {key}
+          {assets.map((asset) => (
+            <option key={asset.id} value={asset.fileKey}>
+              {asset.altText}
             </option>
           ))}
         </select>
       </label>
 
       {selectedAsset && (
-        <div className="mt-2 rounded-[1.2rem] overflow-hidden border border-outline/30 w-32 h-32">
+        <div className="mt-2 rounded-[1.2rem] overflow-hidden border border-outline/30 w-32 h-32 relative">
           <Image
-            src={selectedAsset.src}
-            alt={selectedAsset.alt}
-            width={128}
-            height={128}
-            className="object-cover w-full h-full"
+            src={selectedAsset.fileUrl}
+            alt={selectedAsset.altText}
+            fill
+            className="object-cover"
           />
         </div>
       )}
