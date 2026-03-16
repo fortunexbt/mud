@@ -3,6 +3,7 @@ import { getDictionary } from "@/content/site";
 import { dbQuery } from "@/lib/db";
 import type { Locale } from "@/lib/i18n-config";
 import { hasDatabaseUrl } from "@/lib/server-env";
+import { safeJsonParse } from "@/lib/json-utils";
 
 export interface ManagedTeamMember {
   id: string | null;
@@ -27,12 +28,12 @@ function mapRow(row: Record<string, unknown>): ManagedTeamMember {
     memberKey: String(row.member_key),
     name: String(row.name),
     role: String(row.role),
-    bio: JSON.parse(String(row.bio)) as string[],
+    bio: safeJsonParse(row.bio as string | null | undefined, []),
     imageKey: String(row.image_key),
     sortOrder: Number(row.sort_order),
     isFeatured: Boolean(row.is_featured),
     tagline: row.tagline ? String(row.tagline) : undefined,
-    highlights: row.highlights ? JSON.parse(String(row.highlights)) as string[] : undefined,
+    highlights: safeJsonParse(row.highlights as string | null | undefined, []),
     isActive: Boolean(row.is_active),
     isDefault: false,
   };

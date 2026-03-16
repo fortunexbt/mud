@@ -4,6 +4,7 @@ import { dbQuery } from "@/lib/db";
 import type { Locale } from "@/lib/i18n-config";
 import { hasDatabaseUrl } from "@/lib/server-env";
 import type { MediaKey } from "@/lib/media";
+import { safeJsonParse } from "@/lib/json-utils";
 
 export interface ManagedExhibition {
   id: string | null;
@@ -30,7 +31,7 @@ function mapRow(row: Record<string, unknown>): ManagedExhibition {
     editionLabel: String(row.edition_label),
     title: String(row.title),
     date: String(row.date),
-    location: JSON.parse(String(row.location_json)) as string[],
+    location: safeJsonParse(row.location_json as string | null | undefined, []),
     description: String(row.description),
     posterKey: String(row.poster_key),
     sortOrder: Number(row.sort_order),

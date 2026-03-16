@@ -3,6 +3,7 @@ import type { SiteDictionary } from "@/content/site/types";
 import { dbQuery } from "@/lib/db";
 import type { Locale } from "@/lib/i18n-config";
 import { hasDatabaseUrl } from "@/lib/server-env";
+import { safeJsonParse } from "@/lib/json-utils";
 
 export type HomeSectionKey = keyof Omit<SiteDictionary["home"], "classes">;
 
@@ -20,7 +21,7 @@ function mapRow(row: Record<string, unknown>): ManagedHomeSection {
     id: String(row.id),
     locale: row.locale as Locale,
     sectionKey: row.section_key as HomeSectionKey,
-    contentJson: JSON.parse(String(row.content_json)) as Record<string, unknown>,
+    contentJson: safeJsonParse(row.content_json as string | null | undefined, {}),
     isActive: Boolean(row.is_active),
     isDefault: false,
   };
