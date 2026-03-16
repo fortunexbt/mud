@@ -218,6 +218,51 @@ export async function ensureDatabase() {
           UNIQUE(locale, section_key)
         );
       `);
+
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS cms_site_settings (
+          key TEXT PRIMARY KEY,
+          value TEXT NOT NULL,
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        );
+      `);
+
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS cms_exhibitions (
+          id BIGSERIAL PRIMARY KEY,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          locale TEXT NOT NULL,
+          exhibition_key TEXT NOT NULL,
+          year TEXT NOT NULL,
+          edition_label TEXT NOT NULL,
+          title TEXT NOT NULL,
+          date TEXT NOT NULL,
+          location_json TEXT NOT NULL,
+          description TEXT NOT NULL,
+          poster_key TEXT NOT NULL,
+          sort_order INTEGER NOT NULL DEFAULT 0,
+          is_active BOOLEAN NOT NULL DEFAULT TRUE,
+          UNIQUE(locale, exhibition_key)
+        );
+      `);
+
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS cms_home_sections (
+          id BIGSERIAL PRIMARY KEY,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          locale TEXT NOT NULL,
+          section_key TEXT NOT NULL,
+          content_json TEXT NOT NULL,
+          is_active BOOLEAN NOT NULL DEFAULT TRUE,
+          UNIQUE(locale, section_key)
+        );
+      `);
+
+      await pool.query(`
+        CREATE INDEX IF NOT EXISTS cms_home_sections_locale_idx ON cms_home_sections(locale);
+      `);
     })();
   }
 

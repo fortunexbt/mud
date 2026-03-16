@@ -43,6 +43,14 @@ export default function AdminContentPage() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
+        <Link href="/admin/content/home" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Home</p>
+          <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Seções da Página Inicial</h3>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Altere os textos de introdução, método pedagógico e principais chamadas da página inicial.
+          </p>
+        </Link>
+
         <Link href="/admin/content/services" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Serviços</p>
           <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Editar aulas e formatos</h3>
@@ -56,6 +64,30 @@ export default function AdminContentPage() {
           <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Editar membros da equipe</h3>
           <p className="mt-3 text-sm leading-7 text-muted">
             Edite informações da fundadora, membro em destaque e faculty. Nome, função, biografia e foto.
+          </p>
+        </Link>
+
+        <Link href="/admin/content/exhibitions" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Sobre</p>
+          <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Exposições e Histórico</h3>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Adicione novas exposições, posters e atualize o portfólio da escola na página Sobre.
+          </p>
+        </Link>
+
+        <Link href="/admin/content/faq" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Aulas</p>
+          <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Perguntas Frequentes</h3>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Adicione, edite ou oculte as dúvidas mais comuns dos alunos (FAQ).
+          </p>
+        </Link>
+
+        <Link href="/admin/content/contact" className="rounded-[1.7rem] border border-outline/50 bg-white/82 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-terracotta">Contato</p>
+          <h3 className="mt-2 font-display text-[1.8rem] leading-tight text-ink">Textos de Contato</h3>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Atualize títulos, descrições do mapa e textos de introdução da página de contato.
           </p>
         </Link>
 

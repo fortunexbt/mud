@@ -3,9 +3,11 @@ import { siteConfig } from "@/config/site";
 import type { Locale } from "@/lib/i18n-config";
 import { absoluteUrl } from "@/lib/utils";
 
-export function buildOrganizationJsonLd(locale: Locale) {
+export function buildOrganizationJsonLd(locale: Locale, managedSettings?: Record<string, string>) {
   const address = siteConfig.address;
   const dictionary = getDictionary(locale);
+  const instagramUrl = managedSettings?.instagramUrl || siteConfig.instagramUrl;
+  const whatsappNumber = managedSettings?.whatsappNumber || siteConfig.whatsappNumber;
 
   return {
     "@context": "https://schema.org",
@@ -27,8 +29,8 @@ export function buildOrganizationJsonLd(locale: Locale) {
       latitude: siteConfig.coordinates.latitude,
       longitude: siteConfig.coordinates.longitude,
     },
-    sameAs: [siteConfig.instagramUrl],
-    telephone: `+${siteConfig.whatsappNumber}`,
+    sameAs: [instagramUrl],
+    telephone: `+${whatsappNumber}`,
     areaServed: ["Leblon", "Rio de Janeiro", "Brazil"],
     availableLanguage: locale === "pt" ? ["pt-BR", "es", "en"] : [locale, "pt-BR"],
   };

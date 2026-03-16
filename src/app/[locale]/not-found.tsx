@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n-config";
 import { getNavItems, getPagePaths } from "@/lib/navigation";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { getManagedSettings } from "@/lib/settings-content";
 
 export async function generateMetadata() {
   const headerList = await headers();
@@ -33,7 +34,8 @@ export default async function NotFound() {
   const hasPlayedIntro = cookieStore.has("mud-intro-played");
   const paths = getPagePaths(locale);
   const navItems = getNavItems(locale, dictionary);
-  const whatsappHref = buildWhatsAppUrl(locale, "general");
+  const settings = await getManagedSettings();
+  const whatsappHref = buildWhatsAppUrl(locale, "general", settings.whatsappNumber);
 
   return (
       <SiteFrame
@@ -47,11 +49,11 @@ export default async function NotFound() {
           es: "/es",
           en: "/en",
         }}
-        instagramUrl={siteConfig.instagramUrl}
+        instagramUrl={settings.instagramUrl}
         whatsappHref={whatsappHref}
         privacyHref={paths.privacy}
-        email={siteConfig.email || undefined}
-        phone={siteConfig.whatsappNumber}
+        email={settings.email || undefined}
+        phone={settings.whatsappNumber}
         addressLines={[
           siteConfig.address.street,
           `${siteConfig.address.neighborhood} - ${siteConfig.address.city}`,

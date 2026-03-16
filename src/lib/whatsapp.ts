@@ -54,8 +54,9 @@ const messages: Record<Locale, Record<WhatsAppIntent, string>> = {
   },
 };
 
-export function buildWhatsAppUrl(locale: Locale, intent: WhatsAppIntent = "general") {
-  const number = siteConfig.whatsappNumber.replace(/\D/g, "");
+export function buildWhatsAppUrl(locale: Locale, intent: WhatsAppIntent = "general", customNumber?: string) {
+  const numberToUse = customNumber || siteConfig.whatsappNumber;
+  const number = numberToUse.replace(/\D/g, "");
   const text = encodeURIComponent(messages[locale][intent]);
   return `https://wa.me/${number}?text=${text}`;
 }

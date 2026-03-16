@@ -17,6 +17,9 @@ import {
 } from "@/lib/blog";
 import { resetManagedFaq, saveManagedFaq } from "@/lib/faq-content";
 import { resetManagedContactText, saveManagedContactText } from "@/lib/contact-content";
+import { resetManagedExhibition, saveManagedExhibition } from "@/lib/exhibitions-content";
+import { resetManagedHomeSection, saveManagedHomeSection, type HomeSectionKey } from "@/lib/home-content";
+import { saveManagedSettings } from "@/lib/settings-content";
 import { locales, type Locale, isLocale } from "@/lib/i18n-config";
 import { translateText } from "@/lib/translate";
 import { addLeadNote, type LeadStatus, updateLeadStatus } from "@/lib/leads";
@@ -432,4 +435,151 @@ export async function resetContactTextAction(formData: FormData) {
 
   await resetManagedContactText(localeValue as Locale, sectionKey);
   redirect(`/admin/content/contact?locale=${localeValue}&saved=1`);
+}
+
+export async function saveExhibitionAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const exhibitionKey = String(formData.get("exhibitionKey") || "").trim();
+  const year = String(formData.get("year") || "").trim();
+  const editionLabel = String(formData.get("editionLabel") || "").trim();
+  const title = String(formData.get("title") || "").trim();
+  const date = String(formData.get("date") || "").trim();
+  const locationRaw = String(formData.get("location") || "").trim();
+  const description = String(formData.get("description") || "").trim();
+  const posterKey = String(formData.get("posterKey") || "").trim();
+  const sortOrder = Number(formData.get("sortOrder") || 0);
+  const isActive = formData.get("isActive") === "on";
+  const autoTranslate = formData.get("autoTranslate") === "on";
+
+  if (!isLocale(localeValue) || !exhibitionKey || !year || !title) {
+    redirect(`/admin/content/exhibitions?locale=${isLocale(localeValue) ? localeValue : locales[0]}&error=validation`);
+  }
+
+  const location = locationRaw ? locationRaw.split("\n").map(l => l.trim()).filter(Boolean) : [];
+
+  await saveManagedExhibition({
+    locale: localeValue as Locale,
+    exhibitionKey,
+    year,
+    editionLabel,
+    title,
+    date,
+    location,
+    description,
+    posterKey,
+    sortOrder,
+    isActive,
+  });
+
+  if (autoTranslate) {
+    const targetLocales = locales.filter(l => l !== localeValue);
+    
+    for (const targetLocale of targetLocales) {
+      const translatedEditionLabel = await translateText(editionLabel, localeValue, targetLocale);
+      const translatedTitle = await translateText(title, localeValue, targetLocale);
+      const translatedDate = await translateText(date, localeValue, targetLocale);
+      const translatedDescription = await translateText(description, localeValue, targetLocale);
+      
+      const joinedLocation = location.join(" || ");
+      const translatedJoinedLocation = await translateText(joinedLocation, localeValue, targetLocale);
+      const translatedLocation = translatedJoinedLocation.split("||").map(l => l.trim());
+      
+      await saveManagedExhibition({
+        locale: targetLocale,
+        exhibitionKey,
+        year,
+        editionLabel: translatedEditionLabel,
+        title: translatedTitle,
+        date: translatedDate,
+        location: translatedLocation,
+        description: translatedDescription,
+        posterKey,
+        sortOrder,
+        isActive,
+      });
+    }
+  }
+
+  redirect(`/admin/content/exhibitions?locale=${localeValue}&saved=1`);
+}
+
+export async function resetExhibitionAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const exhibitionKey = String(formData.get("exhibitionKey") || "").trim();
+
+  if (!isLocale(localeValue) || !exhibitionKey) {
+    redirect("/admin/content/exhibitions?error=reset");
+  }
+
+  await resetManagedExhibition(localeValue as Locale, exhibitionKey);
+  redirect(`/admin/content/exhibitions?locale=${localeValue}&saved=1`);
+}
+
+export async function saveHomeSectionAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const sectionKey = String(formData.get("sectionKey") || "").trim() as HomeSectionKey;
+  const contentJsonStr = String(formData.get("contentJson") || "").trim();
+  const isActive = formData.get("isActive") === "on";
+
+  if (!isLocale(localeValue) || !sectionKey || !contentJsonStr) {
+    redirect(`/admin/content/home?locale=${isLocale(localeValue) ? localeValue : locales[0]}&error=validation`);
+  }
+
+  let contentJson: Record<string, unknown>;
+  try {
+    contentJson = JSON.parse(contentJsonStr);
+  } catch {
+    redirect(`/admin/content/home?locale=${localeValue}&error=json`);
+  }
+
+  await saveManagedHomeSection({
+    locale: localeValue as Locale,
+    sectionKey,
+    contentJson,
+    isActive,
+  });
+
+  redirect(`/admin/content/home?locale=${localeValue}&saved=1`);
+}
+
+export async function resetHomeSectionAction(formData: FormData) {
+  await requireAdmin();
+
+  const localeValue = String(formData.get("locale") || "").trim();
+  const sectionKey = String(formData.get("sectionKey") || "").trim() as HomeSectionKey;
+
+  if (!isLocale(localeValue) || !sectionKey) {
+    redirect("/admin/content/home?error=reset");
+  }
+
+  await resetManagedHomeSection(localeValue as Locale, sectionKey);
+  redirect(`/admin/content/home?locale=${localeValue}&saved=1`);
+}
+
+export async function saveSettingsAction(formData: FormData) {
+  await requireAdmin();
+
+  const instagramUrl = String(formData.get("instagramUrl") || "").trim();
+  const whatsappNumber = String(formData.get("whatsappNumber") || "").trim();
+  const email = String(formData.get("email") || "").trim();
+  const hours = String(formData.get("hours") || "").trim();
+
+  if (!instagramUrl || !whatsappNumber) {
+    redirect("/admin/settings?error=validation");
+  }
+
+  await saveManagedSettings({
+    instagramUrl,
+    whatsappNumber,
+    email,
+    hours,
+  });
+
+  redirect("/admin/settings?saved=1");
 }

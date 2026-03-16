@@ -49,9 +49,14 @@ export default async function AdminDashboardLayout({
               Blog
             </Link>
             {actor.mode === "legacy" || actor.role === "director" ? (
-              <Link href="/admin/users" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
-                Usuários
-              </Link>
+              <>
+                <Link href="/admin/users" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
+                  Usuários
+                </Link>
+                <Link href="/admin/settings" className="rounded-full px-4 py-2 text-sm font-medium text-muted transition hover:bg-white hover:text-ink">
+                  Configurações
+                </Link>
+              </>
             ) : null}
             <form action={logoutAction}>
               <button type="submit" className="rounded-full border border-outline/60 bg-white px-4 py-2 text-sm font-medium text-ink transition hover:border-terracotta/40 hover:text-terracotta">

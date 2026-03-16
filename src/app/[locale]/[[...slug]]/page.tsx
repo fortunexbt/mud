@@ -34,6 +34,9 @@ import { absoluteUrl } from "@/lib/utils";
 import { getManagedTeamMembers, getManagedFeaturedProfile } from "@/lib/team-content";
 import { getManagedFaqs } from "@/lib/faq-content";
 import { getManagedContactTexts } from "@/lib/contact-content";
+import { getManagedExhibitions } from "@/lib/exhibitions-content";
+import { getManagedSettings } from "@/lib/settings-content";
+import { getManagedHomeSections } from "@/lib/home-content";
 
 type PageProps = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -103,7 +106,8 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
   const paths = getPagePaths(locale);
   const navItems = getNavItems(locale, dictionary);
   const configured = hasLeadRoutingConfigured();
-  const whatsappHref = buildWhatsAppUrl(locale, "general");
+  const settings = await getManagedSettings();
+  const whatsappHref = buildWhatsAppUrl(locale, "general", settings.whatsappNumber);
 
   let localePaths: Record<Locale, string> = {
     pt: getLocalizedPath("pt", currentPage),
@@ -112,7 +116,7 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
   };
 
   let pageContent: ReactNode | null = null;
-  const pageJsonLd = buildOrganizationJsonLd(locale);
+  const pageJsonLd = buildOrganizationJsonLd(locale, settings);
   let extraJsonLd: Record<string, unknown> | null = null;
 
   if (route.type === "blogPost") {
@@ -161,11 +165,17 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
   } else {
     switch (route.page) {
       case "home": {
-        const posts = await getPosts(locale);
+        const [posts, homeSections] = await Promise.all([
+          getPosts(locale),
+          getManagedHomeSections(locale)
+        ]);
+        const dictWithHome = getDictionary(locale, {
+          home: homeSections
+        });
         pageContent = (
           <HomePage
             locale={locale}
-            dictionary={dictionary}
+            dictionary={dictWithHome}
             paths={paths}
             whatsappHref={whatsappHref}
             configured={configured}
@@ -174,9 +184,19 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
         );
         break;
       }
-      case "about":
-        pageContent = <AboutPage locale={locale} dictionary={dictionary} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
+      case "about": {
+        const exhibitions = await getManagedExhibitions(locale);
+        const dictWithExhibitions = getDictionary(locale, {
+          about: {
+            exhibitions: {
+              ...dictionary.about.exhibitions!,
+              items: exhibitions,
+            }
+          }
+        });
+        pageContent = <AboutPage locale={locale} dictionary={dictWithExhibitions} paths={paths} whatsappHref={whatsappHref} configured={configured} />;
         break;
+      }
       case "classes": {
         const faqs = await getManagedFaqs(locale);
         const dictWithFaqs = getDictionary(locale, {
@@ -283,11 +303,11 @@ export default async function LocalizedPage({ params, searchParams }: PageProps)
         currentPage={currentPage}
         navItems={navItems.map((item) => ({ ...item }))}
         localePaths={localePaths}
-        instagramUrl={siteConfig.instagramUrl}
+        instagramUrl={settings.instagramUrl}
         whatsappHref={whatsappHref}
         privacyHref={paths.privacy}
-        email={siteConfig.email || undefined}
-        phone={siteConfig.whatsappNumber}
+        email={settings.email || undefined}
+        phone={settings.whatsappNumber}
         addressLines={[
           siteConfig.address.street,
           `${siteConfig.address.neighborhood} - ${siteConfig.address.city}`,

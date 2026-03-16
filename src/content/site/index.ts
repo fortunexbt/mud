@@ -28,6 +28,10 @@ export interface DictionaryOverrides {
     formTitle?: string;
     formIntro?: string;
   };
+  about?: {
+    exhibitions?: SiteDictionary["about"]["exhibitions"];
+  };
+  home?: Partial<Omit<SiteDictionary["home"], "classes">>;
 }
 
 export function getDictionary(locale: Locale, overrides?: DictionaryOverrides): SiteDictionary {
@@ -51,6 +55,14 @@ export function getDictionary(locale: Locale, overrides?: DictionaryOverrides): 
       ...base.contact,
       ...overrides.contact,
     },
+    about: {
+      ...base.about,
+      ...overrides.about,
+    },
+    home: {
+      ...base.home,
+      ...overrides.home,
+    }
   };
 }
 
