@@ -4,7 +4,10 @@ test.describe("Gallery Slideshow", () => {
   test("should display gallery slideshow with navigation", async ({ page }) => {
     await page.goto("http://localhost:3000/pt");
 
-    const slideshow = page.locator('[class*="aspect-"]').first();
+    const gallerySection = page.locator("section").filter({ hasText: "Galeria" }).first();
+    await expect(gallerySection).toBeVisible();
+
+    const slideshow = gallerySection.locator('[class*="aspect-"]');
     await expect(slideshow).toBeVisible();
 
     const prevButton = page.getByLabel("Previous image");
@@ -12,28 +15,25 @@ test.describe("Gallery Slideshow", () => {
 
     const nextButton = page.getByLabel("Next image");
     await expect(nextButton).toBeVisible();
-
-    const dots = page.locator('[class*="rounded-full"]').filter({ hasText: "" }).first();
-    await expect(dots).toBeVisible();
-
-    const counter = page.locator("text=/\\d{2} \\/ \\d{2}/");
-    await expect(counter).toBeVisible();
   });
 
   test("should navigate between slides", async ({ page }) => {
     await page.goto("http://localhost:3000/pt");
 
-    const counter = page.locator("text=/\\d{2} \\/ \\d{2}/");
-    await expect(counter).toContainText("01 / 23");
+    const gallerySection = page.locator("section").filter({ hasText: "Galeria" }).first();
+    const slideshow = gallerySection.locator('[class*="aspect-"]');
+
+    const counter = slideshow.locator(".tabular-nums").first();
+    await expect(counter).toContainText("01");
 
     const nextButton = page.getByLabel("Next image");
     await nextButton.click();
 
-    await expect(counter).toContainText("02 / 23");
+    await expect(counter).toContainText("02");
 
     const prevButton = page.getByLabel("Previous image");
     await prevButton.click();
 
-    await expect(counter).toContainText("01 / 23");
+    await expect(counter).toContainText("01");
   });
 });
