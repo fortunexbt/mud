@@ -47,20 +47,37 @@ export function hasLeadRoutingConfigured() {
 
 export function getBookingConfig() {
   const calcomUrl = process.env.NEXT_PUBLIC_CALCOM_URL;
-  if (!calcomUrl) return null;
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
-  return {
-    url: calcomUrl,
-    embedConfig: {
-      theme: "light",
-      backgroundColor: "#faf8f5",
-      textColor: "#2d2a26",
-      primaryColor: "#c96e54",
-      hideLandingPageDetails: true,
-      hideEventTypeDetails: true,
-      layout: "month_view",
-    },
-  };
+  if (calcomUrl) {
+    return {
+      provider: "calcom" as const,
+      url: calcomUrl,
+      embedConfig: {
+        theme: "light",
+        backgroundColor: "#faf8f5",
+        textColor: "#2d2a26",
+        primaryColor: "#c96e54",
+        hideLandingPageDetails: true,
+        hideEventTypeDetails: true,
+        layout: "month_view",
+      },
+    };
+  }
+
+  if (calendlyUrl) {
+    return {
+      provider: "calendly" as const,
+      url: calendlyUrl,
+      embedConfig: {
+        backgroundColor: "faf8f5",
+        textColor: "2d2a26",
+        primaryColor: "c96e54",
+      },
+    };
+  }
+
+  return null;
 }
 
 export type BookingConfig = ReturnType<typeof getBookingConfig>;

@@ -140,7 +140,7 @@ export function InquiryPage({
                   align="center"
                 />
               </div>
-              <BookingEmbed calUrl={bookingConfig.url} config={bookingConfig.embedConfig} />
+              <BookingEmbed provider={bookingConfig.provider} url={bookingConfig.url} config={bookingConfig.embedConfig} />
             </div>
           </section>
         </ScrollReveal>
