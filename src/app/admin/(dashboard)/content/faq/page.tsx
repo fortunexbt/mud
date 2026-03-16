@@ -90,7 +90,7 @@ export default async function AdminFaqPage({
               </div>
             </form>
 
-            <form action={resetFaqAction} className="mt-4">
+            <form action={resetFaqAction} className="mt-4" onSubmit={(e) => { if (!confirm("Tem certeza que deseja restaurar o texto padrão desta pergunta?")) e.preventDefault(); }}>
               <input type="hidden" name="locale" value={locale} />
               <input type="hidden" name="faqKey" value={row.faqKey} />
               <button type="submit" className="inline-flex min-h-10 items-center justify-center rounded-full border border-outline/60 bg-white px-4 text-sm font-semibold text-ink transition hover:border-terracotta/35 hover:text-terracotta">

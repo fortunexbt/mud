@@ -63,7 +63,7 @@ export default async function AdminHomePage({
                 isActive={row.isActive} 
               />
 
-              <form action={resetHomeSectionAction} className="mt-4">
+              <form action={resetHomeSectionAction} className="mt-4" onSubmit={(e) => { if (!confirm("Tem certeza que deseja restaurar o texto padrão desta seção?")) e.preventDefault(); }}>
                 <input type="hidden" name="locale" value={locale} />
                 <input type="hidden" name="sectionKey" value={row.sectionKey} />
                 <button type="submit" className="inline-flex min-h-10 items-center justify-center rounded-full border border-outline/60 bg-white px-4 text-sm font-semibold text-ink transition hover:border-terracotta/35 hover:text-terracotta">

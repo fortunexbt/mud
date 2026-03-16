@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { saveHomeSectionAction } from "@/app/admin/actions";
+import { SubmitButton } from "./SubmitButton";
 import { TextEditor } from "./editors/TextEditor";
 import { ListEditor } from "./editors/ListEditor";
 import type { Locale } from "@/lib/i18n-config";
@@ -66,9 +67,7 @@ export function HomeSectionForm({
       </div>
 
       <div className="flex flex-wrap gap-3 mt-4">
-        <button type="submit" className="inline-flex min-h-11 items-center justify-center rounded-full border border-transparent bg-terracotta px-5 text-sm font-semibold text-white shadow-soft transition hover:bg-clay">
-          Salvar Seção
-        </button>
+        <SubmitButton label="Salvar Seção" />
       </div>
     </form>
   );
