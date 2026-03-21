@@ -485,9 +485,11 @@ export const esDictionary: SiteDictionary = {
   booking: {
     eyebrow: "Reservar",
     title: "Agenda tu visita",
-    description: "Elige un horario para conocer el atelier, conversar sobre tus intereses y descubrir qué formato se adapta mejor a ti.",
-    cta: "Ver horarios disponibles",
-    comingSoon: "Próximamente: Reservas en línea. Nuestra integración de calendario estará disponible pronto.",
+    description:
+      "Envía una solicitud de horario para conocer el atelier. La confirmación final se realiza manualmente por el equipo, según vacantes y rutina de la escuela.",
+    cta: "Solicitud sujeta a confirmación manual por WhatsApp o formulario.",
+    comingSoon:
+      "La solicitud en línea se habilitará pronto. Mientras tanto, usa WhatsApp para confirmar vacantes, horarios y formato.",
   },
   blog: {
     hero: {

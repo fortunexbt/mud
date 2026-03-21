@@ -144,6 +144,7 @@ export function InquiryPage({
                 provider={bookingConfig?.provider} 
                 url={bookingConfig?.url} 
                 config={bookingConfig?.embedConfig} 
+                intakeNotice={dictionary.booking.cta}
                 comingSoonText={dictionary.booking.comingSoon}
               />
             </div>

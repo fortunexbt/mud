@@ -486,9 +486,10 @@ export const enDictionary: SiteDictionary = {
     eyebrow: "Book a visit",
     title: "Schedule your visit",
     description:
-      "Choose a time to meet the studio, discuss your interests, and find the right format for you.",
-    cta: "View available times",
-    comingSoon: "Coming soon: Online booking. Our calendar integration will be available shortly.",
+      "Send a preferred time request to visit the studio. Final confirmation is handled manually by the team based on real availability and operations.",
+    cta: "Requests are confirmed manually through WhatsApp or the inquiry form.",
+    comingSoon:
+      "Online request intake will open soon. For now, use WhatsApp to confirm timing, format, and available spots.",
   },
   blog: {
     hero: {

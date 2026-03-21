@@ -488,9 +488,11 @@ export const ptDictionary: SiteDictionary = {
   booking: {
     eyebrow: "Agendamento",
     title: "Agende sua visita",
-    description: "Escolha um horário para conhecer o ateliê, conversar sobre seus interesses e descobrir qual formato combina com você.",
-    cta: "Ver horários disponíveis",
-    comingSoon: "Em breve: Agendamento online. Nossa integração de calendário estará disponível em breve.",
+    description:
+      "Envie uma solicitação de horário para conhecer o ateliê. A confirmação final é feita manualmente pela equipe, de acordo com vagas e rotina da escola.",
+    cta: "Solicitação sujeita à confirmação manual por WhatsApp ou formulário.",
+    comingSoon:
+      "O pedido online será aberto em breve. Enquanto isso, fale no WhatsApp para confirmar vagas, horários e formato.",
   },
   blog: {
     hero: {
