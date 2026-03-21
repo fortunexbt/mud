@@ -1,10 +1,12 @@
 import { deleteBlogPostAction, saveBlogPostAction } from "@/app/admin/actions";
+import { ImageSelector } from "@/components/admin/editors/ImageSelector";
 import type { AdminBlogPostRecord, ManagedBlogPostStatus } from "@/lib/blog";
 import { localeLabels, locales } from "@/lib/i18n-config";
-import { mediaKeys } from "@/lib/media";
+import type { AdminMediaAsset } from "@/lib/admin-media-types";
 
 interface BlogPostFormProps {
   post?: AdminBlogPostRecord | null;
+  assets: AdminMediaAsset[];
   error?: boolean;
 }
 
@@ -17,7 +19,7 @@ function formatDateTimeLocal(value: string) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
 
-export function BlogPostForm({ post, error = false }: BlogPostFormProps) {
+export function BlogPostForm({ post, assets, error = false }: BlogPostFormProps) {
   return (
     <div className="space-y-6">
       <form action={saveBlogPostAction} className="rounded-[1.8rem] border border-outline/50 bg-white/82 p-6 shadow-soft sm:p-8">
@@ -118,20 +120,14 @@ export function BlogPostForm({ post, error = false }: BlogPostFormProps) {
             />
           </label>
 
-          <label className="grid gap-2 text-sm font-medium text-ink">
-            <span>Imagem de capa (`MediaKey`)</span>
-            <select
+          <div className="md:col-span-2">
+            <ImageSelector
+              label="Imagem de capa (`MediaKey`)"
               name="cover"
-              defaultValue={post?.cover || "heroProcess"}
-              className="min-h-11 rounded-[1.2rem] border border-outline/60 bg-white px-4 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20"
-            >
-              {mediaKeys.map((key) => (
-                <option key={key} value={key}>
-                  {key}
-                </option>
-              ))}
-            </select>
-          </label>
+              value={post?.cover || "heroProcess"}
+              assets={assets}
+            />
+          </div>
 
           <label className="grid gap-2 text-sm font-medium text-ink">
             <span>Assinatura</span>

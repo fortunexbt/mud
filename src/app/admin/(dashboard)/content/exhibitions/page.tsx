@@ -1,11 +1,11 @@
-import { resetExhibitionAction, saveExhibitionAction } from "@/app/admin/actions";
+import { resetExhibitionAction } from "@/app/admin/actions";
 import { getExhibitionEditorRows } from "@/lib/exhibitions-content";
 import { localeLabels, locales, type Locale } from "@/lib/i18n-config";
+import { getSiteMediaSelectionAssets } from "@/lib/media-db";
 import { AdminPageHeader } from "@/components/admin/ui/AdminPageHeader";
 import { AdminCard } from "@/components/admin/ui/AdminCard";
 import { ConfirmResetForm } from "@/components/admin/ConfirmResetForm";
 import { ExhibitionEditor } from "@/components/admin/exhibition-editor";
-import { getMediaAssets } from "@/lib/media-db";
 
 export default async function AdminExhibitionsPage({
   searchParams,
@@ -14,9 +14,12 @@ export default async function AdminExhibitionsPage({
 }) {
   const query = await searchParams;
   const locale = typeof query.locale === "string" && locales.includes(query.locale as Locale) ? (query.locale as Locale) : "pt";
-  const [rows, assets] = await Promise.all([
-    getExhibitionEditorRows(locale),
-    getMediaAssets(),
+  const rows = await getExhibitionEditorRows(locale);
+  const assets = getSiteMediaSelectionAssets([
+    "mudExhibition2025",
+    "mudExhibition2024",
+    "mudExhibition2023",
+    "mudExhibition2022",
   ]);
 
   return (

@@ -209,6 +209,9 @@ export async function toggleAdminUserAction(formData: FormData) {
 export async function saveTeamMemberAction(formData: FormData) {
   await requireAdmin();
   const validated = validateFormData(formData, TeamMemberSchema);
+  if (!mediaKeys.includes(validated.imageKey as MediaKey)) {
+    redirect(`/admin/content/team?locale=${validated.locale}&error=validation`);
+  }
   const bio = validated.bio.split("\n\n").filter((p: string) => p.trim());
   const highlights = validated.highlights ? validated.highlights.split("\n").filter((h: string) => h.trim()) : [];
   await saveManagedTeamMember({
@@ -296,6 +299,9 @@ export async function resetContactTextAction(formData: FormData) {
 export async function saveExhibitionAction(formData: FormData) {
   await requireAdmin();
   const validated = validateFormData(formData, ExhibitionSchema);
+  if (!mediaKeys.includes(validated.posterKey as MediaKey)) {
+    redirect(`/admin/content/exhibitions?locale=${validated.locale}&error=validation`);
+  }
   const autoTranslate = formData.get("autoTranslate") === "on";
   await saveManagedExhibition({ ...validated, locale: validated.locale as Locale });
   let translationError = false;

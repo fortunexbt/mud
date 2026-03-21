@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { BlogPostForm } from "@/components/admin/blog-post-form";
 import { getAdminBlogPostById } from "@/lib/blog";
+import { getSiteMediaSelectionAssets } from "@/lib/media-db";
 
 export default async function AdminBlogPostDetailPage({
   params,
@@ -14,6 +15,7 @@ export default async function AdminBlogPostDetailPage({
   const { postId } = await params;
   const query = await searchParams;
   const post = await getAdminBlogPostById(postId);
+  const assets = getSiteMediaSelectionAssets();
 
   if (!post) {
     notFound();
@@ -33,7 +35,7 @@ export default async function AdminBlogPostDetailPage({
           </p>
         ) : null}
       </div>
-      <BlogPostForm post={post} error={query.error === "validation"} />
+      <BlogPostForm post={post} assets={assets} error={query.error === "validation"} />
     </div>
   );
 }

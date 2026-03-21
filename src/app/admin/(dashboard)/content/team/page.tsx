@@ -1,7 +1,8 @@
 import { resetTeamMemberAction, saveTeamMemberAction } from "@/app/admin/actions";
+import { ImageSelector } from "@/components/admin/editors/ImageSelector";
 import { getTeamMemberEditorRows } from "@/lib/team-content";
 import { localeLabels, locales, type Locale } from "@/lib/i18n-config";
-import { mediaKeys } from "@/lib/media";
+import { getSiteMediaSelectionAssets } from "@/lib/media-db";
 import { AdminPageHeader } from "@/components/admin/ui/AdminPageHeader";
 import { AdminCard } from "@/components/admin/ui/AdminCard";
 import { SubmitButton } from "@/components/admin/SubmitButton";
@@ -15,6 +16,14 @@ export default async function AdminTeamPage({
   const query = await searchParams;
   const locale = typeof query.locale === "string" && locales.includes(query.locale as Locale) ? (query.locale as Locale) : "pt";
   const rows = await getTeamMemberEditorRows(locale);
+  const mediaAssets = getSiteMediaSelectionAssets([
+    "founderPortrait",
+    "julianaMorenoPortrait",
+    "cristianeBelacianoPortrait",
+    "doloresPortrait",
+    "brunaLanesPortrait",
+    "teamPlaceholder",
+  ]);
 
   return (
     <div className="space-y-6">
@@ -63,16 +72,14 @@ export default async function AdminTeamPage({
                   <span>Função</span>
                   <input name="role" defaultValue={row.role} className="min-h-11 rounded-[1.2rem] border border-outline/60 bg-white px-4 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20" required />
                 </label>
-                <label className="grid gap-2 text-sm font-medium text-ink md:col-span-2">
-                  <span>Foto</span>
-                  <select name="imageKey" defaultValue={row.imageKey} className="min-h-11 rounded-[1.2rem] border border-outline/60 bg-white px-4 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20">
-                    {mediaKeys.map((key) => (
-                      <option key={key} value={key}>
-                        {key}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                <div className="md:col-span-2">
+                  <ImageSelector
+                    label="Foto"
+                    name="imageKey"
+                    value={row.imageKey}
+                    assets={mediaAssets}
+                  />
+                </div>
                 <label className="grid gap-2 text-sm font-medium text-ink md:col-span-2">
                   <span>Biografia</span>
                   <textarea name="bio" defaultValue={row.bio.join("\n\n")} className="min-h-[8rem] rounded-[1.2rem] border border-outline/60 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20" required />

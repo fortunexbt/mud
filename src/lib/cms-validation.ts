@@ -7,9 +7,24 @@ export function validateFormData<T extends z.ZodRawShape>(
   const data: Record<string, unknown> = {};
   
   for (const [key, value] of formData.entries()) {
-    if (value === "on" || value === "true") data[key] = true;
-    else if (value === "false") data[key] = false;
-    else data[key] = value;
+    let normalizedValue: unknown = value;
+
+    if (value === "on" || value === "true") normalizedValue = true;
+    else if (value === "false") normalizedValue = false;
+
+    const existingValue = data[key];
+
+    if (existingValue === undefined) {
+      data[key] = normalizedValue;
+      continue;
+    }
+
+    if (Array.isArray(existingValue)) {
+      existingValue.push(normalizedValue);
+      continue;
+    }
+
+    data[key] = [existingValue, normalizedValue];
   }
   
   return schema.parse(data);

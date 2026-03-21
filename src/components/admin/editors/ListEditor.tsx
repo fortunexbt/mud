@@ -2,11 +2,12 @@
 
 interface ListEditorProps {
   label: string;
+  name?: string;
   items: string[];
   onChange: (items: string[]) => void;
 }
 
-export function ListEditor({ label, items, onChange }: ListEditorProps) {
+export function ListEditor({ label, name, items, onChange }: ListEditorProps) {
   const handleAdd = () => {
     onChange([...items, ""]);
   };
@@ -29,6 +30,7 @@ export function ListEditor({ label, items, onChange }: ListEditorProps) {
       {items.map((item, idx) => (
         <div key={idx} className="flex gap-2">
           <textarea
+            name={name}
             value={item}
             onChange={(e) => handleChange(idx, e.target.value)}
             className="min-h-[4rem] w-full rounded-[1rem] border border-outline/60 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition focus:border-terracotta focus:ring-2 focus:ring-terracotta/20"

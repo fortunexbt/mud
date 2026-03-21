@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { BlogPostForm } from "@/components/admin/blog-post-form";
+import { getSiteMediaSelectionAssets } from "@/lib/media-db";
 
 export default async function NewAdminBlogPostPage({
   searchParams,
@@ -9,6 +10,7 @@ export default async function NewAdminBlogPostPage({
 }) {
   const query = await searchParams;
   const error = query.error === "validation";
+  const assets = getSiteMediaSelectionAssets();
 
   return (
     <div className="space-y-6">
@@ -18,7 +20,7 @@ export default async function NewAdminBlogPostPage({
         </Link>
         <h2 className="mt-2 font-display text-[2.1rem] leading-tight text-ink">Novo post</h2>
       </div>
-      <BlogPostForm error={error} />
+      <BlogPostForm assets={assets} error={error} />
     </div>
   );
 }
