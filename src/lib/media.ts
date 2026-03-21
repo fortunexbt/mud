@@ -10,7 +10,13 @@ import logoTextured from "@/assets/brand/logo-textured.png";
 import logoClay from "@/assets/brand/logo-clay.png";
 import logoSlate from "@/assets/brand/logo-slate.png";
 import logoTeal from "@/assets/brand/logo-teal.png";
+import apronsSketchTable from "@/assets/generated/aprons-sketch-table.png";
+import apronKneadingVertical from "@/assets/generated/apron-kneading-vertical.png";
+import apronWheelTrim from "@/assets/generated/apron-wheel-trim.png";
+import apronsGlazingClass from "@/assets/generated/aprons-glazing-class.png";
+import apronsOverheadWorkshop from "@/assets/generated/aprons-overhead-workshop.png";
 import brunaLanesPortrait from "@/assets/editorial/Bruna Lanes.jpeg";
+import classesStudio from "@/assets/editorial/classes-studio.webp";
 import cristianeBelaciano from "@/assets/editorial/cristiane-belaciano.jpeg";
 import doloresPortrait from "@/assets/editorial/dolores.jpeg";
 import exhibition2025 from "@/assets/editorial/exhibition-2025.jpeg";
@@ -18,7 +24,9 @@ import exhibition2024 from "@/assets/editorial/exhibition-2024.jpeg";
 import exhibition2023 from "@/assets/editorial/exhibition-2023.jpeg";
 import exhibition2022 from "@/assets/editorial/exhibition-2022.jpeg";
 import julianaMorenoPortrait from "@/assets/editorial/Juliana Dolores.jpeg";
+import kidsStudioEditorial from "@/assets/editorial/kids-studio.webp";
 import mudLocationExterior from "@/assets/editorial/mud location.jpeg";
+import studioPlaceholder from "@/assets/editorial/studio-placeholder.webp";
 import vikPortrait from "@/assets/editorial/Vik.jpeg";
 
 export type MediaKey =
@@ -32,6 +40,7 @@ export type MediaKey =
   | "glowLogo"
   | "heroProcess"
   | "processHands"
+  | "classesStudio"
   | "founderPortrait"
   | "teamPlaceholder"
   | "julianaMorenoPortrait"
@@ -69,22 +78,31 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
   moodboard: { src: moodboard, alt: localizedAlt("Moodboard da identidade visual da MUD", "Moodboard de la identidad visual de MUD", "Moodboard for MUD's visual identity") },
   glowLogo: { src: glowLogo, alt: localizedAlt("Versão iluminada do monograma MUD", "Versión iluminada del monograma MUD", "Illuminated version of the MUD monogram") },
   heroProcess: {
-    src: vikPortrait,
+    src: apronKneadingVertical,
     alt: localizedAlt(
-      "Victoria Inaudi durante uma aula no ateliê da MUD.",
-      "Victoria Inaudi durante una clase en el atelier de MUD.",
-      "Victoria Inaudi during a class at the MUD studio.",
+      "Avental da MUD em uso enquanto mãos modelam barro sobre a mesa do ateliê",
+      "Delantal de MUD en uso mientras unas manos modelan barro sobre la mesa del atelier",
+      "MUD apron in use while hands shape clay on the studio table",
     ),
-    objectPosition: "50% 30%",
+    objectPosition: "50% 38%",
   },
   processHands: {
-    src: julianaMorenoPortrait,
+    src: apronsOverheadWorkshop,
     alt: localizedAlt(
-      "Juliana Moreno conduzindo atividades no ateliê da MUD.",
-      "Juliana Moreno guiando actividades en el atelier de MUD.",
-      "Juliana Moreno leading activities at the MUD studio.",
+      "Vista superior de uma mesa de oficina com aventais MUD, ferramentas e peças em cerâmica",
+      "Vista superior de una mesa de taller con delantales MUD, herramientas y piezas de cerámica",
+      "Overhead view of a workshop table with MUD aprons, tools, and ceramic pieces",
     ),
-    objectPosition: "50% 28%",
+    objectPosition: "50% 50%",
+  },
+  classesStudio: {
+    src: classesStudio,
+    alt: localizedAlt(
+      "Aluno trabalhando no torno durante uma aula da MUD.",
+      "Alumno trabajando en el torno durante una clase de MUD.",
+      "Student working on the wheel during a MUD class.",
+    ),
+    objectPosition: "50% 50%",
   },
   founderPortrait: {
     src: vikPortrait,
@@ -96,9 +114,9 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
     objectPosition: "50% 30%",
   },
   teamPlaceholder: {
-    src: brunaLanesPortrait,
-    alt: localizedAlt("Retrato de equipe da MUD", "Retrato del equipo de MUD", "MUD team portrait"),
-    objectPosition: "50% 28%",
+    src: studioPlaceholder,
+    alt: localizedAlt("Processo em argila no ateliê da MUD.", "Proceso en arcilla en el atelier de MUD.", "Clay work in progress at the MUD studio."),
+    objectPosition: "50% 50%",
   },
   julianaMorenoPortrait: {
     src: julianaMorenoPortrait,
@@ -111,22 +129,22 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
     objectPosition: "50% 28%",
   },
   kidsStudio: {
-    src: brunaLanesPortrait,
+    src: kidsStudioEditorial,
     alt: localizedAlt(
-      "Aulas de cerâmica no ateliê da MUD.",
-      "Clases de cerámica en el atelier de MUD.",
-      "Ceramics classes at the MUD studio.",
+      "Crianças em atividade durante uma aula da MUD.",
+      "Niños en actividad durante una clase de MUD.",
+      "Children taking part in a MUD class.",
     ),
-    objectPosition: "50% 28%",
+    objectPosition: "50% 50%",
   },
   brandTag: {
-    src: cristianeBelaciano,
+    src: apronsSketchTable,
     alt: localizedAlt(
-      "Cristiane Belaciano no ateliê da MUD.",
-      "Cristiane Belaciano en el atelier de MUD.",
-      "Cristiane Belaciano at the MUD studio.",
+      "Mesa de criação com aventais da MUD, cadernos, ferramentas e peças em argila",
+      "Mesa de creación con delantales de MUD, cuadernos, herramientas y piezas de arcilla",
+      "Creative table with MUD aprons, notebooks, tools, and clay pieces",
     ),
-    objectPosition: "50% 32%",
+    objectPosition: "50% 50%",
   },
   mudLocationExterior: {
     src: mudLocationExterior,
@@ -138,22 +156,22 @@ export const mediaAssets: Record<MediaKey, MediaAsset> = {
     objectPosition: "50% 14%",
   },
   brandSeal: {
-    src: doloresPortrait,
+    src: apronWheelTrim,
     alt: localizedAlt(
-      "Dolores Damiano no ateliê da MUD.",
-      "Dolores Damiano en el atelier de MUD.",
-      "Dolores Damiano at the MUD studio.",
+      "Peça sendo torneada com avental da MUD em destaque",
+      "Pieza trabajada en torno con el delantal de MUD en destaque",
+      "Piece being shaped on the wheel with a MUD apron in view",
     ),
-    objectPosition: "50% 36%",
+    objectPosition: "50% 45%",
   },
   legacyBlogHeader: {
-    src: vikPortrait,
+    src: apronsGlazingClass,
     alt: localizedAlt(
-      "Ateliê da MUD em atividade.",
-      "Atelier de MUD en actividad.",
-      "MUD studio in session.",
+      "Turma da MUD esmaltando peças no ateliê",
+      "Clase de MUD esmaltando piezas en el atelier",
+      "MUD class glazing pieces in the studio",
     ),
-    objectPosition: "50% 30%",
+    objectPosition: "50% 50%",
   },
   cristianeBelacianoPortrait: {
     src: cristianeBelaciano,

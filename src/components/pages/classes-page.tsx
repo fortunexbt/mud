@@ -35,7 +35,7 @@ export function ClassesPage({ locale, dictionary, paths }: PageContext) {
 
           <div className="grid gap-4">
             <ArtImage
-              mediaKey="processHands"
+              mediaKey="classesStudio"
               aspect="aspect-[4/4.4]"
               filter="grayscale(0.16) sepia(0.16) saturate(0.9) contrast(1.04)"
               locale={locale}

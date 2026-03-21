@@ -15,11 +15,6 @@ const preferredCardOrderAliases = [
   ["dolo", "dolores"],
   ["bruna"],
 ] as const;
-const teamRoleByLocale = {
-  pt: "Professora",
-  es: "Profesora",
-  en: "Teacher",
-} as const;
 
 function normalize(value: string) {
   return value
@@ -39,7 +34,6 @@ function isFounderMember(member: TeamMember) {
 
 export function TeamPage({ locale, dictionary }: PageContext) {
   const featuredMember = dictionary.team.featuredMember;
-  const teamRole = teamRoleByLocale[locale];
   const mergedMembers: TeamMember[] = [
     ...(featuredMember
       ? [
@@ -72,12 +66,7 @@ export function TeamPage({ locale, dictionary }: PageContext) {
       : "Victoria Inaudi (Vik)";
   const founderRole = founderMember?.role || dictionary.team.founderRole;
   const founderBio = founderMember?.bio.length ? founderMember.bio : dictionary.team.founderBio;
-  const nonFounderMembers = uniqueMembers
-    .filter((member) => !isFounderMember(member))
-    .map((member) => ({
-      ...member,
-      role: teamRole,
-    }));
+  const nonFounderMembers = uniqueMembers.filter((member) => !isFounderMember(member));
   const orderedMembers: TeamMember[] = [];
   const consumedIndexes = new Set<number>();
 
