@@ -9,11 +9,11 @@ import { ArtImage } from "@/components/ui/art-image";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const founderNameAliases = ["victoria", "vik", "inaudi"] as const;
-const preferredCardOrderAliases = [
-  ["juliana"],
-  ["cris", "cristiane"],
-  ["dolo", "dolores"],
-  ["bruna"],
+const preferredCardOrder = [
+  { imageKey: "julianaMorenoPortrait", aliases: ["juliana"] },
+  { imageKey: "cristianeBelacianoPortrait", aliases: ["cris", "cristiane"] },
+  { imageKey: "doloresPortrait", aliases: ["dolo", "dolores"] },
+  { imageKey: "brunaLanesPortrait", aliases: ["bruna"] },
 ] as const;
 
 function normalize(value: string) {
@@ -70,9 +70,11 @@ export function TeamPage({ locale, dictionary }: PageContext) {
   const orderedMembers: TeamMember[] = [];
   const consumedIndexes = new Set<number>();
 
-  preferredCardOrderAliases.forEach((aliases) => {
+  preferredCardOrder.forEach(({ imageKey, aliases }) => {
     const foundIndex = nonFounderMembers.findIndex(
-      (member, index) => !consumedIndexes.has(index) && matchesAlias(member.name, aliases),
+      (member, index) =>
+        !consumedIndexes.has(index) &&
+        (member.imageKey === imageKey || matchesAlias(member.name, aliases)),
     );
     if (foundIndex < 0) {
       return;
